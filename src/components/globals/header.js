@@ -3,10 +3,10 @@ import { setupMenuAnimations } from '../animations';
 import Link from 'next/link';
 import { FaHome, FaInfo, FaGraduationCap, FaBriefcase, FaEnvelope, FaFileDownload, FaStar, FaSun, FaMoon, FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa'; // Import more icons
 import '../../app/globals.css';
+import DarkModeToggle from './darkMode';
 
 function Header() {
     const [menuVisible, setMenuVisible] = useState(false);
-    const [darkMode, setDarkMode] = useState(false);
 
     useEffect(() => {
         const headerElement = document.querySelector('header');
@@ -43,11 +43,6 @@ function Header() {
         document.body.classList.toggle('menu-open', !menuVisible);
     };
 
-    const toggleDarkMode = () => {
-        setDarkMode(!darkMode);
-        document.body.classList.toggle('dark-mode', !darkMode);
-    };
-
     const sections = [
         { id: 'home', name: 'Home', icon: <FaHome /> },
         { id: 'about', name: 'About', icon: <FaInfo /> },
@@ -74,9 +69,7 @@ function Header() {
                         <a href="https://github.com/AngusBlomley" target="_blank" rel="noopener noreferrer" className="text-gray-300 opacity-75 hover:opacity-100"><FaGithub /></a>
                         <a href="https://www.linkedin.com/in/angus-blomley-82b45a177/" target="_blank" rel="noopener noreferrer" className="text-gray-300 opacity-75 hover:opacity-100"><FaLinkedin /></a>
                     </div>
-                    <div onClick={toggleDarkMode} className="cursor-pointer text-gray-300 opacity-75 hover:opacity-100 flex items-center">
-                        {darkMode ? <FaSun /> : <FaMoon />}
-                    </div>
+                    <DarkModeToggle />
                 </nav>
 
                 <div className="md:hidden">
