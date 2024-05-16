@@ -119,39 +119,19 @@ function Main() {
     return (
         <section id="home" className="section relative flex justify-center items-center w-full min-h-screen overflow-hidden">
             <div className="background"></div>
-            {/* 
-            {positions.length > 0 && icons.map((icon, index) => {
-                const { x, y } = positions[index];
-                return (
-                    <div
-                        key={icon}
-                        className="icon-wrapper opacity-0 fade-in"
-                        style={{ top: `${y}px`, left: `${x}px`, position: 'absolute' }}
-                    >
-                        <Image
-                            width={32}
-                            height={64}
-                            alt={icon}
-                            src={`/images/icons/${icon}.webp`}
-                            className="icon hidden"
-                        />
-                    </div>
-                );
-            })}
-            */}
-            <main className="opacity-0 fade-in max-md:p-2 max-md:mt-10">
-                <article className="grid grid-cols-2 max-lg:grid-cols-1 border-b-2 border-white">
-                    <div className='w-[550px]'>
+            <main className="opacity-0 fade-in max-lg:mt-20">
+                <article className="grid grid-cols-2 max-lg:grid-cols-1 border-b-2 border-white max-lg:border-none max-lg:flex max-lg:mx-auto ">
+                    <div className='w-96 whitespace-nowrap max-lg:w-full'>
                         <h1 className="text-5xl font-light">Angus Blomley</h1>
-                        <p className="text-2xl font-thin mt-10 w-full">
+                        <p className="text-2xl font-thin mt-10 w-full max-lg:text-base">
                             Engineer with a passion for <span className="typed-text">{typedText}</span><span className="cursor"></span>
                         </p>
-                        <div id="links" className="my-12 grid grid-cols-3 grid-rows-3 text-center">
+                        <div id="links" className="my-12 grid grid-cols-1 text-left gap-4 lg:gap-0 lg:grid-cols-3 lg:grid-rows-3 ">
                             <a
                                 href="https://www.codecademy.com/users/AngusBlomley/achievements"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="inline-block text-white bg-black bg-opacity-50 border opacity-75 border-white p-2.5 no-underline duration-200 hover:opacity-100 col-span-2 row-span-1"
+                                className="inline-block text-white bg-black bg-opacity-50 border opacity-75 border-white p-2.5 no-underline duration-200 hover:opacity-100 col-span-1 lg:col-span-2 lg:row-span-1"
                             >
                                 Codecademy Certificates
                             </a>
@@ -159,7 +139,7 @@ function Main() {
                                 href="https://github.com/AngusBlomley"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="inline-block text-white bg-black bg-opacity-50 border opacity-75 border-white p-2.5 no-underline duration-200 hover:opacity-100 col-start-3 row-start-1"
+                                className="inline-block text-white bg-black bg-opacity-50 border opacity-75 border-white p-2.5 no-underline duration-200 hover:opacity-100 col-span-1 lg:col-start-3 lg:row-start-1"
                             >
                                 GitHub
                             </a>
@@ -167,7 +147,7 @@ function Main() {
                                 href="https://www.linkedin.com/in/angus-blomley-82b45a177/"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="inline-block text-white bg-black bg-opacity-50 border opacity-75 border-white p-2.5 no-underline duration-200 hover:opacity-100 col-start-1 row-start-2"
+                                className="inline-block text-white bg-black bg-opacity-50 border opacity-75 border-white p-2.5 no-underline duration-200 hover:opacity-100 col-span-1 lg:col-start-1 lg:row-start-2"
                             >
                                 LinkedIn
                             </a>
@@ -175,7 +155,7 @@ function Main() {
                                 href="https://your-portfolio-site.com/projects"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="inline-block text-white bg-black bg-opacity-50 border opacity-75 border-white p-2.5 no-underline duration-200 hover:opacity-100 col-span-2 col-start-2 row-start-2"
+                                className="inline-block text-white bg-black bg-opacity-50 border opacity-75 border-white p-2.5 no-underline duration-200 hover:opacity-100 col-span-1 lg:col-span-2 lg:col-start-2 lg:row-start-2"
                             >
                                 Celestial Star Tracker
                             </a>
@@ -183,7 +163,7 @@ function Main() {
                                 href="https://your-portfolio-site.com/projects"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="inline-block text-white bg-black bg-opacity-50 border opacity-75 border-white p-2.5 no-underline duration-200 hover:opacity-100 col-span-2 row-start-3"
+                                className="inline-block text-white bg-black bg-opacity-50 border opacity-75 border-white p-2.5 no-underline duration-200 hover:opacity-100 col-span-1 lg:col-span-2 lg:row-start-3"
                             >
                                 Re-String Box
                             </a>
@@ -191,67 +171,21 @@ function Main() {
                                 href="https://your-portfolio-site.com/resume.pdf"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="inline-block text-white bg-black bg-opacity-50 border opacity-75 border-white p-2.5 no-underline duration-200 hover:opacity-100 col-start-3 row-start-3"
+                                className="inline-block text-white bg-black bg-opacity-50 border opacity-75 border-white p-2.5 no-underline duration-200 hover:opacity-100 col-span-1 lg:col-start-3 lg:row-start-3"
                             >
                                 Resume
                             </a>
                         </div>
-                        {/*
-                        <div className="flex -mt-1">
-                            <Image
-                                width={40}
-                                height={40}
-                                alt="html"
-                                src="/images/icons/html.webp"
-                                className=""
-                            />
-                            <Image
-                                width={40}
-                                height={40}
-                                alt="css"
-                                src="/images/icons/css.webp"
-                                className=""
-                            />
-                            <Image
-                                width={40}
-                                height={40}
-                                alt="js"
-                                src="/images/icons/js.webp"
-                                className=""
-                            />
-                            <Image
-                                width={40}
-                                height={40}
-                                alt="react"
-                                src="/images/icons/react.png"
-                                className=""
-                            />
-                            <Image
-                                width={40}
-                                height={40}
-                                alt="tailwind"
-                                src="/images/icons/tailwind.png"
-                                className="py-1"
-                            />
-                            <Image
-                                width={40}
-                                height={40}
-                                alt="vscode"
-                                src="/images/icons/vscode.webp"
-                                className=""
-                            />
-                        </div>
-                        */}
                     </div>
 
-                    <div className='mx-auto' style={{ height: '392px', overflow: 'hidden' }}>
+                    <div className='mx-auto shadow-2xl max-lg:hidden' style={{ height: '392px', overflow: 'hidden' }}>
                         <Image
                             width={400}
                             height={400}
                             id="portrait"
                             alt="portrait"
                             src="/images/portrait2.png"
-                            className=" filter brightness-75 hover:brightness-100 duration-500"
+                            className="filter ml-8 brightness-75 hover:brightness-100 duration-500"
                             style={{ clipPath: 'inset(0 0 8px 0)' }}
                         />
                     </div>

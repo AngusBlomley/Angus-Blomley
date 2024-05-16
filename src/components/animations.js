@@ -1,57 +1,4 @@
 export function setupMenuAnimations() {
-    let menuVisible = false;
-
-    const toggleMenu = () => {
-        const menucontainer = document.getElementById('menucontainer');
-        if (menucontainer) {
-            if (menuVisible) {
-                menucontainer.classList.add('translate-x-full');
-            } else {
-                menucontainer.classList.remove('translate-x-full');
-            }
-            menuVisible = !menuVisible;
-        }
-    };
-
-    const toggleButton = document.getElementById('togglebutton');
-    const menucontainer = document.getElementById('menucontainer');
-
-    if (toggleButton) {
-        toggleButton.addEventListener('click', toggleMenu);
-    }
-
-    if (menucontainer) {
-        menucontainer.style.right = "-100%";
-    }
-    if (toggleButton) {
-        toggleButton.classList.remove("active");
-        toggleButton.innerHTML = "☰";
-        toggleButton.style.color = "white";
-    }
-
-    const links = document.querySelectorAll('#menucontainer a');
-    links.forEach(link => {
-        link.addEventListener('click', () => {
-            if (menucontainer && menucontainer.style.right === "0px") {
-                toggleMenu();
-            }
-        });
-    });
-
-    const scrollLinks = document.querySelectorAll('a[href^="#"]');
-    scrollLinks.forEach(scrollLink => {
-        scrollLink.addEventListener('click', (e) => {
-            e.preventDefault();
-            const target = document.querySelector(scrollLink.getAttribute('href'));
-            if (target) {
-                window.scrollTo({
-                    top: target.offsetTop,
-                    behavior: 'smooth'
-                });
-            }
-        });
-    });
-
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -62,17 +9,15 @@ export function setupMenuAnimations() {
         threshold: 0.1,
     });
 
-    const fadeElements = document.querySelectorAll('.fade-in');
-    fadeElements.forEach(el => {
+    const elementsToObserve = document.querySelectorAll('.fade-in, .translate-in');
+    elementsToObserve.forEach(el => {
         observer.observe(el);
     });
 
     return () => {
-        if (toggleButton) {
-            toggleButton.removeEventListener('click', toggleMenu);
-        }
-        links.forEach(link => link.removeEventListener('click', toggleMenu));
-        scrollLinks.forEach(scrollLink => scrollLink.removeEventListener('click', () => { }));
+        elementsToObserve.forEach(el => {
+            observer.unobserve(el);
+        });
     };
 }
 

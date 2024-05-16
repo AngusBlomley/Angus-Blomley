@@ -20,6 +20,10 @@ body {
   color: rgb(var(--foreground-rgb));
 }
 
+body.menu-open {
+  overflow: hidden;
+}
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;
@@ -64,8 +68,8 @@ body {
 }
 
 .cursor {
-  border-left: 0.1em solid white;
-  animation: blink 0.7s step-end infinite;
+  border-left: 0.05em solid white;
+  animation: blink 1.2s step-end infinite;
 }
 
 /*Javascript Functions*/
@@ -89,6 +93,18 @@ body {
 
 .simple-fade-in.is-visible {
   opacity: 1; 
+}
+
+.translate-x-0 {
+  transform: translateX(0);
+}
+
+.translate-x-full {
+  transform: translateX(100%);
+}
+
+.transition-transform {
+  transition: transform 0.3s;
 }
 
 @keyframes fadeIn {
