@@ -117,6 +117,10 @@ body.dark-mode .border-b {
   background-color: var(--background-color-light);
 }
 
+#about {
+  background-color: var(--background-color-light);
+}
+
 body.dark-mode #links a {
   background-color: var(--bg-color-dark);
 }

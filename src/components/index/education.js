@@ -15,9 +15,9 @@ function Education() {
 
     return (
         <section id="education" className="pt-28 min-h-screen">
-            <div className="grid grid-cols-3 max-xl:grid-cols-2 max-md:grid-cols-1 gap-20 justify-center px-4 py-12 z-20">
+            <div className="grid grid-cols-3 max-xl:grid-cols-2 max-md:grid-cols-1 gap-10 justify-center px-36 py-12 z-20 max-2xl:px-24 max-xl:px-16 max-lg:px-4 max-md:px-20 max-sm:px-4">
                 <h2 className="col-span-3 max-xl:col-span-2 max-md:col-span-1 text-4xl mb-8 font-semibold">Education</h2>
-                <div className="education-entry mb-12 p-5 border-2 border-gray-700">
+                <div className="education-entry mb-12 p-5 border">
                     <div className="text-section w-full">
                         <h3 className="text-2xl">Ravensbourne University London</h3>
                         <p className="dates mt-2">September 2021 - April 2024</p>
@@ -38,7 +38,7 @@ function Education() {
                         <Image width={300} height={150} id="ravensbourne" src="/images/ravensbourne-black.png" alt="Ravensbourne University" className="my-5" />
                     </div>
                 </div>
-                <div className="education-entry mb-12 p-5 border-2 border-gray-700">
+                <div className="education-entry mb-12 p-5 border">
                     <div className="text-section w-full">
                         <h3 className="text-2xl">Belfast Metropolitan</h3>
                         <p className="dates mt-2">September 2015 - June 2018</p>
@@ -56,7 +56,7 @@ function Education() {
                         <Image width={150} height={150} id="belfastmet" src="/images/belfastmet.png" alt="Belfast Metropolitan" className="my-5" />
                     </div>
                 </div>
-                <div className="education-entry mb-12 p-5 border-2 border-gray-700">
+                <div className="education-entry mb-12 p-5 border">
                     <div className="text-section w-full">
                         <h3 className="text-2xl">Codecademy</h3>
                         <p className="dates mt-2">Completed: May 2024</p>
