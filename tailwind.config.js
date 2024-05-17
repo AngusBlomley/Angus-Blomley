@@ -23,6 +23,15 @@ module.exports = {
       },
     },
   },
+  keyframes: {
+    'zoom-out': {
+      '0%': { transform: 'scale(1.1)' },
+      '100%': { transform: 'scale(1)' },
+    },
+  },
+  animation: {
+    'zoom-out': 'zoom-out 0.5s ease-out forwards',
+  },
   darkMode: true,
   variants: {
     extend: {},

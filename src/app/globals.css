@@ -16,6 +16,11 @@
   }
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
+
 :root {
   --foreground-color-dark: rgb(0, 0, 0);
   --background-color-dark: rgb(255, 255, 255);
@@ -30,7 +35,7 @@
   --cursor-color-light: black;
   --cursor-color-dark: white;
   --overlay-color-light: rgba(0, 0, 0, 0.4); 
-  --overlay-color-dark: rgba(0, 0, 0, 0.1);
+  --overlay-color-dark: rgba(0, 0, 0, 0);
 }
 
 body {
@@ -66,6 +71,33 @@ body.dark-mode {
 
 body.dark-mode::before {
   background: var(--overlay-color-dark);
+}
+
+#header,
+#main,
+#about,
+#education,
+#work,
+#contact,
+#footer {
+  background-color: var(--background-color-light);
+}
+
+body.dark-mode #header,
+body.dark-mode #main,
+body.dark-mode #about,
+body.dark-mode #education,
+body.dark-mode #work,
+body.dark-mode #contact,
+body.dark-mode #footer {
+  background-color: var(--background-color-dark);
+}
+
+.bg-light-menu {
+    background-color: var(--background-color-light);
+}
+.dark .bg-dark-menu {
+    background-color: var(--background-color-dark);
 }
 
 body.dark-mode #portrait {
@@ -117,12 +149,19 @@ body.dark-mode .border-b {
   background-color: var(--background-color-light);
 }
 
-#about {
-  background-color: var(--background-color-light);
+body.dark-mode #menucontainer {
+  background-color: var(--background-color-dark);
 }
 
 body.dark-mode #links a {
   background-color: var(--bg-color-dark);
+}
+
+.timeline-line {
+  left: 75.5%;
+  transform: translateX(-75%);
+  z-index: 0;
+  border-color: var(--border-color);
 }
 
 .border {
@@ -228,6 +267,33 @@ body.dark-mode #links a {
 
 @media (max-width: 1024px) {
   body.dark-mode article {
-    margin-left: 0 !important; /* Removes the margin-left on mobile devices */
+    margin-left: 0 !important;
   }
+}
+
+/* Ensure the zoom-container doesn't affect the screen size */
+.zoom-container {
+  animation: initial-zoom 4s forwards;
+  position: relative;
+  width: 100%;  /* Ensure full width */
+  height: 100%; /* Ensure full height */
+}
+
+/* Keyframes for initial zoom animation */
+@keyframes initial-zoom {
+  0% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.carousel .slide img {
+  height: 100vh;
+  object-fit: cover;
+}
+
+.no-transition {
+  transition: none !important;
 }

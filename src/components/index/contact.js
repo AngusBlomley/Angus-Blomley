@@ -1,26 +1,97 @@
-/* eslint-disable react/no-unescaped-entities */
-import React, { useEffect, useState, useRef, useMemo } from 'react';
-import Image from 'next/image';
-import {
-    setupMenuAnimations,
-    generateRandomPosition,
-    generateRandomVelocity,
-    handleMouseMove,
-    animate
-} from '../animations';
+import React, { useState } from 'react';
 import '../../app/globals.css';
+import Image from 'next/image';
 
-function Contact() {
+function Contact({ isDarkMode }) {
+    const backgroundColor = isDarkMode ? 'var(--background-color-dark)' : 'var(--background-color-light)';
+    const color = isDarkMode ? 'var(--foreground-color-dark)' : 'var(--foreground-color-light)';
+    const [formData, setFormData] = useState({
+        name: '',
+        email: '',
+        subject: '',
+        message: '',
+    });
+
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setFormData({ ...formData, [name]: value });
+    };
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        // Add your form submission logic here
+        console.log('Form data:', formData);
+    };
+
     return (
-        <section id="Contact" className="bg-gray-100 text-gray-900 flex justify-center items-center min-h-screen px-4 py-12 z-10">
-            <div className="max-w-2xl">
-                <h2 className="text-4xl mb-8 font-semibold text-gray-700">Contact</h2>
-                <p className="text-lg mb-6 leading-relaxed">
-                    I am an engineer passionate Contact leveraging technology to drive innovation and create impactful solutions. With expertise in software development, data analysis, and machine learning, I thrive on tackling complex problems and delivering effective results.
-                </p>
-                <p className="text-lg leading-relaxed">
-                    Committed to continuous learning, I stay abreast of technological advancements to ensure my work remains cutting-edge. Let's collaborate to turn ideas into reality and push the boundaries of what's possible.
-                </p>
+        <section id="contact" style={{ backgroundColor, color }} className="min-h-screen px-4 py-32 z-10 duration-200">
+            <div className="max-w-2xl grid grid-cols-2">
+
+                <h2 className="text-4xl mb-8 font-semibold">Drop Me a Line</h2>
+                <form onSubmit={handleSubmit} className="space-y-4">
+                    <div>
+                        <label htmlFor="name" className="block text-lg mb-2">Name</label>
+                        <input
+                            type="text"
+                            id="name"
+                            name="name"
+                            value={formData.name}
+                            onChange={handleChange}
+                            className="w-full px-4 py-2 border rounded-md"
+                            required
+                        />
+                    </div>
+                    <div>
+                        <label htmlFor="email" className="block text-lg mb-2">Email</label>
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            value={formData.email}
+                            onChange={handleChange}
+                            className="w-full px-4 py-2 border rounded-md"
+                            required
+                        />
+                    </div>
+                    <div>
+                        <label htmlFor="subject" className="block text-lg mb-2">Subject</label>
+                        <input
+                            type="text"
+                            id="subject"
+                            name="subject"
+                            value={formData.subject}
+                            onChange={handleChange}
+                            className="w-full px-4 py-2 border rounded-md"
+                        />
+                    </div>
+                    <div>
+                        <label htmlFor="message" className="block text-lg mb-2">Message</label>
+                        <textarea
+                            id="message"
+                            name="message"
+                            value={formData.message}
+                            onChange={handleChange}
+                            className="w-full px-4 py-2 border rounded-md"
+                            rows="6"
+                            required
+                        />
+                    </div>
+                    <button
+                        type="submit"
+                        className="px-6 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors duration-200"
+                    >
+                        Send
+                    </button>
+                </form>
+            </div>
+            <div className=''>
+                <Image
+                    alt="me"
+                    src="/images/scenic.jpg"
+                    width={500}
+                    height={500}
+                    className=''
+                />
             </div>
         </section>
     );
