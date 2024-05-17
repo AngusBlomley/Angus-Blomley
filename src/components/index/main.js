@@ -1,21 +1,9 @@
 /* eslint-disable react/no-unescaped-entities */
-import React, { useEffect, useState, useRef, useMemo } from 'react';
-import Link from 'next/link';
+import React, { useEffect, useState, useMemo } from 'react';
 import Image from 'next/image';
-import {
-    setupMenuAnimations,
-    generateRandomPosition,
-    generateRandomVelocity,
-    handleMouseMove,
-    animate
-} from '../animations';
 import '../../app/globals.css';
 
 function Main() {
-    const [positions, setPositions] = useState([]);
-    const positionsRef = useRef([]);
-    const velocities = useRef([]);
-    const requestRef = useRef();
     const [typedText, setTypedText] = useState('');
     const [isDeleting, setIsDeleting] = useState(false);
     const [loopNum, setLoopNum] = useState(0);
@@ -58,38 +46,8 @@ function Main() {
         'web development.',
         'e-commerce.',
         'digital marketing.',
-        'project management.'], []);
-
-    useEffect(() => {
-        if (typeof window === 'undefined') return;
-
-        window.scrollTo(0, 0);
-
-        const cleanup = setupMenuAnimations();
-        const homeElement = document.getElementById('home');
-        homeElement.classList.add('fade-in', 'is-visible');
-
-        const newPositions = icons.map(() => generateRandomPosition());
-        const newVelocities = icons.map(() => generateRandomVelocity());
-        setPositions(newPositions);
-        positionsRef.current = newPositions;
-        velocities.current = newVelocities;
-
-        const mouseMoveHandler = (e) => handleMouseMove(e, velocities, positionsRef);
-        window.addEventListener('mousemove', mouseMoveHandler);
-
-        requestRef.current = requestAnimationFrame(() => animate(setPositions, velocities, positionsRef, requestRef));
-
-        setTimeout(() => {
-            document.querySelectorAll('.icon-wrapper').forEach((el) => el.classList.add('is-visible'));
-        }, 1000);
-
-        return () => {
-            window.removeEventListener('mousemove', mouseMoveHandler);
-            cancelAnimationFrame(requestRef.current);
-            cleanup();
-        };
-    }, [icons]);
+        'project management.'
+    ], []);
 
     useEffect(() => {
         const handleTyping = () => {
@@ -117,21 +75,23 @@ function Main() {
     }, [typedText, isDeleting, loopNum, typingSpeed, words]);
 
     return (
-        <section id="home" className="section relative flex justify-center items-center w-full min-h-screen overflow-hidden">
+        <section id="home" className="section flex justify-center items-center w-full min-h-screen overflow-hidden">
             <div className="background"></div>
             <main className="opacity-0 fade-in max-lg:mt-20">
-                <article className="grid grid-cols-2 max-lg:grid-cols-1 border-b-2 border-white max-lg:border-none max-lg:flex max-lg:mx-auto ">
+                <div className="flex justify-end p-4">
+                </div>
+                <article className="grid grid-cols-2 max-lg:grid-cols-1 border-b border-inherit max-lg:border-none max-lg:flex max-lg:mx-auto duration-500">
                     <div className='w-96 whitespace-nowrap max-lg:w-full'>
                         <h1 className="text-5xl font-light">Angus Blomley</h1>
                         <p className="text-2xl font-thin mt-10 w-full max-lg:text-base">
-                            Engineer with a passion for <span className="typed-text">{typedText}</span><span className="cursor"></span>
+                            An engineer with a passion for <span className="typed-text">{typedText}</span><span className="cursor bg-inherit"></span>
                         </p>
-                        <div id="links" className="my-12 grid grid-cols-1 text-left gap-4 lg:gap-0 lg:grid-cols-3 lg:grid-rows-3 ">
+                        <div id="links" className="my-12 grid grid-cols-1 border text-left gap-4 lg:gap-0 lg:grid-cols-3 lg:grid-rows-3 lg:text-center max-lg:border-none">
                             <a
                                 href="https://www.codecademy.com/users/AngusBlomley/achievements"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="inline-block text-white bg-black bg-opacity-50 border opacity-75 border-white p-2.5 no-underline duration-200 hover:opacity-100 col-span-1 lg:col-span-2 lg:row-span-1"
+                                className="inline-block bg-inherit border opacity-75 border-inherit p-2.5 no-underline duration-200 hover:opacity-100 col-span-1 lg:col-span-2 lg:row-span-1"
                             >
                                 Codecademy Certificates
                             </a>
@@ -139,7 +99,7 @@ function Main() {
                                 href="https://github.com/AngusBlomley"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="inline-block text-white bg-black bg-opacity-50 border opacity-75 border-white p-2.5 no-underline duration-200 hover:opacity-100 col-span-1 lg:col-start-3 lg:row-start-1"
+                                className="inline-block bg-inherit border opacity-75 border-inherit p-2.5 no-underline duration-200 hover:opacity-100 col-span-1 lg:col-start-3 lg:row-start-1"
                             >
                                 GitHub
                             </a>
@@ -147,7 +107,7 @@ function Main() {
                                 href="https://www.linkedin.com/in/angus-blomley-82b45a177/"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="inline-block text-white bg-black bg-opacity-50 border opacity-75 border-white p-2.5 no-underline duration-200 hover:opacity-100 col-span-1 lg:col-start-1 lg:row-start-2"
+                                className="inline-block bg-inherit border opacity-75 border-inherit p-2.5 no-underline duration-200 hover:opacity-100 col-span-1 lg:col-start-1 lg:row-start-2"
                             >
                                 LinkedIn
                             </a>
@@ -155,7 +115,7 @@ function Main() {
                                 href="https://your-portfolio-site.com/projects"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="inline-block text-white bg-black bg-opacity-50 border opacity-75 border-white p-2.5 no-underline duration-200 hover:opacity-100 col-span-1 lg:col-span-2 lg:col-start-2 lg:row-start-2"
+                                className="inline-block bg-inherit border opacity-75 border-inherit p-2.5 no-underline duration-200 hover:opacity-100 col-span-1 lg:col-span-2 lg:col-start-2 lg:row-start-2"
                             >
                                 Celestial Star Tracker
                             </a>
@@ -163,7 +123,7 @@ function Main() {
                                 href="https://your-portfolio-site.com/projects"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="inline-block text-white bg-black bg-opacity-50 border opacity-75 border-white p-2.5 no-underline duration-200 hover:opacity-100 col-span-1 lg:col-span-2 lg:row-start-3"
+                                className="inline-block bg-inherit border opacity-75 border-inherit p-2.5 no-underline duration-200 hover:opacity-100 col-span-1 lg:col-span-2 lg:row-start-3"
                             >
                                 Re-String Box
                             </a>
@@ -171,14 +131,14 @@ function Main() {
                                 href="https://your-portfolio-site.com/resume.pdf"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="inline-block text-white bg-black bg-opacity-50 border opacity-75 border-white p-2.5 no-underline duration-200 hover:opacity-100 col-span-1 lg:col-start-3 lg:row-start-3"
+                                className="inline-block bg-inherit border opacity-75 border-inherit p-2.5 no-underline duration-200 hover:opacity-100 col-span-1 lg:col-start-3 lg:row-start-3"
                             >
                                 Resume
                             </a>
                         </div>
                     </div>
 
-                    <div className='mx-auto shadow-2xl max-lg:hidden' style={{ height: '392px', overflow: 'hidden' }}>
+                    <div className='mx-auto max-lg:hidden' style={{ height: '392px', overflow: 'hidden' }}>
                         <Image
                             width={400}
                             height={400}

@@ -14,9 +14,9 @@ function Education() {
     };
 
     return (
-        <section id="education" className="bg-white pt-28 min-h-screen">
-            <div className="grid grid-cols-3 max-xl:grid-cols-2 max-md:grid-cols-1 gap-20 text-black justify-center px-4 py-12 z-20">
-                <h2 className="col-span-3 max-xl:col-span-2 max-md:col-span-1 text-4xl mb-8 font-semibold text-gray-900">Education</h2>
+        <section id="education" className="pt-28 min-h-screen">
+            <div className="grid grid-cols-3 max-xl:grid-cols-2 max-md:grid-cols-1 gap-20 justify-center px-4 py-12 z-20">
+                <h2 className="col-span-3 max-xl:col-span-2 max-md:col-span-1 text-4xl mb-8 font-semibold">Education</h2>
                 <div className="education-entry mb-12 p-5 border-2 border-gray-700">
                     <div className="text-section w-full">
                         <h3 className="text-2xl">Ravensbourne University London</h3>
@@ -78,14 +78,14 @@ function Education() {
             </div>
             {isModalOpen && (
                 <div className="fixed inset-0 bg-black bg-opacity-75 flex justify-center items-center z-50 transition-opacity duration-200">
-                    <div className="relative bg-white py-10 px-4 rounded shadow-lg">
+                    <div className="relative py-4 px-4 bg-black rounded shadow-lg">
                         <iframe
                             src="/pdf/certificate.pdf"
-                            width="800"
-                            height="600"
+                            width="1000"
+                            height="750"
                             className="border-0"
                         />
-                        <button onClick={handleCloseModalClick} className="block mx-auto mt-8 bg-gray-800 text-white py-2 px-4 rounded">Close</button>
+                        <button onClick={handleCloseModalClick} className="block text-white border-2 border-white hover:bg-gray-800 mx-auto mt-4 py-2 px-4 rounded duration-100">&#x2715;</button>
                     </div>
                 </div>
             )}

@@ -6,10 +6,11 @@ import Education from '@/components/index/education';
 import Work from '@/components/index/work';
 import Contact from '@/components/index/contact';
 import Footer from '@/components/globals/footer';
+import DarkModeToggle from '@/components/globals/darkMode';
 
 function HomePage() {
     return (
-        <main className='bg-black flex justify-center flex-col'>
+        <main className='flex justify-center flex-col'>
             <Header />
             <Main />
             <About />
