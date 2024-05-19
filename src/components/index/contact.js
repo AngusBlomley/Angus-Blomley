@@ -36,7 +36,7 @@ function Contact({ isDarkMode }) {
         >
             <div
                 style={{
-                    backgroundImage: `linear-gradient(to top, rgba(255, 255, 255, 0.0), rgba(0, 0, 0, 0.8)), url('/images/scenic.jpg')`,
+                    backgroundImage: `linear-gradient(to top, rgba(255, 255, 255, 0.0), rgba(0, 0, 0, 0.8)), url('/images/index/scenic.jpg')`,
                     backgroundSize: 'cover',
                     backgroundPosition: 'center',
                     filter: 'brightness(50%)',

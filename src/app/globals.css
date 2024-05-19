@@ -28,8 +28,8 @@ html {
   --background-color-light: rgb(32, 32, 32);
   --bg-color-dark: rgba(255, 255, 255,  0.7); /* 50% transparent white */
   --bg-color-light: rgba(0, 0, 0, 0.7); /* 50% transparent black */
-  --background-image-dark: url('/images/background-white-native.jpg');
-  --background-image-light: url('/images/background.jpg');
+  --background-image-dark: url('/images/index/background-white-native.jpg');
+  --background-image-light: url('/images/index/background.jpg');
   --border-color-light: white;
   --border-color-dark: black;
   --cursor-color-light: black;

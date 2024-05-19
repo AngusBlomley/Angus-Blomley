@@ -9,7 +9,7 @@ function Education({ isDarkMode }) {
     const backgroundColor = isDarkMode ? 'var(--background-color-dark)' : 'var(--background-color-light)';
     const color = isDarkMode ? 'var(--foreground-color-dark)' : 'var(--foreground-color-light)';
     const complementaryBackgroundColor = isDarkMode ? 'var(--background-color-dark)' : 'var(--background-color-light)';
-    const ravensbourneImage = isDarkMode ? '/images/ravensbourne-black.png' : '/images/ravensbourne-white.png';
+    const ravensbourneImage = isDarkMode ? '/images/index/ravensbourne-black.png' : '/images/index/ravensbourne-white.png';
 
     useEffect(() => {
         AOS.init({
@@ -73,7 +73,7 @@ function Education({ isDarkMode }) {
                             </div>
                         </div>
                         <div className="image-section">
-                            <Image width={150} height={150} id="belfastmet" src="/images/belfastmet.png" alt="Belfast Metropolitan" className="mt-5" />
+                            <Image width={150} height={150} id="belfastmet" src="/images/index/belfastmet.png" alt="Belfast Metropolitan" className="mt-5" />
                         </div>
                     </div>
                     <div className="timeline-item relative mb-12 flex items-center justify-center" data-aos="fade-down" data-aos-delay="100">
@@ -101,7 +101,7 @@ function Education({ isDarkMode }) {
                             </div>
                         </div>
                         <div className="image-section">
-                            <Image width={220} height={150} id="codecademy" src="/images/codecademy.png" alt="Codecademy" className="mt-5" />
+                            <Image width={220} height={150} id="codecademy" src="/images/index/codecademy.png" alt="Codecademy" className="mt-5" />
                         </div>
                     </div>
                     <div className="timeline-item relative mb-12 flex items-center justify-center" data-aos="fade-down" data-aos-delay="100">

@@ -144,7 +144,7 @@ function Main() {
                             height={400}
                             id="portrait"
                             alt="portrait"
-                            src="/images/portrait2.png"
+                            src="/images/index/portrait2.png"
                             className="filter ml-8 brightness-75 hover:brightness-100 duration-500"
                             style={{ clipPath: 'inset(0 0 8px 0)' }}
                             fetchpriority=''

@@ -16,9 +16,9 @@ function About({ isDarkMode }) {
         <section id="about" style={{ backgroundColor }} className="relative z-10 duration-200 flex row items-center pt-16">
             <div className="absolute inset-0">
                 <div className="absolute inset-0 bg-gradient-to-r from-black via-black/60 to-transparent opacity-100 z-10 max-md:via-black/100 max-md:to-black/50"></div>
-                <img
+                <Image
                     alt=""
-                    src="/images/back.jpg"
+                    src="/images/index/back.jpg"
                     layout="fill"
                     objectFit="cover"
                     className='z-0'
