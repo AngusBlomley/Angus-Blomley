@@ -32,7 +32,7 @@ function Contact({ isDarkMode }) {
                 position: 'relative',
                 overflow: 'hidden',
             }}
-            className="px-4 py-10 z-10 duration-200"
+            className="px-4 z-10 duration-200"
         >
             <div
                 style={{
