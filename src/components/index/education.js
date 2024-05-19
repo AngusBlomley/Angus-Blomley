@@ -28,10 +28,10 @@ function Education({ isDarkMode }) {
 
     return (
         <section id="education" style={{ backgroundColor, color }} className="pt-28 min-h-screen duration-200">
-            <div className="container mx-auto px-40 py-12">
+            <div className="container mx-auto px-40 py-12 max-lg:p-4">
                 <h2 className="text-4xl px-8 mb-12 font-bold" data-aos="fade-down">Building My Foundation</h2>
-                <div className="grid grid-cols-2 gap-8 relative">
-                    <div className="timeline-line absolute top-0 bottom-0 left-1/2 border-l-2 border-gray-300"></div>
+                <div className="grid grid-cols-2 gap-8 relative max-md max-sm:grid-cols-1">
+                    <div className="timeline-line absolute top-0 bottom-0 left-1/2 border-l-2 border-gray-300 max-sm:hidden"></div>
                     <div className="education-entry mt-12 mb-12 p-8 border rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300 flex flex-col justify-between" data-aos="fade-down">
                         <div>
                             <h3 className="text-2xl font-semibold mb-2">Ravensbourne University London</h3>

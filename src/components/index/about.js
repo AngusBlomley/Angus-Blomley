@@ -34,7 +34,7 @@ function About({ isDarkMode }) {
                     I'm also learning Japanese to connect more deeply with my partner and their culture. As a former competitive springboard diver, I enjoy challenging outdoor activities and thrive in like-minded company. My adventurous spirit drives me to explore new places and constantly push my limits.
                 </p>
                 <p className="text-lg leading-relaxed" data-aos="fade-up" data-aos-delay="400">
-                    Feel free to explore my <Link href="/#work" className='text-blue-400 hover:text-blue-500 duration-200'>work</Link>, and don't hesitate to reach out if you'd like to collaborate or have a <Link href="/#contact" className='text-blue-400 hover:text-blue-500 duration-200'>chat!</Link>
+                    Feel free to explore my work, and don't hesitate to reach out if you'd like to collaborate or have a chat!
                 </p>
             </div>
         </section>

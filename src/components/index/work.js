@@ -46,36 +46,38 @@ function Work({ isDarkMode }) {
     };
 
     return (
-        <section id="work" style={{ backgroundColor, color }} className="pt-16 relative min-h-screen flex justify-center items-center z-10 overflow-hidden">
+        <section id="work" style={{ backgroundColor, color }} className="pt-16 relative flex justify-center items-center z-10 overflow-hidden">
             <div className="flex justify-center items-center w-full">
                 <div className="relative w-full mx-auto overflow-visible">
                     {showMainCarousel ? (
-                        <Carousel
-                            showArrows={true}
-                            showStatus={false}
-                            showIndicators={true}
-                            showThumbs={true}
-                            autoPlay
-                            infiniteLoop={true}
-                            interval={5000}
-                            transitionTime={1000}
-                            dynamicHeight={false}
-                            stopOnHover={false}
-                            className=""
-                        >
-                            {images.map((image, index) => (
-                                <div key={index} className="h-[720px] w-screen flex justify-center items-center relative">
-                                    <Image src={image.src} layout="fill" objectFit="cover" className="filter brightness-50" alt={`Work ${index + 1}`} />
-                                    <h3 className="text-white text-2xl mt-40 mr-5 z-10">{image.title}</h3>
-                                    <Link
-                                        href={image.link}
-                                        className="absolute bottom-40 mx-auto mr-5 bg-transparent border-2 border-white text-white py-2 px-4 rounded duration-200 hover:border-cyan-500 hover:text-cyan-500"
-                                    >
-                                        See More
-                                    </Link>
-                                </div>
-                            ))}
-                        </Carousel>
+                        <div className='zoom-container'>
+                            <Carousel
+                                showArrows={true}
+                                showStatus={false}
+                                showIndicators={true}
+                                showThumbs={true}
+                                autoPlay
+                                infiniteLoop={true}
+                                interval={5000}
+                                transitionTime={1000}
+                                dynamicHeight={false}
+                                stopOnHover={false}
+                                className="relative w-full mx-auto overflow-visible"
+                            >
+                                {images.map((image, index) => (
+                                    <div key={index} className="h-[720px] w-screen flex justify-center items-center relative">
+                                        <Image src={image.src} layout="fill" objectFit="cover" className="filter brightness-50" alt={`Work ${index + 1}`} />
+                                        <h3 className="text-white text-2xl mt-40 mr-5 z-10 max-lg:mr-0">{image.title}</h3>
+                                        <Link
+                                            href={image.link}
+                                            className="absolute bottom-40 mx-auto mr-5 bg-transparent border-2 border-white text-white py-2 px-4 rounded duration-200 hover:border-cyan-500 hover:text-cyan-500  max-lg:mr-0"
+                                        >
+                                            See More
+                                        </Link>
+                                    </div>
+                                ))}
+                            </Carousel>
+                        </div>
                     ) : (
                         <div className='zoom-container'>
                             <Carousel
@@ -103,7 +105,7 @@ function Work({ isDarkMode }) {
                 </div>
             </div>
             <div className="absolute z-10 text-center" data-aos="fade-in">
-                <h2 className="text-6xl text-white font-bold mb-8">Creative Masterpieces</h2>
+                <h2 className="text-6xl text-white font-bold mb-8 max-md:text-3xl">Creative Masterpieces</h2>
             </div>
         </section>
     );
