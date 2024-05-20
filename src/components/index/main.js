@@ -2,12 +2,19 @@
 import React, { useEffect, useState, useMemo } from 'react';
 import Image from 'next/image';
 import '../../app/globals.css';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+import Link from 'next/link';
 
 function Main() {
     const [typedText, setTypedText] = useState('');
     const [isDeleting, setIsDeleting] = useState(false);
     const [loopNum, setLoopNum] = useState(0);
     const [typingSpeed, setTypingSpeed] = useState(100);
+
+    useEffect(() => {
+        AOS.init({ duration: 1000, delay: 200 });
+    }, []);
 
     const icons = useMemo(() => [
         'c', 'css', 'html', 'js', 'python',
@@ -75,18 +82,15 @@ function Main() {
     }, [typedText, isDeleting, loopNum, typingSpeed, words]);
 
     return (
-        <section id="home" className="section flex justify-center items-center w-full min-h-screen overflow-hidden">
-            <div className="background"></div>
-            <main className="opacity-0 fade-in max-lg:mt-20">
-                <div className="flex justify-end p-4">
-                </div>
+        <section id="home" className="section flex justify-center items-center w-full min-h-screen overflow-hidden" data-aos="fade-in">
+            <main className="max-lg:mt-20 max-lg:w-screen max-lg:px-4">
                 <article className="grid grid-cols-2 max-lg:grid-cols-1 border-b border-inherit max-lg:border-none max-lg:flex max-lg:mx-auto duration-500">
-                    <div className='w-96 whitespace-nowrap max-lg:w-full'>
+                    <div className='w-[600px] whitespace-nowrap max-lg:w-full'>
                         <h1 className="text-5xl font-light">Angus Blomley</h1>
                         <p className="text-2xl font-thin mt-10 w-full max-lg:text-base">
                             An engineer with a passion for <span className="typed-text">{typedText}</span><span className="cursor bg-inherit"></span>
                         </p>
-                        <div id="links" className="my-12 grid grid-cols-1 border text-left gap-4 lg:gap-0 lg:grid-cols-3 lg:grid-rows-3 lg:text-center max-lg:border-none">
+                        <div id="links" className="my-10 grid grid-cols-1 gap-4 lg:gap-0 lg:grid-cols-3 lg:text-center">
                             <a
                                 href="https://www.codecademy.com/users/AngusBlomley/achievements"
                                 target="_blank"
@@ -111,30 +115,36 @@ function Main() {
                             >
                                 LinkedIn
                             </a>
-                            <a
-                                href="https://your-portfolio-site.com/projects"
-                                target="_blank"
-                                rel="noopener noreferrer"
+                            <Link
+                                href="/work/celestialStarTracker"
                                 className="inline-block bg-inherit border opacity-75 border-inherit p-2.5 no-underline duration-200 hover:opacity-100 col-span-1 lg:col-span-2 lg:col-start-2 lg:row-start-2"
                             >
                                 Celestial Star Tracker
-                            </a>
-                            <a
-                                href="https://your-portfolio-site.com/projects"
-                                target="_blank"
-                                rel="noopener noreferrer"
+                            </Link>
+                            <Link
+                                href="/work/stringBox"
                                 className="inline-block bg-inherit border opacity-75 border-inherit p-2.5 no-underline duration-200 hover:opacity-100 col-span-1 lg:col-span-2 lg:row-start-3"
                             >
                                 Re-String Box
-                            </a>
-                            <a
-                                href="https://your-portfolio-site.com/resume.pdf"
-                                target="_blank"
-                                rel="noopener noreferrer"
+                            </Link>
+                            <Link
+                                href="/resume"
                                 className="inline-block bg-inherit border opacity-75 border-inherit p-2.5 no-underline duration-200 hover:opacity-100 col-span-1 lg:col-start-3 lg:row-start-3"
                             >
                                 Resume
-                            </a>
+                            </Link>
+                            <Link
+                                href="/work/stringBox"
+                                className="inline-block bg-inherit border opacity-75 border-inherit p-2.5 no-underline duration-200 hover:opacity-100 col-span-1 lg:col-start-1 lg:row-start-4"
+                            >
+                                Meetly
+                            </Link>
+                            <Link
+                                href="/work/misuzuPortfolio"
+                                className="inline-block bg-inherit border opacity-75 border-inherit p-2.5 no-underline duration-200 hover:opacity-100 col-span-1 lg:col-span-2 lg:row-start-4"
+                            >
+                                Misuzu portfolio
+                            </Link>
                         </div>
                     </div>
 

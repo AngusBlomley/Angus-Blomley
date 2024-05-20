@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { setupMenuAnimations } from '../animations';
 import Link from 'next/link';
 import { FaHome, FaInfo, FaSun, FaMoon, FaGraduationCap, FaBriefcase, FaEnvelope, FaFileDownload, FaStar, FaGithub, FaLinkedin } from 'react-icons/fa';
 import '../../app/globals.css';
@@ -7,36 +6,6 @@ import DarkModeToggle from './darkMode';
 
 function HeaderGlobal({ isDarkMode, toggleDarkMode }) {
     const [menuVisible, setMenuVisible] = useState(false);
-
-    useEffect(() => {
-        const headerElement = document.querySelector('header');
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.target.id === 'about' && entry.isIntersecting) {
-                    headerElement.style.backgroundColor = isDarkMode ? 'var(--foreground-color-light)' : 'var(--foreground-color-dark)';
-                } else if (entry.target.id === 'home' && entry.isIntersecting) {
-                    headerElement.style.backgroundColor = 'transparent';
-                }
-            });
-        }, { threshold: 0.1 });
-
-        const sections = document.querySelectorAll('#home, #about');
-        sections.forEach(section => observer.observe(section));
-
-        return () => observer.disconnect();
-    }, [isDarkMode]);
-
-    useEffect(() => {
-        const cleanup = setupMenuAnimations();
-
-        const headerElement = document.querySelector('header');
-        setTimeout(() => {
-            headerElement.classList.add('animation-fadeIn');
-            headerElement.classList.remove('opacity-0');
-        }, 0);
-
-        return cleanup;
-    }, []);
 
     const toggleMenu = () => {
         setMenuVisible(!menuVisible);
@@ -53,19 +22,19 @@ function HeaderGlobal({ isDarkMode, toggleDarkMode }) {
         { id: 'resume', name: 'Resume', link: '/resume.pdf', icon: <FaFileDownload /> },
     ];
 
-    const backgroundColor = isDarkMode ? 'var(--background-color-dark)' : 'var(--background-color-light)';
+    const backgroundColor = isDarkMode ? 'white' : 'black';
 
     return (
-        <header className="fixed flex justify-center w-full top-0 z-50 p-4 opacity-0 duration-200 max-lg:p-4" style={{ backgroundColor }}>
-            <div className="flex w-10/12 items-center justify-between max-lg:w-full">
+        <header className="fixed w-full top-0 z-50 p-4 max-lg:p-4" style={{ backgroundColor }}>
+            <div className="flex justify-between items-center max-lg:w-full">
                 <Link href="/" passHref>
-                    <h2 id="logo" className="text-3xl font-rubik font-bold opacity-50 hover:opacity-100 duration-200 cursor-pointer no-underline">AB</h2>
+                    <h2 id="logo" className="text-3xl font-rubik font-bold opacity-75 hover:opacity-100 cursor-pointer no-underline">AB</h2>
                 </Link>
                 <nav className="hidden lg:flex space-x-6 items-center">
                     {sections.map(section => (
                         <Link key={section.id} href={section.link} passHref>
                             <div
-                                className="opacity-50 no-underline transition duration-100 hover:opacity-100 cursor-pointer"
+                                className="opacity-75 no-underline hover:opacity-100 cursor-pointer"
                                 onClick={section.onClick ? section.onClick : null}
                             >
                                 {section.name}
@@ -73,19 +42,19 @@ function HeaderGlobal({ isDarkMode, toggleDarkMode }) {
                         </Link>
                     ))}
                     <div className="flex space-x-4 items-center">
-                        <a href="https://github.com/AngusBlomley" target="_blank" rel="noopener noreferrer" className="duration-200 opacity-50 hover:opacity-100"><FaGithub /></a>
-                        <a href="https://www.linkedin.com/in/angus-blomley-82b45a177/" target="_blank" rel="noopener noreferrer" className="duration-200 opacity-50 hover:opacity-100"><FaLinkedin /></a>
+                        <a href="https://github.com/AngusBlomley" target="_blank" rel="noopener noreferrer" className="opacity-75 hover:opacity-100"><FaGithub /></a>
+                        <a href="https://www.linkedin.com/in/angus-blomley-82b45a177/" target="_blank" rel="noopener noreferrer" className="opacity-75 hover:opacity-100"><FaLinkedin /></a>
                         <DarkModeToggle isDarkMode={isDarkMode} toggleDarkMode={toggleDarkMode} />
                     </div>
                 </nav>
 
                 <div className="lg:hidden">
-                    <div id="togglebutton" onClick={toggleMenu} className="cursor-pointer text-3xl opacity-50">
+                    <div id="togglebutton" onClick={toggleMenu} className="cursor-pointer text-3xl opacity-75">
                         &#x2630;
                     </div>
                 </div>
 
-                <div id="menucontainer" className={`fixed top-0 right-0 w-1/2 h-full transition-transform duration-300 ${menuVisible ? 'translate-x-0' : 'translate-x-full'} flex flex-col items-center shadow-xl z-50`} style={{ backgroundColor }}>
+                <div id="menucontainer" className={`fixed top-0 right-0 w-1/2 h-screen duration-300 ${menuVisible ? 'translate-x-0' : 'translate-x-full'} flex flex-col items-center shadow-xl z-50`} style={{ backgroundColor }}>
                     <div onClick={toggleMenu} className="cursor-pointer text-3xl fixed right-4 top-4 z-20">
                         &#x2715;
                     </div>
@@ -109,7 +78,7 @@ function HeaderGlobal({ isDarkMode, toggleDarkMode }) {
                     </ul>
                 </div>
             </div>
-            <div className={`fixed top-0 left-0 w-full h-full bg-opacity-50 z-40 transition-opacity duration-300 ${menuVisible ? 'opacity-50' : 'opacity-0 pointer-events-none'}`}></div>
+            <div className={`fixed top-0 left-0 w-full h-full bg-opacity-75 z-40 ${menuVisible ? 'opacity-75' : 'opacity-0 pointer-events-none'}`}></div>
         </header>
     );
 }

@@ -24,14 +24,13 @@ html, body {
   scroll-behavior: smooth;
 }
 
-
 :root {
   --foreground-color-dark: rgb(0, 0, 0);
   --background-color-dark: rgb(255, 255, 255);
   --foreground-color-light: rgb(255, 255, 255);
   --background-color-light: rgb(32, 32, 32);
-  --bg-color-dark: rgba(255, 255, 255,  0.7); /* 50% transparent white */
-  --bg-color-light: rgba(0, 0, 0, 0.7); /* 50% transparent black */
+  --bg-color-dark: rgba(255, 255, 255,  0.7);
+  --bg-color-light: rgba(0, 0, 0, 0.7);
   --background-image-dark: url('/images/index/background-white-native.jpg');
   --background-image-light: url('/images/index/background.jpg');
   --border-color-light: white;
@@ -98,10 +97,11 @@ body.dark-mode #footer {
 }
 
 .bg-light-menu {
-    background-color: var(--background-color-light);
+  background-color: var(--background-color-light);
 }
+
 .dark .bg-dark-menu {
-    background-color: var(--background-color-dark);
+  background-color: var(--background-color-dark);
 }
 
 body.dark-mode #portrait {
@@ -172,51 +172,9 @@ body.dark-mode #links a {
   border-color: var(--border-color);
 }
 
-.icon-wrapper {
-  width: 40px;
-  height: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  position: absolute;
-  animation: floatSide 4s ease-in-out infinite;
-}
-
-.icon {
-  width: 100%;
-  height: 100%;
-  opacity: 0.4;
-  object-fit: contain;
-  transition: transform 0.1s linear;
-  animation: floatY 5s ease-in-out infinite, floatX 4s ease-in-out infinite;
-}
-
 .cursor {
   border-left: 0.05em solid var(--cursor-color-light);
   animation: blink-light 1.2s step-end infinite;
-}
-
-.fade-in {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 1s 0.5s, transform 1s 0.5s;
-  animation: fadeInAnimation ease 1.5s;
-  animation-fill-mode: forwards;
-}
-
-.fade-in.is-visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.simple-fade-in {
-  opacity: 0;
-  transition: opacity 1.5s; 
-}
-
-.simple-fade-in.is-visible {
-  opacity: 1; 
 }
 
 .translate-x-0 {
@@ -229,6 +187,18 @@ body.dark-mode #links a {
 
 .transition-transform {
   transition: transform 0.3s;
+}
+
+.zoom-container {
+  animation: initial-zoom 2.5s ease-in-out forwards;
+  position: relative;
+  width: 100%;
+  height: calc(100vh - 72px); /* Adjust based on your navbar height if you have one */
+  overflow: hidden;
+}
+
+#stringBox {
+  background: var(--background-color-light);
 }
 
 @keyframes fadeIn {
@@ -275,17 +245,19 @@ body.dark-mode #links a {
   }
 }
 
-.zoom-container {
-  animation: initial-zoom 1s ease-in-out forwards;
-  position: relative;
-  width: 100%;
-  height: calc(100vh - 64px); /* Adjust based on your navbar height if you have one */
-  overflow: hidden;
-}
-
 @keyframes initial-zoom {
   0% {
-    transform: scale(10);
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* New zoom-out keyframes */
+@keyframes zoom-out {
+  0% {
+    transform: scale(1.2);
   }
   100% {
     transform: scale(1);

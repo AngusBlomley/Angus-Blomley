@@ -4,10 +4,17 @@ import Link from 'next/link';
 import { FaHome, FaInfo, FaSun, FaMoon, FaGraduationCap, FaBriefcase, FaEnvelope, FaFileDownload, FaStar, FaGithub, FaLinkedin } from 'react-icons/fa';
 import '../../app/globals.css';
 import DarkModeToggle from './darkMode';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 
 function Header({ isDarkMode, toggleDarkMode }) {
     const [menuVisible, setMenuVisible] = useState(false);
+
+    useEffect(() => {
+        AOS.init({ duration: 1000, delay: 4000 });
+    }, []);
+
 
     useEffect(() => {
         const headerElement = document.querySelector('header');
@@ -57,7 +64,7 @@ function Header({ isDarkMode, toggleDarkMode }) {
     const backgroundColor = isDarkMode ? 'var(--background-color-dark)' : 'var(--background-color-light)';
 
     return (
-        <header className="fixed flex justify-center w-full top-0 z-50 p-4 opacity-0 duration-200 max-lg:p-4" style={{ backgroundColor }}>
+        <header className="fixed flex justify-center w-full top-0 z-50 p-4 opacity-0 duration-200 max-lg:p-4" style={{ backgroundColor }} data-aos="fade-in">
             <div className="flex w-10/12 items-center justify-between max-lg:w-full">
                 <Link href="/" passHref>
                     <h2 id="logo" className="text-3xl font-rubik font-bold opacity-50 hover:opacity-100 duration-200 cursor-pointer no-underline">AB</h2>
@@ -86,7 +93,7 @@ function Header({ isDarkMode, toggleDarkMode }) {
                     </div>
                 </div>
 
-                <div id="menucontainer" className={`fixed top-0 right-0 w-1/2 h-full transition-transform duration-300 ${menuVisible ? 'translate-x-0' : 'translate-x-full'} flex flex-col items-center shadow-xl z-50`} style={{ backgroundColor }}>
+                <div id="menucontainer" className={`fixed top-0 right-0 w-1/2 h-screen duration-300 ${menuVisible ? 'translate-x-0' : 'translate-x-full'} flex flex-col items-center shadow-xl z-50`} style={{ backgroundColor }}>
                     <div onClick={toggleMenu} className="cursor-pointer text-3xl fixed right-4 top-4 z-20">
                         &#x2715;
                     </div>

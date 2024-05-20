@@ -30,7 +30,7 @@ function Work({ isDarkMode }) {
         if (slideshowCompleted) {
             const timer = setTimeout(() => {
                 setShowMainCarousel(true);
-            }, 0); // Set delay to 0 to make it immediate
+            }, 500); // Set delay to 0 to make it immediate
 
             return () => clearTimeout(timer);
         }
@@ -59,80 +59,74 @@ function Work({ isDarkMode }) {
             style={{ backgroundColor, color }}
             className="pt-16 relative flex flex-col justify-center items-center z-10 overflow-hidden h-screen"
         >
-            <div className="flex flex-col justify-center items-center w-full">
-                <div className="relative w-full mx-auto overflow-visible">
-                    {showMainCarousel ? (
-                        <div className="zoom-container">
-                            <Carousel
-                                ref={mainCarouselRef}
-                                selectedItem={selectedItem}
-                                onChange={(index) => setSelectedItem(index)}
-                                showArrows={true}
-                                showStatus={false}
-                                showIndicators={true}
-                                showThumbs={true}
-                                autoPlay={true}
-                                infiniteLoop={true}
-                                interval={5000}
-                                transitionTime={1000}
-                                dynamicHeight={false}
-                                stopOnHover={false}
-                                className="w-full"
+            {showMainCarousel ? (
+                <Carousel
+                    ref={mainCarouselRef}
+                    selectedItem={selectedItem}
+                    onChange={(index) => setSelectedItem(index)}
+                    showArrows={true}
+                    showStatus={false}
+                    showIndicators={true}
+                    showThumbs={true}
+                    autoPlay={true}
+                    infiniteLoop={true}
+                    interval={5000}
+                    transitionTime={1000}
+                    dynamicHeight={false}
+                    stopOnHover={false}
+                    className="w-full zoom"
+                >
+                    {images.map((image, index) => (
+                        <div key={index} className="h-screen flex justify-center items-center relative">
+                            <Image
+                                src={image.src}
+                                layout="fill"
+                                objectFit="cover"
+                                className="filter brightness-50"
+                                alt={`Work ${index + 1}`}
+                            />
+                            <h3 className="text-white text-2xl mt-40  z-10 max-lg:">
+                                {image.title}
+                            </h3>
+                            <Link
+                                href={image.link}
+                                className="absolute bottom-40 mx-auto  bg-transparent border-2 border-white text-white py-2 px-4 rounded duration-200 hover:border-cyan-500 hover:text-cyan-500"
                             >
-                                {images.map((image, index) => (
-                                    <div key={index} className="h-screen flex justify-center items-center relative">
-                                        <Image
-                                            src={image.src}
-                                            layout="fill"
-                                            objectFit="cover"
-                                            className="filter brightness-50"
-                                            alt={`Work ${index + 1}`}
-                                        />
-                                        <h3 className="text-white text-2xl mt-40 mr-5 z-10 max-lg:mr-0">
-                                            {image.title}
-                                        </h3>
-                                        <Link
-                                            href={image.link}
-                                            className="absolute bottom-40 mx-auto mr-5 bg-transparent border-2 border-white text-white py-2 px-4 rounded duration-200 hover:border-cyan-500 hover:text-cyan-500 max-lg:mr-0"
-                                        >
-                                            See More
-                                        </Link>
-                                    </div>
-                                ))}
-                            </Carousel>
+                                See More
+                            </Link>
                         </div>
-                    ) : (
-                        <div className="zoom-container">
-                            <Carousel
-                                showArrows={false}
-                                showStatus={false}
-                                showIndicators={false}
-                                showThumbs={false}
-                                autoPlay
-                                infiniteLoop={false}
-                                interval={200}
-                                transitionTime={0}
-                                dynamicHeight={false}
-                                stopOnHover={false}
-                                className=""
-                                onChange={handleSlideshowChange}
-                            >
-                                {images.map((image, index) => (
-                                    <div key={index} className="h-screen w-screen flex justify-center items-center relative">
-                                        <Image
-                                            src={image.src}
-                                            layout="fill"
-                                            objectFit="cover"
-                                            className="filter brightness-75 transform transition-transform duration-500"
-                                            alt={`Work ${index + 1}`}
-                                        />
-                                    </div>
-                                ))}
-                            </Carousel>
-                        </div>
-                    )}
+                    ))}
+                </Carousel>
+            ) : (
+                <div className='zoom-container'>
+                    <Carousel
+                        showArrows={true}
+                        showStatus={false}
+                        showIndicators={true}
+                        showThumbs={true}
+                        autoPlay={true}
+                        infiniteLoop={false}
+                        interval={500}
+                        transitionTime={0}
+                        dynamicHeight={false}
+                        stopOnHover={false}
+                        className="w-full"
+                        onChange={handleSlideshowChange}
+                    >
+                        {images.map((image, index) => (
+                            <div key={index} className="h-screen w-screen flex justify-center items-center relative">
+                                <Image
+                                    src={image.src}
+                                    layout="fill"
+                                    objectFit="cover"
+                                    className="filter brightness-50 transform transition-transform duration-500"
+                                    alt={`Work ${index + 1}`}
+                                />
+                            </div>
+                        ))}
+                    </Carousel>
                 </div>
-            </div>
+            )}
             <div className="absolute z-10 text-center" data-aos="fade-in">
                 <h2 className="text-6xl text-white font-bold mb-8 max-md:text-3xl">
                     Creative Masterpieces
