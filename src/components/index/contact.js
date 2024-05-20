@@ -13,6 +13,8 @@ function Contact({ isDarkMode }) {
     const [captchaToken, setCaptchaToken] = useState(null);
     const [submitted, setSubmitted] = useState(false);
     const [recaptchaLoaded, setRecaptchaLoaded] = useState(false);
+    const [buttonText, setButtonText] = useState('Send');
+    const [isSending, setIsSending] = useState(false);
 
     useEffect(() => {
         const loadRecaptcha = () => {
@@ -37,6 +39,17 @@ function Contact({ isDarkMode }) {
         loadRecaptcha();
     }, []);
 
+    useEffect(() => {
+        if (isSending) {
+            let dots = 0;
+            const interval = setInterval(() => {
+                setButtonText(`Sending${'.'.repeat(dots % 3 + 1)}`);
+                dots += 1;
+            }, 500);
+            return () => clearInterval(interval);
+        }
+    }, [isSending]);
+
     const handleChange = (e) => {
         const { name, value } = e.target;
         setFormData({ ...formData, [name]: value });
@@ -48,6 +61,8 @@ function Contact({ isDarkMode }) {
             alert('reCAPTCHA not yet loaded. Please try again.');
             return;
         }
+
+        setIsSending(true);
 
         try {
             const token = await window.grecaptcha.enterprise.execute(process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY, { action: 'contact_form_submission' });
@@ -69,6 +84,9 @@ function Contact({ isDarkMode }) {
             }
         } catch (error) {
             console.error('Form submission error:', error);
+        } finally {
+            setIsSending(false);
+            setButtonText('Send');
         }
     };
 
@@ -81,7 +99,7 @@ function Contact({ isDarkMode }) {
                 position: 'relative',
                 overflow: 'hidden',
             }}
-            className="px-4 z-10 duration-200"
+            className="px-4 z-10 duration-200 h-screen"
         >
             <div
                 style={{
@@ -154,8 +172,9 @@ function Contact({ isDarkMode }) {
                         <button
                             type="submit"
                             className="px-6 py-2 bg-blue-600 text-white rounded-md w-full hover:bg-blue-700 transition-colors duration-200"
+                            disabled={isSending}
                         >
-                            Send
+                            {buttonText}
                         </button>
                     </form>
                 )}
