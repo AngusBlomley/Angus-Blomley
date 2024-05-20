@@ -1,11 +1,11 @@
 import React, { useState, useEffect, useRef } from 'react';
-import Image from 'next/image';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import { Carousel } from 'react-responsive-carousel';
 import '../../app/globals.css';
 import Link from 'next/link';
+import Image from 'next/image';
 
 function Work({ isDarkMode }) {
     const [showMainCarousel, setShowMainCarousel] = useState(false);
@@ -39,16 +39,19 @@ function Work({ isDarkMode }) {
     const backgroundColor = isDarkMode ? 'var(--background-color-dark)' : 'var(--background-color-light)';
     const color = isDarkMode ? 'var(--foreground-color-dark)' : 'var(--foreground-color-light)';
 
-    const images = [
-        { src: '/images/work/stringbox.png', link: '/work/stringBox', title: 'String Box Project' },
-        { src: '/images/work/cst.jpg', link: '/work/celestialStarTracker', title: 'Final Major Project' },
-        { src: '/images/work/meetly.png', link: '/work/meetly', title: 'Meetly' },
-        { src: '/images/work/befirst.png', link: '/work/beFirst', title: 'Be First Campaign' },
-        { src: '/images/work/misuzu.png', link: '/work/misuzuPortfolio', title: 'Misuzu Collaboration' }
+
+    {/*{ type: 'image', src: '/images/work/stringbox.png', link: '/work/stringBox', title: 'String Box Project' },*/ }
+    {/*{ type: 'image', src: '/images/work/befirst.png', link: '/work/beFirst', title: 'Be First Campaign' },*/ }
+    const media = [
+        { type: 'video', src: '/videos/stringBox.mp4', link: '/work/stringBox', title: 'String Box Project' },
+        { type: 'image', src: '/images/work/cst.jpg', link: '/work/celestialStarTracker', title: 'Final Major Project' },
+        { type: 'video', src: '/videos/meetly.mp4', link: '/work/meetly', title: 'Meetly' },
+        { type: 'video', src: '/videos/beFirst.mp4', link: '/work/beFirst', title: 'Be First Barking Heritage Videos' },
+        { type: 'image', src: '/images/work/misuzu.png', link: '/work/misuzuPortfolio', title: 'Misuzu Collaboration' },
     ];
 
     const handleSlideshowChange = (index) => {
-        if (index === images.length - 1) {
+        if (index === media.length - 1) {
             setSlideshowCompleted(true);
         }
     };
@@ -76,21 +79,32 @@ function Work({ isDarkMode }) {
                     stopOnHover={false}
                     className="w-full zoom"
                 >
-                    {images.map((image, index) => (
+                    {media.map((item, index) => (
                         <div key={index} className="h-screen flex justify-center items-center relative">
-                            <Image
-                                src={image.src}
-                                layout="fill"
-                                objectFit="cover"
-                                className="filter brightness-50"
-                                alt={`Work ${index + 1}`}
-                            />
-                            <h3 className="text-white text-2xl mt-40  z-10 max-lg:">
-                                {image.title}
+                            {item.type === 'image' ? (
+                                <Image
+                                    src={item.src}
+                                    className="w-full h-full object-cover filter brightness-50"
+                                    alt={`Work ${index + 1}`}
+                                    width={1920}
+                                    height={1080}
+                                />
+                            ) : (
+                                <video
+                                    src={item.src}
+                                    className="w-full h-full object-cover filter brightness-50"
+                                    autoPlay
+                                    loop
+                                    muted
+                                    alt={`Work ${index + 1}`}
+                                />
+                            )}
+                            <h3 className="absolute text-white text-2xl mt-40 z-10 max-lg:">
+                                {item.title}
                             </h3>
                             <Link
-                                href={image.link}
-                                className="absolute bottom-40 mx-auto  bg-transparent border-2 border-white text-white py-2 px-4 rounded duration-200 hover:border-cyan-500 hover:text-cyan-500"
+                                href={item.link}
+                                className="absolute bottom-40 mx-auto bg-transparent border-2 border-white text-white py-2 px-4 rounded duration-200 hover:border-cyan-500 hover:text-cyan-500"
                             >
                                 See More
                             </Link>
@@ -113,15 +127,26 @@ function Work({ isDarkMode }) {
                         className="w-full"
                         onChange={handleSlideshowChange}
                     >
-                        {images.map((image, index) => (
+                        {media.map((item, index) => (
                             <div key={index} className="h-screen w-screen flex justify-center items-center relative">
-                                <Image
-                                    src={image.src}
-                                    layout="fill"
-                                    objectFit="cover"
-                                    className="filter brightness-50 transform transition-transform duration-500"
-                                    alt={`Work ${index + 1}`}
-                                />
+                                {item.type === 'image' ? (
+                                    <Image
+                                        src={item.src}
+                                        className="w-full h-full object-cover filter brightness-50 transform transition-transform duration-500"
+                                        alt={`Work ${index + 1}`}
+                                        width={1920}
+                                        height={1080}
+                                    />
+                                ) : (
+                                    <video
+                                        src={item.src}
+                                        className="w-full h-full object-cover filter brightness-50"
+                                        autoPlay
+                                        loop
+                                        muted
+                                        alt={`Work ${index + 1}`}
+                                    />
+                                )}
                             </div>
                         ))}
                     </Carousel>

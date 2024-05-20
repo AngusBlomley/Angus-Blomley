@@ -24,17 +24,13 @@ const StringBox = () => {
             <div id="stringBox" data-aos="fade-in" style={{ backgroundColor, color, minHeight: '100vh', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: '2rem' }}>
                 <div className="container mx-auto px-4 py-8">
                     <h1 className="text-4xl mt-10 font-bold mb-4">StringBox - Restringing and Ecommerce Website (In Development )</h1>
-                    <p className="text-lg mb-4">
+                    <p className="text-lg mb-4 ">
                         Welcome to StringBox, a template for anyone who wants to provide an online stringing service.
                         This page demonstrates the work I've done on this project, including the technology stack used
                         and key features implemented.
                     </p>
 
-                    <div className="mb-8">
-                        <a href="https://string-box.vercel.app" className="text-blue-500 underline">Visit StringBox</a>
-                    </div>
-
-                    <section className="mb-8">
+                    <section className="pb-8 border-b border-opacity-10 border-gray-100">
                         <h2 className="text-2xl font-semibold mb-2">Project Overview</h2>
                         <p>
                             StringBox is an ecommerce website designed for a sole trader offering restringing services.
@@ -43,8 +39,8 @@ const StringBox = () => {
                         </p>
                     </section>
 
-                    <div className='grid mt-20 border-b border-opacity-10 border-gray-100'>
-                        <section className=" h-full mb-8 col-start-1 self-center pr-8 p-b">
+                    <div className='grid border-b border-opacity-10 border-gray-100'>
+                        <section className=" h-full pt-8 col-start-1 self-center pr-8">
                             <h2 className="text-2xl font-semibold mb-2">Technology Stack</h2>
                             <ul className="list-disc pl-5">
                                 <li>Next.js for the frontend framework</li>
@@ -65,15 +61,23 @@ const StringBox = () => {
                                 <li>RESTful API for managing orders and services</li>
                                 <li>Admin dashboard for managing products and orders</li>
                             </ul>
+                            <div className="mb-8 mt-16 flex justify-center">
+                                <a href="https://string-box.vercel.app" className="text-white text-lg bg-blue-500 px-4 py-4 rounded hover:bg-blue-700 w-full text-center">Visit StringBox</a>
+                            </div>
                         </section>
-                        <section className='col-start-2 row-span-1 row-start-1 border-l pl-8 pb-8 border-opacity-10 border-gray-100'>
-                            <Image
-                                alt="StringBox Website"
-                                src="/images/work/stringbox.png"
-                                width={960}
-                                height={480}
-                                className='w-full'
-                            />
+                        <section className='col-start-2 row-span-1 row-start-1 border-l pt-8 pl-8 pb-8 border-opacity-10 border-gray-100'>
+                            <a href="https://string-box.vercel.app" className='filter hover:brightness-75 duration-200'>
+                                <video
+                                    alt="StringBox Website"
+                                    src="/videos/stringBoxWeb.mp4"
+                                    autoPlay
+                                    muted
+                                    loop
+                                    width={960}
+                                    height={480}
+                                    className='w-full'
+                                />
+                            </a>
                         </section>
                     </div>
 
@@ -147,7 +151,7 @@ const StringBox = () => {
                         </p>
                     </section>
                 </div>
-            </div>
+            </div >
         </>
     );
 };

@@ -3,8 +3,9 @@ import React, { useState, useEffect } from 'react';
 import HeaderGlobal from '@/components/globals/headerGlobal';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import Image from 'next/image';
 
-const StringBox = () => {
+const Meetly = () => {
     const [isDarkMode, setIsDarkMode] = useState(false);
     const toggleDarkMode = () => setIsDarkMode(!isDarkMode);
     const backgroundColor = isDarkMode ? 'var(--background-color-dark)' : 'var(--background-color-light)';
@@ -20,16 +21,16 @@ const StringBox = () => {
     return (
         <>
             <HeaderGlobal isDarkMode={isDarkMode} toggleDarkMode={toggleDarkMode} />
-            <div data-aos="fade-in" >
-                <div id="stringBox" className="container mx-auto px-10 py-8 mt-16" style={{ backgroundColor, color }}>
-                    <h1 className="text-4xl font-bold mb-4">StringBox - Restringing and Ecommerce Website</h1>
-                    <p className="text-lg mb-4">
+            <div id="stringBox" data-aos="fade-in" style={{ backgroundColor, color, minHeight: '100vh', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: '2rem' }}>
+                <div className="container mx-auto px-4 py-8">
+                    <h1 className="text-4xl mt-10 font-bold mb-4">StringBox - Restringing and Ecommerce Website (In Development )</h1>
+                    <p className="text-lg mb-4 ">
                         Welcome to StringBox, a template for anyone who wants to provide an online stringing service.
                         This page demonstrates the work I've done on this project, including the technology stack used
                         and key features implemented.
                     </p>
 
-                    <section className="mb-8">
+                    <section className="pb-8 border-b border-opacity-10 border-gray-100">
                         <h2 className="text-2xl font-semibold mb-2">Project Overview</h2>
                         <p>
                             StringBox is an ecommerce website designed for a sole trader offering restringing services.
@@ -38,32 +39,59 @@ const StringBox = () => {
                         </p>
                     </section>
 
-                    <section className="mb-8">
-                        <h2 className="text-2xl font-semibold mb-2">Technology Stack</h2>
-                        <ul className="list-disc pl-5">
-                            <li>Next.js for the frontend framework</li>
-                            <li>Redux Toolkit for state management</li>
-                            <li>Stripe for payment processing</li>
-                            <li>MongoDB and Mongoose for database management</li>
-                            <li>NextAuth.js for authentication</li>
-                            <li>Axios for making HTTP requests</li>
-                            <li>Nodemailer for email notifications</li>
-                            <li>Tailwind CSS for styling</li>
-                        </ul>
-                    </section>
+                    <div className='grid border-b border-opacity-10 border-gray-100'>
+                        <section className=" h-full pt-8 col-start-1 self-center pr-8">
+                            <h2 className="text-2xl font-semibold mb-2">Technology Stack</h2>
+                            <ul className="list-disc pl-5">
+                                <li>Next.js for the frontend framework</li>
+                                <li>Redux Toolkit for state management</li>
+                                <li>Stripe for payment processing</li>
+                                <li>MongoDB and Mongoose for database management</li>
+                                <li>NextAuth.js for authentication</li>
+                                <li>Axios for making HTTP requests</li>
+                                <li>Nodemailer for email notifications</li>
+                                <li>Tailwind CSS for styling</li>
+                            </ul>
 
-                    <section className="mb-8">
-                        <h2 className="text-2xl font-semibold mb-2">Key Features</h2>
-                        <ul className="list-disc pl-5">
-                            <li>Secure authentication and authorization using NextAuth.js</li>
-                            <li>Payment integration with Stripe</li>
-                            <li>Responsive design with Tailwind CSS</li>
-                            <li>RESTful API for managing orders and services</li>
-                            <li>Admin dashboard for managing products and orders</li>
-                        </ul>
-                    </section>
+                            <h2 className="text-2xl font-semibold mb-2 mt-8">Key Features</h2>
+                            <ul className="list-disc pl-5">
+                                <li>Secure authentication and authorization using NextAuth.js</li>
+                                <li>Payment integration with Stripe</li>
+                                <li>Responsive design with Tailwind CSS</li>
+                                <li>RESTful API for managing orders and services</li>
+                                <li>Admin dashboard for managing products and orders</li>
+                            </ul>
+                            <div className="mb-8 mt-16 flex justify-center">
+                                <a
+                                    href="https://meetly-zeta.vercel.app/"
+                                    className="text-white text-lg bg-blue-500 px-4 py-4 rounded hover:bg-blue-700 w-full text-center"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >Visit StringBox</a>
+                            </div>
+                        </section>
+                        <section className='col-start-2 row-span-1 row-start-1 border-l pt-8 pl-8 pb-8 border-opacity-10 border-gray-100'>
+                            <a
+                                href="https://meetly-zeta.vercel.app/"
+                                className='filter hover:brightness-75 duration-200'
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                <video
+                                    alt="StringBox Website"
+                                    src="/videos/meetly.mp4"
+                                    autoPlay
+                                    muted
+                                    loop
+                                    width={960}
+                                    height={480}
+                                    className='w-full'
+                                />
+                            </a>
+                        </section>
+                    </div>
 
-                    <section className="mb-8">
+                    <section className="mb-8 mt-8">
                         <h2 className="text-2xl font-semibold mb-2">Dependencies</h2>
                         <pre className="p-4 rounded-md">
                             <code>
@@ -116,17 +144,26 @@ const StringBox = () => {
                         </pre>
                     </section>
 
-                    <div>
+                    <div className="mb-8">
                         <h2 className="text-2xl font-semibold mb-2">Deployment</h2>
                         <p>
                             This project is deployed on Vercel, leveraging its powerful deployment platform for Next.js applications.
                             Vercel provides automatic scaling, a global CDN, and easy-to-configure deployment settings.
                         </p>
                     </div>
+
+                    <section className="mb-8">
+                        <h2 className="text-2xl font-semibold mb-2">Database Information</h2>
+                        <p>
+                            StringBox uses MongoDB as its primary database, managed with Mongoose. MongoDB provides a flexible,
+                            scalable, and high-performance data storage solution. The combination of MongoDB and Mongoose
+                            ensures efficient data modeling, schema validation, and seamless integration with the application.
+                        </p>
+                    </section>
                 </div>
             </div>
         </>
     );
 };
 
-export default StringBox;
+export default Meetly;

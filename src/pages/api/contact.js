@@ -1,5 +1,7 @@
 import { RecaptchaEnterpriseServiceClient } from '@google-cloud/recaptcha-enterprise';
 import nodemailer from 'nodemailer';
+import fs from 'fs';
+import path from 'path';
 
 // Ensure all environment variables are loaded
 const projectID = process.env.GOOGLE_CLOUD_PROJECT;
@@ -7,6 +9,17 @@ const recaptchaSiteKey = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY;
 const recaptchaAction = 'contact_form_submission';
 const smtpUser = process.env.SMTP_USER;
 const smtpPass = process.env.SMTP_PASS;
+
+// Decode the GOOGLE_APPLICATION_CREDENTIALS_BASE64 and set GOOGLE_APPLICATION_CREDENTIALS
+if (process.env.GOOGLE_APPLICATION_CREDENTIALS_BASE64) {
+    const googleCredentialsBase64 = process.env.GOOGLE_APPLICATION_CREDENTIALS_BASE64;
+    const googleCredentialsPath = path.join(process.env.TEMP || '/tmp', 'google-credentials.json');
+    fs.writeFileSync(googleCredentialsPath, Buffer.from(googleCredentialsBase64, 'base64'));
+
+    process.env.GOOGLE_APPLICATION_CREDENTIALS = googleCredentialsPath;
+} else {
+    console.error('Missing GOOGLE_APPLICATION_CREDENTIALS_BASE64 environment variable');
+}
 
 async function createAssessment(token) {
     const client = new RecaptchaEnterpriseServiceClient();
