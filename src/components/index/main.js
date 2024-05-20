@@ -134,7 +134,7 @@ function Main() {
                                 Resume
                             </Link>
                             <Link
-                                href="/work/stringBox"
+                                href="/work/meetly"
                                 className="inline-block bg-inherit border opacity-75 border-inherit p-2.5 no-underline duration-200 hover:opacity-100 col-span-1 lg:col-start-1 lg:row-start-4"
                             >
                                 Meetly
