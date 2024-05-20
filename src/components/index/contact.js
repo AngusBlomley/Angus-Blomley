@@ -20,7 +20,7 @@ function Contact({ isDarkMode }) {
         const loadRecaptcha = () => {
             if (!document.querySelector('script[src*="recaptcha"]')) {
                 const script = document.createElement('script');
-                script.src = `https://www.google.com/recaptcha/enterprise.js?render=${process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}`;
+                script.src = `https://www.google.com/recaptcha/enterprise.js?render=${process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}&badge=inline`;
                 script.onload = () => {
                     if (window.grecaptcha && window.grecaptcha.enterprise) {
                         window.grecaptcha.enterprise.ready(() => {
@@ -38,6 +38,7 @@ function Contact({ isDarkMode }) {
 
         loadRecaptcha();
     }, []);
+
 
     useEffect(() => {
         if (isSending) {
@@ -99,7 +100,7 @@ function Contact({ isDarkMode }) {
                 position: 'relative',
                 overflow: 'hidden',
             }}
-            className="px-4 z-10 duration-200 h-screen"
+            className="px-4 z-10 duration-200 h-screen max-md:h-full"
         >
             <div
                 style={{
