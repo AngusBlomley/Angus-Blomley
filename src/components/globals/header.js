@@ -63,8 +63,8 @@ function Header({ isDarkMode, toggleDarkMode }) {
             ]
         },
         { id: 'contact', name: 'Contact', icon: <FaEnvelope /> },
-        { id: 'skills', name: 'Skills', icon: <FaStar /> },
-        { id: 'resume', name: 'Resume', icon: <FaFileDownload /> },
+        {/*{ id: 'skills', name: 'Skills', icon: <FaStar /> },
+        { id: 'resume', name: 'Resume', icon: <FaFileDownload /> },*/}
     ];
 
     const backgroundColor = isDarkMode ? 'var(--background-color-dark)' : 'var(--background-color-light)';

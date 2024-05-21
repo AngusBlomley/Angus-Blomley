@@ -30,8 +30,8 @@ function HeaderGlobal({ isDarkMode, toggleDarkMode }) {
             ]
         },
         { id: 'contact', link: '/#contact', name: 'Contact', icon: <FaEnvelope /> },
-        { id: 'skills', link: '/#skills', name: 'Skills', icon: <FaStar /> },
-        { id: 'resume', link: '/resume.pdf', name: 'Resume', icon: <FaFileDownload /> },
+        {/*{ id: 'skills', link: '/#skills', name: 'Skills', icon: <FaStar /> },
+        { id: 'resume', link: '/resume.pdf', name: 'Resume', icon: <FaFileDownload /> },*/}
     ];
 
     const backgroundColor = isDarkMode ? 'white' : 'black';
