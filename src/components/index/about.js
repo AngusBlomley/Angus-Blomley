@@ -36,6 +36,9 @@ function About({ isDarkMode }) {
                     As a former competitive springboard diver, I enjoy challenging outdoor activities and thrive in like-minded company. My adventurous spirit drives me to explore new places and constantly push my limits.
                 </p>
                 <p className="text-lg leading-relaxed" data-aos="fade-up" data-aos-delay="400">
+                    Based on my 16Personalities test results, I am an INTJ (Architect).
+                </p>
+                <p className="text-lg mb-6 leading-relaxed" data-aos="fade-up" data-aos-delay="400">
                     Feel free to explore my work, and don't hesitate to reach out if you'd like to collaborate or have a chat!
                 </p>
             </div>

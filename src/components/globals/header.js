@@ -7,14 +7,12 @@ import DarkModeToggle from './darkMode';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
-
 function Header({ isDarkMode, toggleDarkMode }) {
     const [menuVisible, setMenuVisible] = useState(false);
 
     useEffect(() => {
         AOS.init({ duration: 1000, delay: 4000 });
     }, []);
-
 
     useEffect(() => {
         const headerElement = document.querySelector('header');
@@ -55,7 +53,15 @@ function Header({ isDarkMode, toggleDarkMode }) {
         { id: 'home', name: 'Home', icon: <FaHome /> },
         { id: 'about', name: 'About', icon: <FaInfo /> },
         { id: 'education', name: 'Education', icon: <FaGraduationCap /> },
-        { id: 'work', name: 'Work', icon: <FaBriefcase /> },
+        {
+            id: 'work', name: 'Work', icon: <FaBriefcase />, subLinks: [
+                { name: 'Re-String Box', link: '/work/stringBox' },
+                { name: 'Celestial Star Tracker', link: '/work/celestialStarTracker' },
+                { name: 'Meetly', link: '/work/meetly' },
+                { name: 'Be First', link: '/work/beFirst' },
+                { name: `Misuzu's Portfolio`, link: '/work/misuzuPortfolio' },
+            ]
+        },
         { id: 'contact', name: 'Contact', icon: <FaEnvelope /> },
         { id: 'skills', name: 'Skills', icon: <FaStar /> },
         { id: 'resume', name: 'Resume', icon: <FaFileDownload /> },
@@ -71,14 +77,25 @@ function Header({ isDarkMode, toggleDarkMode }) {
                 </Link>
                 <nav className="hidden lg:flex space-x-6 items-center">
                     {sections.map(section => (
-                        <Link key={section.id} href={`#${section.id}`} passHref>
-                            <div
-                                className="opacity-50 no-underline transition duration-100 hover:opacity-100 cursor-pointer"
-                                onClick={section.onClick ? section.onClick : null}
-                            >
-                                {section.name}
-                            </div>
-                        </Link>
+                        <div key={section.id} className="relative group">
+                            <Link href={`#${section.id}`} passHref>
+                                <div
+                                    className="opacity-50 no-underline transition duration-100 hover:opacity-100 cursor-pointer"
+                                    onClick={section.onClick ? section.onClick : null}
+                                >
+                                    {section.name}
+                                </div>
+                            </Link>
+                            {section.subLinks && (
+                                <div className="absolute p-5 -left-2 mt-0 w-64 shadow-lg rounded-lg hidden group-hover:block transition-opacity duration-200" style={{ backgroundColor }}>
+                                    {section.subLinks.map(subLink => (
+                                        <Link key={subLink.name} href={subLink.link} passHref>
+                                            <div className="p-2 cursor-pointer opacity-50 hover:opacity-100">{subLink.name}</div>
+                                        </Link>
+                                    ))}
+                                </div>
+                            )}
+                        </div>
                     ))}
                     <div className="flex space-x-4 items-center">
                         <a href="https://github.com/AngusBlomley" target="_blank" rel="noopener noreferrer" className="duration-200 opacity-50 hover:opacity-100"><FaGithub /></a>
@@ -109,6 +126,17 @@ function Header({ isDarkMode, toggleDarkMode }) {
                                         <span className="ml-2">{section.name}</span>
                                     </div>
                                 </Link>
+                                {section.subLinks && (
+                                    <ul className="ml-4">
+                                        {section.subLinks.map(subLink => (
+                                            <li key={subLink.name}>
+                                                <Link href={subLink.link} passHref>
+                                                    <div className="p-2 cursor-pointer opacity-50 hover:opacity-100">{subLink.name}</div>
+                                                </Link>
+                                            </li>
+                                        ))}
+                                    </ul>
+                                )}
                             </li>
                         ))}
                         <li className="px-4 no-underline flex items-center">

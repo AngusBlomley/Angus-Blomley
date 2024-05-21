@@ -193,7 +193,7 @@ body.dark-mode #links a {
   animation: initial-zoom 2.5s ease-in-out forwards;
   position: relative;
   width: 100%;
-  height: calc(100vh - 72px); /* Adjust based on your navbar height if you have one */
+  height: calc(100vh - 72px); 
   overflow: hidden;
 }
 
@@ -206,6 +206,9 @@ body.dark-mode #links a {
   display: none;
 }
 
+body.menu-open {
+  overflow: hidden;
+}
 
 @keyframes fadeIn {
   from {

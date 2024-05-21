@@ -1,6 +1,7 @@
 /* eslint-disable react/no-unescaped-entities */
 import React, { useState, useEffect } from 'react';
 import HeaderGlobal from '@/components/globals/headerGlobal';
+import Footer from '@/components/globals/footer';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import Image from 'next/image';
@@ -21,137 +22,256 @@ const BeFirst = () => {
     return (
         <>
             <HeaderGlobal isDarkMode={isDarkMode} toggleDarkMode={toggleDarkMode} />
-            <div id="stringBox" data-aos="fade-in" style={{ backgroundColor, color, minHeight: '100vh', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: '2rem' }}>
+            <div id="BeFirst" data-aos="fade-in" style={{ backgroundColor, color }}>
                 <div className="container mx-auto px-4 py-8">
-                    <h1 className="text-4xl mt-10 font-bold mb-4">StringBox - Restringing and Ecommerce Website (In Development )</h1>
-                    <p className="text-lg mb-4 ">
-                        Welcome to StringBox, a template for anyone who wants to provide an online stringing service.
-                        This page demonstrates the work I've done on this project, including the technology stack used
-                        and key features implemented.
+                    <h1 className="text-4xl mt-16 font-bold mb-4">Advent Delights: Digital Heritage Exhibition</h1>
+                    <p className="text-lg">
+                        Welcome to 'Advent Delights', a digital heritage exhibition project celebrating Barking's rich history. This project, funded by The National Lottery Heritage Fund and managed by Be First, aims to create a digital version of our physical heritage exhibition. This page demonstrates the work I've done on this project, including the technology stack used and key features implemented.
+                        <a
+                            href="https://yourcall.befirst.london/our-barking-digital-heritage-exhibition"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-blue-500 hover:text-blue-700"
+                        >
+                            <span> Learn more about the Barking Heritage Project.</span>
+                        </a>
                     </p>
 
-                    <section className="pb-8 border-b border-opacity-10 border-gray-100">
-                        <h2 className="text-2xl font-semibold mb-2">Project Overview</h2>
-                        <p>
-                            StringBox is an ecommerce website designed for a sole trader offering restringing services.
-                            The site allows users to book services, purchase products, and manage orders seamlessly.
-                            It's built with a modern tech stack to ensure scalability, performance, and a great user experience.
-                        </p>
-                    </section>
-
-                    <div className='grid border-b border-opacity-10 border-gray-100'>
-                        <section className=" h-full pt-8 col-start-1 self-center pr-8">
-                            <h2 className="text-2xl font-semibold mb-2">Technology Stack</h2>
-                            <ul className="list-disc pl-5">
-                                <li>Next.js for the frontend framework</li>
-                                <li>Redux Toolkit for state management</li>
-                                <li>Stripe for payment processing</li>
-                                <li>MongoDB and Mongoose for database management</li>
-                                <li>NextAuth.js for authentication</li>
-                                <li>Axios for making HTTP requests</li>
-                                <li>Nodemailer for email notifications</li>
-                                <li>Tailwind CSS for styling</li>
-                            </ul>
-
-                            <h2 className="text-2xl font-semibold mb-2 mt-8">Key Features</h2>
-                            <ul className="list-disc pl-5">
-                                <li>Secure authentication and authorization using NextAuth.js</li>
-                                <li>Payment integration with Stripe</li>
-                                <li>Responsive design with Tailwind CSS</li>
-                                <li>RESTful API for managing orders and services</li>
-                                <li>Admin dashboard for managing products and orders</li>
-                            </ul>
-                            <div className="mb-8 mt-16 flex justify-center">
-                                <a href="https://meetly-zeta.vercel.app/" className="text-white text-lg bg-blue-500 px-4 py-4 rounded hover:bg-blue-700 w-full text-center">Visit StringBox</a>
-                            </div>
+                    <div className="grid grid-cols-3 border-b border-opacity-10 border-gray-100 max-2xl:col-span-2 max-lg:grid-cols-1">
+                        <section className="pb-8 pt-8 pr-8 border-b border-opacity-10 border-gray-100 col-span-3 max-2xl:col-span-1">
+                            <h2 className="text-2xl font-semibold mb-2">Project Overview</h2>
+                            <p>
+                                The 'Advent Delights' project involved creating 24 one-minute videos, each highlighting an item or theme from the heritage exhibition. These videos were shared daily on social media throughout December, culminating in a full 24-minute film embedded on the project webpage.
+                            </p>
                         </section>
-                        <section className='col-start-2 row-span-1 row-start-1 border-l pt-8 pl-8 pb-8 border-opacity-10 border-gray-100'>
-                            <a href="https://meetly-zeta.vercel.app/" className='filter hover:brightness-75 duration-200'>
+
+                        <section className="h-full pt-8 pr-8 grid-cols-1 max-lg:row-start-2 border-b border-gray-100 border-opacity-10 max-2xl:pb-8">
+                            <h2 className="text-2xl font-semibold mb-2">Technology and Skills</h2>
+                            <ul className="list-disc pl-5">
+                                <li>Adobe Premiere Pro for video editing</li>
+                                <li>Adobe After Effects for animations</li>
+                                <li>Audio editing software for sound quality enhancement</li>
+                                <li>Subtitling and captioning tools</li>
+                                <li>Team collaboration and communication tools</li>
+                            </ul>
+                        </section>
+
+                        <section className="h-full pr-8 pt-8 row-start-3 max-2xl:pb-8 max-2xl:row-start-1 max-2xl:col-end-3 max-lg:row-start-3 max-lg:col-start-1 border-b border-gray-100 border-opacity-10 max-lg:pb-8 max-2xl:pt-8">
+                            <h2 className="text-2xl font-semibold mb-2">Key Features</h2>
+                            <ul className="list-disc pl-5">
+                                <li>Production of 24 one-minute heritage videos</li>
+                                <li>Daily video releases on social media during December</li>
+                                <li>Final compilation of a 24-minute film for the project webpage</li>
+                                <li>High-quality video and audio editing with subtitles</li>
+                                <li>Integration of logos and weblinks in video content</li>
+                                <li>Collaboration with volunteers for voice-overs and content creation</li>
+                            </ul>
+                        </section>
+
+                        <section className="border-l pt-8 pl-8 pb-8 border-opacity-10 border-gray-100 row-span-2 col-span-2 max-2xl:col-span-3 max-2xl:border-none max-2xl:px-0">
+                            <a
+                                href="https://yourcall.befirst.london/our-barking-digital-heritage-exhibition"
+                                className="filter hover:brightness-75 duration-200"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
                                 <video
-                                    alt="StringBox Website"
+                                    alt="Advent Delights Project"
                                     src="/videos/beFirst.mp4"
                                     autoPlay
                                     muted
                                     loop
                                     width={960}
                                     height={480}
-                                    className='w-full'
+                                    className="w-full"
                                 />
                             </a>
                         </section>
                     </div>
+                    <div className="grid grid-cols-6 grid-rows-2 mt-8 max-lg:grid-cols-1">
+                        <section className="row-span-full col-span-3 col-start-1 max-lg:row-start-3 max-lg:row-span-1 pt-8 border-r border-gray-100 border-opacity-10 bg-gray-100 bg-opacity-20 max-2xl:col-span-3">
+                            <h2 className="text-2xl font-semibold mb-2 pl-4">Video Releases</h2>
+                            <div className="p-4">
+                                <table className="table-auto w-full">
+                                    <thead>
+                                        <tr>
+                                            <th className="px-4 py-2">Day</th>
+                                            <th className="px-4 py-2">Exhibition Treat</th>
+                                            <th className="px-4 py-2">Talking</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td className="border px-4 py-2">1</td>
+                                            <td className="border px-4 py-2">River Roding - board/banner</td>
+                                            <td className="border px-4 py-2">G or Eric</td>
+                                        </tr>
+                                        <tr>
+                                            <td className="border px-4 py-2">2</td>
+                                            <td className="border px-4 py-2">Windmill - picture/postcard</td>
+                                            <td className="border px-4 py-2">Felicity</td>
+                                        </tr>
+                                        <tr>
+                                            <td className="border px-4 py-2">3</td>
+                                            <td className="border px-4 py-2">Abbey - board, model, objects</td>
+                                            <td className="border px-4 py-2">Alex</td>
+                                        </tr>
+                                        <tr>
+                                            <td className="border px-4 py-2">4</td>
+                                            <td className="border px-4 py-2">St Margaret's Church, model, board</td>
+                                            <td className="border px-4 py-2">Alex</td>
+                                        </tr>
+                                        <tr>
+                                            <td className="border px-4 py-2">5</td>
+                                            <td className="border px-4 py-2">Curfew Tower- model, board</td>
+                                            <td className="border px-4 py-2">SP</td>
+                                        </tr>
+                                        <tr>
+                                            <td className="border px-4 py-2">6</td>
+                                            <td className="border px-4 py-2">Back Lane/Axe St/Heath St - pics on board, model?</td>
+                                            <td className="border px-4 py-2">SP/G/Eric</td>
+                                        </tr>
+                                        <tr>
+                                            <td className="border px-4 py-2">7</td>
+                                            <td className="border px-4 py-2">Leet House /Markets - board, objects?</td>
+                                            <td className="border px-4 py-2">Sue/Sp</td>
+                                        </tr>
+                                        <tr>
+                                            <td className="border px-4 py-2">8</td>
+                                            <td className="border px-4 py-2">Broadway/theatres - board, objects?</td>
+                                            <td className="border px-4 py-2">Sue/Sp</td>
+                                        </tr>
+                                        <tr>
+                                            <td className="border px-4 py-2">9</td>
+                                            <td className="border px-4 py-2">Three Lamps/protest - board?</td>
+                                            <td className="border px-4 py-2">SP</td>
+                                        </tr>
+                                        <tr>
+                                            <td className="border px-4 py-2">10</td>
+                                            <td className="border px-4 py-2">Trams/Bascule Bridge - transport board pics, objects</td>
+                                            <td className="border px-4 py-2">Felicity</td>
+                                        </tr>
+                                        <tr>
+                                            <td className="border px-4 py-2">11</td>
+                                            <td className="border px-4 py-2">Fawley House/fishing - River/objects</td>
+                                            <td className="border px-4 py-2">Lesley</td>
+                                        </tr>
+                                        <tr>
+                                            <td className="border px-4 py-2">12</td>
+                                            <td className="border px-4 py-2">Barking Quay/Hewetts Quay? - River/transport, objects?</td>
+                                            <td className="border px-4 py-2">Eric/G</td>
+                                        </tr>
+                                        <tr>
+                                            <td className="border px-4 py-2">13</td>
+                                            <td className="border px-4 py-2">Jute works - River board, objects, jute, clogs, shawl etc</td>
+                                            <td className="border px-4 py-2">Felicity & Alex</td>
+                                        </tr>
+                                        <tr>
+                                            <td className="border px-4 py-2">14</td>
+                                            <td className="border px-4 py-2">Match Factory - objects</td>
+                                            <td className="border px-4 py-2">G</td>
+                                        </tr>
+                                        <tr>
+                                            <td className="border px-4 py-2">15</td>
+                                            <td className="border px-4 py-2">Bifrons/Vans/R whites - bottle, pics</td>
+                                            <td className="border px-4 py-2">Alex</td>
+                                        </tr>
+                                        <tr>
+                                            <td className="border px-4 py-2">16</td>
+                                            <td className="border px-4 py-2">Grand Homes - board, Cecil House?</td>
+                                            <td className="border px-4 py-2">Lesley</td>
+                                        </tr>
+                                        <tr>
+                                            <td className="border px-4 py-2">17</td>
+                                            <td className="border px-4 py-2">Dawson's Public offices/fire station/pool/park?</td>
+                                            <td className="border px-4 py-2">Alex?</td>
+                                        </tr>
+                                        <tr>
+                                            <td className="border px-4 py-2">18</td>
+                                            <td className="border px-4 py-2">Burton building - board, objects</td>
+                                            <td className="border px-4 py-2">SP</td>
+                                        </tr>
+                                        <tr>
+                                            <td className="border px-4 py-2">19</td>
+                                            <td className="border px-4 py-2">North Street - board/Workhouse</td>
+                                            <td className="border px-4 py-2">Lesley</td>
+                                        </tr>
+                                        <tr>
+                                            <td className="border px-4 py-2">20</td>
+                                            <td className="border px-4 py-2">Ripple Rd/Blake's corner - board, objects</td>
+                                            <td className="border px-4 py-2">Eric</td>
+                                        </tr>
+                                        <tr>
+                                            <td className="border px-4 py-2">21</td>
+                                            <td className="border px-4 py-2">Station/Station parade - transport board, objects</td>
+                                            <td className="border px-4 py-2">F or G</td>
+                                        </tr>
+                                        <tr>
+                                            <td className="border px-4 py-2">22</td>
+                                            <td className="border px-4 py-2">Central Hall/Wesleyan chapel/cinema?</td>
+                                            <td className="border px-4 py-2">Eric?</td>
+                                        </tr>
+                                        <tr>
+                                            <td className="border px-4 py-2">23</td>
+                                            <td className="border px-4 py-2">East Street - board objects</td>
+                                            <td className="border px-4 py-2">George</td>
+                                        </tr>
+                                        <tr>
+                                            <td className="border px-4 py-2">24</td>
+                                            <td className="border px-4 py-2">Worrickers sign, receipt, toys</td>
+                                            <td className="border px-4 py-2">George</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </section>
 
-                    <section className="mb-8 mt-8">
-                        <h2 className="text-2xl font-semibold mb-2">Dependencies</h2>
-                        <pre className="p-4 rounded-md">
-                            <code>
-                                {`{
-    "name": "string-box",
-    "version": "0.1.0",
-    "private": true,
-    "scripts": {
-        "dev": "next dev",
-        "build": "next build",
-        "start": "next start",
-        "lint": "next lint"
-    },
-    "dependencies": {
-        "@reduxjs/toolkit": "^2.2.3",
-        "@stripe/react-stripe-js": "^2.7.1",
-        "@stripe/stripe-js": "^3.4.0",
-        "autoprefixer": "^10.4.19",
-        "axios": "^1.6.8",
-        "bcryptjs": "^2.4.3",
-        "cors": "^2.8.5",
-        "dotenv": "^16.4.5",
-        "googleapis": "^137.1.0",
-        "jsonwebtoken": "^9.0.2",
-        "mongodb": "^6.6.1",
-        "mongoose": "^8.3.4",
-        "next": "^14.2.3",
-        "next-auth": "^4.24.7",
-        "nodemailer": "^6.9.13",
-        "pg": "^8.11.5",
-        "react": "^18",
-        "react-dom": "^18",
-        "react-redux": "^9.1.1",
-        "react-responsive": "^10.0.0",
-        "redux": "^5.0.1",
-        "redux-thunk": "^3.1.0",
-        "sharp": "^0.33.3",
-        "stripe": "^15.5.0"
-    },
-    "devDependencies": {
-        "@testing-library/react": "^15.0.4",
-        "eslint": "^8",
-        "eslint-config-next": "14.2.3",
-        "jest": "^29.7.0",
-        "postcss": "^8.4.38",
-        "tailwindcss": "^3.4.3"
-    }
-}`}
-                            </code>
-                        </pre>
-                    </section>
-
-                    <div className="mb-8">
-                        <h2 className="text-2xl font-semibold mb-2">Deployment</h2>
-                        <p>
-                            This project is deployed on Vercel, leveraging its powerful deployment platform for Next.js applications.
-                            Vercel provides automatic scaling, a global CDN, and easy-to-configure deployment settings.
-                        </p>
+                        <div className="p-8 max-lg:px-0 col-span-2 col-start-4 row-span-full max-2xl:col-span-3">
+                            <h2 className="text-2xl font-semibold mb-2">Deployment</h2>
+                            <p className="pb-8 border-b border-gray-100 border-opacity-10">
+                                This project involved deploying the videos on various social media platforms to reach the local community and heritage enthusiasts. The final compilation was embedded on the project's official webpage.
+                            </p>
+                            <h2 className="text-2xl font-semibold mb-2 pt-8">Technical Details</h2>
+                            <p className="pb-8 border-b border-gray-100 border-opacity-10">
+                                The project required extensive use of video editing software for creating high-quality videos, audio editing for clear and engaging narration, and animation tools for adding dynamic elements to the videos. Subtitles and captions were added to ensure accessibility.
+                            </p>
+                            <h2 className="text-2xl font-semibold mb-4 mt-8">Team Members</h2>
+                            <div className="team-member mb-8">
+                                <div className="flex items-center">
+                                    <div>
+                                        <h3 className="text-xl font-semibold">Angus Blomley</h3>
+                                        <p className="text-gray-500 w-full mt-2">Editor, Producer, Videographer</p>
+                                    </div>
+                                </div>
+                                <p className="mt-2">Responsible for video editing, adding subtitles, and coordinating with the team for content creation.</p>
+                            </div>
+                            <div className="team-member mb-8">
+                                <div className="flex items-center">
+                                    <div>
+                                        <h3 className="text-xl font-semibold">Harry Blomley</h3>
+                                        <p className="text-gray-500 w-full mt-2">Editor, Director, Videographer</p>
+                                    </div>
+                                </div>
+                                <p className="mt-2">Directed and filmed the heritage videos, collaborated on editing and production.</p>
+                            </div>
+                            <div className="team-member">
+                                <div className="flex items-center">
+                                    <div>
+                                        <h3 className="text-xl font-semibold">Simon Panayi</h3>
+                                        <p className="text-gray-500 w-full mt-2">Project Manager - Heritage Engagement Officer | Be First</p>
+                                    </div>
+                                </div>
+                                <p className="mt-2 pb-8 border-b border-gray-100 border-opacity-10">Managed the project, provided requirements, and coordinated feedback during the development process.</p>
+                            </div>
+                            <div className="flex row h-16 flex-wrap">
+                                <Image src="/images/icons/premiere-pro.webp" alt="Adobe Premiere Pro" width={50} height={50} className="my-2 py-2" />
+                                <Image src="/images/icons/photoshop.webp" alt="Adobe Photoshop" width={50} height={50} className="ml-2 my-2 py-2" />
+                            </div>
+                        </div>
                     </div>
-
-                    <section className="mb-8">
-                        <h2 className="text-2xl font-semibold mb-2">Database Information</h2>
-                        <p>
-                            StringBox uses MongoDB as its primary database, managed with Mongoose. MongoDB provides a flexible,
-                            scalable, and high-performance data storage solution. The combination of MongoDB and Mongoose
-                            ensures efficient data modeling, schema validation, and seamless integration with the application.
-                        </p>
-                    </section>
                 </div>
             </div>
+            <Footer />
         </>
     );
 };
