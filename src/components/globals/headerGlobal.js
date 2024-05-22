@@ -17,7 +17,7 @@ function HeaderGlobal({ isDarkMode, toggleDarkMode }) {
     };
 
     const sections = [
-        { id: 'home', link: '/#home', name: 'Home', icon: <FaHome /> },
+        { id: 'home', link: '/', name: 'Home', icon: <FaHome /> },
         { id: 'about', link: '/#about', name: 'About', icon: <FaInfo /> },
         { id: 'education', link: '/#education', name: 'Education', icon: <FaGraduationCap /> },
         {
@@ -30,14 +30,14 @@ function HeaderGlobal({ isDarkMode, toggleDarkMode }) {
             ]
         },
         { id: 'contact', link: '/#contact', name: 'Contact', icon: <FaEnvelope /> },
-        {/*{ id: 'skills', link: '/#skills', name: 'Skills', icon: <FaStar /> },
-        { id: 'resume', link: '/resume.pdf', name: 'Resume', icon: <FaFileDownload /> },*/}
+        { id: 'skills', link: '/#skills', name: 'Skills', icon: <FaStar /> },
+        { id: 'resume', link: '/resume.pdf', name: 'Resume', icon: <FaFileDownload /> },
     ];
 
     const backgroundColor = isDarkMode ? 'white' : 'black';
 
     return (
-        <header className="fixed flex justify-center w-full top-0 z-50 p-4 opacity-0 duration-200 max-lg:p-4" style={{ backgroundColor }} data-aos="fade-in">
+        <header className="fixed font-ibmPlexMono italic flex justify-center w-full top-0 z-50 p-4 opacity-0 duration-200 max-lg:p-4" style={{ backgroundColor }} data-aos="fade-in">
             <div className="flex w-10/12 items-center justify-between max-lg:w-full">
                 <Link href="/" passHref>
                     <h2 id="logo" className="text-3xl font-rubik font-bold opacity-75 hover:opacity-100 cursor-pointer no-underline">AB</h2>

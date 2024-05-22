@@ -210,7 +210,7 @@ skyfield==1.48`}
 
                             <div className='pt-8 pb-8 mb-8'>
                                 <div className="flex row h-16 flex-wrap">
-                                    <Image src="/images/icons/raspberryPi.webp" alt="Raspberry Pi" width={50} height={50} className="py-1" />
+                                    <Image src="/images/icons/raspberrypi.webp" alt="Raspberry Pi" width={50} height={50} className="py-1" />
                                     <Image src="/images/icons/arduino.webp" alt="Arduino" width={50} height={50} className="m-2" />
                                     <Image src="/images/icons/python.webp" alt="Python" width={50} height={50} className="m-2" />
                                     <Image src="/images/icons/fusion360.png" alt="Fusion 360" width={50} height={50} className="m-2" />

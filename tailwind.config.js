@@ -20,6 +20,8 @@ module.exports = {
         karla: ['Karla', 'sans-serif'],
         rubik: ['Rubik', 'sans-serif'],
         unispace: ['Unispace', 'sans-serif'],
+        hiraKakuPro: ['HiraKakuPro', 'sans-serif'],
+        ibmPlexMono: ['IBM Plex Mono', 'monospace']
       },
     },
   },

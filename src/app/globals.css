@@ -25,14 +25,16 @@ html, body {
 }
 
 :root {
+  --font-hiraKakuPro: font-family: 'HiraKakuPro', monospace;
+  --font-ibm-plex-mono-light: "IBM-Plex-Mono-Light", monospace;
+  --font-ibm-plex-mono-medium-italic: "IBM-Plex-Mono-Medium-Italic", monospace;
+  --font-angus: "Angus", monospace;
   --foreground-color-dark: rgb(0, 0, 0);
   --background-color-dark: rgb(255, 255, 255);
   --foreground-color-light: rgb(255, 255, 255);
-  --background-color-light: rgb(32, 32, 32);
+  --background-color-light: rgb(0, 0, 0);
   --bg-color-dark: rgba(255, 255, 255,  0.7);
   --bg-color-light: rgba(0, 0, 0, 0.7);
-  --background-image-dark: url('/images/index/background-white-native.jpg');
-  --background-image-light: url('/images/index/background.jpg');
   --border-color-light: white;
   --border-color-dark: black;
   --cursor-color-light: black;
@@ -44,7 +46,6 @@ html, body {
 body {
   color: var(--foreground-color-light);
   background-color: var(--background-color-light);
-  background-image: var(--background-image-light);
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -76,12 +77,26 @@ body.dark-mode::before {
   background: var(--overlay-color-dark);
 }
 
+p {
+  font-family: var( --font-ibm-plex-mono-light);
+}
+
+ul {
+  font-family: var( --font-ibm-plex-mono-light);
+}
+
+h1 {
+  font-family: var(--font-hiraKakuPro);
+}
+
+h2 {
+  font-family: var(--font-hiraKakuPro);
+}
+
 #header,
 #main,
 #about,
 #education,
-#work,
-#contact,
 #footer {
   background-color: var(--background-color-light);
 }
@@ -90,8 +105,6 @@ body.dark-mode #header,
 body.dark-mode #main,
 body.dark-mode #about,
 body.dark-mode #education,
-body.dark-mode #work,
-body.dark-mode #contact,
 body.dark-mode #footer {
   background-color: var(--background-color-dark);
 }
@@ -106,11 +119,6 @@ body.dark-mode #footer {
 
 body.dark-mode #portrait {
   display: none;
-}
-
-body.dark-mode article {
-  transition: margin-left 0.5s ease-in-out;
-  margin-left: 50%;
 }
 
 body.dark-mode .education-entry {
@@ -144,21 +152,12 @@ body.dark-mode .border-b {
   border-color: var(--border-color-dark);
 }
 
-#links a {
-  background-color: var(--bg-color-light);
-  transition: background-color 0.3s;
-}
-
 #menucontainer {
   background-color: var(--background-color-light);
 }
 
 body.dark-mode #menucontainer {
   background-color: var(--background-color-dark);
-}
-
-body.dark-mode #links a {
-  background-color: var(--bg-color-dark);
 }
 
 .timeline-line {

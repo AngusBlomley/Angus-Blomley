@@ -50,7 +50,7 @@ function Header({ isDarkMode, toggleDarkMode }) {
     };
 
     const sections = [
-        { id: 'home', name: 'Home', icon: <FaHome /> },
+        { id: '', name: 'Home', icon: <FaHome /> },
         { id: 'about', name: 'About', icon: <FaInfo /> },
         { id: 'education', name: 'Education', icon: <FaGraduationCap /> },
         {
@@ -63,14 +63,14 @@ function Header({ isDarkMode, toggleDarkMode }) {
             ]
         },
         { id: 'contact', name: 'Contact', icon: <FaEnvelope /> },
-        {/*{ id: 'skills', name: 'Skills', icon: <FaStar /> },
-        { id: 'resume', name: 'Resume', icon: <FaFileDownload /> },*/}
+        { id: 'skills', name: 'Skills', icon: <FaStar /> },
+        { id: 'resume', name: 'Resume', icon: <FaFileDownload /> },
     ];
 
     const backgroundColor = isDarkMode ? 'var(--background-color-dark)' : 'var(--background-color-light)';
 
     return (
-        <header className="fixed flex justify-center w-full top-0 z-50 p-4 opacity-0 duration-200 max-lg:p-4" style={{ backgroundColor }} data-aos="fade-in">
+        <header className="fixed font-ibmPlexMono italic flex justify-center w-full top-0 z-50 p-4 opacity-0 duration-200 max-lg:p-4" style={{ backgroundColor }} data-aos="fade-in">
             <div className="flex w-10/12 items-center justify-between max-lg:w-full">
                 <Link href="/" passHref>
                     <h2 id="logo" className="text-3xl font-rubik font-bold opacity-50 hover:opacity-100 duration-200 cursor-pointer no-underline">AB</h2>

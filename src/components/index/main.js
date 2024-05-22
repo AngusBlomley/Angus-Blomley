@@ -1,10 +1,11 @@
-/* eslint-disable react/no-unescaped-entities */
 import React, { useEffect, useState, useMemo } from 'react';
-import Image from 'next/image';
-import '../../app/globals.css';
+import Link from 'next/link';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import Link from 'next/link';
+import '../../app/globals.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowDown } from '@fortawesome/free-solid-svg-icons';
+
 
 function Main() {
     const [typedText, setTypedText] = useState('');
@@ -16,44 +17,16 @@ function Main() {
         AOS.init({ duration: 1000, delay: 200 });
     }, []);
 
-    const icons = useMemo(() => [
-        'c', 'css', 'html', 'js', 'python',
-        'arduino', 'github', 'vscode', 'raspberrypi',
-        'linux', 'windows',
-        'excel', 'lightroom', 'obs',
-        'photoshop', 'powerpoint', 'premiere-pro', 'word', 'xd',
-    ], []);
-
     const words = useMemo(() => [
-        'technology.',
-        'innovation.',
-        'creativity.',
-        'programming.',
-        'engineering.',
-        'design.',
-        'development.',
-        'automation.',
-        'data analysis.',
-        'machine learning.',
-        'artificial intelligence.',
-        'robotics.',
-        'cybersecurity.',
-        'networking.',
-        'cloud computing.',
-        'software engineering.',
-        'hardware development.',
-        'blockchain.',
-        'virtual reality.',
-        'augmented reality.',
-        'UI/UX design.',
-        'sustainable technology.',
-        'renewable energy.',
-        'digital transformation.',
-        'mobile development.',
-        'web development.',
-        'e-commerce.',
-        'digital marketing.',
-        'project management.'
+        'technology.', 'innovation.', 'creativity.', 'programming.',
+        'engineering.', 'design.', 'development.', 'automation.',
+        'data analysis.', 'machine learning.', 'artificial intelligence.',
+        'robotics.', 'cybersecurity.', 'networking.', 'cloud computing.',
+        'software engineering.', 'hardware development.', 'blockchain.',
+        'virtual reality.', 'augmented reality.', 'UI/UX design.',
+        'sustainable technology.', 'renewable energy.',
+        'digital transformation.', 'mobile development.', 'web development.',
+        'e-commerce.', 'digital marketing.', 'project management.'
     ], []);
 
     useEffect(() => {
@@ -81,84 +54,190 @@ function Main() {
         return () => clearTimeout(typingTimer);
     }, [typedText, isDeleting, loopNum, typingSpeed, words]);
 
+    const ascii = `
+    &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+    &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&$XXXX$$$$$&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+    &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&$xx+;;;;;;;;;;;;;;;+++xX$&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+    &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&X+;;;;;;;:::;;;;;;;;;;;;;;++xX$&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+    &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&Xx+;;;;;;;;;:::::;;;;;;;;;;;;;;;;;;+X&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+    &&&&&&&&&&&&&&&&&&&&&&&&&&&&X+;;;;;;;;;;;;;:::::::;;;;;;;;:;+;++;;+x$&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+    &&&&&&&&&&&&&&&&&&&&&&&&&&X++;;;:;;;;:::;:::::::::;::;;;;;::;++++;;+x&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+    &&&&&&&&&&&&&&&&&&&&&&&&$x+;+;;;;::::;;::::;;;::::::::::;;;;::;++;;;:;;x$&&&&&&&&&&&&&&&&&&&&&&&&&&&
+    &&&&&&&&&&&&&&&&&&&&&&&x+;;;;+;;::::::::;;;;;;;;;;:;::::::;;::::;;;;::::;X&&&&&&&&&&&&&&&&&&&&&&&&&&
+    &&&&&&&&&&&&&&&&&&&&&&x;;;;;;;;;;;:;;;;::;;;;;;;;;;;;:;::;;;;::::;;;::::;;X&&&&&&&&&&&&&&&&&&&&&&&&&
+    &&&&&&&&&&&&&&&&&&&&&X+++;;;;;;;;;;;;;;;;+++++++++++++++++++;+;;;;;;;::::;+$&&&&&&&&&&&&&&&&&&&&&&&&
+    &&&&&&&&&&&&&&&&&&&&&x;;;;;;;;;;;;;;;+++++++++xxxxxxxxxxxxxxxxxxxx++;:::::+$&&&&&&&&&&&&&&&&&&&&&&&&
+    &&&&&&&&&&&&&&&&&&&&&x;;+;;;;;;;+++++++++xxxxxxxxxXXXXXXXXXXXXXXXxXx++;;::;X&&&&&&&&&&&&&&&&&&&&&&&&
+    &&&&&&&&&&&&&&&&&&&&&x;;+;;;;;++xxxxxxxxxxxxxxXXXXXXXXXXXX$$$$$$$$$$XXXx+;;x&&&&&&&&&&&&&&&&&&&&&&&&
+    &&&&&&&&&&&&&&&&&&&&&x;;+;;++xxxxxxxxxxxxxXxxXXXXXXXXXXXXXX$$$$$$$$$$$$Xx;;x$&&&&&&&&&&&&&&&&&&&&&&&
+    &&&&&&&&&&&&&&&&&&&&&x;+;++xXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX$$$$$$$$$$$$X+;+$&&&&&&&&&&&&&&&&&&&&&&&
+    &&&&&&&&&&&&&&&&&&&&&x;++xxXXXXXXXXXXXXXxxxxxXXXXXXXXXXXXXXX$$$$$$$$$$$$X++x&&&&&&&&&&&&&&&&&&&&&&&&
+    &&&&&&&&&&&&&&&&&&&&&X++xxXXX$$$XXXXXXXXXXXXXXXXXXXXXXXXXXX$$$$$$$$$$$$$Xx+X&&&&&&&&&&&&&&&&&&&&&&&&
+    &&&&&&&&&&&&&&&&&&&&&$++xxXXX$$$$XXXXxXXXXXXXXXXXXXXXXXXXX$$$$$$$$$$$$$XXx+X&&&&&&&&&&&&&&&&&&&&&&&&
+    &&&&&&&&&&&&&&&&&&&&&$x+xxX$$$$$$XXxxxxxxxxxxxxXXXXXXXXXXXXxxxxxxXXXXXXXXxx$&&&&&&&&&&&&&&&&&&&&&&&&
+    &&&&&&&&&&&&&&&&&&&&&&xxxxX$$$$$xx++++;;;;;;++++xxXXXXxxxxx+;;;++++xxxxXXxx$&&&&&&&&&&&&&&&&&&&&&&&&
+    &&&&&&&&&&&&&&&&&&&&&&XxxxX$$$$XXXXxxxxxxx++++++xxxXXXXXxxxxxxxXXXXXXXXXXXx$&&&&&&&&&&&&&&&&&&&&&&&&
+    &&&&&&&&&&&&&&&&&&&&&$xx+xX$$$$$$XXxxxxx++++++;+xXXXX$$XXx++;;;;+xxxXXXXXXxX&&&&&&&&&&&&&&&&&&&&&&&&
+    &&&&&&&&&&&&&&&&&&&&$XX+xxx$$$$$Xx+++;;::+x+;;;+xXXXX$$XXX+;;;:;;++;+xX$$XxX$&&&&&&&&&&&&&&&&&&&&&&&
+    &&&&&&&&&&&&&&&&&&&&Xx$$XXx$$$$$Xx++++;;;;+;;;++xXXXXX$XXXXx++++xxXX$$$$$XX$X$&&&&&&&&&&&&&&&&&&&&&&
+    &&&&&&&&&&&&&&&&&&&&Xxxx$$X$$$$$XXXXxxxxxx++;;+xXXXXXX$XXXXxxxXX$$$$$$$$$XX$$&&&&&&&&&&&&&&&&&&&&&&&
+    &&&&&&&&&&&&&&&&&&&&&Xx+x$$$$$$$XXXXXXxxxx+++xxXXXXXXXXXXX$$$$$$$$$$$$$$$XX$$&&&&&&&&&&&&&&&&&&&&&&&
+    &&&&&&&&&&&&&&&&&&&&$x;;+x$$$$$$$XXXXXxxxxx+xxXXXXxxXXXXXX$$$$$$$$$$$$$$$XxxX&&&&&&&&&&&&&&&&&&&&&&&
+    &&&&&&&&&&&&&&&&&&&&$+;++X$$$$$$$$XXXXxxxxx++xXXXXxXXXXXXX$$$$$$$$$$$$$$$XXxx$&&&&&&&&&&&&&&&&&&&&&&
+    &&&&&&&&&&&&&&&&&&&&&X+++x$$$$$$$$XXXXXxxx++++xX$$XXX$$XXXX$$$$$$$$$$$$$$Xx+X&&&&&&&&&&&&&&&&&&&&&&&
+    &&&&&&&&&&&&&&&&&&&&&&$$x+XX$$$$$$XXXXXxx+++++XXXXXxxXXXXXXX$$$$$$$$$$$$$XX$$&&&&&&&&&&&&&&&&&&&&&&&
+    &&&&&&&&&&&&&&&&&&&&&&&$$XXX$$$$$$$XXXXxx+++++++;+xx+xx+;+XX$$$$$$$$$$$$$X$$&&&&&&&&&&&&&&&&&&&&&&&&
+    &&&&&&&&&&&&&&&&&&&&&&&&$XXX$$$$$$$XXXXXxx++++++;++++xxxxxXX$$$$$$$$$$$$$X$&&&&&&&&&&&&&&&&&&&&&&&&&
+    &&&&&&&&&&&&&&&&&&&&&&&&&&$XX$$$$$$$XXXXx+++;;;;;;++;;;;;;;++xX$$$$$$$$$XX&&&&&&&&&&&&&&&&&&&&&&&&&&
+    &&&&&&&&&&&&&&&&&&&&&&&&&&&$XX$$$$$$$XXx+;;;;++++++x+;++++++++++X$$$$$$XX$&&&&&&&&&&&&&&&&&&&&&&&&&&
+    &&&&&&&&&&&&&&&&&&&&&&&&&&&&XX$XXXX$$Xx+;;;;;;;;;;;;;;++;;;+;;;;+x$$$XXXX&&&&&&&&&&&&&&&&&&&&&&&&&&&
+    &&&&&&&&&&&&&&&&&&&&&&&&&&&&$XXXXxxXXXx++++xxx+++++xxxxxxxxxxx++xX$XxxxXX&&&&&&&&&&&&&&&&&&&&&&&&&&&
+    &&&&&&&&&&&&&&&&&&&&&&&&&&&&$XXXXXXXXXXxxxxxXXXxxxxxxxxxxXXX$$XxxXXxxxXx$&&&&&&&&&&&&&&&&&&&&&&&&&&&
+    &&&&&&&&&&&&&&&&&&&&&&&&&&&&&XXXXXXXXXXxxxxXXXXxxxxxxxxXX$XX$$XxxXXxxxxX&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+    &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&XXXXXXXXXx+xxxxxxxxxx+++xXXXXXXXXxXXXXXxX&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+    &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&$x+xXXXxxx+++xxxxxxxx+++xXXxxXxxxx+xXxx$&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+    &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&$x++xxxx+++++xxx++++x++xxx++x+++++x+x&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+    &&&&&&&&&&&&&&&&&&&&&&&&&&&&$X$$$X+;;++++++++++++x+xx+++++++++;;;;x$&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+    &&&&&&&&&&&&&&&&&&&&&&&&&&&$xx$$$$$X+;;;;;;;;+++++++++;;;;;;;;;;x$$&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+    &&&&&&&&&&&&&&&&&&&&&&&&&&X+;+$$$XXXXx++;;;;;;;;;;;;;;;;;;;;;+x$$$$$&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+    &&&&&&&&&&&&&&&&&&&&&&&&&$+;;;X$$XXXXXXXxxxx+;::::;;;:;;;+xXX$$$$$$XX&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+    &&&&&&&&&&&&&&&&&&&&&&&&$Xxx+;+xXXXXXxxxXXXXXxxxxx+++xX$$$$$$$$$$$$x+&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+    &&&&&&&&&&&&&&&&&&&&&&&$XXxxx++;;+xxxxxxxxXXXXxxxxxxX$$$$$$X$$$$$$$x;$&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+    &&&&&&&&&&&&&&&&&&&&&&$$Xxxxxxx+;;;++xxxxxxXXXXxxxxxX$$X$$$$$$$$$$$+;X&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+    &&&&&&&&&&&&&&&&&&&$x+xXXx+++xxxx+;;++xxxxxxxXXXXxxxxxXX$$$$$$$$$$X;;X&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+    &&&&&&&&&&&&&&&$XXx+;+xXxx+++xxxxx++++xxxxxxxxXXXxxxxXXX$$$$$$$$$Xx:+X$&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+    &&&&&&&&&&$Xxxx++x+;;;+xxx++;+xxxxxxx++xxxxxxxxxXXXXXXX$$$X$$$$$Xx;:xxxX&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+    &&&&&$$$X+++++++++++;;;+x++++++xxxxxxxxxxxxxxxxxXXXXXX$$$$$$$$$XX;:+xXxxXX$&&&&&&&&&&&&&&&&&&&&&&&&&
+    &$$$Xxx++++++++++xx++;;;+++++++++xxxxxxxxxxxxxxxxxxxXXXXX$$$$$$X;:+xXXxxxxxXX$&&&&&&&&&&&&&&&&&&&&&&
+    $XXXXxxxxxxxxxxxxxxxxx++++xxxx+xxxXXxXXXXXXXXXXXXXXXXXX$$$$$$$X+;+XXXXXXXXXXXXXX$&&&&&&&&&&&&&&&&&&&`;
+
+    useEffect(() => {
+        const handleTyping = () => {
+            const current = loopNum % words.length;
+            const fullText = words[current];
+
+            setTypedText(
+                isDeleting
+                    ? fullText.substring(0, typedText.length - 1)
+                    : fullText.substring(0, typedText.length + 1)
+            );
+
+            setTypingSpeed(isDeleting ? 50 : 100);
+
+            if (!isDeleting && typedText === fullText) {
+                setTimeout(() => setIsDeleting(true), 2000);
+            } else if (isDeleting && typedText === '') {
+                setIsDeleting(false);
+                setLoopNum(loopNum + 1);
+            }
+        };
+
+        const typingTimer = setTimeout(handleTyping, typingSpeed);
+        return () => clearTimeout(typingTimer);
+    }, [typedText, isDeleting, loopNum, typingSpeed, words]);
+
+    const [text, setText] = useState(ascii);
+    const [displayedText, setDisplayedText] = useState("");
+    const [i, setI] = useState(0);
+
+    useEffect(() => {
+        const intervalId = setInterval(() => {
+            if (i < text.length) {
+                setI(prevI => prevI + 1);
+                setDisplayedText(text.substring(0, i + 1));
+            } else {
+                clearInterval(intervalId);
+            }
+        }, 0);
+
+        return () => clearInterval(intervalId);
+    }, [i, text]);
+
     return (
-        <section id="home" className="section flex justify-center items-center w-full min-h-screen overflow-hidden" data-aos="fade-in">
+        <section className="section flex lg:mt-40 justify-center w-full lg:h-screen">
             <main className="max-lg:mt-20 max-lg:w-screen max-lg:px-4">
-                <article className="grid grid-cols-2 max-lg:grid-cols-1 border-b border-inherit max-lg:border-none max-lg:flex max-lg:mx-auto duration-500">
-                    <div className='w-[600px] whitespace-nowrap max-lg:w-full'>
-                        <h1 className="text-5xl font-light">Angus Blomley</h1>
-                        <p className="text-2xl font-thin mt-10 w-full max-lg:text-base">
+                <article className="px-4 grid grid-cols-2 max-lg:grid-cols-1 duration-500">
+                    <div className='max-lg:w-full w-[600px]'>
+                        <h1 className="font-ibmPlexMono italic mb-4">Angus Blomley</h1>
+                        <h2 className="text-2xl font-karla w-full mb-4 max-lg:text-base">
                             An engineer with a passion for <span className="typed-text">{typedText}</span><span className="cursor bg-inherit"></span>
-                        </p>
-                        <div id="links" className="my-10 grid grid-cols-1 gap-4 lg:gap-0 lg:grid-cols-3 lg:text-center">
+                        </h2>
+                        <div id="links" className="grid grid-cols-1 mb-20">
+                            <h3 className='font-ibmPlexMono mb-2'>Profiles:</h3>
                             <a
                                 href="https://www.codecademy.com/users/AngusBlomley/achievements"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="inline-block bg-inherit border opacity-75 border-inherit p-2.5 no-underline duration-200 hover:opacity-100 col-span-1 lg:col-span-2 lg:row-span-1"
+                                className="inline-block bg-inherit opacity-75 p-0 no-underline font-ibmPlexMono hover:opacity-100"
                             >
-                                Codecademy Certificates
+                                - Codecademy
                             </a>
                             <a
                                 href="https://github.com/AngusBlomley"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="inline-block bg-inherit border opacity-75 border-inherit p-2.5 no-underline duration-200 hover:opacity-100 col-span-1 lg:col-start-3 lg:row-start-1"
+                                className="inline-block bg-inherit opacity-75 p-0 no-underline font-ibmPlexMono hover:opacity-100"
                             >
-                                GitHub
+                                - GitHub
                             </a>
                             <a
                                 href="https://www.linkedin.com/in/angus-blomley-82b45a177/"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="inline-block bg-inherit border opacity-75 border-inherit p-2.5 no-underline duration-200 hover:opacity-100 col-span-1 lg:col-start-1 lg:row-start-2"
+                                className="inline-block bg-inherit opacity-75 p-0 no-underline font-ibmPlexMono hover:opacity-100"
                             >
-                                LinkedIn
+                                - LinkedIn
                             </a>
                             <Link
-                                href="/work/celestialStarTracker"
-                                className="inline-block bg-inherit border opacity-75 border-inherit p-2.5 no-underline duration-200 hover:opacity-100 col-span-1 lg:col-span-2 lg:col-start-2 lg:row-start-2"
+                                href="/resume"
+                                className="inline-block bg-inherit opacity-75 p-0 no-underline font-ibmPlexMono hover:opacity-100"
                             >
-                                Celestial Star Tracker
+                                - Resume
                             </Link>
+
+                            <h3 className=' font-ibmPlexMono mt-4 mb-2'>Projects:</h3>
                             <Link
                                 href="/work/stringBox"
-                                className="inline-block bg-inherit border opacity-75 border-inherit p-2.5 no-underline duration-200 hover:opacity-100 col-span-1 lg:col-span-2 lg:row-start-3"
+                                className="inline-block bg-inherit opacity-75 p-0 no-underline font-ibmPlexMono hover:opacity-100 "
                             >
-                                Re-String Box
+                                - Re-String Box
                             </Link>
                             <Link
-                                href="/resume"
-                                className="inline-block bg-inherit border opacity-75 border-inherit p-2.5 no-underline duration-200 hover:opacity-100 col-span-1 lg:col-start-3 lg:row-start-3"
+                                href="/work/celestialStarTracker"
+                                className="inline-block bg-inherit opacity-75 p-0 no-underline font-ibmPlexMono hover:opacity-100"
                             >
-                                Resume
+                                - Celestial Object Tracker
                             </Link>
                             <Link
                                 href="/work/meetly"
-                                className="inline-block bg-inherit border opacity-75 border-inherit p-2.5 no-underline duration-200 hover:opacity-100 col-span-1 lg:col-start-1 lg:row-start-4"
+                                className="inline-block bg-inherit opacity-75 p-0 no-underline font-ibmPlexMono hover:opacity-100"
                             >
-                                Meetly
+                                - Meetly
+                            </Link>
+                            <Link
+                                href="/work/beFirst"
+                                className="inline-block bg-inherit opacity-75 p-0 no-underline font-ibmPlexMono hover:opacity-100"
+                            >
+                                - Be First
                             </Link>
                             <Link
                                 href="/work/misuzuPortfolio"
-                                className="inline-block bg-inherit border opacity-75 border-inherit p-2.5 no-underline duration-200 hover:opacity-100 col-span-1 lg:col-span-2 lg:row-start-4"
+                                className="inline-block bg-inherit opacity-75 p-0 no-underline font-ibmPlexMono hover:opacity-100"
                             >
-                                Misuzu portfolio
+                                - Misuzu portfolio
                             </Link>
                         </div>
+                        <div className='text-center'>
+                            <p>LEARN MORE</p>
+                            <FontAwesomeIcon icon={faArrowDown} size="1x" />
+                        </div>
                     </div>
-
-                    <div className='mx-auto max-lg:hidden' style={{ height: '392px', overflow: 'hidden' }}>
-                        <Image
-                            width={400}
-                            height={400}
-                            id="portrait"
-                            alt="portrait"
-                            src="/images/index/portrait2.png"
-                            className="filter ml-8 brightness-75 hover:brightness-100 duration-500"
-                            style={{ clipPath: 'inset(0 0 8px 0)' }}
-                            fetchpriority=''
-                        />
+                    <div className='mx-auto max-lg:mt-5 max-lg:mb-5'>
+                        <pre id="text" className='whitespace-pre font-mono text-[0.5vw] leading-[0.5vw] tracking-normal transform-none max-lg:text-[1vw] max-lg:leading-[1vw]'>
+                            <span className='text-wrap bg-black text-white'>
+                                {displayedText}
+                            </span>
+                        </pre>
                     </div>
                 </article>
             </main>

@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import '../../app/globals.css';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 function Contact({ isDarkMode }) {
     const backgroundColor = isDarkMode ? 'var(--background-color-dark)' : 'var(--background-color-light)';
@@ -15,6 +17,13 @@ function Contact({ isDarkMode }) {
     const [recaptchaLoaded, setRecaptchaLoaded] = useState(false);
     const [buttonText, setButtonText] = useState('Send');
     const [isSending, setIsSending] = useState(false);
+
+    useEffect(() => {
+        AOS.init({
+            duration: 1000,
+            once: false,
+        });
+    }, []);
 
     useEffect(() => {
         const loadRecaptcha = () => {
@@ -38,7 +47,6 @@ function Contact({ isDarkMode }) {
 
         loadRecaptcha();
     }, []);
-
 
     useEffect(() => {
         if (isSending) {
@@ -92,91 +100,66 @@ function Contact({ isDarkMode }) {
     };
 
     return (
-        <section
-            id="contact"
-            style={{
-                backgroundColor: 'rgba(0, 0, 0, 0.8)',
-                color,
-                position: 'relative',
-                overflow: 'hidden',
-            }}
-            className="px-4 z-10 duration-200 h-screen max-md:h-full"
-        >
-            <div
-                style={{
-                    backgroundImage: `linear-gradient(to top, rgba(255, 255, 255, 0.0), rgba(0, 0, 0, 0.8)), url('/images/index/scenic.jpg')`,
-                    backgroundSize: 'cover',
-                    backgroundPosition: 'center',
-                    filter: 'brightness(50%)',
-                    position: 'absolute',
-                    top: 0,
-                    left: 0,
-                    width: '100%',
-                    height: '100%',
-                    zIndex: -1,
-                }}
-            />
-            <div className="w-1/3 ml-44 my-40 relative z-10 text-gray-100 max-lg:mx-auto max-lg:px-4 max-lg:w-full">
-                <h2 className="text-4xl mb-8 font-semibold font-rubik text-white">Drop Me a Line</h2>
+        <section id="contact" className="bg-gray-700 px-4 z-10h-screen max-md:h-full">
+            <div className="ml-44 my-40 relative z-10 text-gray-100 max-lg:mx-auto max-lg:px-4 max-lg:w-full">
+                <h2 data-aos="fade-up" className="text-4xl mb-8 font-semibold text-white">Drop Me a Line</h2>
                 {submitted ? (
-                    <div className="text-2xl text-green-500">Thank you for your message!</div>
+                    <div className="text-2xl font-ibmPlexMono text-green-500" data-aos="fade-up">Thank you for your message!</div>
                 ) : (
                     <form onSubmit={handleSubmit} className="space-y-4 w-full">
-                        <div>
-                            <label htmlFor="name" className="block text-lg mb-2 text-white">Name:</label>
+                        <div data-aos="fade-up" data-aos-delay="200" className="grid lg:grid-cols-3 lg:gap-4 items-center">
                             <input
                                 type="text"
-                                id="name"
                                 name="name"
                                 value={formData.name}
                                 onChange={handleChange}
-                                className="w-full px-4 py-2 rounded-md text-black"
+                                placeholder="Name"
+                                className="w-full px-4 py-2 font-ibmPlexMono text-black border-b-2 border-gray-400 focus:outline-none focus:border-blue-500"
                                 required
                             />
                         </div>
-                        <div>
-                            <label htmlFor="email" className="block text-lg mb-2 text-white">Email:</label>
+                        <div data-aos="fade-up" data-aos-delay="400" className="grid lg:grid-cols-3 lg:gap-4 items-center">
                             <input
                                 type="email"
-                                id="email"
                                 name="email"
                                 value={formData.email}
                                 onChange={handleChange}
-                                className="w-full px-4 py-2 rounded-md text-black"
+                                placeholder="Email"
+                                className="w-full px-4 py-2 font-ibmPlexMono text-black border-b-2 border-gray-400 focus:outline-none focus:border-blue-500"
                                 required
                             />
                         </div>
-                        <div>
-                            <label htmlFor="subject" className="block text-lg mb-2 text-white">Subject:</label>
+                        <div data-aos="fade-up" data-aos-delay="600" className="grid lg:grid-cols-3 lg:gap-4 items-center">
                             <input
                                 type="text"
-                                id="subject"
                                 name="subject"
                                 value={formData.subject}
                                 onChange={handleChange}
-                                className="w-full px-4 py-2 rounded-md text-black"
+                                placeholder="Subject"
+                                className="w-full px-4 py-2 font-ibmPlexMono text-black border-b-2 border-gray-400 focus:outline-none focus:border-blue-500"
                             />
                         </div>
-                        <div>
-                            <label htmlFor="message" className="block text-lg mb-2 text-white">Message:</label>
+                        <div data-aos="fade-up" data-aos-delay="800" className="grid lg:grid-cols-3 lg:gap-4 items-center">
                             <textarea
-                                id="message"
                                 name="message"
                                 value={formData.message}
                                 onChange={handleChange}
-                                className="w-full px-4 py-2 rounded-md text-black"
+                                placeholder="Message"
+                                className="w-full px-4 py-2 font-ibmPlexMono text-black border-b-2 border-gray-400 focus:outline-none focus:border-blue-500"
                                 rows="6"
                                 required
                             />
                         </div>
                         <div id="recaptcha-container" style={{ display: 'none' }}></div>
-                        <button
-                            type="submit"
-                            className="px-6 py-2 bg-blue-600 text-white rounded-md w-full hover:bg-blue-700 transition-colors duration-200"
-                            disabled={isSending}
-                        >
-                            {buttonText}
-                        </button>
+                        <div data-aos="fade-up" data-aos-delay="1000" className="grid lg:grid-cols-3 lg:gap-4 items-center">
+                            <button
+                                type="submit"
+                                className="px-6 py-2 font-ibmPlexMono bg-green-600 text-white w-full hover:bg-green-900 duration-100"
+                                disabled={isSending}
+                            >
+                                {buttonText}
+                            </button>
+                        </div>
                     </form>
                 )}
             </div>
