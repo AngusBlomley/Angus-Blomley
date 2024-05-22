@@ -37,7 +37,7 @@ function HeaderGlobal({ isDarkMode, toggleDarkMode }) {
     const backgroundColor = isDarkMode ? 'white' : 'black';
 
     return (
-        <header className="fixed font-ibmPlexMono italic flex justify-center w-full top-0 z-50 p-4 opacity-0 duration-200 max-lg:p-4" style={{ backgroundColor }} data-aos="fade-in">
+        <header className="fixed font-ibmPlexMono italic flex justify-center w-full top-0 z-50 p-4 opacity-0 max-lg:p-4" style={{ backgroundColor }} data-aos="fade-in">
             <div className="flex w-10/12 items-center justify-between max-lg:w-full">
                 <Link href="/" passHref>
                     <h2 id="logo" className="text-3xl font-rubik font-bold opacity-75 hover:opacity-100 cursor-pointer no-underline">AB</h2>

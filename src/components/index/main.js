@@ -154,7 +154,7 @@ function Main() {
     }, [i, text]);
 
     return (
-        <section className="section flex lg:mt-40 justify-center w-full lg:h-screen">
+        <section className="section flex lg:mt-40 justify-center w-full lg:h-screen" data-aos="fade-in">
             <main className="max-lg:mt-20 max-lg:w-screen max-lg:px-4">
                 <article className="px-4 grid grid-cols-2 max-lg:grid-cols-1 duration-500">
                     <div className='max-lg:w-full w-[600px]'>
@@ -234,7 +234,7 @@ function Main() {
                     </div>
                     <div className='mx-auto max-lg:mt-5 max-lg:mb-5'>
                         <pre id="text" className='whitespace-pre font-mono text-[0.5vw] leading-[0.5vw] tracking-normal transform-none max-lg:text-[1vw] max-lg:leading-[1vw]'>
-                            <span className='text-wrap bg-black text-white'>
+                            <span className='text-wrap bg-[#121212] text-white'>
                                 {displayedText}
                             </span>
                         </pre>

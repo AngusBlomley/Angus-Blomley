@@ -15,9 +15,10 @@ function About({ isDarkMode }) {
     return (
         <section id="about" style={{ backgroundColor }} className="relative z-10 duration-1000 flex row items-center pt-16">
             <div className="absolute inset-0">
-                <div className="absolute inset-0 bg-gradient-to-b from-black via-black/20 to-transparent opacity-100 z-10 max-md:via-black/0 max-md:to-black/50"></div>
-                <div className="absolute inset-0 bg-gradient-to-r from-black via-black/50 to-transparent opacity-100 z-10 max-md:via-black/0 max-md:to-black/100"></div>
-                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent opacity-100 z-10 max-md:via-black/0 max-md:to-black/50"></div>
+                <div className="absolute inset-0 bg-gradient-to-b from-[#121212] via-[#121212]/70 to-transparent opacity-100 z-10 max-md:via-[#121212]/50 max-md:to-transparent via-30%"></div>
+                <div className="absolute inset-0 bg-gradient-to-r from-[#121212] via-[#121212]/50 to-transparent opacity-100 z-10 max-md:via-[#121212]/80 max-md:to-transparent via-30%"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-[#121212] via-[#121212]/70 to-transparent opacity-100 z-10 max-md:via-[#121212]/50 max-md:to-transparent via-30%"></div>
+
 
                 <Image
                     alt=""

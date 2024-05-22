@@ -29,18 +29,14 @@ html, body {
   --font-ibm-plex-mono-light: "IBM-Plex-Mono-Light", monospace;
   --font-ibm-plex-mono-medium-italic: "IBM-Plex-Mono-Medium-Italic", monospace;
   --font-angus: "Angus", monospace;
-  --foreground-color-dark: rgb(0, 0, 0);
+  --foreground-color-dark: #121212;
   --background-color-dark: rgb(255, 255, 255);
   --foreground-color-light: rgb(255, 255, 255);
-  --background-color-light: rgb(0, 0, 0);
-  --bg-color-dark: rgba(255, 255, 255,  0.7);
-  --bg-color-light: rgba(0, 0, 0, 0.7);
+  --background-color-light: #121212;
   --border-color-light: white;
   --border-color-dark: black;
   --cursor-color-light: black;
   --cursor-color-dark: white;
-  --overlay-color-light: rgba(0, 0, 0, 0.4); 
-  --overlay-color-dark: rgba(0, 0, 0, 0);
 }
 
 body {
@@ -61,7 +57,7 @@ body::before {
   left: 0;
   width: 100%;
   height: 100%;
-  background: var(--overlay-color-light); /* Overlay for light mode */
+  background: var(--overlay-color-light);
   z-index: -1;
   pointer-events: none;
   transition: background-color 0.3s;
