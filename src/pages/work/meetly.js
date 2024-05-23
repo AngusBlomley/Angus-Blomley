@@ -143,24 +143,21 @@ const StringBox = () => {
                             <p className="pb-8 border-b border-gray-100 border-opacity-10">
                                 Meetly uses a combination of Google Maps API for location services and does not require a traditional database for the main functionality.
                             </p>
-                            <h2 className="text-2xl font-semibold mb-4 mt-8">Team Members</h2>
+                            <h2 className="text-2xl font-semibold mb-4 mt-8">Client</h2>
                             <div className="team-member mb-8">
                                 <div className="flex items-center">
                                     <div>
-                                        <h3 className="text-xl font-semibold">Angus Blomley</h3>
-                                        <p className="text-gray-500 w-full mt-2">Developer</p>
+                                        <h3 className="text-xl font-semibold"></h3>
                                     </div>
                                 </div>
-                                <p className="mt-2">The developer responsible for building the Meetly application, implementing core features and ensuring functionality.</p>
                             </div>
                             <div className="team-member">
                                 <div className="flex items-center">
                                     <div>
-                                        <h3 className="text-xl font-semibold">Arjun Gupta</h3>
-                                        <p className="text-gray-500 w-full mt-2">Client / Senior Developer</p>
+                                        <h3 className="text-xl font-semibold"></h3>
+                                        <p className="text-gray-500 w-full mt-2"></p>
                                     </div>
                                 </div>
-                                <p className="mt-2 pb-8 border-b border-gray-100 border-opacity-10">Arjun Gupta is the client for whom the Meetly application was developed, providing requirements and feedback during the development process.</p>
                             </div>
                             <div className="flex row h-16 flex-wrap">
                                 <Image src="/images/icons/next.webp" alt="Next.js" width={50} height={50} className="my-2 py-2" />

@@ -235,33 +235,14 @@ const BeFirst = () => {
                             <p className="pb-8 border-b border-gray-100 border-opacity-10">
                                 The project required extensive use of video editing software for creating high-quality videos, audio editing for clear and engaging narration, and animation tools for adding dynamic elements to the videos. Subtitles and captions were added to ensure accessibility.
                             </p>
-                            <h2 className="text-2xl font-semibold mb-4 mt-8">Team Members</h2>
+                            <h2 className="text-2xl font-semibold mb-4 mt-8">Client</h2>
                             <div className="team-member mb-8">
                                 <div className="flex items-center">
                                     <div>
-                                        <h3 className="text-xl font-semibold">Angus Blomley</h3>
-                                        <p className="text-gray-500 w-full mt-2">Editor, Producer, Videographer</p>
+                                        <h3 className="text-xl font-semibold">BeFirst</h3>
+                                        <p className="text-gray-500 w-full mt-2"></p>
                                     </div>
                                 </div>
-                                <p className="mt-2">Responsible for video editing, adding subtitles, and coordinating with the team for content creation.</p>
-                            </div>
-                            <div className="team-member mb-8">
-                                <div className="flex items-center">
-                                    <div>
-                                        <h3 className="text-xl font-semibold">Harry Blomley</h3>
-                                        <p className="text-gray-500 w-full mt-2">Editor, Director, Videographer</p>
-                                    </div>
-                                </div>
-                                <p className="mt-2">Directed and filmed the heritage videos, collaborated on editing and production.</p>
-                            </div>
-                            <div className="team-member">
-                                <div className="flex items-center">
-                                    <div>
-                                        <h3 className="text-xl font-semibold">Simon Panayi</h3>
-                                        <p className="text-gray-500 w-full mt-2">Project Manager - Heritage Engagement Officer | Be First</p>
-                                    </div>
-                                </div>
-                                <p className="mt-2 pb-8 border-b border-gray-100 border-opacity-10">Managed the project, provided requirements, and coordinated feedback during the development process.</p>
                             </div>
                             <div className="flex row h-16 flex-wrap">
                                 <Image src="/images/icons/premiere-pro.webp" alt="Adobe Premiere Pro" width={50} height={50} className="my-2 py-2" />

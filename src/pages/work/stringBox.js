@@ -161,36 +161,13 @@ const StringBox = () => {
                                 scalable, and high-performance data storage solution. The combination of MongoDB and Mongoose
                                 ensures efficient data modeling, schema validation, and seamless integration with the application.
                             </p>
-                            <h2 className="text-2xl font-semibold mb-4 mt-8">Team Members</h2>
+                            <h2 className="text-2xl font-semibold mb-4 mt-8">Client</h2>
                             <div className="team-member mb-8">
                                 <div className="flex items-center">
-                                    <Image src="/images/team/tim2.jpg" alt="Tim Blomley" className="rounded-full" width={100} height={100} />
                                     <div>
-                                        <h3 className="text-xl font-semibold ml-4">Tim Blomley</h3>
-                                        <p className="text-gray-500 w-full mt-2 ml-4">Business Owner</p>
+                                        <h3 className="text-xl font-semibold">TIB Trading</h3>
                                     </div>
                                 </div>
-                                <p className="mt-2">Tim is the visionary behind Re-StringBox, bringing extensive experience in ecommerce and business management.</p>
-                            </div>
-                            <div className="team-member mb-8">
-                                <div className="flex items-center">
-                                    <Image src="/images/team/misuzu.jpg" alt="Misuzu Kanzaki" className="rounded-full" width={100} height={100} />
-                                    <div>
-                                        <h3 className="text-xl font-semibold ml-4">Misuzu Kanzaki</h3>
-                                        <p className="text-gray-500 w-full mt-2 ml-4">Graphic Designer</p>
-                                    </div>
-                                </div>
-                                <p className="mt-2">Misuzu is the creative force, responsible for the visual design and branding of Re-StringBox.</p>
-                            </div>
-                            <div className="team-member">
-                                <div className="flex items-center">
-                                    <Image src="/images/team/angus.jpg" alt="Angus Blomley" className="rounded-full" width={100} height={100} />
-                                    <div>
-                                        <h3 className="text-xl font-semibold ml-4">Angus Blomley</h3>
-                                        <p className="text-gray-600 w-full mt-2 ml-4">Fullstack Engineer</p>
-                                    </div>
-                                </div>
-                                <p className="mt-2 pb-8 border-b border-gray-100 border-opacity-10">Angus is the technical expert, developing and maintaining the core functionalities of the StringBox platform.</p>
                             </div>
                             <div className='pt-8 pb-8 mb-8'>
                                 <div className="flex row h-16 flex-wrap">

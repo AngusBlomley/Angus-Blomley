@@ -50,7 +50,7 @@ function Work({ isDarkMode }) {
         >
             <div className="z-10" data-aos="fade-up">
                 <h2 className="text-4xl font-hiraKakuPro mb-8 max-md:text-2xl">
-                    Creative Masterpieces
+                    Projects
                 </h2>
             </div>
             <div data-aos="fade-up" data-aos-delay="400" className='carousel-wrapper shadow-2xl w-full max-w-screen-lg'>
