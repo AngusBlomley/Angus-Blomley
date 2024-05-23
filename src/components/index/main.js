@@ -6,7 +6,6 @@ import '../../app/globals.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowDown } from '@fortawesome/free-solid-svg-icons';
 
-
 function Main() {
     const [typedText, setTypedText] = useState('');
     const [isDeleting, setIsDeleting] = useState(false);
@@ -21,12 +20,10 @@ function Main() {
         'technology.', 'innovation.', 'creativity.', 'programming.',
         'engineering.', 'design.', 'development.', 'automation.',
         'data analysis.', 'machine learning.', 'artificial intelligence.',
-        'robotics.', 'cybersecurity.', 'networking.',
-        'software engineering.', 'hardware development.', 'blockchain.',
-        'augmented reality.', 'UI/UX design.',
-        'sustainable technology.',
-        'digital transformation.', 'mobile development.', 'web development.',
-        'e-commerce.', 'project management.'
+        'robotics.', 'cybersecurity.', 'networking.', 'software engineering.',
+        'hardware development.', 'blockchain.', 'augmented reality.',
+        'UI/UX design.', 'sustainable technology.', 'digital transformation.',
+        'mobile development.', 'web development.', 'e-commerce.', 'project management.'
     ], []);
 
     useEffect(() => {
@@ -111,31 +108,6 @@ function Main() {
 &$$$Xxx++++++++++xx++;;;+++++++++xxxxxxxxxxxxxxxxxxxXXXXX$$$$$$X;:+xXXxxxxxXX$&&&&&&&&&&&&&&&&&&&&&&
 $XXXXxxxxxxxxxxxxxxxxx++++xxxx+xxxXXxXXXXXXXXXXXXXXXXXX$$$$$$$X+;+XXXXXXXXXXXXXX$&&&&&&&&&&&&&&&&&&&`
 
-    useEffect(() => {
-        const handleTyping = () => {
-            const current = loopNum % words.length;
-            const fullText = words[current];
-
-            setTypedText(
-                isDeleting
-                    ? fullText.substring(0, typedText.length - 1)
-                    : fullText.substring(0, typedText.length + 1)
-            );
-
-            setTypingSpeed(isDeleting ? 50 : 100);
-
-            if (!isDeleting && typedText === fullText) {
-                setTimeout(() => setIsDeleting(true), 2000);
-            } else if (isDeleting && typedText === '') {
-                setIsDeleting(false);
-                setLoopNum(loopNum + 1);
-            }
-        };
-
-        const typingTimer = setTimeout(handleTyping, typingSpeed);
-        return () => clearTimeout(typingTimer);
-    }, [typedText, isDeleting, loopNum, typingSpeed, words]);
-
     const [text, setText] = useState(ascii);
     const [displayedText, setDisplayedText] = useState("");
     const [i, setI] = useState(0);
@@ -145,7 +117,7 @@ $XXXXxxxxxxxxxxxxxxxxx++++xxxx+xxxXXxXXXXXXXXXXXXXXXXXX$$$$$$$X+;+XXXXXXXXXXXXXX
 
         const intervalId = setInterval(() => {
             if (i < text.length) {
-                setI(prevI => prevI + 5); // Update 4 characters at a time
+                setI(prevI => prevI + 5);
                 setDisplayedText(text.substring(0, i + 5));
             } else {
                 clearInterval(intervalId);
