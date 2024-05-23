@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
-import Header from '@/components/globals/header';
-import Main from '@/components/index/main';
-import About from '@/components/index/about';
-import Education from '@/components/index/education';
-import Work from '@/components/index/work';
-import Contact from '@/components/index/contact';
-import Footer from '@/components/globals/footer';
+import dynamic from 'next/dynamic';
 import Head from 'next/head';
+
+const Header = dynamic(() => import('@/components/globals/header'));
+const Main = dynamic(() => import('@/components/index/main'));
+const About = dynamic(() => import('@/components/index/about'));
+const Education = dynamic(() => import('@/components/index/education'));
+const Work = dynamic(() => import('@/components/index/work'));
+const Contact = dynamic(() => import('@/components/index/contact'));
+const Footer = dynamic(() => import('@/components/globals/footer'));
 
 function HomePage() {
     const [isDarkMode, setIsDarkMode] = useState(false);

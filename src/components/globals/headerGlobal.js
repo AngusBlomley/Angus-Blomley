@@ -11,7 +11,7 @@ function HeaderGlobal({ isDarkMode, toggleDarkMode }) {
     const [workSublinksVisible, setWorkSublinksVisible] = useState(false);
 
     useEffect(() => {
-        AOS.init({ duration: 1000, delay: 200 });
+        AOS.init({ duration: 1000 });
     }, []);
 
     const toggleMenu = () => {

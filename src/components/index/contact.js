@@ -108,7 +108,7 @@ function Contact({ isDarkMode }) {
                     <div className="text-2xl font-ibmPlexMono text-green-500 col-start-1" data-aos="fade-up">Thank you for your message!</div>
                 ) : (
                     <form onSubmit={handleSubmit} className="space-y-4 col-start-1 max-lg:w-full">
-                        <h2 data-aos="fade-up" className="max-lg:mt-20 text-4xl mb-8 font-semibold text-white">Drop Me a Line</h2>
+                        <h2 data-aos="fade-up" className="max-lg:mt-20 text-4xl mb-8 text-white">Drop Me a Line</h2>
                         <div data-aos="fade-up" data-aos-delay="200" className="gap-4 items-center">
                             <input
                                 type="text"

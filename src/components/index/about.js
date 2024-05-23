@@ -29,7 +29,7 @@ function About({ isDarkMode }) {
                 />
             </div>
             <div className="max-w-2xl ml-44 my-40 relative z-10 text-gray-100 max-lg:mx-auto max-lg:px-4">
-                <h2 className="text-4xl mb-8 font-semibold" data-aos="fade-up">The Person Behind the Pixels</h2>
+                <h2 className="text-4xl mb-8" data-aos="fade-up">The Person Behind the Pixels</h2>
                 <p className="text-lg mb-6 leading-relaxed" data-aos="fade-up">
                     Hello! I'm Angus Blomley, a passionate software developer with a love for continuous learning. I began programming in May 2014 and have since mastered  HTML, CSS, JavaScript, React and many other languages, libraries and tools.
                 </p>

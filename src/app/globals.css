@@ -28,7 +28,6 @@ html, body {
   --font-hiraKakuPro: font-family: 'HiraKakuPro', monospace;
   --font-ibm-plex-mono-light: "IBM-Plex-Mono-Light", monospace;
   --font-ibm-plex-mono-medium-italic: "IBM-Plex-Mono-Medium-Italic", monospace;
-  --font-angus: "Angus", monospace;
   --foreground-color-dark: #121212;
   --background-color-dark: rgb(255, 255, 255);
   --foreground-color-light: rgb(255, 255, 255);
@@ -181,14 +180,6 @@ body.dark-mode #menucontainer {
   transition: transform 0.3s;
 }
 
-.zoom-container {
-  animation: initial-zoom 2.5s ease-in-out forwards;
-  position: relative;
-  width: 100%;
-  height: calc(100vh - 72px); 
-  overflow: hidden;
-}
-
 #stringBox {
   background: var(--background-color-light);
 }
@@ -203,26 +194,6 @@ body.dark-mode #menucontainer {
 
 .grecaptcha-badge {
   display: none;
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-@keyframes zoomAndFadeIn {
-  from {
-    opacity: 0.1;
-    transform: scale(1.4); 
-  }
-  to {
-    opacity: 0.5; 
-    transform: scale(1); 
-  }
 }
 
 @keyframes blink-light {
@@ -240,31 +211,6 @@ body.dark-mode #menucontainer {
   }
   50% {
     border-color: var(--cursor-color-light);
-  }
-}
-
-@media (max-width: 1024px) {
-  body.dark-mode article {
-    margin-left: 0 !important;
-  }
-}
-
-@keyframes initial-zoom {
-  0% {
-    transform: scale(1.2);
-  }
-  100% {
-    transform: scale(1);
-  }
-}
-
-/* New zoom-out keyframes */
-@keyframes zoom-out {
-  0% {
-    transform: scale(1.2);
-  }
-  100% {
-    transform: scale(1);
   }
 }
 
