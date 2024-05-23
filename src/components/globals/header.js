@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { setupMenuAnimations } from '../animations';
 import Link from 'next/link';
-import { FaHome, FaInfo, FaSun, FaMoon, FaGraduationCap, FaBriefcase, FaEnvelope, FaFileDownload, FaStar, FaGithub, FaLinkedin } from 'react-icons/fa';
+import { FaHome, FaInfo, FaGraduationCap, FaBriefcase, FaEnvelope, FaFileDownload, FaGithub, FaLinkedin } from 'react-icons/fa';
 import '../../app/globals.css';
 import DarkModeToggle from './darkMode';
 import AOS from 'aos';
@@ -13,7 +12,7 @@ function Header({ isDarkMode, toggleDarkMode }) {
     const [pdfVisible, setPdfVisible] = useState(false);
 
     useEffect(() => {
-        AOS.init({ duration: 1000, delay: 200 });
+        AOS.init({ duration: 1000 });
     }, []);
 
     useEffect(() => {
@@ -59,9 +58,9 @@ function Header({ isDarkMode, toggleDarkMode }) {
     };
 
     const sections = [
-        { id: '', name: 'Home', icon: <FaHome /> },
-        { id: 'about', name: 'About', icon: <FaInfo /> },
-        { id: 'education', name: 'Education', icon: <FaGraduationCap /> },
+        { id: 'home', name: 'Home', icon: <FaHome />, link: '/' },
+        { id: 'about', name: 'About', icon: <FaInfo />, link: '/#about' },
+        { id: 'education', name: 'Education', icon: <FaGraduationCap />, link: '/#education' },
         {
             id: 'work', name: 'Work', icon: <FaBriefcase />, subLinks: [
                 { name: 'Re-String Box', link: '/work/stringBox' },
@@ -71,7 +70,7 @@ function Header({ isDarkMode, toggleDarkMode }) {
                 { name: `Misuzu's Portfolio`, link: '/work/misuzuPortfolio' },
             ]
         },
-        { id: 'contact', name: 'Contact', icon: <FaEnvelope /> },
+        { id: 'contact', name: 'Contact', icon: <FaEnvelope />, link: '/#contact' },
         { id: 'resume', name: 'Resume', icon: <FaFileDownload />, action: handleResumeClick },
     ];
 
@@ -87,14 +86,23 @@ function Header({ isDarkMode, toggleDarkMode }) {
                     <nav className="hidden lg:flex space-x-6 items-center">
                         {sections.map(section => (
                             <div key={section.id} className="relative group">
-                                <Link href={`#${section.id}`} passHref>
+                                {section.link ? (
+                                    <Link href={section.link} passHref>
+                                        <div
+                                            className="opacity-50 no-underline transition duration-100 hover:opacity-100 cursor-pointer"
+                                            onClick={section.action ? section.action : null}
+                                        >
+                                            {section.name}
+                                        </div>
+                                    </Link>
+                                ) : (
                                     <div
                                         className="opacity-50 no-underline transition duration-100 hover:opacity-100 cursor-pointer"
                                         onClick={section.action ? section.action : null}
                                     >
                                         {section.name}
                                     </div>
-                                </Link>
+                                )}
                                 {section.subLinks && (
                                     <div className="absolute p-5 -left-2 mt-0 w-64 shadow-lg rounded-lg hidden group-hover:block transition-opacity duration-200" style={{ backgroundColor }}>
                                         {section.subLinks.map(subLink => (
@@ -127,16 +135,18 @@ function Header({ isDarkMode, toggleDarkMode }) {
                             {sections.map(section => (
                                 <li key={section.id} className="p-4 opacity-75 text-lg">
                                     {section.id !== 'work' ? (
-                                        <div
-                                            className="no-underline flex items-center cursor-pointer"
-                                            onClick={() => {
-                                                toggleMenu();
-                                                if (section.action) section.action();
-                                            }}
-                                        >
-                                            {section.icon}
-                                            <span className="ml-2">{section.id === 'Resume' ? 'Resume' : section.name}</span>
-                                        </div>
+                                        <Link href={section.link || ''} passHref>
+                                            <div
+                                                className="no-underline flex items-center cursor-pointer"
+                                                onClick={() => {
+                                                    toggleMenu();
+                                                    if (section.action) section.action();
+                                                }}
+                                            >
+                                                {section.icon}
+                                                <span className="ml-2">{section.name}</span>
+                                            </div>
+                                        </Link>
                                     ) : (
                                         <>
                                             <div
@@ -151,7 +161,7 @@ function Header({ isDarkMode, toggleDarkMode }) {
                                                     {section.subLinks.map(subLink => (
                                                         <li key={subLink.name}>
                                                             <Link href={subLink.link} passHref>
-                                                                <div className="p-2 ml-2 text-base cursor-pointer opacity-50 hover:opacity-100">{subLink.name}</div>
+                                                                <div className="p-2 ml-2 text-base cursor-pointer opacity-50 hover:opacity-100" onClick={toggleMenu}>{subLink.name}</div>
                                                             </Link>
                                                         </li>
                                                     ))}
