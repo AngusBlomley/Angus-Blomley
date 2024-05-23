@@ -11,6 +11,18 @@ function Main() {
     const [isDeleting, setIsDeleting] = useState(false);
     const [loopNum, setLoopNum] = useState(0);
     const [typingSpeed, setTypingSpeed] = useState(100);
+    const [pdfVisible, setPdfVisible] = useState(false);
+
+    const handleResumeClick = () => {
+        if (window.innerWidth < 1024) {
+            const link = document.createElement('a');
+            link.href = '/pdf/Angus-Blomley.pdf';
+            link.download = 'Angus-Blomley.pdf';
+            link.click();
+        } else {
+            setPdfVisible(true);
+        }
+    };
 
     useEffect(() => {
         AOS.init({ duration: 1000, delay: 200 });
@@ -163,12 +175,12 @@ $XXXXxxxxxxxxxxxxxxxxx++++xxxx+xxxXXxXXXXXXXXXXXXXXXXXX$$$$$$$X+;+XXXXXXXXXXXXXX
                             >
                                 - LinkedIn
                             </a>
-                            <Link
-                                href="/resume"
-                                className="inline-block bg-inherit opacity-75 p-0 no-underline font-ibmPlexMono hover:opacity-100"
+                            <div
+                                className="inline-block bg-inherit opacity-75 p-0 no-underline font-ibmPlexMono hover:opacity-100 cursor-pointer"
+                                onClick={handleResumeClick}
                             >
                                 - Resume
-                            </Link>
+                            </div>
 
                             <h3 className=' font-ibmPlexMono mt-4 mb-2'>Projects:</h3>
                             <Link
@@ -225,6 +237,15 @@ $XXXXxxxxxxxxxxxxxxxxx++++xxxx+xxxXXxXXXXXXXXXXXXXXXXXX$$$$$$$X+;+XXXXXXXXXXXXXX
                     </div>
                 </article>
             </main>
+
+            {pdfVisible && (
+                <div className="fixed -top-48 inset-0 flex items-center justify-center z-50">
+                    <div className="absolute inset-0 bg-black opacity-75" onClick={() => setPdfVisible(false)}></div>
+                    <div className="relative w-4/5 h-5/6">
+                        <iframe src="/pdf/Angus-Blomley.pdf" className="w-full h-full" />
+                    </div>
+                </div>
+            )}
         </section>
     );
 }

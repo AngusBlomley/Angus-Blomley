@@ -135,7 +135,7 @@ function Education({ isDarkMode }) {
             </div>
             {isModalOpen && (
                 <div className="fixed inset-0 bg-black bg-opacity-75 flex justify-center items-center z-50 transition-opacity duration-200">
-                    <div ref={modalRef} className="relative py-4 px-4 bg-white rounded shadow-lg max-w-3xl w-full">
+                    <div ref={modalRef} className="relative max-w-3xl w-full">
                         <iframe
                             src="/pdf/certificate.pdf"
                             width="1000"
