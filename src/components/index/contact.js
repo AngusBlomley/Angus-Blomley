@@ -23,6 +23,7 @@ function Contact({ isDarkMode }) {
         AOS.init({
             duration: 1000,
             once: false,
+            offset: -200,
         });
     }, []);
 
@@ -102,7 +103,7 @@ function Contact({ isDarkMode }) {
 
     return (
         <section id="contact" className="bg-gray-700 px-4 z-10 h-screen flex justify-center items-center">
-            <div className="grid grid-cols-2 max-lg:grid-cols-1 gap-x-20 text-gray-100 max-lg:mx-auto max-lg:px-4 max-lg:w-full">
+            <div className="grid grid-cols-2 w-full max-lg:grid-cols-1 gap-x-28 text-gray-100 max-lg:mx-auto max-lg:px-4 lg:w-[1200px]">
                 {submitted ? (
                     <div className="text-2xl font-ibmPlexMono text-green-500 col-start-1" data-aos="fade-up">Thank you for your message!</div>
                 ) : (
@@ -166,8 +167,8 @@ function Contact({ isDarkMode }) {
                 <Image
                     alt="illustration"
                     src="images/index/contact.svg"
-                    width={400}
-                    height={400}
+                    width={450}
+                    height={450}
                     className="max-lg:hidden"
                 />
             </div>
