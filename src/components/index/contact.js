@@ -166,10 +166,10 @@ function Contact({ isDarkMode }) {
                 )}
                 <Image
                     alt="illustration"
-                    src="images/index/contact.svg"
-                    width={450}
-                    height={450}
-                    className="max-lg:hidden"
+                    src="/images/index/illustration.webp"
+                    width={550}
+                    height={550}
+                    className="max-lg:hidden -rotate-45"
                 />
             </div>
         </section>
