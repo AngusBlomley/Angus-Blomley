@@ -20,7 +20,7 @@ function Education({ isDarkMode }) {
     }, []);
 
     const handleSeeMoreClick = () => {
-        if (window.innerWidth < 1024) {  // 1024px is the breakpoint for 'lg'
+        if (window.innerWidth < 1024) {
             const link = document.createElement('a');
             link.href = '/pdf/certificate.pdf';
             link.download = 'certificate.pdf';

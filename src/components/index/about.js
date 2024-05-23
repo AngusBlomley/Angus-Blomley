@@ -34,7 +34,7 @@ function About({ isDarkMode }) {
                     Hello! I'm Angus Blomley, a passionate software developer with a love for continuous learning. I began programming in May 2014 and have since mastered  HTML, CSS, JavaScript, React and many other languages, libraries and tools.
                 </p>
                 <p className="text-lg mb-6 leading-relaxed" data-aos="fade-up" data-aos-delay="200">
-                    I'ts not just programming languages I know! To connect more deeply with my partner and their culture I am continuely learning Japanese.
+                    It's not just programming languages I know! To connect more deeply with my partner and their culture I am continuely learning Japanese.
                 </p>
                 <p className="text-lg mb-6 leading-relaxed" data-aos="fade-up" data-aos-delay="200">
                     As a former competitive springboard diver, I enjoy challenging outdoor activities and thrive in like-minded company. My adventurous spirit drives me to explore new places and constantly push my limits.
