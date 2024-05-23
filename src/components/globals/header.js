@@ -47,6 +47,17 @@ function Header({ isDarkMode, toggleDarkMode }) {
         setWorkSublinksVisible(!workSublinksVisible);
     };
 
+    const handleResumeClick = () => {
+        if (window.innerWidth < 1024) {  // 1024px is the breakpoint for 'lg'
+            const link = document.createElement('a');
+            link.href = '/pdf/Angus-Blomley.pdf';
+            link.download = 'Angus-Blomley.pdf';
+            link.click();
+        } else {
+            setPdfVisible(true);
+        }
+    };
+
     const sections = [
         { id: '', name: 'Home', icon: <FaHome /> },
         { id: 'about', name: 'About', icon: <FaInfo /> },
@@ -61,7 +72,7 @@ function Header({ isDarkMode, toggleDarkMode }) {
             ]
         },
         { id: 'contact', name: 'Contact', icon: <FaEnvelope /> },
-        { id: 'resume', name: 'Resume', icon: <FaFileDownload />, action: () => setPdfVisible(true) },
+        { id: 'resume', name: 'Resume', icon: <FaFileDownload />, action: handleResumeClick },
     ];
 
     const backgroundColor = isDarkMode ? 'var(--background-color-dark)' : 'var(--background-color-light)';
@@ -79,7 +90,7 @@ function Header({ isDarkMode, toggleDarkMode }) {
                                 <Link href={`#${section.id}`} passHref>
                                     <div
                                         className="opacity-50 no-underline transition duration-100 hover:opacity-100 cursor-pointer"
-                                        onClick={section.action ? section.action : null}  // Add this line
+                                        onClick={section.action ? section.action : null}
                                     >
                                         {section.name}
                                     </div>
@@ -116,18 +127,16 @@ function Header({ isDarkMode, toggleDarkMode }) {
                             {sections.map(section => (
                                 <li key={section.id} className="p-4 opacity-75 text-lg">
                                     {section.id !== 'work' ? (
-                                        <Link href={`#${section.id}`} passHref>
-                                            <div
-                                                className="no-underline flex items-center cursor-pointer"
-                                                onClick={() => {
-                                                    toggleMenu();
-                                                    if (section.action) section.action();  // Add this line
-                                                }}
-                                            >
-                                                {section.icon}
-                                                <span className="ml-2">{section.name}</span>
-                                            </div>
-                                        </Link>
+                                        <div
+                                            className="no-underline flex items-center cursor-pointer"
+                                            onClick={() => {
+                                                toggleMenu();
+                                                if (section.action) section.action();
+                                            }}
+                                        >
+                                            {section.icon}
+                                            <span className="ml-2">{section.id === 'Resume' ? 'Resume' : section.name}</span>
+                                        </div>
                                     ) : (
                                         <>
                                             <div

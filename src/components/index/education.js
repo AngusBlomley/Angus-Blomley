@@ -12,7 +12,6 @@ function Education({ isDarkMode }) {
     const ravensbourneImage = isDarkMode ? '/images/index/ravensbourne-black.png' : '/images/index/ravensbourne-white.png';
     const modalRef = useRef(null);
 
-
     useEffect(() => {
         AOS.init({
             duration: 1000,
@@ -21,7 +20,14 @@ function Education({ isDarkMode }) {
     }, []);
 
     const handleSeeMoreClick = () => {
-        setIsModalOpen(true);
+        if (window.innerWidth < 1024) {  // 1024px is the breakpoint for 'lg'
+            const link = document.createElement('a');
+            link.href = '/pdf/certificate.pdf';
+            link.download = 'certificate.pdf';
+            link.click();
+        } else {
+            setIsModalOpen(true);
+        }
     };
 
     useEffect(() => {

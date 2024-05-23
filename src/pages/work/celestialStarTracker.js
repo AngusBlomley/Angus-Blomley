@@ -1,11 +1,9 @@
-/* eslint-disable react/no-unescaped-entities */
 import React, { useState, useEffect } from 'react';
 import HeaderGlobal from '@/components/globals/headerGlobal';
 import Footer from '@/components/globals/footer';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import Image from 'next/image';
-
 
 const CelestialObjectTracker = () => {
     const [isDarkMode, setIsDarkMode] = useState(false);
@@ -40,10 +38,17 @@ const CelestialObjectTracker = () => {
         }, 3000);
 
         return () => clearInterval(interval);
-    });
+    }, [images.length]);
 
     const openPdf = () => {
-        setShowPdf(true);
+        if (window.innerWidth < 1024) {  // 1024px is the breakpoint for 'lg'
+            const link = document.createElement('a');
+            link.href = '/pdf/Angus_Blomley_Final_Major_Project_Report.pdf';
+            link.download = 'Angus_Blomley_Final_Major_Project_Report.pdf';
+            link.click();
+        } else {
+            setShowPdf(true);
+        }
     };
 
     const closePdf = () => {
@@ -166,7 +171,7 @@ skyfield==1.48`}
                                 This project provided extensive learning opportunities in areas such as hardware-software integration, real-time data processing, and GUI development. The hands-on experience with these libraries has honed skills in both development and problem-solving, making it a robust showcase of technical abilities and project management.
                             </p>
                             <p className="px-4 pb-4">
-                                I plan to continuely update this project as a side hobby of mine, to reacreate in actual c++ not arduino and improve performance and user experience.
+                                I plan to continuely update this project as a side hobby of mine, to recreate it in actual C++ not Arduino and improve performance and user experience.
                             </p>
                         </section>
 

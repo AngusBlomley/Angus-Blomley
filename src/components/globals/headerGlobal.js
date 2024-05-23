@@ -32,6 +32,15 @@ function HeaderGlobal({ isDarkMode, toggleDarkMode }) {
         document.body.classList.remove('menu-open');
     };
 
+    const handleResumeClick = () => {
+        if (window.innerWidth < 1024) {  // 1024px is the breakpoint for 'lg'
+            const link = document.createElement('a');
+            link.href = '/pdf/Angus-Blomley.pdf';
+            link.download = 'Angus-Blomley.pdf';
+            link.click();
+        }
+    };
+
     const sections = [
         { id: 'home', link: '/', name: 'Home', icon: <FaHome /> },
         { id: 'about', link: '/#about', name: 'About', icon: <FaInfo /> },
@@ -46,7 +55,7 @@ function HeaderGlobal({ isDarkMode, toggleDarkMode }) {
             ]
         },
         { id: 'contact', link: '/#contact', name: 'Contact', icon: <FaEnvelope /> },
-        { id: 'resume', link: '/resume.pdf', name: 'Resume', icon: <FaFileDownload /> },
+        { id: 'resume', link: '', name: 'Resume', icon: <FaFileDownload />, action: handleResumeClick },
     ];
 
     const backgroundColor = isDarkMode ? 'white' : 'black';
@@ -61,7 +70,10 @@ function HeaderGlobal({ isDarkMode, toggleDarkMode }) {
                     {sections.map(section => (
                         <div key={section.id} className="relative group">
                             <Link href={section.link || ''} passHref>
-                                <div className="opacity-50 no-underline transition duration-100 hover:opacity-100 cursor-pointer">
+                                <div
+                                    className="opacity-50 no-underline transition duration-100 hover:opacity-100 cursor-pointer"
+                                    onClick={section.action ? section.action : null}
+                                >
                                     {section.name}
                                 </div>
                             </Link>
@@ -100,10 +112,13 @@ function HeaderGlobal({ isDarkMode, toggleDarkMode }) {
                                     <Link href={section.link || ''} passHref>
                                         <div
                                             className="no-underline flex items-center cursor-pointer"
-                                            onClick={handleLinkClick}
+                                            onClick={() => {
+                                                handleLinkClick();
+                                                if (section.action) section.action();
+                                            }}
                                         >
                                             {section.icon}
-                                            <span className="ml-2">{section.name}</span>
+                                            <span className="ml-2">{section.id === 'resume' ? 'Resume' : section.name}</span>
                                         </div>
                                     </Link>
                                 ) : (
