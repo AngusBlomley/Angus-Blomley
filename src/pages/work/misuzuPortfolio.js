@@ -108,12 +108,9 @@ const Misuzu = () => {
                         </section>
 
                         <div className="p-8 max-lg:px-0 col-span-2 col-start-4 row-span-full max-2xl:col-span-3">
-                            <h2 className="text-2xl font-semibold mb-2 pt-8">Team</h2>
+                            <h2 className="text-2xl font-semibold mb-2 pt-8">Client</h2>
                             <p className="pb-8 border-b border-gray-100 border-opacity-10">
                                 <strong>Misuzu Kanzaki - Junior Graphic Designer:</strong> Misuzu is an emerging graphic designer who brings fresh and creative ideas to the table. Her passion for design was a key element in the project's success.
-                            </p>
-                            <p className="pb-8 pt-8 border-b border-gray-100 border-opacity-10">
-                                <strong>Angus Blomley - Junior Developer:</strong> Angus is an enthusiastic web developer at the start of his career. He built Misuzu's portfolio website using HTML, CSS, and JavaScript, ensuring it met her design vision.
                             </p>
                             <div className='flex row h-16 flex-wrap'>
                                 <Image src="/images/icons/html.webp" alt="html" width={50} height={50} className="my-2 py-2" />
