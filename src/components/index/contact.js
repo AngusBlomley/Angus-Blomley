@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import '../../app/globals.css';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import Image from 'next/image';
 
 function Contact({ isDarkMode }) {
     const backgroundColor = isDarkMode ? 'var(--background-color-dark)' : 'var(--background-color-light)';
@@ -100,14 +101,14 @@ function Contact({ isDarkMode }) {
     };
 
     return (
-        <section id="contact" className="bg-gray-700 px-4 z-10h-screen max-md:h-full">
-            <div className="ml-44 my-40 relative z-10 text-gray-100 max-lg:mx-auto max-lg:px-4 max-lg:w-full">
-                <h2 data-aos="fade-up" className="text-4xl mb-8 font-semibold text-white">Drop Me a Line</h2>
+        <section id="contact" className="bg-gray-700 px-4 z-10 h-screen flex justify-center items-center">
+            <div className="grid grid-cols-2 max-lg:grid-cols-1 gap-x-20 text-gray-100 max-lg:mx-auto max-lg:px-4 max-lg:w-full">
                 {submitted ? (
-                    <div className="text-2xl font-ibmPlexMono text-green-500" data-aos="fade-up">Thank you for your message!</div>
+                    <div className="text-2xl font-ibmPlexMono text-green-500 col-start-1" data-aos="fade-up">Thank you for your message!</div>
                 ) : (
-                    <form onSubmit={handleSubmit} className="space-y-4 w-full">
-                        <div data-aos="fade-up" data-aos-delay="200" className="grid lg:grid-cols-3 lg:gap-4 items-center">
+                    <form onSubmit={handleSubmit} className="space-y-4 col-start-1 max-lg:w-full">
+                        <h2 data-aos="fade-up" className="max-lg:mt-20 text-4xl mb-8 font-semibold text-white">Drop Me a Line</h2>
+                        <div data-aos="fade-up" data-aos-delay="200" className="gap-4 items-center">
                             <input
                                 type="text"
                                 name="name"
@@ -118,7 +119,7 @@ function Contact({ isDarkMode }) {
                                 required
                             />
                         </div>
-                        <div data-aos="fade-up" data-aos-delay="400" className="grid lg:grid-cols-3 lg:gap-4 items-center">
+                        <div data-aos="fade-up" data-aos-delay="400" className="gap-4 items-center">
                             <input
                                 type="email"
                                 name="email"
@@ -129,7 +130,7 @@ function Contact({ isDarkMode }) {
                                 required
                             />
                         </div>
-                        <div data-aos="fade-up" data-aos-delay="600" className="grid lg:grid-cols-3 lg:gap-4 items-center">
+                        <div data-aos="fade-up" data-aos-delay="600" className="gap-4 items-center">
                             <input
                                 type="text"
                                 name="subject"
@@ -139,7 +140,7 @@ function Contact({ isDarkMode }) {
                                 className="w-full px-4 py-2 font-ibmPlexMono text-black border-b-2 border-gray-400 focus:outline-none focus:border-blue-500"
                             />
                         </div>
-                        <div data-aos="fade-up" data-aos-delay="800" className="grid lg:grid-cols-3 lg:gap-4 items-center">
+                        <div data-aos="fade-up" data-aos-delay="800" className="gap-4 items-center">
                             <textarea
                                 name="message"
                                 value={formData.message}
@@ -151,7 +152,7 @@ function Contact({ isDarkMode }) {
                             />
                         </div>
                         <div id="recaptcha-container" style={{ display: 'none' }}></div>
-                        <div data-aos="fade-up" data-aos-delay="1000" className="grid lg:grid-cols-3 lg:gap-4 items-center">
+                        <div data-aos="fade-up" data-aos-delay="1000" className="gap-4 items-center">
                             <button
                                 type="submit"
                                 className="px-6 py-2 font-ibmPlexMono bg-green-600 text-white w-full hover:bg-green-900 duration-100"
@@ -162,6 +163,13 @@ function Contact({ isDarkMode }) {
                         </div>
                     </form>
                 )}
+                <Image
+                    alt="illustration"
+                    src="images/index/contact.svg"
+                    width={400}
+                    height={400}
+                    className="max-lg:hidden"
+                />
             </div>
         </section>
     );

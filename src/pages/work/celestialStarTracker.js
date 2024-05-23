@@ -80,14 +80,8 @@ const CelestialObjectTracker = () => {
                             >
                                 <iframe
                                     src="/pdf/Angus_Blomley_Final_Major_Project_Report.pdf"
-                                    className="w-full h-screen pt-16 pb-20"
+                                    className="w-full h-screen pt-16 pb-10"
                                 ></iframe>
-                                <button
-                                    onClick={closePdf}
-                                    className="absolute left-1/2 transform -translate-x-1/2 -translate-y-16 text-white px-3 py-1 rounded border-white border bg-gray-900 hover:bg-gray-700 duration-200"
-                                >
-                                    Close
-                                </button>
                             </div>
                         </div>
                     )}
@@ -120,7 +114,6 @@ const CelestialObjectTracker = () => {
                             <ul className="list-disc pl-5 ">
                                 <li>Accurate celestial object tracking using GPS and IMU data</li>
                                 <li>Real-time updates with Skyfield API integration</li>
-                                <li>Responsive design for web interface</li>
                                 <li>Automated control of stepper motors for precise movement</li>
                                 <li>Interactive GUI for user-friendly operation</li>
                             </ul>

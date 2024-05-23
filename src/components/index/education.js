@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
@@ -10,6 +10,8 @@ function Education({ isDarkMode }) {
     const color = isDarkMode ? 'var(--foreground-color-dark)' : 'var(--foreground-color-light)';
     const complementaryBackgroundColor = isDarkMode ? 'var(--background-color-dark)' : 'var(--background-color-light)';
     const ravensbourneImage = isDarkMode ? '/images/index/ravensbourne-black.png' : '/images/index/ravensbourne-white.png';
+    const modalRef = useRef(null);
+
 
     useEffect(() => {
         AOS.init({
@@ -22,9 +24,23 @@ function Education({ isDarkMode }) {
         setIsModalOpen(true);
     };
 
-    const handleCloseModalClick = () => {
-        setIsModalOpen(false);
-    };
+    useEffect(() => {
+        const handleClickOutside = (event) => {
+            if (modalRef.current && !modalRef.current.contains(event.target)) {
+                setIsModalOpen(false);
+            }
+        };
+
+        if (isModalOpen) {
+            document.addEventListener('mousedown', handleClickOutside);
+        } else {
+            document.removeEventListener('mousedown', handleClickOutside);
+        }
+
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside);
+        };
+    }, [isModalOpen]);
 
     return (
         <section id="education" style={{ backgroundColor, color }} className="pt-28 duration-200">
@@ -113,7 +129,7 @@ function Education({ isDarkMode }) {
             </div>
             {isModalOpen && (
                 <div className="fixed inset-0 bg-black bg-opacity-75 flex justify-center items-center z-50 transition-opacity duration-200">
-                    <div className="relative py-4 px-4 bg-white rounded shadow-lg max-w-3xl w-full">
+                    <div ref={modalRef} className="relative py-4 px-4 bg-white rounded shadow-lg max-w-3xl w-full">
                         <iframe
                             src="/pdf/certificate.pdf"
                             width="1000"

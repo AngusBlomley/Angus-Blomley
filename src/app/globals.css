@@ -111,6 +111,7 @@ body.dark-mode #footer {
 
 .dark .bg-dark-menu {
   background-color: var(--background-color-dark);
+  overflow: hidden;
 }
 
 body.dark-mode #portrait {
@@ -130,10 +131,6 @@ body.dark-mode .education-entry h3,
 body.dark-mode .education-entry p,
 body.dark-mode .education-entry ul li {
   color: var(--foreground-color-dark);
-}
-
-body.menu-open {
-  overflow: hidden;
 }
 
 body.dark-mode .bg {
@@ -196,13 +193,16 @@ body.dark-mode #menucontainer {
   background: var(--background-color-light);
 }
 
-/* globals.css */
-.grecaptcha-badge {
-  display: none;
+.group-hover\:animate-bob {
+  transition: transform 0.3s;
 }
 
-body.menu-open {
-  overflow: hidden;
+.group:hover .group-hover\:animate-bob {
+  animation: bob 0.5s ease-in-out 2;
+}
+
+.grecaptcha-badge {
+  display: none;
 }
 
 @keyframes fadeIn {
@@ -265,5 +265,14 @@ body.menu-open {
   }
   100% {
     transform: scale(1);
+  }
+}
+
+@keyframes bob {
+  0%, 100% {
+      transform: translateY(0);
+  }
+  50% {
+      transform: translateY(-3px);
   }
 }

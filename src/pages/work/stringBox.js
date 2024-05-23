@@ -35,7 +35,7 @@ const StringBox = () => {
                             rel="noopener noreferrer"
                             className="text-blue-500 hover:text-blue-700"> Visit the Re-String Box website
                         </a>
-                        or
+                        <span> or</span>
                         <a
                             href="https://github.com/AngusBlomley/string-box"
                             target="_blank"
