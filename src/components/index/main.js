@@ -222,7 +222,7 @@ $XXXXxxxxxxxxxxxxxxxxx++++xxxx+xxxXXxXXXXXXXXXXXXXXXXXX$$$$$$$X+;+XXXXXXXXXXXXXX
                         </div>
                     </div>
                     <div className='mx-auto max-lg:mt-5 max-lg:mb-5 max-md:row-start-2 max overflow-hidden'>
-                        <pre id="text" className='whitespace-pre font-mono text-[10px] leading-[10px] tracking-normal transform-none max-xl:text-[8px] max-xl:leading-[8px] max-lg:w-[375px] max-lg:h-[400px] max-sm:w-full max-lg:text-[7px] max-lg:leading-[7px] max-sm:leading-[6px] max-sm:text-[6px]'>
+                        <pre id="text" className='whitespace-pre font-mono text-[10px] leading-[10px] tracking-normal transform-none max-xl:text-[8px] max-xl:leading-[8px] max-lg:w-[375px] max-lg:h-[400px] max-sm:w-full max-lg:text-[7px] max-lg:leading-[7px] max-sm:leading-[5px] max-sm:text-[5px]'>
                             <p className='text-wrap bg-[#121212] text-white'>
                                 {displayedText}
                             </p>
