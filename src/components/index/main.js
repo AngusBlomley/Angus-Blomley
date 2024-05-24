@@ -25,7 +25,11 @@ function Main() {
     };
 
     useEffect(() => {
-        AOS.init({ duration: 1000, delay: 200 });
+        AOS.init({
+            duration: 1000,
+            delay: 200,
+            once: true,
+        });
     }, []);
 
     const words = useMemo(() => [

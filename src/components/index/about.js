@@ -7,7 +7,10 @@ import Image from 'next/image';
 
 function About({ isDarkMode }) {
     useEffect(() => {
-        AOS.init({ duration: 1000 });
+        AOS.init({
+            duration: 1000,
+            once: true,
+        });
     }, []);
 
     const backgroundColor = isDarkMode ? 'var(--background-color-dark)' : 'var(--background-color-light)';
