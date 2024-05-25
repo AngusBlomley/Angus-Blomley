@@ -102,14 +102,14 @@ function Contact({ isDarkMode }) {
     };
 
     return (
-        <section id="contact" className="bg-gray-700 px-4 z-10 h-screen flex justify-center items-center">
+        <section id="contact" className=" px-4 z-10 h-screen flex justify-center items-center">
             <div className="grid grid-cols-2 w-full max-lg:grid-cols-1 gap-x-28 text-gray-100 max-lg:mx-auto max-lg:px-4 lg:w-[1200px]">
                 {submitted ? (
-                    <div className="text-2xl font-ibmPlexMono text-green-500 col-start-1" data-aos="fade-up">Thank you for your message!</div>
+                    <div className="text-2xl font-ibmPlexMono text-green-500 col-start-1" data-aos="fade-right">Thank you for your message!</div>
                 ) : (
                     <form onSubmit={handleSubmit} className="space-y-4 col-start-1 max-lg:w-full">
-                        <h2 data-aos="fade-up" className="max-lg:mt-20 text-4xl mb-8 text-white">Drop Me a Line</h2>
-                        <div data-aos="fade-up" data-aos-delay="200" className="gap-4 items-center">
+                        <h2 data-aos="fade-right" className="max-lg:mt-20 text-4xl mb-8 text-white">Drop Me a Line</h2>
+                        <div data-aos="fade-right" data-aos-delay="200" className="gap-4 items-center">
                             <input
                                 type="text"
                                 name="name"
@@ -120,7 +120,7 @@ function Contact({ isDarkMode }) {
                                 required
                             />
                         </div>
-                        <div data-aos="fade-up" data-aos-delay="400" className="gap-4 items-center">
+                        <div data-aos="fade-right" data-aos-delay="400" className="gap-4 items-center">
                             <input
                                 type="email"
                                 name="email"
@@ -131,7 +131,7 @@ function Contact({ isDarkMode }) {
                                 required
                             />
                         </div>
-                        <div data-aos="fade-up" data-aos-delay="600" className="gap-4 items-center">
+                        <div data-aos="fade-right" data-aos-delay="600" className="gap-4 items-center">
                             <input
                                 type="text"
                                 name="subject"
@@ -141,7 +141,7 @@ function Contact({ isDarkMode }) {
                                 className="w-full px-4 py-2 font-ibmPlexMono text-black border-b-2 border-gray-400 focus:outline-none focus:border-blue-500"
                             />
                         </div>
-                        <div data-aos="fade-up" data-aos-delay="800" className="gap-4 items-center">
+                        <div data-aos="fade-right" data-aos-delay="800" className="gap-4 items-center">
                             <textarea
                                 name="message"
                                 value={formData.message}
@@ -153,7 +153,7 @@ function Contact({ isDarkMode }) {
                             />
                         </div>
                         <div id="recaptcha-container" style={{ display: 'none' }}></div>
-                        <div data-aos="fade-up" data-aos-delay="1000" className="gap-4 items-center">
+                        <div data-aos="fade-right" data-aos-delay="1000" className="gap-4 items-center">
                             <button
                                 type="submit"
                                 className="px-6 py-2 font-ibmPlexMono bg-green-600 text-white w-full hover:bg-green-900 duration-100"
@@ -169,7 +169,9 @@ function Contact({ isDarkMode }) {
                     src="/images/index/contact.svg"
                     width={550}
                     height={550}
-                    className="max-lg:hidden"
+                    className="max-lg:hidden self-center"
+                    data-aos="fade-left"
+                    data-aos-delay="600"
                 />
             </div>
         </section>
