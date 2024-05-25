@@ -1,14 +1,16 @@
 import React, { useEffect } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import 'react-responsive-carousel/lib/styles/carousel.min.css';
-import { Carousel } from 'react-responsive-carousel';
+import 'swiper/swiper-bundle.min.css';
+import SwiperCore, { Autoplay, Pagination, Navigation } from 'swiper';
+import { Swiper, SwiperSlide } from 'swiper/react';
 import '../../app/globals.css';
 import Link from 'next/link';
 import Image from 'next/image';
 
-function Work({ isDarkMode }) {
+SwiperCore.use([Autoplay, Pagination, Navigation]);
 
+function Work({ isDarkMode }) {
     useEffect(() => {
         AOS.init({
             duration: 1000,
@@ -31,7 +33,6 @@ function Work({ isDarkMode }) {
         }
     }, []);
 
-    const backgroundColor = isDarkMode ? 'var(--background-color-dark)' : 'var(--background-color-light)';
     const color = isDarkMode ? 'var(--foreground-color-dark)' : 'var(--foreground-color-light)';
 
     const media = [
@@ -46,29 +47,29 @@ function Work({ isDarkMode }) {
         <section
             id="work"
             style={{ color }}
-            className="mt-16 flex flex-col justify-center items-center z-10 min-h-screen"
+            className="lg:mt-40 max-lg:mt-16 flex flex-col justify-center items-center z-10"
         >
             <div className="z-10" data-aos="fade-up">
-                <h2 className="text-4xl font-hiraKakuPro mb-8 max-md:text-2xl">
+                <h2 className="text-4xl font-hiraKakuPro mb-8">
                     Projects
                 </h2>
             </div>
-            <div data-aos="fade-up" data-aos-delay="400" className='carousel-wrapper shadow-2xl w-full max-w-screen-lg'>
-                <Carousel
-                    showArrows={true}
-                    showStatus={false}
-                    showIndicators={true}
-                    showThumbs={false}
-                    autoPlay={true}
-                    infiniteLoop={true}
-                    interval={4000}
-                    transitionTime={500}
-                    dynamicHeight={false}
-                    stopOnHover={false}
-                    className="w-full h-auto rounded-lg max-lg:rounded-none"
+            <div data-aos="fade-up" data-aos-delay="400" className='shadow-2xl w-full max-w-screen-lg h-[50vh] max-lg:h-[80vh] carousel-wrapper'>
+                <Swiper
+                    spaceBetween={0}
+                    centeredSlides={true}
+                    autoplay={{
+                        delay: 4000,
+                        disableOnInteraction: false,
+                    }}
+                    navigation={{
+                        nextEl: '.swiper-button-next',
+                        prevEl: '.swiper-button-prev',
+                    }}
+                    className="w-full h-full lg:rounded-lg"
                 >
                     {media.map((item, index) => (
-                        <div key={index} className="flex justify-center items-center relative w-full h-64 md:h-96 lg:h-[576px]">
+                        <SwiperSlide key={index} className="flex justify-center items-center relative w-full">
                             <Link href={item.link} legacyBehavior>
                                 <a className="absolute w-full h-full hover:brightness-75 duration-200">
                                     {item.type === 'video' ? (
@@ -90,17 +91,27 @@ function Work({ isDarkMode }) {
                                     )}
                                 </a>
                             </Link>
-                            <h3 className="absolute text-white text-2xl z-10">
-                            </h3>
                             <Link href={item.link} legacyBehavior>
-                                <a className="absolute text-2xl max-lg:text-base text-white font-hiraKakuPro bottom-10 mx-auto bg-transparent py-2 px-4 filter hover:text-green-600 rounded duration-200">
+                                <a className="absolute w-full bg-black bg-opacity-40 max-lg:text-center text-white font-hiraKakuPro bottom-0 py-2 px-4">
                                     {item.title}
                                 </a>
                             </Link>
-                        </div>
+                        </SwiperSlide>
                     ))}
-                </Carousel>
+                </Swiper>
+                <div className="swiper-button-prev"></div>
+                <div className="swiper-button-next"></div>
             </div>
+            <style jsx global>{`
+                .swiper-button-prev,
+                .swiper-button-next {
+                    color: white; /* Change the color to white or any desired color */
+                }
+                .swiper-button-prev:after,
+                .swiper-button-next:after {
+                    font-size: 20px; /* Adjust the size if needed */
+                }
+            `}</style>
         </section>
     );
 }
