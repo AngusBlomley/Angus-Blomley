@@ -1,15 +1,32 @@
-import React, { createContext, useContext, useState } from 'react';
+import React, { createContext, useContext, useState } from "react";
 
-const LazyLoadContext = createContext();
+interface LazyLoadContextType {
+  loadWork: boolean;
+  setLoadWork: (value: boolean) => void;
+}
 
-export const useLazyLoad = () => useContext(LazyLoadContext);
+const LazyLoadContext = createContext<LazyLoadContextType | undefined>(
+  undefined
+);
 
-export const LazyLoadProvider = ({ children }) => {
-    const [loadWork, setLoadWork] = useState(false);
+export const useLazyLoad = () => {
+  const context = useContext(LazyLoadContext);
+  if (!context) {
+    throw new Error("useLazyLoad must be used within LazyLoadProvider");
+  }
+  return context;
+};
 
-    return (
-        <LazyLoadContext.Provider value={{ loadWork, setLoadWork }}>
-            {children}
-        </LazyLoadContext.Provider>
-    );
+export const LazyLoadProvider = ({
+  children,
+}: {
+  children: React.ReactNode;
+}) => {
+  const [loadWork, setLoadWork] = useState(false);
+
+  return (
+    <LazyLoadContext.Provider value={{ loadWork, setLoadWork }}>
+      {children}
+    </LazyLoadContext.Provider>
+  );
 };
