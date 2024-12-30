@@ -26,6 +26,9 @@
     "swiper": "^6.8.4"
   },
   "devDependencies": {
+    "@types/aos": "^3.0.7",
+    "@types/nodemailer": "^6.4.17",
+    "@types/react": "19.0.2",
     "eslint": "^8",
     "eslint-config-next": "14.2.3",
     "postcss": "^8",
