@@ -76,7 +76,7 @@ function Contact(): JSX.Element {
 
     try {
       const token = await window.grecaptcha.enterprise.execute(
-        process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY,
+        process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || "",
         { action: "contact_form_submission" }
       );
 
