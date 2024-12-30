@@ -60,7 +60,7 @@ function Work(): JSX.Element {
     {
       type: "image",
       src: "/images/work/cst2.jpg",
-      link: "/work/celestialStarTracker",
+      link: "/work/celestialObjectTracker",
       title: "Final Major Project",
     },
     {

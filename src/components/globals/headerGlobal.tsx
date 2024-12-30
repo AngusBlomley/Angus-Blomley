@@ -89,7 +89,7 @@ function HeaderGlobal(): JSX.Element {
         { name: "PWG Windows & Doors", link: "/work/pwg" },
         { name: "Vocabo", link: "/work/vocabo" },
         { name: "Re-String Box", link: "/work/stringBox" },
-        { name: "Celestial Star Tracker", link: "/work/celestialStarTracker" },
+        { name: "Celestial Object Tracker", link: "/work/celestialObjectTracker" },
         { name: "Meetly", link: "/work/meetly" },
         { name: "Be First", link: "/work/beFirst" },
         { name: `Misuzu's Portfolio`, link: "/work/misuzuPortfolio" },
