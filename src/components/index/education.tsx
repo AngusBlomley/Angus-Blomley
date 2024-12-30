@@ -63,7 +63,7 @@ function Education() {
     <section
       id="education"
       style={{ backgroundColor, color }}
-      className="pt-12 max-md:pt-0 duration-200 overflow-x-hidden"
+      className="py-20 max-md:pt-0 duration-200 overflow-x-hidden"
     >
       <div className=" overflow-x-hidden px-4">
         <h2

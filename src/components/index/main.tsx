@@ -176,7 +176,53 @@ $XXXXxxxxxxxxxxxxxxxxx++++xxxx+xxxXXxXXXXXXXXXXXXXXXXXX$$$$$$$X+;+XXXXXXXXXXXXXX
               <span className="cursor bg-inherit"></span>
             </h2>
             <div id="links" className="grid grid-cols-1 mb-20">
-              <h3 className="font-ibmPlexMono mb-2">Profiles:</h3>
+              <h3 className="font-ibmPlexMono mb-2">Work:</h3>
+              <Link
+                href="/work/pwg"
+                className="inline-block bg-inherit opacity-75 p-0 no-underline font-ibmPlexMono hover:opacity-100"
+              >
+                - PWG Windows & Doors
+              </Link>
+              <Link
+                href="/work/vocabo"
+                className="inline-block bg-inherit opacity-75 p-0 no-underline font-ibmPlexMono hover:opacity-100"
+              >
+                - Vocabo
+              </Link>
+
+              <h3 className="font-ibmPlexMono mt-4 mb-2">Personal Projects:</h3>
+              <Link
+                href="/work/stringBox"
+                className="inline-block bg-inherit opacity-75 p-0 no-underline font-ibmPlexMono hover:opacity-100"
+              >
+                - Re-String Box
+              </Link>
+              <Link
+                href="/work/celestialStarTracker"
+                className="inline-block bg-inherit opacity-75 p-0 no-underline font-ibmPlexMono hover:opacity-100"
+              >
+                - Celestial Object Tracker
+              </Link>
+              <Link
+                href="/work/meetly"
+                className="inline-block bg-inherit opacity-75 p-0 no-underline font-ibmPlexMono hover:opacity-100"
+              >
+                - Meetly
+              </Link>
+              <Link
+                href="/work/beFirst"
+                className="inline-block bg-inherit opacity-75 p-0 no-underline font-ibmPlexMono hover:opacity-100"
+              >
+                - Be First
+              </Link>
+              <Link
+                href="/work/misuzuPortfolio"
+                className="inline-block bg-inherit opacity-75 p-0 no-underline font-ibmPlexMono hover:opacity-100"
+              >
+                - Misuzu portfolio
+              </Link>
+
+              <h3 className="font-ibmPlexMono mt-4 mb-2">Profiles:</h3>
               <a
                 href="https://www.codecademy.com/users/AngusBlomley/achievements"
                 target="_blank"
@@ -207,51 +253,9 @@ $XXXXxxxxxxxxxxxxxxxxx++++xxxx+xxxXXxXXXXXXXXXXXXXXXXXX$$$$$$$X+;+XXXXXXXXXXXXXX
               >
                 - Resume
               </div>
-
-              <h3 className=" font-ibmPlexMono mt-4 mb-2">Projects:</h3>
-              <Link
-                href="/work/stringBox"
-                className="inline-block bg-inherit opacity-75 p-0 no-underline font-ibmPlexMono hover:opacity-100 "
-              >
-                - Re-String Box
-              </Link>
-              <Link
-                href="/work/celestialStarTracker"
-                className="inline-block bg-inherit opacity-75 p-0 no-underline font-ibmPlexMono hover:opacity-100"
-              >
-                - Celestial Object Tracker
-              </Link>
-              <Link
-                href="/work/meetly"
-                className="inline-block bg-inherit opacity-75 p-0 no-underline font-ibmPlexMono hover:opacity-100"
-              >
-                - Meetly
-              </Link>
-              <Link
-                href="/work/beFirst"
-                className="inline-block bg-inherit opacity-75 p-0 no-underline font-ibmPlexMono hover:opacity-100"
-              >
-                - Be First
-              </Link>
-              <Link
-                href="/work/misuzuPortfolio"
-                className="inline-block bg-inherit opacity-75 p-0 no-underline font-ibmPlexMono hover:opacity-100"
-              >
-                - Misuzu portfolio
-              </Link>
-              <Link href="/#about">
-                <div className="text-center mt-20 max-xl:hidden hover:text-green-400 group">
-                  <p>LEARN MORE</p>
-                  <FontAwesomeIcon
-                    icon={faArrowDown}
-                    size="1x"
-                    className="group-hover:animate-bounce -translate-y-1 mt-2"
-                  />
-                </div>
-              </Link>
             </div>
           </div>
-          <div className="mx-auto max-lg:mt-5 max-lg:mb-5 max-md:row-start-2 max overflow-hidden">
+          <div className="mx-auto max-lg:mt-5 max-lg:mb-5 max-md:row-start-2 overflow-hidden">
             <pre
               id="text"
               className="whitespace-pre font-mono text-[10px] leading-[10px] tracking-normal transform-none max-xl:text-[8px] max-xl:leading-[8px] max-lg:w-[375px] max-lg:h-[400px] max-sm:w-full max-lg:text-[7px] max-lg:leading-[7px] max-sm:leading-[5px] max-sm:text-[5px]"
@@ -262,16 +266,16 @@ $XXXXxxxxxxxxxxxxxxxxx++++xxxx+xxxXXxXXXXXXXXXXXXXXXXXX$$$$$$$X+;+XXXXXXXXXXXXXX
             </pre>
           </div>
 
-          <div className="cursor-pointer col-span-2 text-center xl:hidden group hover:text-green-400 group">
-            <Link href="/#about">
+          <Link href="/#about" className="col-span-2 max-md:col-span-1">
+            <div className="text-center mx-auto mt-20 hover:text-green-400 group">
               <p>LEARN MORE</p>
               <FontAwesomeIcon
                 icon={faArrowDown}
                 size="1x"
-                className="group-hover:animate-bob"
+                className="group-hover:animate-bounce -translate-y-1 mt-2"
               />
-            </Link>
-          </div>
+            </div>
+          </Link>
         </article>
       </main>
 

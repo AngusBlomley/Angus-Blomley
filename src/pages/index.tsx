@@ -3,13 +3,27 @@ import dynamic from "next/dynamic";
 import Head from "next/head";
 import { useDarkMode } from "@/contexts/darkModeContext";
 
-const Header = dynamic(() => import("@/components/globals/header"));
-const Main = dynamic(() => import("@/components/index/main"));
-const About = dynamic(() => import("@/components/index/about"));
-const Education = dynamic(() => import("@/components/index/education"));
-const Work = dynamic(() => import("@/components/index/work"));
-const Contact = dynamic(() => import("@/components/index/contact"));
-const Footer = dynamic(() => import("@/components/globals/footer"));
+const Header = dynamic(() => import("@/components/globals/header"), {
+  ssr: false,
+});
+const Main = dynamic(() => import("@/components/index/main"), { ssr: false });
+const About = dynamic(() => import("@/components/index/about"), { ssr: false });
+const Education = dynamic(() => import("@/components/index/education"), {
+  ssr: false,
+});
+const Work = dynamic(() => import("@/components/index/work"), { ssr: false });
+const Contact = dynamic(() => import("@/components/index/contact"), {
+  ssr: false,
+});
+const Footer = dynamic(() => import("@/components/globals/footer"), {
+  ssr: false,
+});
+const WorkExperience = dynamic(
+  () => import("@/components/index/workExperience"),
+  {
+    ssr: false,
+  }
+);
 
 function HomePage() {
   const { isDarkMode } = useDarkMode();
@@ -34,6 +48,7 @@ function HomePage() {
       <Header />
       <Main />
       <About />
+      <WorkExperience />
       <Education />
       <Work />
       <Contact />
