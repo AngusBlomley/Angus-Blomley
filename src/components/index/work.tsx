@@ -1,4 +1,4 @@
-import React, { JSX, useEffect } from "react";
+import React, { JSX, useEffect, useState } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import "swiper/swiper-bundle.min.css";
@@ -13,11 +13,19 @@ SwiperCore.use([Autoplay, Pagination, Navigation]);
 
 function Work(): JSX.Element {
   const { isDarkMode } = useDarkMode();
+  const [animationComplete, setAnimationComplete] = useState(false);
+
   useEffect(() => {
     AOS.init({
       duration: 1000,
       once: true,
     });
+
+    const handleAOSComplete = () => {
+      setAnimationComplete(true);
+    };
+
+    const timer = setTimeout(handleAOSComplete, 1000);
 
     const handleTouchMove = (event: TouchEvent) => {
       if (event.touches.length > 1) {
@@ -78,8 +86,11 @@ function Work(): JSX.Element {
   return (
     <section
       id="work"
-      style={{ color }}
-      className="lg:mt-40 max-lg:mt-16 flex flex-col justify-center items-center z-10"
+      style={{
+        color,
+        scrollMarginTop: animationComplete ? "100px" : "300px",
+      }}
+      className="py-20 lg:mt-40 max-lg:mt-16 flex flex-col justify-center items-center z-10"
     >
       <div className="z-10" data-aos="fade-up">
         <h2 className="text-4xl font-hiraKakuPro mb-8">Projects</h2>

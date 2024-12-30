@@ -96,6 +96,12 @@ function Header(): JSX.Element {
     { id: "home", name: "Home", icon: <FaHome />, link: "/" },
     { id: "about", name: "About", icon: <FaInfo />, link: "/#about" },
     {
+      id: "experience",
+      name: "Experience",
+      icon: <FaBriefcase />,
+      link: "/#experience",
+    },
+    {
       id: "education",
       name: "Education",
       icon: <FaGraduationCap />,
@@ -105,7 +111,10 @@ function Header(): JSX.Element {
       id: "work",
       name: "Work",
       icon: <FaBriefcase />,
+      link: "/#work",
       subLinks: [
+        { name: "PWG Windows & Doors", link: "/work/pwg" },
+        { name: "Vocabo", link: "/work/vocabo" },
         { name: "Re-String Box", link: "/work/stringBox" },
         { name: "Celestial Star Tracker", link: "/work/celestialStarTracker" },
         { name: "Meetly", link: "/work/meetly" },

@@ -84,7 +84,10 @@ function HeaderGlobal(): JSX.Element {
       id: "work",
       name: "Work",
       icon: <FaBriefcase />,
+      link: "/#work",
       subLinks: [
+        { name: "PWG Windows & Doors", link: "/work/pwg" },
+        { name: "Vocabo", link: "/work/vocabo" },
         { name: "Re-String Box", link: "/work/stringBox" },
         { name: "Celestial Star Tracker", link: "/work/celestialStarTracker" },
         { name: "Meetly", link: "/work/meetly" },
