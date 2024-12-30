@@ -92,7 +92,7 @@ function WorkExperience() {
               src="/images/index/pwg.png"
               width={640}
               height={1024}
-              className="max-w-[90%] h-auto rounded-lg shadow-xl border border-gray-100"
+              className="max-w-[90%] h-auto rounded-lg shadow-xl"
             />
           </div>
 
@@ -218,7 +218,7 @@ function WorkExperience() {
               src="/images/index/openfern.png"
               width={1102}
               height={703}
-              className="max-w-[100%] h-auto rounded-lg shadow-xl border border-gray-100"
+              className="max-w-[100%] h-auto rounded-lg shadow-xl"
             />
           </div>
         </div>
