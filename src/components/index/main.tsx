@@ -43,30 +43,18 @@ function Main(): JSX.Element {
 
   const words = useMemo(
     () => [
-      "technology.",
-      "innovation.",
-      "creativity.",
-      "programming.",
+      "React.",
+      "React Native.",
       "engineering.",
       "design.",
       "development.",
-      "automation.",
       "data analysis.",
-      "machine learning.",
-      "artificial intelligence.",
-      "robotics.",
-      "cybersecurity.",
-      "networking.",
       "software engineering.",
-      "hardware development.",
-      "blockchain.",
-      "augmented reality.",
       "UI/UX design.",
       "sustainable technology.",
       "digital transformation.",
       "mobile development.",
       "web development.",
-      "e-commerce.",
       "project management.",
     ],
     []
@@ -97,8 +85,7 @@ function Main(): JSX.Element {
     return () => clearTimeout(typingTimer);
   }, [typedText, isDeleting, loopNum, typingSpeed, words]);
 
-  const ascii = `
-&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+  const ascii = `&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
 &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&$XXXX$$$$$&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
 &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&$xx+;;;;;;;;;;;;;;;+++xX$&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
 &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&X+;;;;;;;:::;;;;;;;;;;;;;;++xX$&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
@@ -154,7 +141,7 @@ function Main(): JSX.Element {
 &$$$Xxx++++++++++xx++;;;+++++++++xxxxxxxxxxxxxxxxxxxXXXXX$$$$$$X;:+xXXxxxxxXX$&&&&&&&&&&&&&&&&&&&&&&
 $XXXXxxxxxxxxxxxxxxxxx++++xxxx+xxxXXxXXXXXXXXXXXXXXXXXX$$$$$$$X+;+XXXXXXXXXXXXXX$&&&&&&&&&&&&&&&&&&&`;
 
-  const [text, setText] = useState(ascii);
+  const text = ascii;
   const [displayedText, setDisplayedText] = useState("");
   const [i, setI] = useState(0);
 
@@ -258,7 +245,7 @@ $XXXXxxxxxxxxxxxxxxxxx++++xxxx+xxxXXxXXXXXXXXXXXXXXXXXX$$$$$$$X+;+XXXXXXXXXXXXXX
                   <FontAwesomeIcon
                     icon={faArrowDown}
                     size="1x"
-                    className="group-hover:animate-bob"
+                    className="group-hover:animate-bounce -translate-y-1 mt-2"
                   />
                 </div>
               </Link>
