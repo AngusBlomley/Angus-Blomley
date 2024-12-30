@@ -1,4 +1,4 @@
-@import url('./fonts.css');
+@import url("./fonts.css");
 
 @tailwind base;
 @tailwind components;
@@ -16,7 +16,8 @@
   }
 }
 
-html, body {
+html,
+body {
   height: 100%;
   margin: 0;
   padding: 0;
@@ -25,200 +26,22 @@ html, body {
 }
 
 :root {
-  --font-hiraKakuPro: font-family: 'HiraKakuPro', monospace;
-  --font-ibm-plex-mono-light: "IBM-Plex-Mono-Light", monospace;
-  --font-ibm-plex-mono-medium-italic: "IBM-Plex-Mono-Medium-Italic", monospace;
-  --foreground-color-dark: #121212;
-  --background-color-dark: rgb(255, 255, 255);
-  --foreground-color-light: rgb(255, 255, 255);
-  --background-color-light: #121212;
-  --border-color-light: white;
-  --border-color-dark: black;
-  --cursor-color-light: black;
-  --cursor-color-dark: white;
+  --background-color-dark: #121212;
+  --background-color-light: #ffffff;
+  --foreground-color-dark: #ffffff;
+  --foreground-color-light: #121212;
 }
 
 body {
-  color: var(--foreground-color-light);
-  background-color: var(--background-color-light);
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-position: center;
-  position: relative;
-  transition: color 0.3s, background-color 0.3s, background-image 0.3s;
+  transition: background-color 0.3s, color 0.3s;
 }
 
-body::before {
-  content: '';
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: var(--overlay-color-light);
-  z-index: -1;
-  pointer-events: none;
-  transition: background-color 0.3s;
+body.light-mode {
+  background-color: var(--background-color-light);
+  color: var(--foreground-color-light);
 }
 
 body.dark-mode {
+  background-color: var(--background-color-dark);
   color: var(--foreground-color-dark);
-  background-color: var(--background-color-dark);
-  background-image: var(--background-image-dark);
-}
-
-body.dark-mode::before {
-  background: var(--overlay-color-dark);
-}
-
-p {
-  font-family: var( --font-ibm-plex-mono-light);
-}
-
-ul {
-  font-family: var( --font-ibm-plex-mono-light);
-}
-
-h1 {
-  font-family: var(--font-hiraKakuPro);
-}
-
-h2 {
-  font-family: var(--font-hiraKakuPro);
-}
-
-#header,
-#main,
-#about,
-#education,
-#footer {
-  background-color: var(--background-color-light);
-}
-
-body.dark-mode #header,
-body.dark-mode #main,
-body.dark-mode #about,
-body.dark-mode #education,
-body.dark-mode #footer {
-  background-color: var(--background-color-dark);
-}
-
-.bg-light-menu {
-  background-color: var(--background-color-light);
-}
-
-.dark .bg-dark-menu {
-  background-color: var(--background-color-dark);
-  overflow: hidden;
-}
-
-body.dark-mode #portrait {
-  display: none;
-}
-
-body.dark-mode .education-entry {
-  border-color: var(--foreground-color-dark);
-}
-
-body.dark-mode .cursor {
-  border-left: 0.05em solid var(--cursor-color-dark);
-  animation: blink-dark 1.2s step-end infinite;
-}
-
-body.dark-mode .education-entry h3,
-body.dark-mode .education-entry p,
-body.dark-mode .education-entry ul li {
-  color: var(--foreground-color-dark);
-}
-
-body.dark-mode .bg {
-  border-color: var(--border-color-dark);
-}
-
-body.dark-mode .border {
-  border-color: var(--border-color-dark);
-}
-
-body.dark-mode .border-b {
-  border-color: var(--border-color-dark);
-}
-
-#menucontainer {
-  background-color: var(--background-color-light);
-}
-
-body.dark-mode #menucontainer {
-  background-color: var(--background-color-dark);
-}
-
-.timeline-line {
-  left: 75.5%;
-  transform: translateX(-75%);
-  z-index: 0;
-  border-color: var(--border-color);
-}
-
-.border {
-  border-color: var(--border-color);
-}
-
-.cursor {
-  border-left: 0.05em solid var(--cursor-color-light);
-  animation: blink-light 1.2s step-end infinite;
-}
-
-.translate-x-0 {
-  transform: translateX(0);
-}
-
-.translate-x-full {
-  transform: translateX(100%);
-}
-
-.transition-transform {
-  transition: transform 0.3s;
-}
-
-#stringBox {
-  background: var(--background-color-light);
-}
-
-.group-hover\:animate-bob {
-  transition: transform 0.3s;
-}
-
-.group:hover .group-hover\:animate-bob {
-  animation: bob 0.5s ease-in-out 2;
-}
-
-.grecaptcha-badge {
-  display: none;
-}
-
-@keyframes blink-light {
-  from, to {
-    border-color: transparent;
-  }
-  50% {
-    border-color: var(--cursor-color-dark);
-  }
-}
-
-@keyframes blink-dark {
-  from, to {
-    border-color: transparent;
-  }
-  50% {
-    border-color: var(--cursor-color-light);
-  }
-}
-
-@keyframes bob {
-  0%, 100% {
-      transform: translateY(0);
-  }
-  50% {
-      transform: translateY(-3px);
-  }
 }
