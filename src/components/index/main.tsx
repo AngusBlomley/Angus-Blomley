@@ -189,16 +189,28 @@ $XXXXxxxxxxxxxxxxxxxxx++++xxxx+xxxXXxXXXXXXXXXXXXXXXXXX$$$$$$$X+;+XXXXXXXXXXXXXX
               >
                 - Vocabo
               </Link>
+              <Link
+                href="/work/openfern"
+                className="inline-block bg-inherit opacity-75 p-0 no-underline font-ibmPlexMono hover:opacity-100"
+              >
+                - Open Fern Studio
+              </Link>
+              <Link
+                href="/work/beFirst"
+                className="inline-block bg-inherit opacity-75 p-0 no-underline font-ibmPlexMono hover:opacity-100"
+              >
+                - Be First
+              </Link>
 
-              <h3 className="font-ibmPlexMono mt-4 mb-2">Personal Projects:</h3>
+              <h3 className="font-ibmPlexMono mt-4 mb-2">Projects:</h3>
               <Link
                 href="/work/stringBox"
                 className="inline-block bg-inherit opacity-75 p-0 no-underline font-ibmPlexMono hover:opacity-100"
               >
-                - Re-String Box
+                - String Box
               </Link>
               <Link
-                href="/work/celestialStarTracker"
+                href="/work/celestialObjectTracker"
                 className="inline-block bg-inherit opacity-75 p-0 no-underline font-ibmPlexMono hover:opacity-100"
               >
                 - Celestial Object Tracker
@@ -208,18 +220,6 @@ $XXXXxxxxxxxxxxxxxxxxx++++xxxx+xxxXXxXXXXXXXXXXXXXXXXXX$$$$$$$X+;+XXXXXXXXXXXXXX
                 className="inline-block bg-inherit opacity-75 p-0 no-underline font-ibmPlexMono hover:opacity-100"
               >
                 - Meetly
-              </Link>
-              <Link
-                href="/work/beFirst"
-                className="inline-block bg-inherit opacity-75 p-0 no-underline font-ibmPlexMono hover:opacity-100"
-              >
-                - Be First
-              </Link>
-              <Link
-                href="/work/misuzuPortfolio"
-                className="inline-block bg-inherit opacity-75 p-0 no-underline font-ibmPlexMono hover:opacity-100"
-              >
-                - Misuzu portfolio
               </Link>
 
               <h3 className="font-ibmPlexMono mt-4 mb-2">Profiles:</h3>

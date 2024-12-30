@@ -157,6 +157,70 @@ function WorkExperience() {
               Learn More
             </Link>
           </div>
+
+          <div className="pr-12 max-md:pr-0 order-4" data-aos="fade-right">
+            <div className="max-w-xl">
+              <h3 className="text-3xl font-semibold mb-3">
+                Frontend Developer
+              </h3>
+              <p className="mb-6 text-lg opacity-90">
+                Open Fern Studio
+                <br />
+                Contract Position • 2 Months
+              </p>
+              <div>
+                <h4 className="text-xl font-semibold mb-4">
+                  Key Achievements & Responsibilities
+                </h4>
+                <ul className="list-disc pl-5 space-y-2 text-base">
+                  <li>
+                    Developed a responsive business website for a social media
+                    marketing company
+                  </li>
+                  <li>
+                    Implemented modern design practices and animations to create
+                    an engaging user experience
+                  </li>
+                  <li>
+                    Built a contact form system with email integration for
+                    client communications
+                  </li>
+                  <li>
+                    Optimized website performance and SEO to improve search
+                    engine visibility
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <a
+              href="https://www.openfern.studio/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block mt-4 px-6 py-2 border border-current rounded hover:bg-opacity-10 hover:bg-white transition-all duration-200 mr-4"
+            >
+              Visit Website
+            </a>
+            <Link
+              href="/work/openfern"
+              className="inline-block mt-4 px-6 py-2 border border-current rounded hover:bg-opacity-10 hover:bg-white transition-all duration-200"
+            >
+              Learn More
+            </Link>
+          </div>
+
+          <div
+            className="relative flex justify-center items-center order-5"
+            data-aos="fade-left"
+          >
+            <Image
+              id="openfern"
+              alt="Open Fern Studio Website"
+              src="/images/index/openfern.png"
+              width={1102}
+              height={703}
+              className="max-w-[100%] h-auto rounded-lg shadow-xl border border-gray-100"
+            />
+          </div>
         </div>
       </div>
     </section>
