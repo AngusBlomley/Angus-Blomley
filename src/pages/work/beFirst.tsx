@@ -1,13 +1,12 @@
 /* eslint-disable react/no-unescaped-entities */
-import React, { useState, useEffect } from "react";
-import Link from "next/link";
+import React, { useEffect } from "react";
 import HeaderGlobal from "@/components/globals/headerGlobal";
 import Footer from "@/components/globals/footer";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import Image from "next/image";
 import { useDarkMode } from "@/contexts/darkModeContext";
-import { WorkNavigation } from "./components/WorkNavigation";
+import { WorkNavigation } from "@/components/work/WorkNavigation";
 
 const BeFirst = () => {
   const { isDarkMode } = useDarkMode();
