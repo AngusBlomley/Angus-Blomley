@@ -96,7 +96,7 @@ const PWG = () => {
                   <li>Cross-device testing and validation</li>
                 </ul>
 
-                <div className="flex flex-wrap gap-4 items-center">
+                {/* <div className="flex flex-wrap gap-4 items-center">
                   <Image
                     src="/images/icons/react.webp"
                     alt="React Native"
@@ -124,7 +124,7 @@ const PWG = () => {
                     width={50}
                     height={50}
                     className="py-2"
-                  /> */}
+                  />
                   <Image
                     src="/images/icons/github.webp"
                     alt="GitHub"
@@ -132,7 +132,7 @@ const PWG = () => {
                     height={50}
                     className="py-2"
                   />
-                </div>
+                </div> */}
               </section>
             </div>
 
