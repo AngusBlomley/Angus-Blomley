@@ -2,7 +2,7 @@
 import React, { useEffect } from "react";
 import HeaderGlobal from "@/components/globals/headerGlobal";
 import Footer from "@/components/globals/footer";
-import { WorkNavigation } from "./components/WorkNavigation";
+import { WorkNavigation } from "@/components/work/WorkNavigation";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import Image from "next/image";

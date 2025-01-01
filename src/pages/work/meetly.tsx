@@ -6,7 +6,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import Image from "next/image";
 import { useDarkMode } from "@/contexts/darkModeContext";
-import { WorkNavigation } from "./components/WorkNavigation";
+import { WorkNavigation } from "@/components/work/WorkNavigation";
 
 const Meetly = () => {
   const { isDarkMode } = useDarkMode();

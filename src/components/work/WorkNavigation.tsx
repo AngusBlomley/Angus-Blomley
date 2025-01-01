@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
-import { workPages } from "../constants";
+import { workPages } from "@/constants/workPages";
 
 interface WorkNavigationProps {
   currentPath: string;
