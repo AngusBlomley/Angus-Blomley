@@ -45,3 +45,25 @@ body.dark-mode {
   background-color: var(--background-color-dark);
   color: var(--foreground-color-dark);
 }
+
+.grecaptcha-badge {
+  visibility: hidden !important;
+}
+
+.rc-anchor-light,
+.rc-anchor-invisible,
+.rc-anchor-normal-footer,
+.rc-anchor-invisible-text,
+.rc-anchor-pt,
+.rc-anchor-aria-status,
+.rc-anchor-error-msg-container,
+.rc-anchor-invisible-nohover,
+.grecaptcha-badge {
+  display: none !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+  width: 0 !important;
+  height: 0 !important;
+  position: fixed !important;
+  z-index: -1 !important;
+}
