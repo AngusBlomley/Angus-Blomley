@@ -104,7 +104,7 @@ const PWG = () => {
                     height={50}
                     className="py-2"
                   />
-                  <Image
+                  {/* <Image
                     src="/images/icons/typescript.webp"
                     alt="TypeScript"
                     width={50}
@@ -124,7 +124,7 @@ const PWG = () => {
                     width={50}
                     height={50}
                     className="py-2"
-                  />
+                  /> */}
                   <Image
                     src="/images/icons/github.webp"
                     alt="GitHub"
