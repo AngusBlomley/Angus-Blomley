@@ -144,7 +144,7 @@ function Contact(): JSX.Element {
                 value={formData.name}
                 onChange={handleChange}
                 placeholder="Name"
-                className="w-full px-4 py-2 font-ibmPlexMono text-black border-b-2 border-gray-400 focus:outline-none focus:border-blue-500"
+                className="w-full px-4 py-2 font-ibmPlexMono rounded-lg text-black border-b-2 border-gray-400 focus:outline-none focus:border-blue-500"
                 required
               />
             </div>
@@ -159,7 +159,7 @@ function Contact(): JSX.Element {
                 value={formData.email}
                 onChange={handleChange}
                 placeholder="Email"
-                className="w-full px-4 py-2 font-ibmPlexMono text-black border-b-2 border-gray-400 focus:outline-none focus:border-blue-500"
+                className="w-full px-4 py-2 font-ibmPlexMono rounded-lg text-black border-b-2 border-gray-400 focus:outline-none focus:border-blue-500"
                 required
               />
             </div>
@@ -174,7 +174,7 @@ function Contact(): JSX.Element {
                 value={formData.subject}
                 onChange={handleChange}
                 placeholder="Subject"
-                className="w-full px-4 py-2 font-ibmPlexMono text-black border-b-2 border-gray-400 focus:outline-none focus:border-blue-500"
+                className="w-full px-4 py-2 font-ibmPlexMono rounded-lg text-black border-b-2 border-gray-400 focus:outline-none focus:border-blue-500"
               />
             </div>
             <div
@@ -187,7 +187,7 @@ function Contact(): JSX.Element {
                 value={formData.message}
                 onChange={handleChange}
                 placeholder="Message"
-                className="w-full px-4 py-2 font-ibmPlexMono text-black border-b-2 border-gray-400 focus:outline-none focus:border-blue-500"
+                className="w-full px-4 py-2 font-ibmPlexMono rounded-lg text-black border-b-2 border-gray-400 focus:outline-none focus:border-blue-500"
                 rows={6}
                 required
               />
@@ -200,7 +200,7 @@ function Contact(): JSX.Element {
             >
               <button
                 type="submit"
-                className="px-6 py-2 font-ibmPlexMono bg-green-600 text-white w-full hover:bg-green-900 duration-100"
+                className="px-6 py-2 font-ibmPlexMono rounded-lg bg-green-600 text-white w-full hover:bg-green-900 duration-100"
                 disabled={isSending}
               >
                 {buttonText}
