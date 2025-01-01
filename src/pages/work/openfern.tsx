@@ -39,44 +39,50 @@ const OpenFern = () => {
             incorporating modern web development practices.
           </p>
 
-          <div className="grid grid-cols-3 border-b border-opacity-10 border-gray-100 max-2xl:col-span-2 max-lg:grid-cols-1">
-            <section className="pb-8 pt-8 pr-8 border-b border-opacity-10 border-gray-100 col-span-3 max-2xl:col-span-1">
-              <h2 className="text-2xl font-semibold mb-4">Project Overview</h2>
-              <p>
-                Open Fern Studio's website serves as both a portfolio and a
-                client acquisition platform. The site features a modern,
-                responsive design with smooth animations, dynamic content
-                loading, and optimized performance. It effectively communicates
-                the agency's expertise while providing an engaging user
-                experience.
-              </p>
-            </section>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+            <div className="space-y-8">
+              <section>
+                <h2 className="text-2xl font-semibold mb-4">
+                  Project Overview
+                </h2>
+                <p>
+                  Open Fern Studio's website serves as both a portfolio and a
+                  client acquisition platform. The site features a modern,
+                  responsive design with smooth animations, dynamic content
+                  loading, and optimized performance. It effectively
+                  communicates the agency's expertise while providing an
+                  engaging user experience.
+                </p>
+              </section>
 
-            <section className="h-full pt-8 pr-8 grid-cols-1 max-lg:row-start-2 border-b border-gray-100 border-opacity-10 max-2xl:pb-8">
-              <h2 className="text-2xl font-semibold mb-4">Technology Stack</h2>
-              <ul className="list-disc pl-5">
-                <li>Next.js</li>
-                <li>TypeScript</li>
-                <li>Tailwind CSS</li>
-                <li>Framer Motion</li>
-                <li>Vercel</li>
-                <li>SendGrid API</li>
-              </ul>
-            </section>
+              <section>
+                <h2 className="text-2xl font-semibold mb-4">
+                  Technology Stack
+                </h2>
+                <ul className="list-disc pl-5">
+                  <li>Next.js</li>
+                  <li>TypeScript</li>
+                  <li>Tailwind CSS</li>
+                  <li>Framer Motion</li>
+                  <li>Vercel</li>
+                  <li>SendGrid API</li>
+                </ul>
+              </section>
+            </div>
 
-            <section className="border-l pt-8 pl-8 pb-8 border-opacity-10 border-gray-100 row-span-2 col-span-2 max-2xl:col-span-3 max-2xl:border-none max-2xl:px-0">
+            <div>
               <Image
                 title="Open Fern Studio Website Demo"
                 src="/images/work/openfern.png"
                 width={1280}
                 height={720}
                 alt="Open Fern Studio Website Demo"
-                className="rounded-lg shadow-xl mx-auto"
+                className="rounded-lg shadow-xl w-full"
               />
-            </section>
+            </div>
           </div>
 
-          <div className="grid grid-cols-2 gap-8 mt-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             <section>
               <h2 className="text-2xl font-semibold mb-4">Key Features</h2>
               <ul className="list-disc pl-5 space-y-2">
