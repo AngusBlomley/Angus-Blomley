@@ -117,7 +117,10 @@ function Header(): JSX.Element {
         { name: "Vocabo", link: "/work/vocabo" },
         { name: "Open Fern Studio", link: "/work/openfern" },
         { name: "Re-String Box", link: "/work/stringBox" },
-        { name: "Celestial Object Tracker", link: "/work/celestialObjectTracker" },
+        {
+          name: "Celestial Object Tracker",
+          link: "/work/celestialObjectTracker",
+        },
         { name: "Meetly", link: "/work/meetly" },
         { name: "Be First", link: "/work/beFirst" },
         { name: `Misuzu's Portfolio`, link: "/work/misuzuPortfolio" },
@@ -158,7 +161,7 @@ function Header(): JSX.Element {
                 {section.link ? (
                   <Link href={section.link} passHref>
                     <div
-                      className="opacity-50 no-underline transition duration-100 hover:opacity-100 cursor-pointer"
+                      className="inline-block bg-inherit opacity-75 p-1 px-2 no-underline font-ibmPlexMono hover:opacity-100 hover:bg-opacity-10 hover:bg-white rounded-md transition-all duration-100 cursor-pointer"
                       onClick={(e: React.MouseEvent<HTMLDivElement>) =>
                         section.action && section.action()
                       }
@@ -168,7 +171,7 @@ function Header(): JSX.Element {
                   </Link>
                 ) : (
                   <div
-                    className="opacity-50 no-underline transition duration-100 hover:opacity-100 cursor-pointer"
+                    className="inline-block bg-inherit opacity-75 p-1 px-2 no-underline font-ibmPlexMono hover:opacity-100 hover:bg-opacity-10 hover:bg-white rounded-md transition-all duration-100 cursor-pointer"
                     onClick={(e: React.MouseEvent<HTMLDivElement>) =>
                       section.action && section.action()
                     }
@@ -178,12 +181,12 @@ function Header(): JSX.Element {
                 )}
                 {section.subLinks && (
                   <div
-                    className="absolute px-5 py-4 -left-2 mt-0 w-64 shadow-lg rounded hidden group-hover:block transition-opacity duration-200 border border-gray-800"
+                    className="absolute px-5 py-4 -left-2 mt-0 w-64 shadow-lg rounded hidden group-hover:block transition-opacity duration-100 border border-gray-800 flex flex-col gap-2"
                     style={{ backgroundColor }}
                   >
                     {section.subLinks.map((subLink) => (
                       <Link key={subLink.name} href={subLink.link} passHref>
-                        <div className="p-2 cursor-pointer opacity-50 hover:opacity-100">
+                        <div className="inline-block bg-inherit opacity-75 p-1 px-2 no-underline font-ibmPlexMono hover:opacity-100 hover:bg-opacity-10 hover:bg-white rounded-md transition-all duration-100 cursor-pointer w-full">
                           {subLink.name}
                         </div>
                       </Link>
@@ -197,7 +200,7 @@ function Header(): JSX.Element {
                 href="https://github.com/AngusBlomley"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="duration-200 opacity-50 hover:opacity-100"
+                className="inline-block bg-inherit opacity-75 p-1 px-2 hover:opacity-100 hover:bg-opacity-10 hover:bg-white rounded-md transition-all duration-100"
               >
                 <FaGithub />
               </a>
@@ -205,13 +208,13 @@ function Header(): JSX.Element {
                 href="https://www.linkedin.com/in/angus-blomley-82b45a177/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="duration-200 opacity-50 hover:opacity-100"
+                className="inline-block bg-inherit opacity-75 p-1 px-2 hover:opacity-100 hover:bg-opacity-10 hover:bg-white rounded-md transition-all duration-100"
               >
                 <FaLinkedin />
               </a>
               <button
                 onClick={toggleDarkMode}
-                className="opacity-50 hover:opacity-100 duration-200"
+                className="inline-block bg-inherit opacity-75 p-1 px-2 hover:opacity-100 hover:bg-opacity-10 hover:bg-white rounded-md transition-all duration-100"
                 aria-label={
                   isDarkMode ? "Switch to Light Mode" : "Switch to Dark Mode"
                 }

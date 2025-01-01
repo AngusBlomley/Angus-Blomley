@@ -5,6 +5,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import Image from "next/image";
 import { useDarkMode } from "@/contexts/darkModeContext";
+import Link from "next/link";
 
 function About() {
   const { isDarkMode } = useDarkMode();
@@ -26,9 +27,33 @@ function About() {
       className="relative z-10 duration-1000 flex row items-center pt-16"
     >
       <div className="absolute inset-0">
-        <div className="absolute inset-0 bg-gradient-to-b from-[#121212] via-[#121212]/70 to-transparent opacity-100 z-10 max-md:via-[#121212]/50 max-md:to-transparent via-30%"></div>
-        <div className="absolute inset-0 bg-gradient-to-r from-[#121212] via-[#121212]/50 to-transparent opacity-100 z-10 max-md:via-[#121212]/80 max-md:to-transparent via-30%"></div>
-        <div className="absolute inset-0 bg-gradient-to-t from-[#121212] via-[#121212]/70 to-transparent opacity-100 z-10 max-md:via-[#121212]/50 max-md:to-transparent via-30%"></div>
+        <div
+          className={`absolute inset-0 bg-gradient-to-b from-[#121212] via-[#121212]/${
+            isDarkMode ? "70" : "50"
+          } to-transparent opacity-${
+            isDarkMode ? "100" : "70"
+          } z-10 max-md:via-[#121212]/${
+            isDarkMode ? "50" : "30"
+          } max-md:to-transparent via-30%`}
+        ></div>
+        <div
+          className={`absolute inset-0 bg-gradient-to-r from-[#121212] via-[#121212]/${
+            isDarkMode ? "50" : "30"
+          } to-transparent opacity-${
+            isDarkMode ? "100" : "70"
+          } z-10 max-md:via-[#121212]/${
+            isDarkMode ? "80" : "60"
+          } max-md:to-transparent via-30%`}
+        ></div>
+        <div
+          className={`absolute inset-0 bg-gradient-to-t from-[#121212] via-[#121212]/${
+            isDarkMode ? "70" : "50"
+          } to-transparent opacity-${
+            isDarkMode ? "100" : "70"
+          } z-10 max-md:via-[#121212]/${
+            isDarkMode ? "50" : "30"
+          } max-md:to-transparent via-30%`}
+        ></div>
 
         <Image
           alt=""
@@ -70,8 +95,13 @@ function About() {
           data-aos="fade-up"
           data-aos-delay="400"
         >
-          Feel free to explore my work, and don't hesitate to reach out if you'd
-          like to collaborate or have a chat!
+          <Link
+            href="/#contact"
+            className="inline-block mt-4 px-6 py-2 border border-current rounded relative overflow-hidden group"
+          >
+            <span className="absolute left-0 top-0 h-full w-0 bg-blue-500/80 transition-all duration-300 group-hover:w-full"></span>
+            <span className="relative z-10">Reach out</span>
+          </Link>
         </p>
       </div>
     </section>
