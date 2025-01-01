@@ -193,9 +193,10 @@ function Education() {
                 </ul>
                 <button
                   onClick={handleSeeMoreClick}
-                  className="mb-4 duration-100 font-ibmPlexMono border px-2 py-1 opacity-75 hover:opacity-100"
+                  className="inline-block mb-4 px-6 py-2 border border-current rounded relative overflow-hidden group"
                 >
-                  See certificate
+                  <span className="absolute left-0 top-0 h-full w-0 bg-blue-500/40 transition-all duration-300 group-hover:w-full"></span>
+                  <span className="relative z-10">See certificate</span>
                 </button>
                 <Image
                   width={220}
@@ -223,14 +224,32 @@ function Education() {
         </div>
       </div>
       {isModalOpen && (
-        <div className="fixed inset-0 bg-black bg-opacity-75 flex items-center z-50 transition-opacity duration-200">
-          <div ref={modalRef} className="relative max-w-3xl w-full">
-            <iframe
-              title="certificate.pdf"
-              src="/pdf/certificate.pdf"
-              width="1000"
-              height="750"
-              className="border-0 w-full"
+        <div className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50 transition-opacity duration-200">
+          <div ref={modalRef} className="relative max-w-4xl w-full mx-4">
+            <button
+              aria-label="Close"
+              onClick={() => setIsModalOpen(false)}
+              className="absolute -top-10 right-0 text-white hover:text-gray-300 transition-colors duration-200"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M6 18L18 6M6 6l12 12"
+                />
+              </svg>
+            </button>
+            <embed
+              type="application/pdf"
+              src="/pdf/certificate.pdf#pagemode=none&zoom=110"
+              className="w-full h-[80vh] border-0 rounded-lg"
             />
           </div>
         </div>

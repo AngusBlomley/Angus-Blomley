@@ -3,6 +3,7 @@ import "../../app/globals.css";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import Image from "next/image";
+import { useDarkMode } from "@/contexts/darkModeContext";
 
 function Contact(): JSX.Element {
   const [formData, setFormData] = useState({
@@ -15,6 +16,11 @@ function Contact(): JSX.Element {
   const [recaptchaLoaded, setRecaptchaLoaded] = useState(false);
   const [buttonText, setButtonText] = useState("Send");
   const [isSending, setIsSending] = useState(false);
+
+  const { isDarkMode } = useDarkMode();
+  const color = isDarkMode
+    ? "var(--foreground-color-dark)"
+    : "var(--foreground-color-light)";
 
   useEffect(() => {
     AOS.init({
@@ -122,7 +128,8 @@ function Contact(): JSX.Element {
           >
             <h2
               data-aos="fade-right"
-              className="max-lg:mt-20 text-4xl mb-8 text-white"
+              className="max-lg:mt-20 text-4xl mb-8"
+              style={{ color }}
             >
               Drop Me a Line
             </h2>
