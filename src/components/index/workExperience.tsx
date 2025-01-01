@@ -74,40 +74,65 @@ function WorkExperience() {
                 </ul>
               </div>
             </div>
-            <Link
-              href="/work/pwg"
-              className="inline-block mt-4 px-6 py-2 border border-current rounded hover:bg-opacity-10 hover:bg-white transition-all duration-200"
-            >
-              Learn More
+            <div className="flex gap-4">
+              <a
+                href="https://www.timberwindows.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block mt-4 px-6 py-2 border border-current rounded relative overflow-hidden group"
+              >
+                <span className="absolute left-0 top-0 h-full w-0 bg-blue-500/40 transition-all duration-300 group-hover:w-full"></span>
+                <span className="relative z-10">Visit Website</span>
+              </a>
+              <Link
+                href="/work/pwg"
+                className="inline-block mt-4 px-6 py-2 border border-current rounded relative overflow-hidden group"
+              >
+                <span className="absolute left-0 top-0 h-full w-0 bg-blue-500/40 transition-all duration-300 group-hover:w-full"></span>
+                <span className="relative z-10">Learn More</span>
+              </Link>
+            </div>
+          </div>
+
+          <div
+            className="relative flex justify-center items-center group cursor-pointer"
+            data-aos="fade-left"
+          >
+            <Link href="/work/pwg">
+              <Image
+                id="coding"
+                alt="coding"
+                src="/images/index/pwg.png"
+                width={640}
+                height={1024}
+                className="max-w-[80%] h-auto rounded-lg shadow-xl transition-transform duration-300 group-hover:scale-[1.02]"
+              />
             </Link>
           </div>
 
           <div
-            className="relative flex justify-center items-center"
-            data-aos="fade-left"
-          >
-            <Image
-              id="coding"
-              alt="coding"
-              src="/images/index/pwg.png"
-              width={640}
-              height={1024}
-              className="max-w-[90%] h-auto rounded-lg shadow-xl"
-            />
-          </div>
-
-          <div
-            className="relative flex justify-center items-center order-2 max-md:order-3"
+            className="relative flex justify-center items-center order-2 max-md:order-3 group cursor-pointer"
             data-aos="fade-right"
           >
-            <Image
-              id="vocabo"
-              alt="Vocabo Chrome Extension"
-              src="/images/index/vocabo.png"
-              width={1102}
-              height={703}
-              className="max-w-[100%] h-auto rounded-lg shadow-xl border border-gray-100"
-            />
+            <Link href="/work/vocabo">
+              <div className="w-full max-w-[100%] rounded-lg overflow-hidden shadow-xl transition-transform duration-300 group-hover:scale-[1.02]">
+                <div className="bg-gray-100 h-7 rounded-t-lg flex items-center px-4">
+                  <div className="flex space-x-2">
+                    <div className="w-3 h-3 rounded-full bg-red-400"></div>
+                    <div className="w-3 h-3 rounded-full bg-yellow-400"></div>
+                    <div className="w-3 h-3 rounded-full bg-green-400"></div>
+                  </div>
+                </div>
+                <Image
+                  id="vocabo"
+                  alt="Vocabo Chrome Extension"
+                  src="/images/index/vocabo.png"
+                  width={1102}
+                  height={703}
+                  className="max-w-[100%] h-auto"
+                />
+              </div>
+            </Link>
           </div>
 
           <div
@@ -150,12 +175,24 @@ function WorkExperience() {
                 </ul>
               </div>
             </div>
-            <Link
-              href="/work/vocabo"
-              className="inline-block mt-4 px-6 py-2 border border-current rounded hover:bg-opacity-10 hover:bg-white transition-all duration-200"
-            >
-              Learn More
-            </Link>
+            <div className="flex gap-4">
+              <a
+                href="https://chromewebstore.google.com/detail/vocabo/jkidhonedioaomijgdccandhiffoiheb"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block mt-4 px-6 py-2 border border-current rounded relative overflow-hidden group"
+              >
+                <span className="absolute left-0 top-0 h-full w-0 bg-blue-500/40 transition-all duration-300 group-hover:w-full"></span>
+                <span className="relative z-10">Visit Chrome Extension</span>
+              </a>
+              <Link
+                href="/work/vocabo"
+                className="inline-block mt-4 px-6 py-2 border border-current rounded relative overflow-hidden group"
+              >
+                <span className="absolute left-0 top-0 h-full w-0 bg-blue-500/40 transition-all duration-300 group-hover:w-full"></span>
+                <span className="relative z-10">Learn More</span>
+              </Link>
+            </div>
           </div>
 
           <div className="pr-12 max-md:pr-0 order-4" data-aos="fade-right">
@@ -192,34 +229,49 @@ function WorkExperience() {
                 </ul>
               </div>
             </div>
-            <a
-              href="https://www.openfern.studio/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-block mt-4 px-6 py-2 border border-current rounded hover:bg-opacity-10 hover:bg-white transition-all duration-200 mr-4"
-            >
-              Visit Website
-            </a>
-            <Link
-              href="/work/openfern"
-              className="inline-block mt-4 px-6 py-2 border border-current rounded hover:bg-opacity-10 hover:bg-white transition-all duration-200"
-            >
-              Learn More
-            </Link>
+            <div className="flex gap-4">
+              <a
+                href="https://www.openfern.studio/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block mt-4 px-6 py-2 border border-current rounded relative overflow-hidden group"
+              >
+                <span className="absolute left-0 top-0 h-full w-0 bg-blue-500/40 transition-all duration-300 group-hover:w-full"></span>
+                <span className="relative z-10">Visit Website</span>
+              </a>
+              <Link
+                href="/work/openfern"
+                className="inline-block mt-4 px-6 py-2 border border-current rounded relative overflow-hidden group"
+              >
+                <span className="absolute left-0 top-0 h-full w-0 bg-blue-500/40 transition-all duration-300 group-hover:w-full"></span>
+                <span className="relative z-10">Learn More</span>
+              </Link>
+            </div>
           </div>
 
           <div
-            className="relative flex justify-center items-center order-5"
+            className="relative flex justify-center items-center order-5 group cursor-pointer"
             data-aos="fade-left"
           >
-            <Image
-              id="openfern"
-              alt="Open Fern Studio Website"
-              src="/images/index/openfern.png"
-              width={1102}
-              height={703}
-              className="max-w-[100%] h-auto rounded-lg shadow-xl"
-            />
+            <Link href="/work/openfern">
+              <div className="w-full max-w-[100%] rounded-lg overflow-hidden shadow-xl transition-transform duration-300 group-hover:scale-[1.02]">
+                <div className="bg-gray-100 h-5 rounded-t-lg flex items-center px-4">
+                  <div className="flex space-x-2">
+                    <div className="w-2 h-2 rounded-full bg-red-400"></div>
+                    <div className="w-2 h-2 rounded-full bg-yellow-400"></div>
+                    <div className="w-2 h-2 rounded-full bg-green-400"></div>
+                  </div>
+                </div>
+                <Image
+                  id="openfern"
+                  alt="Open Fern Studio Website"
+                  src="/images/work/openfern.png"
+                  width={1102}
+                  height={703}
+                  className="w-full h-auto"
+                />
+              </div>
+            </Link>
           </div>
         </div>
       </div>
