@@ -46,10 +46,6 @@ body.dark-mode {
   color: var(--foreground-color-dark);
 }
 
-.grecaptcha-badge {
-  visibility: hidden !important;
-}
-
 .rc-anchor-light,
 .rc-anchor-invisible,
 .rc-anchor-normal-footer,

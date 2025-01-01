@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import dynamic from "next/dynamic";
 import Head from "next/head";
 import { useDarkMode } from "@/contexts/darkModeContext";
+import { FaArrowUp } from "react-icons/fa";
 
 const Header = dynamic(() => import("@/components/globals/header"), {
   ssr: false,
@@ -27,6 +28,33 @@ const WorkExperience = dynamic(
 
 function HomePage() {
   const { isDarkMode } = useDarkMode();
+  const [showScrollTop, setShowScrollTop] = useState(false);
+  const [lastScrollY, setLastScrollY] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+
+      if (window.innerWidth <= 768) {
+        setShowScrollTop(currentScrollY > 300 && currentScrollY > lastScrollY);
+      } else {
+        setShowScrollTop(currentScrollY > 300);
+      }
+
+      setLastScrollY(currentScrollY);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [lastScrollY]);
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
+
   const backgroundColor = isDarkMode
     ? "var(--background-color-dark)"
     : "var(--background-color-light)";
@@ -53,6 +81,20 @@ function HomePage() {
       <Work />
       <Contact />
       <Footer />
+
+      <button
+        onClick={scrollToTop}
+        className={`fixed bottom-8 right-8 p-3 rounded-full bg-white hover:bg-gray-100 text-gray-800 shadow-lg transition-all duration-300 scale-90 z-50
+          ${
+            showScrollTop
+              ? "opacity-70 translate-y-0"
+              : "opacity-0 translate-y-16 pointer-events-none"
+          }
+        `}
+        aria-label="Scroll to top"
+      >
+        <FaArrowUp size={16} />
+      </button>
     </main>
   );
 }

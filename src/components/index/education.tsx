@@ -82,7 +82,7 @@ function Education() {
                 Ravensbourne University London
               </h3>
               <p className="degree mb-4">
-                BSc (Hons) Broadcast Engineering <br />
+                BSc (Hons) Broadcast Engineering - 2:1 <br />
                 September 2021 - April 2024
               </p>
               <div className="education-level mt-2">
@@ -90,10 +90,11 @@ function Education() {
                   Key Courses and Projects
                 </h4>
                 <ul className="course-list list-disc pl-5 mb-4">
-                  <li>Production Skills and Technologies</li>
-                  <li>Live Studio and Outside Broadcast</li>
-                  <li>Virtual Production</li>
-                  <li>Fundamentals of Sound</li>
+                  <li>Software Development & Programming</li>
+                  <li>Python & Data Structures</li>
+                  <li>Low-Level Programming (Arduino)</li>
+                  <li>Computer Architecture & Operating Systems</li>
+                  <li>Algorithms & Computational Theory</li>
                   <li>Final Major Project</li>
                 </ul>
                 <p className="font-semibold mt-2 mb-2">

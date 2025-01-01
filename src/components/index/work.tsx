@@ -70,6 +70,24 @@ function Work(): JSX.Element {
       title: "Meetly",
     },
     {
+      type: "image",
+      src: "/images/work/openfern.png",
+      link: "/work/openfern",
+      title: "Open Fern Studio",
+    },
+    {
+      type: "image",
+      src: "/images/index/vocabo.png",
+      link: "/work/vocabo",
+      title: "Vocabo",
+    },
+    {
+      type: "image",
+      src: "/images/index/pwg.png",
+      link: "/work/pwg",
+      title: "PWG Windows & Doors",
+    },
+    {
       type: "video",
       src: "/videos/beFirst.mp4",
       link: "/work/beFirst",
@@ -149,6 +167,13 @@ function Work(): JSX.Element {
         </Swiper>
         <div className="swiper-button-prev"></div>
         <div className="swiper-button-next"></div>
+      </div>
+      <div
+        data-aos="fade-up"
+        data-aos-delay="600"
+        className="text-center mt-8 opacity-75 italic"
+      >
+        Where pixels meet purpose, and coffee meets code. 🚀☕
       </div>
       <style jsx global>{`
         .swiper-button-prev,
