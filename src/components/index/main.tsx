@@ -4,7 +4,10 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import "../../app/globals.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowDown } from "@fortawesome/free-solid-svg-icons";
+import {
+  faArrowDown,
+  faArrowUpRightFromSquare,
+} from "@fortawesome/free-solid-svg-icons";
 import { useDarkMode } from "@/contexts/darkModeContext";
 
 function Main(): JSX.Element {
@@ -179,47 +182,110 @@ $XXXXxxxxxxxxxxxxxxxxx++++xxxx+xxxXXxXXXXXXXXXXXXXXXXXX$$$$$$$X+;+XXXXXXXXXXXXXX
               <h3 className="font-ibmPlexMono mb-2">Work:</h3>
               <Link
                 href="/work/pwg"
-                className="text-[0.9em] after:inline-block bg-inherit opacity-75 p-1 px-2 no-underline font-ibmPlexMono hover:opacity-100 hover:bg-opacity-10 hover:bg-white rounded-md transition-all duration-75 -ml-2 w-fit"
+                className="text-[0.9em] after:inline-block bg-inherit opacity-75 p-1 px-2 no-underline font-ibmPlexMono hover:opacity-100 hover:bg-opacity-10 hover:bg-white rounded-md transition-all duration-75 -ml-2 w-fit flex items-center gap-2 group"
               >
                 - PWG Windows & Doors
+                <FontAwesomeIcon
+                  icon={faArrowUpRightFromSquare}
+                  className="h-2.5 w-2.5 transition-opacity"
+                  style={{
+                    color: isDarkMode
+                      ? "var(--foreground-color-dark)"
+                      : "var(--foreground-color-light)",
+                  }}
+                />
               </Link>
               <Link
                 href="/work/vocabo"
-                className="text-[0.9em] inline-block bg-inherit opacity-75 p-1 px-2 no-underline font-ibmPlexMono hover:opacity-100 hover:bg-opacity-10 hover:bg-white rounded-md transition-all duration-75 -ml-2 w-fit"
+                className="text-[0.9em] inline-block bg-inherit opacity-75 p-1 px-2 no-underline font-ibmPlexMono hover:opacity-100 hover:bg-opacity-10 hover:bg-white rounded-md transition-all duration-75 -ml-2 w-fit flex items-center gap-2 group"
               >
                 - Vocabo
+                <FontAwesomeIcon
+                  icon={faArrowUpRightFromSquare}
+                  className="h-2.5 w-2.5 transition-opacity"
+                  style={{
+                    color: isDarkMode
+                      ? "var(--foreground-color-dark)"
+                      : "var(--foreground-color-light)",
+                  }}
+                />
               </Link>
               <Link
                 href="/work/openfern"
-                className="text-[0.9em] inline-block bg-inherit opacity-75 p-1 px-2 no-underline font-ibmPlexMono hover:opacity-100 hover:bg-opacity-10 hover:bg-white rounded-md transition-all duration-75 -ml-2 w-fit"
+                className="text-[0.9em] inline-block bg-inherit opacity-75 p-1 px-2 no-underline font-ibmPlexMono hover:opacity-100 hover:bg-opacity-10 hover:bg-white rounded-md transition-all duration-75 -ml-2 w-fit flex items-center gap-2 group"
               >
                 - Open Fern Studio
+                <FontAwesomeIcon
+                  icon={faArrowUpRightFromSquare}
+                  className="h-2.5 w-2.5 transition-opacity"
+                  style={{
+                    color: isDarkMode
+                      ? "var(--foreground-color-dark)"
+                      : "var(--foreground-color-light)",
+                  }}
+                />
               </Link>
               <Link
                 href="/work/beFirst"
-                className="text-[0.9em] inline-block bg-inherit opacity-75 p-1 px-2 no-underline font-ibmPlexMono hover:opacity-100 hover:bg-opacity-10 hover:bg-white rounded-md transition-all duration-75 -ml-2 w-fit"
+                className="text-[0.9em] inline-block bg-inherit opacity-75 p-1 px-2 no-underline font-ibmPlexMono hover:opacity-100 hover:bg-opacity-10 hover:bg-white rounded-md transition-all duration-75 -ml-2 w-fit flex items-center gap-2 group"
               >
                 - Be First
+                <FontAwesomeIcon
+                  icon={faArrowUpRightFromSquare}
+                  className="h-2.5 w-2.5 transition-opacity"
+                  style={{
+                    color: isDarkMode
+                      ? "var(--foreground-color-dark)"
+                      : "var(--foreground-color-light)",
+                  }}
+                />
               </Link>
 
               <h3 className="font-ibmPlexMono mt-3 mb-1">Projects:</h3>
               <Link
                 href="/work/stringBox"
-                className="text-[0.9em] inline-block bg-inherit opacity-75 p-1 px-2 no-underline font-ibmPlexMono hover:opacity-100 hover:bg-opacity-10 hover:bg-white rounded-md transition-all duration-75 -ml-2 w-fit"
+                className="text-[0.9em] inline-block bg-inherit opacity-75 p-1 px-2 no-underline font-ibmPlexMono hover:opacity-100 hover:bg-opacity-10 hover:bg-white rounded-md transition-all duration-75 -ml-2 w-fit flex items-center gap-2 group"
               >
                 - String Box
+                <FontAwesomeIcon
+                  icon={faArrowUpRightFromSquare}
+                  className="h-2.5 w-2.5 transition-opacity"
+                  style={{
+                    color: isDarkMode
+                      ? "var(--foreground-color-dark)"
+                      : "var(--foreground-color-light)",
+                  }}
+                />
               </Link>
               <Link
                 href="/work/celestialObjectTracker"
-                className="text-[0.9em] inline-block bg-inherit opacity-75 p-1 px-2 no-underline font-ibmPlexMono hover:opacity-100 hover:bg-opacity-10 hover:bg-white rounded-md transition-all duration-75 -ml-2 w-fit"
+                className="text-[0.9em] inline-block bg-inherit opacity-75 p-1 px-2 no-underline font-ibmPlexMono hover:opacity-100 hover:bg-opacity-10 hover:bg-white rounded-md transition-all duration-75 -ml-2 w-fit flex items-center gap-2 group"
               >
                 - Celestial Object Tracker
+                <FontAwesomeIcon
+                  icon={faArrowUpRightFromSquare}
+                  className="h-2.5 w-2.5 transition-opacity"
+                  style={{
+                    color: isDarkMode
+                      ? "var(--foreground-color-dark)"
+                      : "var(--foreground-color-light)",
+                  }}
+                />
               </Link>
               <Link
                 href="/work/meetly"
-                className="text-[0.9em]inline-block bg-inherit opacity-75 p-1 px-2 no-underline font-ibmPlexMono hover:opacity-100 hover:bg-opacity-10 hover:bg-white rounded-md transition-all duration-75 -ml-2 w-fit"
+                className="text-[0.9em]inline-block bg-inherit opacity-75 p-1 px-2 no-underline font-ibmPlexMono hover:opacity-100 hover:bg-opacity-10 hover:bg-white rounded-md transition-all duration-75 -ml-2 w-fit flex items-center gap-2 group"
               >
                 - Meetly
+                <FontAwesomeIcon
+                  icon={faArrowUpRightFromSquare}
+                  className="h-2.5 w-2.5 transition-opacity"
+                  style={{
+                    color: isDarkMode
+                      ? "var(--foreground-color-dark)"
+                      : "var(--foreground-color-light)",
+                  }}
+                />
               </Link>
 
               <h3 className="font-ibmPlexMono mt-3 mb-1">Profiles:</h3>
@@ -227,31 +293,67 @@ $XXXXxxxxxxxxxxxxxxxxx++++xxxx+xxxXXxXXXXXXXXXXXXXXXXXX$$$$$$$X+;+XXXXXXXXXXXXXX
                 href="https://www.codecademy.com/users/AngusBlomley/achievements"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-[0.9em] inline-block bg-inherit opacity-75 p-1 px-2 no-underline font-ibmPlexMono hover:opacity-100 hover:bg-opacity-10 hover:bg-white rounded-md transition-all duration-75 -ml-2 w-fit"
+                className="text-[0.9em] inline-block bg-inherit opacity-75 p-1 px-2 no-underline font-ibmPlexMono hover:opacity-100 hover:bg-opacity-10 hover:bg-white rounded-md transition-all duration-75 -ml-2 w-fit flex items-center gap-2 group"
               >
                 - Codecademy
+                <FontAwesomeIcon
+                  icon={faArrowUpRightFromSquare}
+                  className="h-2.5 w-2.5 transition-opacity"
+                  style={{
+                    color: isDarkMode
+                      ? "var(--foreground-color-dark)"
+                      : "var(--foreground-color-light)",
+                  }}
+                />
               </a>
               <a
                 href="https://github.com/AngusBlomley"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-[0.9em] inline-block bg-inherit opacity-75 p-1 px-2 no-underline font-ibmPlexMono hover:opacity-100 hover:bg-opacity-10 hover:bg-white rounded-md transition-all duration-75 -ml-2 w-fit"
+                className="text-[0.9em] inline-block bg-inherit opacity-75 p-1 px-2 no-underline font-ibmPlexMono hover:opacity-100 hover:bg-opacity-10 hover:bg-white rounded-md transition-all duration-75 -ml-2 w-fit flex items-center gap-2 group"
               >
                 - GitHub
+                <FontAwesomeIcon
+                  icon={faArrowUpRightFromSquare}
+                  className="h-2.5 w-2.5 transition-opacity"
+                  style={{
+                    color: isDarkMode
+                      ? "var(--foreground-color-dark)"
+                      : "var(--foreground-color-light)",
+                  }}
+                />
               </a>
               <a
                 href="https://www.linkedin.com/in/angus-blomley-82b45a177/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-[0.9em] inline-block bg-inherit opacity-75 p-1 px-2 no-underline font-ibmPlexMono hover:opacity-100 hover:bg-opacity-10 hover:bg-white rounded-md transition-all duration-75 -ml-2 w-fit"
+                className="text-[0.9em] inline-block bg-inherit opacity-75 p-1 px-2 no-underline font-ibmPlexMono hover:opacity-100 hover:bg-opacity-10 hover:bg-white rounded-md transition-all duration-75 -ml-2 w-fit flex items-center gap-2 group"
               >
                 - LinkedIn
+                <FontAwesomeIcon
+                  icon={faArrowUpRightFromSquare}
+                  className="h-2.5 w-2.5 transition-opacity"
+                  style={{
+                    color: isDarkMode
+                      ? "var(--foreground-color-dark)"
+                      : "var(--foreground-color-light)",
+                  }}
+                />
               </a>
               <div
-                className="text-[0.9em] inline-block bg-inherit opacity-75 p-1 px-2 no-underline font-ibmPlexMono hover:opacity-100 hover:bg-opacity-10 hover:bg-white rounded-md transition-all duration-75 -ml-2 w-fit cursor-pointer"
+                className="text-[0.9em] inline-block bg-inherit opacity-75 p-1 px-2 no-underline font-ibmPlexMono hover:opacity-100 hover:bg-opacity-10 hover:bg-white rounded-md transition-all duration-75 -ml-2 w-fit cursor-pointer flex items-center gap-2 group"
                 onClick={handleResumeClick}
               >
                 - Resume
+                <FontAwesomeIcon
+                  icon={faArrowUpRightFromSquare}
+                  className="h-2.5 w-2.5 transition-opacity"
+                  style={{
+                    color: isDarkMode
+                      ? "var(--foreground-color-dark)"
+                      : "var(--foreground-color-light)",
+                  }}
+                />
               </div>
             </div>
           </div>
