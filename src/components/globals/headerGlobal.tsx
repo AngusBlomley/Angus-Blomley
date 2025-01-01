@@ -94,6 +94,7 @@ function HeaderGlobal(): JSX.Element {
       subLinks: [
         { name: "PWG Windows & Doors", link: "/work/pwg" },
         { name: "Vocabo", link: "/work/vocabo" },
+        { name: "Open Fern Studio", link: "/work/openfern" },
         { name: "Re-String Box", link: "/work/stringBox" },
         {
           name: "Celestial Object Tracker",
@@ -145,7 +146,7 @@ function HeaderGlobal(): JSX.Element {
                 </Link>
                 {section.subLinks && (
                   <div
-                    className="absolute px-5 py-4 -left-2 mt-0 w-64 shadow-lg rounded hidden group-hover:block transition-opacity duration-100 border border-gray-800 flex flex-col gap-2"
+                    className="absolute px-5 py-4 -left-2 mt-0 w-64 shadow-lg rounded hidden group-hover:block transition-opacity duration-100 border border-gray-800 gap-2"
                     style={{ backgroundColor }}
                   >
                     {section.subLinks.map((subLink) => (

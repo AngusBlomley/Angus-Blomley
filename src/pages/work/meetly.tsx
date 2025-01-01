@@ -6,8 +6,9 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import Image from "next/image";
 import { useDarkMode } from "@/contexts/darkModeContext";
+import { WorkNavigation } from "./components/WorkNavigation";
 
-const StringBox = () => {
+const Meetly = () => {
   const { isDarkMode } = useDarkMode();
   const backgroundColor = isDarkMode
     ? "var(--background-color-dark)"
@@ -228,6 +229,8 @@ const StringBox = () => {
               </div>
             </div>
           </div>
+
+          <WorkNavigation currentPath="/work/meetly" />
         </div>
       </div>
       <Footer />
@@ -235,4 +238,4 @@ const StringBox = () => {
   );
 };
 
-export default StringBox;
+export default Meetly;
