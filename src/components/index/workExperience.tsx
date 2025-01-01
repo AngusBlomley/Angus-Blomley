@@ -99,12 +99,14 @@ function WorkExperience() {
             data-aos="fade-left"
           >
             <Link href="/work/pwg">
-              <Image
-                id="coding"
-                alt="coding"
-                src="/images/index/pwg.png"
-                width={640}
-                height={1024}
+              <video
+                title="PWG Mobile App Demo"
+                src="/videos/pwg_tablet.webm"
+                autoPlay
+                muted
+                loop
+                width={800}
+                height={1200}
                 className="max-w-[80%] h-auto rounded-lg shadow-xl transition-transform duration-300 group-hover:scale-[1.02]"
               />
             </Link>
@@ -115,21 +117,23 @@ function WorkExperience() {
             data-aos="fade-right"
           >
             <Link href="/work/vocabo">
-              <div className="w-full max-w-[100%] rounded-lg overflow-hidden shadow-xl transition-transform duration-300 group-hover:scale-[1.02]">
-                <div className="bg-gray-100 h-7 rounded-t-lg flex items-center px-4">
+              <div className="w-full rounded-lg relative overflow-hidden shadow-xl transition-transform duration-300 group-hover:scale-[1.02]">
+                <div className="absolute top-0 left-0 w-full bg-gray-100 h-[1.6rem] rounded-t-md flex items-center px-4">
                   <div className="flex space-x-2">
-                    <div className="w-3 h-3 rounded-full bg-red-400"></div>
-                    <div className="w-3 h-3 rounded-full bg-yellow-400"></div>
-                    <div className="w-3 h-3 rounded-full bg-green-400"></div>
+                    <div className="w-2 h-2 rounded-full bg-red-400"></div>
+                    <div className="w-2 h-2 rounded-full bg-yellow-400"></div>
+                    <div className="w-2 h-2 rounded-full bg-green-400"></div>
                   </div>
                 </div>
-                <Image
-                  id="vocabo"
-                  alt="Vocabo Chrome Extension"
-                  src="/images/index/vocabo.png"
-                  width={1102}
-                  height={703}
-                  className="max-w-[100%] h-auto"
+                <video
+                  title="Vocabo Chrome Extension Demo"
+                  src="/videos/vocabo.mp4"
+                  autoPlay
+                  muted
+                  loop
+                  width={1280}
+                  height={720}
+                  className="h-auto rounded-lg shadow-xl transition-transform duration-300"
                 />
               </div>
             </Link>

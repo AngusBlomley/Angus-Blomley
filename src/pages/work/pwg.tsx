@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import React, { useEffect } from "react";
 import HeaderGlobal from "@/components/globals/headerGlobal";
 import Footer from "@/components/globals/footer";
@@ -40,9 +41,12 @@ const PWG = () => {
             <section className="pb-8 pt-8 pr-8 border-b border-opacity-10 border-gray-100 col-span-3 max-2xl:col-span-1">
               <h2 className="text-2xl font-semibold mb-4">Project Overview</h2>
               <p>
-                As the lead React Native developer for PWG Windows & Doors, I
-                developed a mobile application that revolutionized how field
-                engineers conduct site visits and process customer data.
+                I developed a React Native mobile application for PWG Windows &
+                Doors that significantly improved field engineers' efficiency
+                during site visits. The application features robust offline
+                capabilities using AsyncStorage for data persistence,
+                sophisticated state management, and seamless synchronization
+                with the backend when connectivity is restored.
               </p>
             </section>
 
@@ -52,19 +56,22 @@ const PWG = () => {
                 <li>React Native</li>
                 <li>TypeScript</li>
                 <li>Node.js</li>
-                <li>Express.js</li>
-                <li>MongoDB</li>
-                <li>AWS Services</li>
+                <li>Expo Router</li>
+                <li>AsyncStorage</li>
+                <li>Sentry Error Tracking</li>
               </ul>
             </section>
 
             <section className="border-l pt-8 pl-8 pb-8 border-opacity-10 border-gray-100 row-span-2 col-span-2 max-2xl:col-span-3 max-2xl:border-none max-2xl:px-0">
-              <Image
-                src="/images/index/pwg.png"
-                alt="PWG Mobile App"
-                width={640}
-                height={1024}
-                className="w-full rounded-lg shadow-xl"
+              <video
+                title="PWG Mobile App Demo"
+                src="/videos/pwg_web.mp4"
+                autoPlay
+                muted
+                loop
+                width={1280}
+                height={720}
+                className="rounded-lg shadow-xl mx-auto"
               />
             </section>
           </div>
@@ -73,11 +80,12 @@ const PWG = () => {
             <section>
               <h2 className="text-2xl font-semibold mb-4">Key Features</h2>
               <ul className="list-disc pl-5 space-y-2">
-                <li>Real-time calendar integration</li>
-                <li>Advanced form processing system</li>
-                <li>Secure customer data handling</li>
-                <li>Offline functionality</li>
-                <li>Automated reporting system</li>
+                <li>Real-time calendar integration with offline support</li>
+                <li>Advanced form processing with local storage persistence</li>
+                <li>Secure customer data handling with encryption</li>
+                <li>Robust offline functionality using AsyncStorage</li>
+                <li>Queue-based file synchronization system</li>
+                <li>Comprehensive error tracking and monitoring</li>
               </ul>
             </section>
 
@@ -86,9 +94,13 @@ const PWG = () => {
                 Technical Achievements
               </h2>
               <ul className="list-disc pl-5 space-y-2">
+                <li>
+                  Implemented sophisticated state management using Context API
+                </li>
+                <li>Built robust offline-first architecture</li>
+                <li>Integrated Sentry for error tracking and monitoring</li>
+                <li>Developed queue-based file synchronization system</li>
                 <li>40% improvement in site visit efficiency</li>
-                <li>Implemented CI/CD pipelines</li>
-                <li>Reduced data entry errors by 60%</li>
                 <li>99.9% app uptime achievement</li>
               </ul>
             </section>
