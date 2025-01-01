@@ -197,7 +197,7 @@ $XXXXxxxxxxxxxxxxxxxxx++++xxxx+xxxXXxXXXXXXXXXXXXXXXXXX$$$$$$$X+;+XXXXXXXXXXXXXX
               </Link>
               <Link
                 href="/work/vocabo"
-                className="text-[0.9em] inline-block bg-inherit opacity-75 p-1 px-2 no-underline font-ibmPlexMono hover:opacity-100 hover:bg-opacity-10 hover:bg-white rounded-md transition-all duration-75 -ml-2 w-fit flex items-center gap-2 group"
+                className="text-[0.9em] bg-inherit opacity-75 p-1 px-2 no-underline font-ibmPlexMono hover:opacity-100 hover:bg-opacity-10 hover:bg-white rounded-md transition-all duration-75 -ml-2 w-fit flex items-center gap-2 group"
               >
                 - Vocabo
                 <FontAwesomeIcon
@@ -212,7 +212,7 @@ $XXXXxxxxxxxxxxxxxxxxx++++xxxx+xxxXXxXXXXXXXXXXXXXXXXXX$$$$$$$X+;+XXXXXXXXXXXXXX
               </Link>
               <Link
                 href="/work/openfern"
-                className="text-[0.9em] inline-block bg-inherit opacity-75 p-1 px-2 no-underline font-ibmPlexMono hover:opacity-100 hover:bg-opacity-10 hover:bg-white rounded-md transition-all duration-75 -ml-2 w-fit flex items-center gap-2 group"
+                className="text-[0.9em] bg-inherit opacity-75 p-1 px-2 no-underline font-ibmPlexMono hover:opacity-100 hover:bg-opacity-10 hover:bg-white rounded-md transition-all duration-75 -ml-2 w-fit flex items-center gap-2 group"
               >
                 - Open Fern Studio
                 <FontAwesomeIcon
@@ -227,7 +227,7 @@ $XXXXxxxxxxxxxxxxxxxxx++++xxxx+xxxXXxXXXXXXXXXXXXXXXXXX$$$$$$$X+;+XXXXXXXXXXXXXX
               </Link>
               <Link
                 href="/work/beFirst"
-                className="text-[0.9em] inline-block bg-inherit opacity-75 p-1 px-2 no-underline font-ibmPlexMono hover:opacity-100 hover:bg-opacity-10 hover:bg-white rounded-md transition-all duration-75 -ml-2 w-fit flex items-center gap-2 group"
+                className="text-[0.9em] bg-inherit opacity-75 p-1 px-2 no-underline font-ibmPlexMono hover:opacity-100 hover:bg-opacity-10 hover:bg-white rounded-md transition-all duration-75 -ml-2 w-fit flex items-center gap-2 group"
               >
                 - Be First
                 <FontAwesomeIcon
@@ -244,7 +244,7 @@ $XXXXxxxxxxxxxxxxxxxxx++++xxxx+xxxXXxXXXXXXXXXXXXXXXXXX$$$$$$$X+;+XXXXXXXXXXXXXX
               <h3 className="font-ibmPlexMono mt-3 mb-1">Projects:</h3>
               <Link
                 href="/work/stringBox"
-                className="text-[0.9em] inline-block bg-inherit opacity-75 p-1 px-2 no-underline font-ibmPlexMono hover:opacity-100 hover:bg-opacity-10 hover:bg-white rounded-md transition-all duration-75 -ml-2 w-fit flex items-center gap-2 group"
+                className="text-[0.9em] bg-inherit opacity-75 p-1 px-2 no-underline font-ibmPlexMono hover:opacity-100 hover:bg-opacity-10 hover:bg-white rounded-md transition-all duration-75 -ml-2 w-fit flex items-center gap-2 group"
               >
                 - String Box
                 <FontAwesomeIcon
@@ -259,7 +259,7 @@ $XXXXxxxxxxxxxxxxxxxxx++++xxxx+xxxXXxXXXXXXXXXXXXXXXXXX$$$$$$$X+;+XXXXXXXXXXXXXX
               </Link>
               <Link
                 href="/work/celestialObjectTracker"
-                className="text-[0.9em] inline-block bg-inherit opacity-75 p-1 px-2 no-underline font-ibmPlexMono hover:opacity-100 hover:bg-opacity-10 hover:bg-white rounded-md transition-all duration-75 -ml-2 w-fit flex items-center gap-2 group"
+                className="text-[0.9em] bg-inherit opacity-75 p-1 px-2 no-underline font-ibmPlexMono hover:opacity-100 hover:bg-opacity-10 hover:bg-white rounded-md transition-all duration-75 -ml-2 w-fit flex items-center gap-2 group"
               >
                 - Celestial Object Tracker
                 <FontAwesomeIcon
@@ -274,7 +274,7 @@ $XXXXxxxxxxxxxxxxxxxxx++++xxxx+xxxXXxXXXXXXXXXXXXXXXXXX$$$$$$$X+;+XXXXXXXXXXXXXX
               </Link>
               <Link
                 href="/work/meetly"
-                className="text-[0.9em]inline-block bg-inherit opacity-75 p-1 px-2 no-underline font-ibmPlexMono hover:opacity-100 hover:bg-opacity-10 hover:bg-white rounded-md transition-all duration-75 -ml-2 w-fit flex items-center gap-2 group"
+                className="text-[0.9em]bg-inherit opacity-75 p-1 px-2 no-underline font-ibmPlexMono hover:opacity-100 hover:bg-opacity-10 hover:bg-white rounded-md transition-all duration-75 -ml-2 w-fit flex items-center gap-2 group"
               >
                 - Meetly
                 <FontAwesomeIcon
@@ -293,7 +293,7 @@ $XXXXxxxxxxxxxxxxxxxxx++++xxxx+xxxXXxXXXXXXXXXXXXXXXXXX$$$$$$$X+;+XXXXXXXXXXXXXX
                 href="https://www.codecademy.com/users/AngusBlomley/achievements"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-[0.9em] inline-block bg-inherit opacity-75 p-1 px-2 no-underline font-ibmPlexMono hover:opacity-100 hover:bg-opacity-10 hover:bg-white rounded-md transition-all duration-75 -ml-2 w-fit flex items-center gap-2 group"
+                className="text-[0.9em] bg-inherit opacity-75 p-1 px-2 no-underline font-ibmPlexMono hover:opacity-100 hover:bg-opacity-10 hover:bg-white rounded-md transition-all duration-75 -ml-2 w-fit flex items-center gap-2 group"
               >
                 - Codecademy
                 <FontAwesomeIcon
@@ -310,7 +310,7 @@ $XXXXxxxxxxxxxxxxxxxxx++++xxxx+xxxXXxXXXXXXXXXXXXXXXXXX$$$$$$$X+;+XXXXXXXXXXXXXX
                 href="https://github.com/AngusBlomley"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-[0.9em] inline-block bg-inherit opacity-75 p-1 px-2 no-underline font-ibmPlexMono hover:opacity-100 hover:bg-opacity-10 hover:bg-white rounded-md transition-all duration-75 -ml-2 w-fit flex items-center gap-2 group"
+                className="text-[0.9em] bg-inherit opacity-75 p-1 px-2 no-underline font-ibmPlexMono hover:opacity-100 hover:bg-opacity-10 hover:bg-white rounded-md transition-all duration-75 -ml-2 w-fit flex items-center gap-2 group"
               >
                 - GitHub
                 <FontAwesomeIcon
@@ -327,7 +327,7 @@ $XXXXxxxxxxxxxxxxxxxxx++++xxxx+xxxXXxXXXXXXXXXXXXXXXXXX$$$$$$$X+;+XXXXXXXXXXXXXX
                 href="https://www.linkedin.com/in/angus-blomley-82b45a177/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-[0.9em] inline-block bg-inherit opacity-75 p-1 px-2 no-underline font-ibmPlexMono hover:opacity-100 hover:bg-opacity-10 hover:bg-white rounded-md transition-all duration-75 -ml-2 w-fit flex items-center gap-2 group"
+                className="text-[0.9em] bg-inherit opacity-75 p-1 px-2 no-underline font-ibmPlexMono hover:opacity-100 hover:bg-opacity-10 hover:bg-white rounded-md transition-all duration-75 -ml-2 w-fit flex items-center gap-2 group"
               >
                 - LinkedIn
                 <FontAwesomeIcon
@@ -341,7 +341,7 @@ $XXXXxxxxxxxxxxxxxxxxx++++xxxx+xxxXXxXXXXXXXXXXXXXXXXXX$$$$$$$X+;+XXXXXXXXXXXXXX
                 />
               </a>
               <div
-                className="text-[0.9em] inline-block bg-inherit opacity-75 p-1 px-2 no-underline font-ibmPlexMono hover:opacity-100 hover:bg-opacity-10 hover:bg-white rounded-md transition-all duration-75 -ml-2 w-fit cursor-pointer flex items-center gap-2 group"
+                className="text-[0.9em] bg-inherit opacity-75 p-1 px-2 no-underline font-ibmPlexMono hover:opacity-100 hover:bg-opacity-10 hover:bg-white rounded-md transition-all duration-75 -ml-2 w-fit cursor-pointer flex items-center gap-2 group"
                 onClick={handleResumeClick}
               >
                 - Resume
