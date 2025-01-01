@@ -68,18 +68,10 @@ function About() {
           The Person Behind the Pixels
         </h2>
         <p className="text-lg mb-6 leading-relaxed" data-aos="fade-up">
-          Hello! I'm Angus Blomley, a passionate software developer with a love
-          for continuous learning. I began programming in May 2014 and have
-          since mastered HTML, CSS, JavaScript, React and many other languages,
-          libraries and tools.
-        </p>
-        <p
-          className="text-lg mb-6 leading-relaxed"
-          data-aos="fade-up"
-          data-aos-delay="200"
-        >
-          It's not just programming languages I know! To connect more deeply
-          with my partner and their culture I am continuely learning Japanese.
+          Hello! I'm Angus Blomley, a React developer passionate about crafting
+          exceptional web experiences. Since I started my journey in May 2014,
+          I've developed expertise in HTML, CSS, JavaScript, React and various
+          modern web technologies.
         </p>
         <p
           className="text-lg mb-6 leading-relaxed"
@@ -88,7 +80,8 @@ function About() {
         >
           As a former competitive springboard diver, I enjoy challenging outdoor
           activities and thrive in like-minded company. My adventurous spirit
-          drives me to explore new places and constantly push my limits.
+          drives me to explore new technologies and constantly push my
+          boundaries in both professional and personal pursuits.
         </p>
         <p
           className="text-lg leading-relaxed"

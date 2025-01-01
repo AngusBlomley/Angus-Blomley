@@ -100,7 +100,7 @@ const Vocabo = () => {
                   <li>Cross-browser compatibility testing</li>
                 </ul>
 
-                <div className="flex flex-wrap gap-4 items-center">
+                {/* <div className="flex flex-wrap gap-4 items-center">
                   <Image
                     src="/images/icons/react.webp"
                     alt="React"
@@ -115,7 +115,7 @@ const Vocabo = () => {
                     height={50}
                     className="py-2"
                   />
-                </div>
+                </div> */}
               </section>
             </div>
 
