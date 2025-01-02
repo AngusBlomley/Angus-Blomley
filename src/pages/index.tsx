@@ -36,7 +36,7 @@ function HomePage() {
       const currentScrollY = window.scrollY;
 
       if (window.innerWidth <= 768) {
-        setShowScrollTop(currentScrollY > 300 && currentScrollY > lastScrollY);
+        setShowScrollTop(currentScrollY > 300 && currentScrollY < lastScrollY);
       } else {
         setShowScrollTop(currentScrollY > 300);
       }

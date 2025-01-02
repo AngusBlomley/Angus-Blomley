@@ -70,19 +70,20 @@ function About() {
         <p className="text-lg mb-6 leading-relaxed" data-aos="fade-up">
           Hello! I'm Angus Blomley, a React developer passionate about crafting
           exceptional web experiences. Since I started my journey in May 2014,
-          I've developed expertise in HTML, CSS, JavaScript, React and various
-          modern web technologies.
+          I've developed expertise in HTML, CSS, JavaScript, React, React Native
+          and various modern web technologies.
         </p>
         <p
           className="text-lg mb-6 leading-relaxed"
           data-aos="fade-up"
           data-aos-delay="200"
         >
-          As a former competitive springboard diver, I enjoy challenging outdoor
-          activities and thrive in like-minded company. My adventurous spirit
-          drives me to explore new technologies and constantly push my
+          As a former international springboard diver, I enjoy challenging
+          outdoor activities and thrive in like-minded company. My adventurous
+          spirit drives me to explore new technologies and constantly push my
           boundaries in both professional and personal pursuits.
         </p>
+        {/* TODO: add a link to a section more about me. */}
         <p
           className="text-lg leading-relaxed"
           data-aos="fade-up"
