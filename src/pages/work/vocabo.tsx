@@ -73,7 +73,7 @@ const Vocabo = () => {
                   <li>Context API for global state management</li>
                   <li>Chrome Extension Manifest V3 implementation</li>
                   <li>Webpack configuration for extension bundling</li>
-                  <li>CSS Modules for scoped styling</li>
+                  <li>CSS Modules for scoped styling (tailwind)</li>
                 </ul>
 
                 <h3 className="text-xl font-semibold mb-4">
@@ -81,10 +81,8 @@ const Vocabo = () => {
                 </h3>
                 <ul className="list-disc pl-5 mb-8">
                   <li>Node.js/Express.js RESTful API</li>
-                  <li>MongoDB for data persistence</li>
-                  <li>JWT authentication implementation</li>
                   <li>Rate limiting and caching strategies</li>
-                  <li>Integration with third-party translation APIs</li>
+                  <li>Integration with google translation APIs</li>
                 </ul>
 
                 <h3 className="text-xl font-semibold mb-4">
