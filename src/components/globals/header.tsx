@@ -76,10 +76,6 @@ function Header(): JSX.Element {
     }
   };
 
-  const toggleWorkSublinks = () => {
-    setWorkSublinksVisible(!workSublinksVisible);
-  };
-
   const handleResumeClick = () => {
     if (window.innerWidth < 1024) {
       // 1024px is the breakpoint for 'lg'
@@ -150,18 +146,18 @@ function Header(): JSX.Element {
           <Link href="/" passHref>
             <h2
               id="logo"
-              className="text-3xl font-rubik font-bold opacity-50 hover:opacity-100 duration-200 cursor-pointer no-underline"
+              className="text-3xl font-rubik font-bold opacity-50 hover:opacity-100 duration-75 cursor-pointer no-underline"
             >
               AB
             </h2>
           </Link>
-          <nav className="hidden lg:flex space-x-6 items-center">
+          <nav className="hidden lg:flex items-center">
             {sections.map((section) => (
               <div key={section.id} className="relative group">
                 {section.link ? (
                   <Link href={section.link} passHref>
                     <div
-                      className="inline-block bg-inherit opacity-75 p-1 px-2 no-underline font-ibmPlexMono hover:opacity-100 hover:bg-opacity-10 hover:bg-white rounded-md transition-all duration-100 cursor-pointer"
+                      className="inline-block bg-inherit opacity-75 p-1 px-3 no-underline font-ibmPlexMono hover:opacity-100 hover:bg-opacity-10 hover:bg-white rounded-md transition-all duration-75 cursor-pointer"
                       onClick={(e: React.MouseEvent<HTMLDivElement>) =>
                         section.action && section.action()
                       }
@@ -171,7 +167,7 @@ function Header(): JSX.Element {
                   </Link>
                 ) : (
                   <div
-                    className="inline-block bg-inherit opacity-75 p-1 px-2 no-underline font-ibmPlexMono hover:opacity-100 hover:bg-opacity-10 hover:bg-white rounded-md transition-all duration-100 cursor-pointer"
+                    className="inline-block bg-inherit opacity-75 p-1 px-3 no-underline font-ibmPlexMono hover:opacity-100 hover:bg-opacity-10 hover:bg-white rounded-md transition-all duration-75 cursor-pointer"
                     onClick={(e: React.MouseEvent<HTMLDivElement>) =>
                       section.action && section.action()
                     }
@@ -181,12 +177,12 @@ function Header(): JSX.Element {
                 )}
                 {section.subLinks && (
                   <div
-                    className="absolute px-5 py-4 -left-2 mt-0 w-64 shadow-lg rounded hidden group-hover:block transition-opacity duration-100 border border-gray-800 flex flex-col gap-2"
+                    className="absolute px-5 py-4 -left-2 mt-0 w-64 shadow-lg rounded hidden group-hover:block transition-opacity duration-75 border border-gray-800 flex flex-col gap-2"
                     style={{ backgroundColor }}
                   >
                     {section.subLinks.map((subLink) => (
                       <Link key={subLink.name} href={subLink.link} passHref>
-                        <div className="inline-block bg-inherit opacity-75 p-1 px-2 no-underline font-ibmPlexMono hover:opacity-100 hover:bg-opacity-10 hover:bg-white rounded-md transition-all duration-100 cursor-pointer w-full">
+                        <div className="inline-block bg-inherit opacity-75 p-1 px-3 no-underline font-ibmPlexMono hover:opacity-100 hover:bg-opacity-10 hover:bg-white rounded-md transition-all duration-75 cursor-pointer w-full">
                           {subLink.name}
                         </div>
                       </Link>
@@ -195,12 +191,12 @@ function Header(): JSX.Element {
                 )}
               </div>
             ))}
-            <div className="flex space-x-4 items-center">
+            <div className="flex items-center">
               <a
                 href="https://github.com/AngusBlomley"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-block bg-inherit opacity-75 p-1 px-2 hover:opacity-100 hover:bg-opacity-10 hover:bg-white rounded-md transition-all duration-100"
+                className="inline-block bg-inherit opacity-75 p-1 px-3 hover:opacity-100 hover:bg-opacity-10 hover:bg-white rounded-md transition-all duration-75"
               >
                 <FaGithub />
               </a>
@@ -208,13 +204,13 @@ function Header(): JSX.Element {
                 href="https://www.linkedin.com/in/angus-blomley-82b45a177/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-block bg-inherit opacity-75 p-1 px-2 hover:opacity-100 hover:bg-opacity-10 hover:bg-white rounded-md transition-all duration-100"
+                className="inline-block bg-inherit opacity-75 p-1 px-3 hover:opacity-100 hover:bg-opacity-10 hover:bg-white rounded-md transition-all duration-75"
               >
                 <FaLinkedin />
               </a>
               <button
                 onClick={toggleDarkMode}
-                className="inline-block bg-inherit opacity-75 p-1 px-2 hover:opacity-100 hover:bg-opacity-10 hover:bg-white rounded-md transition-all duration-100"
+                className="inline-block bg-inherit opacity-75 p-1 px-3 hover:opacity-100 hover:bg-opacity-10 hover:bg-white rounded-md transition-all duration-75"
                 aria-label={
                   isDarkMode ? "Switch to Light Mode" : "Switch to Dark Mode"
                 }
@@ -267,7 +263,9 @@ function Header(): JSX.Element {
                     <>
                       <div
                         className="no-underline flex items-center cursor-pointer"
-                        onClick={toggleWorkSublinks}
+                        onClick={() =>
+                          setWorkSublinksVisible(!workSublinksVisible)
+                        }
                       >
                         {section.icon}
                         <span className="ml-2">{section.name}</span>
@@ -324,7 +322,14 @@ function Header(): JSX.Element {
             className="absolute inset-0 bg-black opacity-75"
             onClick={() => setPdfVisible(false)}
           ></div>
-          <div className="relative w-4/5 h-4/5">
+          <div className="relative w-4/5 h-full">
+            <button
+              onClick={() => setPdfVisible(false)}
+              className="absolute -right-11 text-white hover:text-gray-300 bg-red-400 p-[0.32em] hover:bg-red-500 text-3xl z-50"
+              aria-label="Close PDF viewer"
+            >
+              &#x2715;
+            </button>
             <iframe
               title="Angus-Blomley.pdf"
               src="/pdf/Angus-Blomley.pdf"

@@ -39,7 +39,7 @@ function WorkExperience() {
           <div className="pr-12 max-md:pr-0" data-aos="fade-right">
             <div className="max-w-xl">
               <h3 className="text-3xl font-semibold mb-3">
-                React Native Developer
+                React / React Native Developer
               </h3>
               <p className="mb-6 text-lg opacity-90">
                 Compute and Cultivate Ltd (PWG Windows & Doors)
