@@ -83,12 +83,18 @@ function About() {
           spirit drives me to explore new technologies and constantly push my
           boundaries in both professional and personal pursuits.
         </p>
-        {/* TODO: add a link to a section more about me. */}
         <p
           className="text-lg leading-relaxed"
           data-aos="fade-up"
           data-aos-delay="400"
         >
+          <Link
+            href="/aboutMe"
+            className="inline-block mt-4 px-6 py-2 border border-current rounded relative overflow-hidden group mr-4"
+          >
+            <span className="absolute left-0 top-0 h-full w-0 bg-blue-500/80 transition-all duration-300 group-hover:w-full"></span>
+            <span className="relative z-10">My Story</span>
+          </Link>
           <Link
             href="/#contact"
             className="inline-block mt-4 px-6 py-2 border border-current rounded relative overflow-hidden group"

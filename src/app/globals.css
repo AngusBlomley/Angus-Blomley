@@ -63,3 +63,20 @@ body.dark-mode {
   position: fixed !important;
   z-index: -1 !important;
 }
+
+@keyframes dropPin {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -200%);
+  }
+  60% {
+    transform: translate(-50%, -30%);
+  }
+  80% {
+    transform: translate(-50%, -60%);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+}
