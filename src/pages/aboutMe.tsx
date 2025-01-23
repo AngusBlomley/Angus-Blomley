@@ -217,7 +217,7 @@ export default function AboutMe() {
               </div>
             </section>
 
-            <section id="usa-experience" className="mb-8 sm:mb-12 scroll-mt-24">
+            <section id="usa" className="mb-8 sm:mb-12 scroll-mt-24">
               <h2 className="text-2xl font-semibold mb-4 text-center sm:text-left">
                 My Experience at Indiana University
               </h2>
