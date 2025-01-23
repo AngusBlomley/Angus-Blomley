@@ -1,4 +1,3 @@
-/* eslint-disable react/no-unescaped-entities */
 import React, { useEffect } from "react";
 import HeaderGlobal from "@/components/globals/headerGlobal";
 import Footer from "@/components/globals/footer";
@@ -27,112 +26,162 @@ const StringBox = () => {
   return (
     <>
       <HeaderGlobal />
-      <div id="stringBox" data-aos="fade-in" style={{ backgroundColor, color }}>
-        <div className="container mx-auto px-4 py-8">
-          <h1 className="text-4xl mt-16 font-bold mb-4 ">
-            Re-StringBox - Restringing and Ecommerce Website (In Development)
-          </h1>
-          <p className="text-lg ">
-            Welcome to Re-StringBox, a template for anyone who wants to provide
-            an online stringing service. This page demonstrates the work I've
-            done on this project, including the technology stack used and key
-            features implemented.
-            <a
-              href="https://string-box.vercel.app/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-blue-500 hover:text-blue-700"
-            >
-              {" "}
-              Visit the Re-String Box website
-            </a>
-            <span> or</span>
-            <a
-              href="https://github.com/AngusBlomley/string-box"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-blue-500 hover:text-blue-700"
-            >
-              {" "}
-              view the Re-String Box Github.
-            </a>
-          </p>
-
-          <div className="grid grid-cols-3 border-b border-opacity-10 border-gray-100 max-2xl:col-span-2 max-lg:grid-cols-1">
-            <section className="pb-8 pt-8 pr-8 border-b border-opacity-10 border-gray-100 col-span-3 max-2xl:col-span-1">
-              <h2 className="text-2xl font-semibold mb-2 ">Project Overview</h2>
-              <p className="">
-                Re-StringBox is an ecommerce website designed for a sole trader
-                offering restringing services. The site allows users to book
-                services, purchase products, and manage orders seamlessly. It's
-                built with a modern tech stack to ensure scalability,
-                performance, and a great user experience.
+      <main className="min-h-screen pt-20" style={{ backgroundColor, color }}>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+          <div className="space-y-8" data-aos="fade-up">
+            <div className="text-center">
+              <h1 className="text-4xl font-bold mb-4">
+                Re-StringBox - Restringing and Ecommerce Website
+              </h1>
+              <p className="text-lg max-w-3xl mx-auto">
+                A modern ecommerce platform for racquet restringing services,
+                built with Next.js and a robust tech stack.{" "}
+                <a
+                  href="https://string-box.vercel.app/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-blue-500 hover:text-blue-600"
+                >
+                  Visit the website
+                </a>{" "}
+                or{" "}
+                <a
+                  href="https://github.com/AngusBlomley/string-box"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-blue-500 hover:text-blue-600"
+                >
+                  view on GitHub
+                </a>
               </p>
-            </section>
+            </div>
 
-            <section className="h-full pt-8 pr-8 grid-cols-1 max-lg:row-start-2 border-b border-gray-100 border-opacity-10 max-2xl:pb-8">
-              <h2 className="text-2xl font-semibold mb-2 ">Technology Stack</h2>
-              <ul className="list-disc pl-5 ">
-                <li>Next.js for the frontend framework</li>
-                <li>Redux Toolkit for state management</li>
-                <li>Stripe for payment processing</li>
-                <li>MongoDB and Mongoose for database management</li>
-                <li>NextAuth.js for authentication</li>
-                <li>Axios for making HTTP requests</li>
-                <li>Nodemailer for email notifications</li>
-                <li>Tailwind CSS for styling</li>
-              </ul>
-            </section>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+              <div className="space-y-8">
+                <section>
+                  <h2 className="text-2xl font-semibold mb-4">
+                    Project Overview
+                  </h2>
+                  <p className="text-lg">
+                    Re-StringBox is a comprehensive ecommerce solution designed
+                    for racquet sports professionals. It enables users to book
+                    restringing services, purchase equipment, and manage their
+                    orders seamlessly. Built with scalability and performance in
+                    mind, it features a modern tech stack and intuitive user
+                    interface.
+                  </p>
+                </section>
 
-            <section className="h-full pr-8 pt-8 row-start-3 max-2xl:row-start-1 max-2xl:col-end-3 max-lg:row-start-3 max-lg:col-start-1 border-b border-gray-100 border-opacity-10 max-lg:pb-8 max-2xl:pt-8">
-              <h2 className="text-2xl font-semibold mb-2 ">Key Features</h2>
-              <ul className="list-disc pl-5 ">
-                <li>
-                  Secure authentication and authorization using NextAuth.js
-                </li>
-                <li>Payment integration with Stripe</li>
-                <li>Responsive design with Tailwind CSS</li>
-                <li>RESTful API for managing orders and services</li>
-                <li>Admin dashboard for managing products and orders</li>
-              </ul>
-            </section>
+                <section>
+                  <h2 className="text-2xl font-semibold mb-4">
+                    Technical Implementation
+                  </h2>
+                  <div className="space-y-6">
+                    <div>
+                      <h3 className="text-xl font-medium mb-2">
+                        Frontend Architecture
+                      </h3>
+                      <ul className="list-disc pl-5 space-y-1">
+                        <li>Next.js for server-side rendering and routing</li>
+                        <li>Redux Toolkit for centralized state management</li>
+                        <li>Tailwind CSS for responsive design</li>
+                        <li>Stripe Elements for secure payment processing</li>
+                      </ul>
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-medium mb-2">
+                        Backend Services
+                      </h3>
+                      <ul className="list-disc pl-5 space-y-1">
+                        <li>MongoDB with Mongoose for data persistence</li>
+                        <li>NextAuth.js for secure authentication</li>
+                        <li>RESTful API endpoints for order management</li>
+                        <li>Nodemailer for automated notifications</li>
+                      </ul>
+                    </div>
+                  </div>
+                </section>
+              </div>
 
-            <section className="border-l pt-8 pl-8 pb-8 border-opacity-10 border-gray-100 row-span-2 col-span-2 max-2xl:col-span-3 max-2xl:border-none max-2xl:px-0 ">
-              <a
-                href="https://string-box.vercel.app"
-                className="filter hover:brightness-75 duration-200 "
-              >
-                <video
-                  title="StringBox Website"
-                  src="/videos/stringBoxWeb.mp4"
-                  autoPlay
-                  muted
-                  loop
-                  width={960}
-                  height={480}
-                  className="w-full"
-                />
-              </a>
-            </section>
-          </div>
-          <div className="grid grid-cols-6 grid-rows-2 mt-8 max-lg:grid-cols-1">
-            <section className="row-span-full col-span-2 col-start-2 max-lg:row-start-3 max-lg:row-span-1 pt-8 border-r border-gray-100 border-opacity-10 bg-gray-100 bg-opacity-20 max-2xl:col-span-3">
-              <h2 className="text-2xl font-semibold mb-2  pl-4">
-                Package.json
+              <div className="space-y-8">
+                <div className="rounded-lg overflow-hidden shadow-lg">
+                  <video
+                    src="/videos/stringBoxWeb.mp4"
+                    autoPlay
+                    muted
+                    loop
+                    className="w-full"
+                  />
+                </div>
+
+                <section>
+                  <h2 className="text-2xl font-semibold mb-4">
+                    Development Practices
+                  </h2>
+                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+                    <Image
+                      src="/images/icons/next.webp"
+                      alt="Next.js"
+                      width={50}
+                      height={50}
+                      className="mx-auto"
+                    />
+                    <Image
+                      src="/images/icons/js.webp"
+                      alt="JavaScript"
+                      width={50}
+                      height={50}
+                      className="mx-auto"
+                    />
+                    <Image
+                      src="/images/icons/mongodb.webp"
+                      alt="MongoDB"
+                      width={50}
+                      height={50}
+                      className="mx-auto"
+                    />
+                    <Image
+                      src="/images/icons/tailwind.webp"
+                      alt="Tailwind CSS"
+                      width={50}
+                      height={50}
+                      className="mx-auto"
+                    />
+                  </div>
+                </section>
+
+                <section>
+                  <h2 className="text-2xl font-semibold mb-4">Key Features</h2>
+                  <ul className="list-disc pl-5 space-y-2">
+                    <li>Secure user authentication and authorization</li>
+                    <li>Integrated payment processing with Stripe</li>
+                    <li>Real-time order tracking and management</li>
+                    <li>Responsive design for all devices</li>
+                    <li>Admin dashboard for business operations</li>
+                    <li>Automated email notifications</li>
+                  </ul>
+                </section>
+              </div>
+            </div>
+
+            <section className="mt-12">
+              <h2 className="text-2xl font-semibold mb-4">
+                Package Information
               </h2>
-              <pre className="p-4 rounded-md flex-1 overflow-x-auto max-w-full">
-                <code>
-                  {`{
-"name": "string-box",
-"version": "0.1.0",
-"private": true,
-"scripts": {
+              <div className="bg-opacity-5 bg-white dark:bg-opacity-5 dark:bg-black rounded-lg p-6">
+                <pre className="overflow-x-auto">
+                  <code>
+                    {`{
+  "name": "string-box",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
-},
-"dependencies": {
+  },
+  "dependencies": {
     "@reduxjs/toolkit": "^2.2.3",
     "@stripe/react-stripe-js": "^2.7.1",
     "@stripe/stripe-js": "^3.4.0",
@@ -158,10 +207,26 @@ const StringBox = () => {
     "sharp": "^0.33.3",
     "stripe": "^15.5.0",
     "react-recaptcha-v3": "^1.9.1"
-},
-"devDependencies": {
+  },
+  "devDependencies": {
     "eslint": "^8",
     "eslint-config-next": "14.2.3",
     "postcss": "^8.4.38",
     "tailwindcss": "^3.4.3"
-}`
+  }
+}`}
+                  </code>
+                </pre>
+              </div>
+            </section>
+          </div>
+
+          <WorkNavigation currentPath="/work/stringBox" />
+        </div>
+      </main>
+      <Footer />
+    </>
+  );
+};
+
+export default StringBox;
