@@ -101,7 +101,7 @@ export default function AboutMe() {
           </section>
 
           <div className="max-w-6xl mx-auto">
-            <section id="about-me" className="mb-8 sm:mb-12 scroll-mt-24">
+            <section id="gbr" className="mb-8 sm:mb-12 scroll-mt-24">
               <h2 className="text-2xl font-semibold mb-4 text-center sm:text-left">
                 Hi, I'm Angus Blomley
               </h2>
