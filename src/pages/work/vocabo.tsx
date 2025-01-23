@@ -1,11 +1,11 @@
 import React, { useEffect } from "react";
 import HeaderGlobal from "@/components/globals/headerGlobal";
 import Footer from "@/components/globals/footer";
+import { WorkNavigation } from "@/components/work/WorkNavigation";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import Image from "next/image";
 import { useDarkMode } from "@/contexts/darkModeContext";
-import { WorkNavigation } from "@/components/work/WorkNavigation";
 
 const Vocabo = () => {
   const { isDarkMode } = useDarkMode();
@@ -26,108 +26,148 @@ const Vocabo = () => {
   return (
     <>
       <HeaderGlobal />
-      <div id="vocabo" data-aos="fade-in" style={{ backgroundColor, color }}>
-        <div className="container mx-auto px-4 py-8">
-          <h1 className="text-4xl mt-16 font-bold mb-4">
-            Vocabo - Chrome Extension for Language Learning
-          </h1>
-          <p className="text-lg mb-8">
-            A sophisticated Chrome extension developed for passive language
-            learning, enabling users to learn any language supported by Google
-            Translate while browsing the web. The extension features seamless
-            Anki integration for automated flashcard creation and spaced
-            repetition learning.{" "}
-            <a
-              href="https://chromewebstore.google.com/detail/vocabo/jkidhonedioaomijgdccandhiffoiheb"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-blue-500 hover:text-blue-700"
-            >
-              Check it out on Chrome Web Store
-            </a>
-          </p>
-
-          <div className="grid grid-cols-3 border-b border-opacity-10 border-gray-100 max-2xl:col-span-2 max-lg:grid-cols-1">
-            <div className="col-span-1 max-lg:col-span-full">
-              <section className="pb-8 pt-8 pr-8 border-b border-opacity-10 border-gray-100">
-                <h2 className="text-2xl font-semibold mb-4">
-                  Technical Overview
-                </h2>
-                <p>
-                  Independently architected and developed the entire Chrome
-                  extension from concept to deployment. Led all technical
-                  decisions including library selection, build system
-                  configuration, and implementation of complex features like
-                  IIFE bundling for React script injection and Anki Connect
-                  integration.
-                </p>
-              </section>
-
-              <section className="h-full pt-8 pr-8 border-b border-opacity-10 border-gray-100">
-                <h2 className="text-2xl font-semibold mb-4">
-                  Technical Implementation
-                </h2>
-                <ul className="list-disc pl-5 mb-8">
-                  <li>React with TypeScript for type-safe development</li>
-                  <li>Custom hooks for shared logic and state management</li>
-                  <li>Context API for global state management</li>
-                  <li>Chrome Extension Manifest V3 implementation</li>
-                  <li>Webpack configuration for extension bundling</li>
-                  <li>CSS Modules for scoped styling (tailwind)</li>
-                </ul>
-
-                <h3 className="text-xl font-semibold mb-4">
-                  Backend Architecture
-                </h3>
-                <ul className="list-disc pl-5 mb-8">
-                  <li>Node.js/Express.js RESTful API</li>
-                  <li>Rate limiting and caching strategies</li>
-                  <li>Integration with google translation APIs</li>
-                </ul>
-
-                <h3 className="text-xl font-semibold mb-4">
-                  Development Highlights
-                </h3>
-                <ul className="list-disc pl-5 mb-8">
-                  <li>Solo development of the extension codebase</li>
-                  <li>
-                    Regular stakeholder collaboration for feature prioritization
-                  </li>
-                  <li>Implemented advanced browser extension patterns</li>
-                  <li>
-                    Optimized performance for seamless browsing experience
-                  </li>
-                  <li>Built robust error handling and recovery systems</li>
-                </ul>
-              </section>
+      <main className="min-h-screen pt-20" style={{ backgroundColor, color }}>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+          <div className="space-y-8" data-aos="fade-up">
+            <div className="text-center">
+              <h1 className="text-4xl font-bold mb-4">
+                Vocabo - Chrome Extension Development
+              </h1>
+              <p className="text-lg max-w-3xl mx-auto">
+                A sophisticated Chrome extension for language learners,
+                featuring real-time translation, vocabulary management, and
+                spaced repetition learning.{" "}
+                <a
+                  href="https://chrome.google.com/webstore/detail/vocabo/example"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-blue-500 hover:text-blue-600"
+                >
+                  Available on Chrome Store
+                </a>
+              </p>
             </div>
 
-            <section className="col-span-2 max-lg:col-span-full pl-8">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
               <div className="space-y-8">
+                <section>
+                  <h2 className="text-2xl font-semibold mb-4">
+                    Technical Overview
+                  </h2>
+                  <p className="text-lg">
+                    Vocabo demonstrates expertise in Chrome extension
+                    development and full-stack integration. The project
+                    showcases advanced JavaScript capabilities, real-time data
+                    processing, and seamless integration with browser APIs.
+                    Built with modern web technologies and following best
+                    practices in extension development.
+                  </p>
+                </section>
+
+                <section>
+                  <h2 className="text-2xl font-semibold mb-4">
+                    Technical Implementation
+                  </h2>
+                  <div className="space-y-6">
+                    <div>
+                      <h3 className="text-xl font-medium mb-2">
+                        Extension Architecture
+                      </h3>
+                      <ul className="list-disc pl-5 space-y-1">
+                        <li>React for component-based UI development</li>
+                        <li>Chrome Extension Manifest V3 compliance</li>
+                        <li>Background service workers for processing</li>
+                        <li>Content scripts for webpage integration</li>
+                      </ul>
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-medium mb-2">
+                        Backend Services
+                      </h3>
+                      <ul className="list-disc pl-5 space-y-1">
+                        <li>Node.js and Express for API endpoints</li>
+                        <li>MongoDB for vocabulary storage</li>
+                        <li>JWT authentication for secure access</li>
+                        <li>RESTful API design principles</li>
+                      </ul>
+                    </div>
+                  </div>
+                </section>
+
+                <section>
+                  <h2 className="text-2xl font-semibold mb-4">
+                    Development Practices
+                  </h2>
+                  <div className="flex justify-start">
+                    <Image
+                      src="/images/icons/react.webp"
+                      alt="React"
+                      width={50}
+                      height={50}
+                      className="mx-2"
+                    />
+                    <Image
+                      src="/images/icons/js.webp"
+                      alt="JavaScript"
+                      width={50}
+                      height={50}
+                      className="mx-2"
+                    />
+                    <Image
+                      src="/images/icons/mongodb.webp"
+                      alt="MongoDB"
+                      width={50}
+                      height={50}
+                      className="mx-2"
+                    />
+                    <Image
+                      src="/images/icons/github.webp"
+                      alt="GitHub"
+                      width={50}
+                      height={50}
+                      className="mx-2"
+                    />
+                  </div>
+                </section>
+
+                <section>
+                  <h2 className="text-2xl font-semibold mb-4">Key Features</h2>
+                  <ul className="list-disc pl-5 space-y-2">
+                    <li>Real-time text translation</li>
+                    <li>Vocabulary management system</li>
+                    <li>Spaced repetition learning</li>
+                    <li>Cross-browser synchronization</li>
+                    <li>Offline functionality</li>
+                    <li>User progress analytics</li>
+                  </ul>
+                </section>
+              </div>
+
+              <div className="space-y-8">
+                <div className="rounded-lg overflow-hidden shadow-lg">
+                  <video
+                    src="/videos/vocabo.mp4"
+                    autoPlay
+                    muted
+                    loop
+                    className="w-full rounded-lg shadow-xl"
+                  />
+                </div>
+
                 <Image
                   src="/images/index/vocabo.png"
-                  alt="Vocabo Chrome Extension"
-                  width={1102}
-                  height={703}
-                  className="w-full rounded-lg shadow-xl"
-                />
-                <video
-                  title="Vocabo Demo"
-                  src="/videos/vocabo.mp4"
-                  autoPlay
-                  muted
-                  loop
-                  width={1102}
-                  height={703}
-                  className="w-full rounded-lg shadow-xl"
+                  alt="Vocabo Extension Interface"
+                  width={800}
+                  height={600}
+                  className="rounded-lg shadow-xl"
                 />
               </div>
-            </section>
+            </div>
           </div>
 
           <WorkNavigation currentPath="/work/vocabo" />
         </div>
-      </div>
+      </main>
       <Footer />
     </>
   );

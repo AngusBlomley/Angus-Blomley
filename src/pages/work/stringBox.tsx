@@ -118,34 +118,34 @@ const StringBox = () => {
                   <h2 className="text-2xl font-semibold mb-4">
                     Development Practices
                   </h2>
-                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+                  <div className="flex gap-4">
                     <Image
                       src="/images/icons/next.webp"
                       alt="Next.js"
                       width={50}
                       height={50}
-                      className="mx-auto"
+                      className=""
                     />
                     <Image
                       src="/images/icons/js.webp"
                       alt="JavaScript"
                       width={50}
                       height={50}
-                      className="mx-auto"
+                      className=""
                     />
                     <Image
                       src="/images/icons/mongodb.webp"
                       alt="MongoDB"
                       width={50}
                       height={50}
-                      className="mx-auto"
+                      className=""
                     />
                     <Image
                       src="/images/icons/tailwind.webp"
                       alt="Tailwind CSS"
                       width={50}
                       height={50}
-                      className="mx-auto"
+                      className="py-2"
                     />
                   </div>
                 </section>
