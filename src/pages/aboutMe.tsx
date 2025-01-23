@@ -22,7 +22,7 @@ const visitedCountries = [
     country: "GBR",
     coordinates: [51.5074, -0.1278],
     description:
-      "Born and raised in the UK, studied Broadcast Engineering at Ravensbourne University for three years, engineering and programming.",
+      "Born and raised in the UK, studied Broadcast Engineering at Ravensbourne University Londonfor three years, engineering and programming.",
   },
   { country: "USA-las-vegas", coordinates: [37.1699, -112.1398] },
   { country: "AUS", coordinates: [-14.8688, 151.2093] },
