@@ -38,7 +38,7 @@ const Vocabo = () => {
                 featuring real-time translation, vocabulary management, and
                 spaced repetition learning.{" "}
                 <a
-                  href="https://chrome.google.com/webstore/detail/vocabo/example"
+                  href="https://chromewebstore.google.com/detail/vocabo/jkidhonedioaomijgdccandhiffoiheb"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-blue-500 hover:text-blue-600"
