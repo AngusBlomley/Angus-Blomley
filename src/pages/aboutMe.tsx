@@ -87,8 +87,8 @@ export default function AboutMe() {
               className="text-center mx-auto -translate-y-10 sm:-translate-y-20 hover:text-green-400 group z-50 cursor-pointer max-lg:hidden"
               onClick={() => {
                 document
-                  .getElementById("about-me")
-                  ?.scrollIntoView({ behavior: "smooth" });
+                  .getElementById("gbr")
+                  ?.scrollIntoView({ behavior: "smooth", block: "start" });
               }}
             >
               <p>LEARN MORE</p>
