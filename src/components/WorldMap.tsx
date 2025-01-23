@@ -101,7 +101,7 @@ const WorldMap: React.FC<Props> = ({ visitedCountries }) => {
               <p className="mb-2">{location.description}</p>
               {(location.country === "USA" || location.country === "GBR") && (
                 <a
-                  href={`#${location.country.toLowerCase()}-experience`}
+                  href={`#${location.country.toLowerCase()}`}
                   className="text-blue-500 hover:text-blue-600"
                 >
                   Learn more →
