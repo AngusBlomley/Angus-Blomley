@@ -88,12 +88,8 @@ const PWG = () => {
                 </h3>
                 <ul className="list-disc pl-5 mb-8">
                   <li>Comprehensive error tracking with Sentry integration</li>
-                  <li>
-                    Automated testing with Jest and React Native Testing Library
-                  </li>
                   <li>CI/CD pipeline for mobile deployment</li>
                   <li>Performance monitoring and optimization</li>
-                  <li>Cross-device testing and validation</li>
                 </ul>
 
                 {/* <div className="flex flex-wrap gap-4 items-center">

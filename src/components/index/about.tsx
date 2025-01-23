@@ -69,9 +69,15 @@ function About() {
         </h2>
         <p className="text-lg mb-6 leading-relaxed" data-aos="fade-up">
           Hello! I'm Angus Blomley, a React developer passionate about crafting
-          exceptional web experiences. Since I started my journey in May 2014,
-          I've developed expertise in HTML, CSS, JavaScript, React, React Native
-          and various modern web technologies.
+          exceptional web experiences. Since I started my programming journey in
+          May 2014, I've developed expertise in HTML, CSS, JavaScript, React,
+          React Native and various modern web technologies.
+        </p>
+        <p className="text-lg mb-6 leading-relaxed" data-aos="fade-up">
+          It's not just about the programming languages but language in general,
+          I'm currently learning japanese to help connect with my girlfriend.
+          <br></br>
+          日本語を学ぶのも楽しいですよ！
         </p>
         <p
           className="text-lg mb-6 leading-relaxed"

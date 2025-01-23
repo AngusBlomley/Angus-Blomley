@@ -69,7 +69,7 @@ function HeaderGlobal(): JSX.Element {
 
   const sections: Section[] = [
     { id: "home", link: "/", name: "Home", icon: <FaHome /> },
-    { id: "about", link: "/#about", name: "About", icon: <FaInfo /> },
+    { id: "about", link: "/aboutMe", name: "About", icon: <FaInfo /> },
     {
       id: "experience",
       link: "/#experience",

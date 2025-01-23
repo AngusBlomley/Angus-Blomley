@@ -90,7 +90,7 @@ function Header(): JSX.Element {
 
   const sections: Section[] = [
     { id: "home", name: "Home", icon: <FaHome />, link: "/" },
-    { id: "about", name: "About", icon: <FaInfo />, link: "/#about" },
+    { id: "about", name: "About", icon: <FaInfo />, link: "/aboutMe" },
     {
       id: "experience",
       name: "Experience",

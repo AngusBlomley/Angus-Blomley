@@ -29,18 +29,21 @@ const Vocabo = () => {
       <div id="vocabo" data-aos="fade-in" style={{ backgroundColor, color }}>
         <div className="container mx-auto px-4 py-8">
           <h1 className="text-4xl mt-16 font-bold mb-4">
-            Vocabo - Chrome Extension Development
+            Vocabo - Chrome Extension for Language Learning
           </h1>
           <p className="text-lg mb-8">
-            A full-stack Chrome extension showcasing modern web development
-            practices, state management, and real-time data processing.{" "}
+            A sophisticated Chrome extension developed for passive language
+            learning, enabling users to learn any language supported by Google
+            Translate while browsing the web. The extension features seamless
+            Anki integration for automated flashcard creation and spaced
+            repetition learning.{" "}
             <a
               href="https://chromewebstore.google.com/detail/vocabo/jkidhonedioaomijgdccandhiffoiheb"
               target="_blank"
               rel="noopener noreferrer"
               className="text-blue-500 hover:text-blue-700"
             >
-              Available on Chrome Web Store
+              Check it out on Chrome Web Store
             </a>
           </p>
 
@@ -51,22 +54,19 @@ const Vocabo = () => {
                   Technical Overview
                 </h2>
                 <p>
-                  Developed a complex Chrome extension utilizing React for the
-                  frontend and Node.js for the backend. The project demonstrates
-                  proficiency in modern JavaScript development, API integration,
-                  and browser extension architecture. Key technical achievements
-                  include implementing efficient state management, real-time
-                  data processing, and seamless browser integration.
+                  Independently architected and developed the entire Chrome
+                  extension from concept to deployment. Led all technical
+                  decisions including library selection, build system
+                  configuration, and implementation of complex features like
+                  IIFE bundling for React script injection and Anki Connect
+                  integration.
                 </p>
               </section>
 
               <section className="h-full pt-8 pr-8 border-b border-opacity-10 border-gray-100">
                 <h2 className="text-2xl font-semibold mb-4">
-                  Technical Stack & Implementation
+                  Technical Implementation
                 </h2>
-                <h3 className="text-xl font-semibold mb-4">
-                  Frontend Development
-                </h3>
                 <ul className="list-disc pl-5 mb-8">
                   <li>React with TypeScript for type-safe development</li>
                   <li>Custom hooks for shared logic and state management</li>
@@ -86,34 +86,19 @@ const Vocabo = () => {
                 </ul>
 
                 <h3 className="text-xl font-semibold mb-4">
-                  Development Practices
+                  Development Highlights
                 </h3>
                 <ul className="list-disc pl-5 mb-8">
+                  <li>Solo development of the extension codebase</li>
                   <li>
-                    Test-Driven Development with Jest and React Testing Library
+                    Regular stakeholder collaboration for feature prioritization
                   </li>
-                  <li>CI/CD pipeline with GitHub Actions</li>
-                  <li>Code quality enforcement with ESLint and Prettier</li>
-                  <li>Performance optimization and lazy loading</li>
-                  <li>Cross-browser compatibility testing</li>
+                  <li>Implemented advanced browser extension patterns</li>
+                  <li>
+                    Optimized performance for seamless browsing experience
+                  </li>
+                  <li>Built robust error handling and recovery systems</li>
                 </ul>
-
-                {/* <div className="flex flex-wrap gap-4 items-center">
-                  <Image
-                    src="/images/icons/react.webp"
-                    alt="React"
-                    width={50}
-                    height={50}
-                    className="py-2"
-                  />
-                  <Image
-                    src="/images/icons/tailwind.webp"
-                    alt="Tailwind CSS"
-                    width={50}
-                    height={50}
-                    className="py-2"
-                  />
-                </div> */}
               </section>
             </div>
 
