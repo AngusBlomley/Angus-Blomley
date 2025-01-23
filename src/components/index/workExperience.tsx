@@ -44,7 +44,7 @@ function WorkExperience() {
               <p className="mb-6 text-lg opacity-90">
                 Compute and Cultivate Ltd (PWG Windows & Doors)
                 <br />
-                Contract Position • 1.5 Years
+                Contract Position • 2 Years
               </p>
               <div>
                 <h4 className="text-xl font-semibold mb-4">
@@ -53,7 +53,7 @@ function WorkExperience() {
                 <ul className="list-disc pl-5 space-y-2 text-base">
                   <li>
                     Developed and deployed a React Native mobile application for
-                    field engineers, improving site visit efficiency by 40%
+                    field engineers, improving site visit efficiency.
                   </li>
                   <li>
                     Implemented real-time calendar integration and advanced form
@@ -68,8 +68,7 @@ function WorkExperience() {
                     sensitive customer data handling
                   </li>
                   <li>
-                    Established CI/CD pipelines for streamlined deployment and
-                    testing processes
+                    Established CI/CD pipelines for streamlined deployment
                   </li>
                 </ul>
               </div>

@@ -30,13 +30,13 @@ const OpenFern = () => {
       <div id="openfern" data-aos="fade-in" style={{ backgroundColor, color }}>
         <div className="container mx-auto px-4 py-8">
           <h1 className="text-4xl mt-16 font-bold mb-4">
-            Open Fern Studio - Web Development Agency
+            Open Fern Studio - Videography & Social Media website
           </h1>
           <p className="text-lg mb-8">
-            A modern web development agency website built with Next.js,
-            featuring a sleek design and seamless user experience. The site
-            showcases the agency's services, portfolio, and team while
-            incorporating modern web development practices.
+            A modern website for a self-employed videographer and social media
+            content creator, showcasing their work, services, and creative
+            expertise. The site features a clean design that highlights their
+            video content and social media management capabilities.
           </p>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
@@ -46,12 +46,13 @@ const OpenFern = () => {
                   Project Overview
                 </h2>
                 <p>
-                  Open Fern Studio's website serves as both a portfolio and a
-                  client acquisition platform. The site features a modern,
-                  responsive design with smooth animations, dynamic content
-                  loading, and optimized performance. It effectively
-                  communicates the agency's expertise while providing an
-                  engaging user experience.
+                  Open Fern Studio's website serves as a professional portfolio
+                  for a creative professional specializing in videography and
+                  social media content creation. The site effectively showcases
+                  their work through an engaging visual layout while providing
+                  potential clients with detailed information about their
+                  services and expertise in social media marketing and content
+                  management.
                 </p>
               </section>
 
@@ -86,12 +87,12 @@ const OpenFern = () => {
             <section>
               <h2 className="text-2xl font-semibold mb-4">Key Features</h2>
               <ul className="list-disc pl-5 space-y-2">
-                <li>Responsive, mobile-first design</li>
-                <li>Dynamic portfolio showcase</li>
-                <li>Smooth page transitions and animations</li>
-                <li>Integrated contact form with email notifications</li>
-                <li>SEO optimization</li>
-                <li>Performance optimization with Next.js</li>
+                <li>Video portfolio showcase with optimized playback</li>
+                <li>Social media content gallery</li>
+                <li>Service packages and pricing information</li>
+                <li>Client testimonials and case studies</li>
+                <li>Integrated contact form for project inquiries</li>
+                <li>Responsive design for all devices</li>
               </ul>
             </section>
 
@@ -100,12 +101,12 @@ const OpenFern = () => {
                 Technical Achievements
               </h2>
               <ul className="list-disc pl-5 space-y-2">
-                <li>Achieved 95+ Lighthouse scores across all metrics</li>
-                <li>Implemented SSR and ISR for optimal performance</li>
-                <li>Created reusable animation components</li>
-                <li>Built a custom CMS integration</li>
-                <li>Optimized image loading and caching</li>
-                <li>Implemented automated deployment pipeline</li>
+                <li>Optimized video loading and streaming</li>
+                <li>Smooth animations and transitions</li>
+                <li>Social media feed integration</li>
+                <li>Automated email notifications</li>
+                <li>SEO optimization for local visibility</li>
+                <li>Fast page load times with Next.js</li>
               </ul>
             </section>
           </div>
