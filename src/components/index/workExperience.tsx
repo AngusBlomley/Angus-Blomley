@@ -44,7 +44,7 @@ function WorkExperience() {
               <p className="mb-6 text-lg opacity-90">
                 Compute and Cultivate Ltd (PWG Windows & Doors)
                 <br />
-                Contract Position • 2 Years
+                Contract Position • 3 Years
               </p>
               <div>
                 <h4 className="text-xl font-semibold mb-4">
