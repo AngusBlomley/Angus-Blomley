@@ -6,9 +6,11 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import Image from "next/image";
 import { useDarkMode } from "@/contexts/darkModeContext";
+import { useLanguage } from "@/contexts/language";
 
 const StringBox = () => {
   const { isDarkMode } = useDarkMode();
+  const { language } = useLanguage();
   const backgroundColor = isDarkMode
     ? "var(--background-color-dark)"
     : "var(--background-color-light)";
@@ -31,27 +33,30 @@ const StringBox = () => {
           <div className="space-y-8" data-aos="fade-up">
             <div className="text-center">
               <h1 className="text-4xl font-bold mb-4">
-                Re-StringBox - Restringing and Ecommerce Website
+                {language === "en"
+                  ? "Re-StringBox - Restringing and Ecommerce Website"
+                  : "Re-StringBox - ラケット張替とEコマースウェブサイト"}
               </h1>
               <p className="text-lg max-w-3xl mx-auto">
-                A modern ecommerce platform for racquet restringing services,
-                built with Next.js and a robust tech stack.{" "}
+                {language === "en"
+                  ? "A modern ecommerce platform for racquet restringing services, built with Next.js and a robust tech stack. "
+                  : "Next.jsと堅牢な技術スタックで構築された、ラケット張替サービスのためのモダンなEコマースプラットフォーム。"}
                 <a
                   href="https://string-box.vercel.app/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-blue-500 hover:text-blue-600"
                 >
-                  Visit the website
+                  {language === "en" ? "Visit the website" : "ウェブサイトへ"}
                 </a>{" "}
-                or{" "}
+                {language === "en" ? "or" : "または"}{" "}
                 <a
                   href="https://github.com/AngusBlomley/string-box"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-blue-500 hover:text-blue-600"
                 >
-                  view on GitHub
+                  {language === "en" ? "view on GitHub" : "GitHubで見る"}
                 </a>
               </p>
             </div>
@@ -60,43 +65,78 @@ const StringBox = () => {
               <div className="space-y-8">
                 <section>
                   <h2 className="text-2xl font-semibold mb-4">
-                    Project Overview
+                    {language === "en"
+                      ? "Project Overview"
+                      : "プロジェクト概要"}
                   </h2>
                   <p className="text-lg">
-                    Re-StringBox is a comprehensive ecommerce solution designed
-                    for racquet sports professionals. It enables users to book
-                    restringing services, purchase equipment, and manage their
-                    orders seamlessly. Built with scalability and performance in
-                    mind, it features a modern tech stack and intuitive user
-                    interface.
+                    {language === "en"
+                      ? "Re-StringBox is a comprehensive ecommerce solution designed for racquet sports professionals. It enables users to book restringing services, purchase equipment, and manage their orders seamlessly. Built with scalability and performance in mind, it features a modern tech stack and intuitive user interface."
+                      : "Re-StringBoxは、ラケットスポーツのプロフェッショナル向けに設計された包括的なEコマースソリューションです。ユーザーは張替サービスの予約、機器の購入、注文の管理をシームレスに行うことができます。スケーラビリティとパフォーマンスを考慮して構築され、最新の技術スタックと直感的なユーザーインターフェースを特徴としています。"}
                   </p>
                 </section>
 
                 <section>
                   <h2 className="text-2xl font-semibold mb-4">
-                    Technical Implementation
+                    {language === "en"
+                      ? "Technical Implementation"
+                      : "技術実装"}
                   </h2>
                   <div className="space-y-6">
                     <div>
                       <h3 className="text-xl font-medium mb-2">
-                        Frontend Architecture
+                        {language === "en"
+                          ? "Frontend Architecture"
+                          : "フロントエンドアーキテクチャ"}
                       </h3>
                       <ul className="list-disc pl-5 space-y-1">
-                        <li>Next.js for server-side rendering and routing</li>
-                        <li>Redux Toolkit for centralized state management</li>
-                        <li>Tailwind CSS for responsive design</li>
-                        <li>Stripe Elements for secure payment processing</li>
+                        {language === "en" ? (
+                          <>
+                            <li>
+                              Next.js for server-side rendering and routing
+                            </li>
+                            <li>
+                              Redux Toolkit for centralized state management
+                            </li>
+                            <li>Tailwind CSS for responsive design</li>
+                            <li>
+                              Stripe Elements for secure payment processing
+                            </li>
+                          </>
+                        ) : (
+                          <>
+                            <li>
+                              サーバーサイドレンダリングとルーティングのためのNext.js
+                            </li>
+                            <li>集中状態管理のためのRedux Toolkit</li>
+                            <li>レスポンシブデザインのためのTailwind CSS</li>
+                            <li>安全な決済処理のためのStripe Elements</li>
+                          </>
+                        )}
                       </ul>
                     </div>
                     <div>
                       <h3 className="text-xl font-medium mb-2">
-                        Backend Services
+                        {language === "en"
+                          ? "Backend Services"
+                          : "バックエンドサービス"}
                       </h3>
                       <ul className="list-disc pl-5 space-y-1">
-                        <li>MongoDB with Mongoose for data persistence</li>
-                        <li>NextAuth.js for secure authentication</li>
-                        <li>RESTful API endpoints for order management</li>
-                        <li>Nodemailer for automated notifications</li>
+                        {language === "en" ? (
+                          <>
+                            <li>MongoDB with Mongoose for data persistence</li>
+                            <li>NextAuth.js for secure authentication</li>
+                            <li>RESTful API endpoints for order management</li>
+                            <li>Nodemailer for automated notifications</li>
+                          </>
+                        ) : (
+                          <>
+                            <li>データ永続化のためのMongoDBとMongoose</li>
+                            <li>安全な認証のためのNextAuth.js</li>
+                            <li>注文管理のためのRESTful APIエンドポイント</li>
+                            <li>自動通知のためのNodemailer</li>
+                          </>
+                        )}
                       </ul>
                     </div>
                   </div>
@@ -116,7 +156,9 @@ const StringBox = () => {
 
                 <section>
                   <h2 className="text-2xl font-semibold mb-4">
-                    Development Practices
+                    {language === "en"
+                      ? "Development Practices"
+                      : "開発プラクティス"}
                   </h2>
                   <div className="flex gap-4">
                     <Image
@@ -124,7 +166,11 @@ const StringBox = () => {
                       alt="Next.js"
                       width={50}
                       height={50}
-                      className=""
+                      className="mx-2"
+                      style={{
+                        objectFit: "contain",
+                        filter: isDarkMode ? "invert(1)" : "invert(0)",
+                      }}
                     />
                     <Image
                       src="/images/icons/js.webp"
@@ -151,14 +197,29 @@ const StringBox = () => {
                 </section>
 
                 <section>
-                  <h2 className="text-2xl font-semibold mb-4">Key Features</h2>
+                  <h2 className="text-2xl font-semibold mb-4">
+                    {language === "en" ? "Key Features" : "主な機能"}
+                  </h2>
                   <ul className="list-disc pl-5 space-y-2">
-                    <li>Secure user authentication and authorization</li>
-                    <li>Integrated payment processing with Stripe</li>
-                    <li>Real-time order tracking and management</li>
-                    <li>Responsive design for all devices</li>
-                    <li>Admin dashboard for business operations</li>
-                    <li>Automated email notifications</li>
+                    {language === "en" ? (
+                      <>
+                        <li>Secure user authentication and authorization</li>
+                        <li>Integrated payment processing with Stripe</li>
+                        <li>Real-time order tracking and management</li>
+                        <li>Responsive design for all devices</li>
+                        <li>Admin dashboard for business operations</li>
+                        <li>Automated email notifications</li>
+                      </>
+                    ) : (
+                      <>
+                        <li>安全なユーザー認証と認可</li>
+                        <li>Stripeを使用した統合決済処理</li>
+                        <li>リアルタイムの注文追跡と管理</li>
+                        <li>全デバイス対応のレスポンシブデザイン</li>
+                        <li>ビジネス運営のための管理ダッシュボード</li>
+                        <li>自動メール通知</li>
+                      </>
+                    )}
                   </ul>
                 </section>
               </div>
@@ -166,7 +227,7 @@ const StringBox = () => {
 
             <section className="mt-12">
               <h2 className="text-2xl font-semibold mb-4">
-                Package Information
+                {language === "en" ? "Package Information" : "パッケージ情報"}
               </h2>
               <div className="bg-opacity-5 bg-white dark:bg-opacity-5 dark:bg-black rounded-lg p-6">
                 <pre className="overflow-x-auto">

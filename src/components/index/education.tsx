@@ -4,9 +4,11 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import "../../app/globals.css";
 import { useDarkMode } from "@/contexts/darkModeContext";
+import { useLanguage } from "@/contexts/language";
 
 function Education() {
   const { isDarkMode } = useDarkMode();
+  const { language } = useLanguage();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const backgroundColor = isDarkMode
     ? "var(--background-color-dark)"
@@ -70,7 +72,7 @@ function Education() {
           className="text-4xl text-center mb-20 max-lg:text-start"
           data-aos="fade-in"
         >
-          Building My Foundation
+          {language === "en" ? "Building My Foundation" : "私の基盤作り"}
         </h2>
         <div className="grid grid-cols-2 max-md:grid-cols-1 gap-y-20 gap-x-60 max-xl:gap-x-20 max-md:gap-y-10">
           <div
@@ -79,26 +81,54 @@ function Education() {
           >
             <div>
               <h3 className="text-2xl font-semibold mb-2">
-                Ravensbourne University London
+                {language === "en"
+                  ? "Ravensbourne University London"
+                  : "レーベンズボーン大学ロンドン"}
               </h3>
               <p className="degree mb-4">
-                BSc (Hons) Broadcast Engineering - 2:1 <br />
-                September 2021 - April 2024
+                {language === "en" ? (
+                  <>
+                    BSc (Hons) Broadcast Engineering - 2:1 <br />
+                    September 2021 - April 2024
+                  </>
+                ) : (
+                  <>
+                    放送工学学士（優等） - 2:1 <br />
+                    2021年9月 - 2024年4月
+                  </>
+                )}
               </p>
               <div className="education-level mt-2">
                 <h4 className="text-xl mb-2 font-semibold">
-                  Key Courses and Projects
+                  {language === "en"
+                    ? "Key Courses and Projects"
+                    : "主要コースとプロジェクト"}
                 </h4>
                 <ul className="course-list list-disc pl-5 mb-4">
-                  <li>Software Development & Programming</li>
-                  <li>Python & Data Structures</li>
-                  <li>Low-Level Programming (Arduino)</li>
-                  <li>Computer Architecture & Operating Systems</li>
-                  <li>Algorithms & Computational Theory</li>
-                  <li>Final Major Project</li>
+                  {language === "en" ? (
+                    <>
+                      <li>Software Development & Programming</li>
+                      <li>Python & Data Structures</li>
+                      <li>Low-Level Programming (Arduino)</li>
+                      <li>Computer Architecture & Operating Systems</li>
+                      <li>Algorithms & Computational Theory</li>
+                      <li>Final Major Project</li>
+                    </>
+                  ) : (
+                    <>
+                      <li>ソフトウェア開発とプログラミング</li>
+                      <li>Pythonとデータ構造</li>
+                      <li>低レベルプログラミング（Arduino）</li>
+                      <li>コンピュータアーキテクチャとOS</li>
+                      <li>アルゴリズムと計算理論</li>
+                      <li>卒業制作</li>
+                    </>
+                  )}
                 </ul>
                 <p className="font-semibold mt-2 mb-2">
-                  Total Degree Credits: 360
+                  {language === "en"
+                    ? "Total Degree Credits: 360"
+                    : "総取得単位数：360"}
                 </p>
                 <Image
                   width={300}
@@ -141,20 +171,46 @@ function Education() {
             data-aos="fade-left"
           >
             <h3 className="text-2xl font-semibold mb-2">
-              Belfast Metropolitan
+              {language === "en"
+                ? "Belfast Metropolitan"
+                : "ベルファスト・メトロポリタン"}
             </h3>
             <p className="diploma mb-4">
-              IT Extended Diploma Level 3<br />
-              September 2015 - June 2018
+              {language === "en" ? (
+                <>
+                  IT Extended Diploma Level 3<br />
+                  September 2015 - June 2018
+                </>
+              ) : (
+                <>
+                  IT上級ディプロマ レベル3
+                  <br />
+                  2015年9月 - 2018年6月
+                </>
+              )}
             </p>
             <div className="education-level mt-2">
-              <h4 className="text-xl mb-2 font-semibold">Key Courses</h4>
+              <h4 className="text-xl mb-2 font-semibold">
+                {language === "en" ? "Key Courses" : "主要コース"}
+              </h4>
               <ul className="course-list list-disc pl-5 mb-4">
-                <li>Communication and Employability Skills</li>
-                <li>Information Systems</li>
-                <li>Software Design and Development</li>
-                <li>Website Production</li>
-                <li>Computer Systems</li>
+                {language === "en" ? (
+                  <>
+                    <li>Communication and Employability Skills</li>
+                    <li>Information Systems</li>
+                    <li>Software Design and Development</li>
+                    <li>Website Production</li>
+                    <li>Computer Systems</li>
+                  </>
+                ) : (
+                  <>
+                    <li>コミュニケーションと就職能力</li>
+                    <li>情報システム</li>
+                    <li>ソフトウェア設計と開発</li>
+                    <li>ウェブサイト制作</li>
+                    <li>コンピュータシステム</li>
+                  </>
+                )}
               </ul>
               <Image
                 width={150}
@@ -174,30 +230,59 @@ function Education() {
             <div>
               <h3 className="text-2xl font-semibold mb-2">Codecademy</h3>
               <p className="certificate mb-4">
-                Front-End Development Course
-                <br />
-                Completed: May 2024
+                {language === "en" ? (
+                  <>
+                    Front-End Development Course
+                    <br />
+                    Completed: May 2024
+                  </>
+                ) : (
+                  <>
+                    フロントエンド開発コース
+                    <br />
+                    修了：2024年5月
+                  </>
+                )}
               </p>
               <div className="education-level mt-2">
                 <h4 className="text-xl mb-2 font-semibold">
-                  Key Skills and Projects
+                  {language === "en"
+                    ? "Key Skills and Projects"
+                    : "主要スキルとプロジェクト"}
                 </h4>
                 <ul className="course-list list-disc pl-5 mb-4">
-                  <li>HTML, CSS, and JavaScript</li>
-                  <li>Responsive Web Design</li>
-                  <li>React and Redux</li>
-                  <li>APIs and Asynchronous Programming</li>
-                  <li>Portfolio Projects</li>
-                  <li>Linear Data Structures</li>
-                  <li>Complex Data Structures</li>
-                  <li>Algorithms</li>
+                  {language === "en" ? (
+                    <>
+                      <li>HTML, CSS, and JavaScript</li>
+                      <li>Responsive Web Design</li>
+                      <li>React and Redux</li>
+                      <li>APIs and Asynchronous Programming</li>
+                      <li>Portfolio Projects</li>
+                      <li>Linear Data Structures</li>
+                      <li>Complex Data Structures</li>
+                      <li>Algorithms</li>
+                    </>
+                  ) : (
+                    <>
+                      <li>HTML、CSS、JavaScript</li>
+                      <li>レスポンシブウェブデザイン</li>
+                      <li>ReactとRedux</li>
+                      <li>APIと非同期プログラミング</li>
+                      <li>ポートフォリオプロジェクト</li>
+                      <li>線形データ構造</li>
+                      <li>複雑なデータ構造</li>
+                      <li>アルゴリズム</li>
+                    </>
+                  )}
                 </ul>
                 <button
                   onClick={handleSeeMoreClick}
                   className="inline-block mb-4 px-6 py-2 border border-current rounded relative overflow-hidden group"
                 >
                   <span className="absolute left-0 top-0 h-full w-0 bg-blue-500/40 transition-all duration-300 group-hover:w-full"></span>
-                  <span className="relative z-10">See certificate</span>
+                  <span className="relative z-10">
+                    {language === "en" ? "See certificate" : "証明書を見る"}
+                  </span>
                 </button>
                 <Image
                   width={220}

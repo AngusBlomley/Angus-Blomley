@@ -7,9 +7,11 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import Image from "next/image";
 import { useDarkMode } from "@/contexts/darkModeContext";
+import { useLanguage } from "@/contexts/language";
 
 const PWG = () => {
   const { isDarkMode } = useDarkMode();
+  const { language } = useLanguage();
   const backgroundColor = isDarkMode
     ? "var(--background-color-dark)"
     : "var(--background-color-light)";
@@ -32,13 +34,14 @@ const PWG = () => {
           <div className="space-y-8" data-aos="fade-up">
             <div className="text-center">
               <h1 className="text-4xl font-bold mb-4">
-                PWG Windows & Doors - Mobile App Development
+                {language === "en"
+                  ? "PWG Windows & Doors - Mobile App Development"
+                  : "PWG Windows & Doors - モバイルアプリ開発"}
               </h1>
               <p className="text-lg max-w-3xl mx-auto">
-                A comprehensive React Native mobile application for engineers to
-                perform on-site assessments of custom windows and doors,
-                featuring robust offline capabilities and enterprise-level state
-                management.
+                {language === "en"
+                  ? "A comprehensive React Native mobile application for engineers to perform on-site assessments of custom windows and doors, featuring robust offline capabilities and enterprise-level state management."
+                  : "カスタムウィンドウとドアのオンサイト評価を行うエンジニア向けの包括的なReact Nativeモバイルアプリケーション。堅牢なオフライン機能とエンタープライズレベルの状態管理を特徴としています。"}
               </p>
             </div>
 
@@ -46,61 +49,116 @@ const PWG = () => {
               <div className="space-y-8">
                 <section>
                   <h2 className="text-2xl font-semibold mb-4">
-                    Technical Overview
+                    {language === "en" ? "Technical Overview" : "技術概要"}
                   </h2>
                   <p className="text-lg">
-                    Engineered a sophisticated React Native application that
-                    demonstrates expertise in mobile development, offline-first
-                    architecture, and complex state management. The project
-                    showcases proficiency in building enterprise-level mobile
-                    solutions with robust offline capabilities, efficient data
-                    synchronization, and comprehensive error tracking.
+                    {language === "en"
+                      ? "Engineered a sophisticated React Native application that demonstrates expertise in mobile development, offline-first architecture, and complex state management. The project showcases proficiency in building enterprise-level mobile solutions with robust offline capabilities, efficient data synchronization, and comprehensive error tracking."
+                      : "モバイル開発、オフラインファーストアーキテクチャ、複雑な状態管理における専門知識を実証する高度なReact Nativeアプリケーションを設計。堅牢なオフライン機能、効率的なデータ同期、包括的なエラー追跡を備えたエンタープライズレベルのモバイルソリューションを構築する能力を示しています。"}
                   </p>
                 </section>
 
                 <section>
                   <h2 className="text-2xl font-semibold mb-4">
-                    Technical Implementation
+                    {language === "en"
+                      ? "Technical Implementation"
+                      : "技術実装"}
                   </h2>
                   <div className="space-y-6">
                     <div>
                       <h3 className="text-xl font-medium mb-2">
-                        Mobile Development
+                        {language === "en"
+                          ? "Mobile Development"
+                          : "モバイル開発"}
                       </h3>
                       <ul className="list-disc pl-5 space-y-1">
-                        <li>
-                          React Native with TypeScript for cross-platform
-                          development
-                        </li>
-                        <li>
-                          Expo Router for seamless navigation and deep linking
-                        </li>
-                        <li>Custom hooks for complex business logic</li>
-                        <li>
-                          Context API and AsyncStorage for state persistence
-                        </li>
-                        <li>Native module integration for device features</li>
+                        {language === "en" ? (
+                          <>
+                            <li>
+                              React Native with TypeScript for cross-platform
+                              development
+                            </li>
+                            <li>
+                              Expo Router for seamless navigation and deep
+                              linking
+                            </li>
+                            <li>Custom hooks for complex business logic</li>
+                            <li>
+                              Context API and AsyncStorage for state persistence
+                            </li>
+                            <li>
+                              Native module integration for device features
+                            </li>
+                          </>
+                        ) : (
+                          <>
+                            <li>
+                              クロスプラットフォーム開発のためのTypeScript搭載React
+                              Native
+                            </li>
+                            <li>
+                              シームレスなナビゲーションとディープリンクのためのExpo
+                              Router
+                            </li>
+                            <li>
+                              複雑なビジネスロジックのためのカスタムフック
+                            </li>
+                            <li>状態永続化のためのContext APIとAsyncStorage</li>
+                            <li>
+                              デバイス機能のためのネイティブモジュール統合
+                            </li>
+                          </>
+                        )}
                       </ul>
                     </div>
                     <div>
                       <h3 className="text-xl font-medium mb-2">
-                        Architecture & Data Flow
+                        {language === "en"
+                          ? "Architecture & Data Flow"
+                          : "アーキテクチャとデータフロー"}
                       </h3>
                       <ul className="list-disc pl-5 space-y-1">
-                        <li>
-                          Offline-first architecture with data synchronization
-                        </li>
-                        <li>Queue-based system for handling offline actions</li>
-                        <li>RESTful API integration with retry mechanisms</li>
-                        <li>Efficient data caching and storage strategies</li>
-                        <li>Background task management for sync operations</li>
+                        {language === "en" ? (
+                          <>
+                            <li>
+                              Offline-first architecture with data
+                              synchronization
+                            </li>
+                            <li>
+                              Queue-based system for handling offline actions
+                            </li>
+                            <li>
+                              RESTful API integration with retry mechanisms
+                            </li>
+                            <li>
+                              Efficient data caching and storage strategies
+                            </li>
+                            <li>
+                              Background task management for sync operations
+                            </li>
+                          </>
+                        ) : (
+                          <>
+                            <li>
+                              データ同期機能を備えたオフラインファーストアーキテクチャ
+                            </li>
+                            <li>
+                              オフラインアクション処理のためのキューベースシステム
+                            </li>
+                            <li>再試行メカニズムを備えたRESTful API統合</li>
+                            <li>効率的なデータキャッシュと保存戦略</li>
+                            <li>同期操作のためのバックグラウンドタスク管理</li>
+                          </>
+                        )}
                       </ul>
                     </div>
                   </div>
                 </section>
                 <section>
                   <h2 className="text-2xl font-semibold mb-4">
-                    Development Practices
+                    {language === "en"
+                      ? "Development Practices"
+                      : "開発プラクティス"}
                   </h2>
                   <div className="flex justify-start">
                     <Image
@@ -109,13 +167,22 @@ const PWG = () => {
                       width={50}
                       height={50}
                       className="mx-2"
+                      style={{ objectFit: "contain" }}
                     />
                     <Image
                       src="/images/icons/js.webp"
                       alt="JavaScript"
                       width={50}
                       height={50}
-                      className="mx-2"
+                      className="m-2"
+                      style={{ objectFit: "contain" }}
+                    />
+                    <Image
+                      src="/images/icons/tailwind.webp"
+                      alt="tailwind"
+                      width={50}
+                      height={50}
+                      className="m-2 py-2"
                     />
                     <Image
                       src="/images/icons/github.webp"
@@ -123,26 +190,46 @@ const PWG = () => {
                       width={50}
                       height={50}
                       className="mx-2"
+                      style={{
+                        objectFit: "contain",
+                        filter: isDarkMode ? "invert(0)" : "invert(1)",
+                      }}
                     />
                     <Image
-                      src="/images/icons/redux.webp"
+                      src="/images/icons/expoGo.svg"
                       alt="Redux"
                       width={50}
                       height={50}
                       className="mx-2"
+                      style={{ objectFit: "contain" }}
                     />
                   </div>
                 </section>
 
                 <section>
-                  <h2 className="text-2xl font-semibold mb-4">Key Features</h2>
+                  <h2 className="text-2xl font-semibold mb-4">
+                    {language === "en" ? "Key Features" : "主な機能"}
+                  </h2>
                   <ul className="list-disc pl-5 space-y-2">
-                    <li>Comprehensive offline functionality</li>
-                    <li>Real-time data synchronization</li>
-                    <li>Advanced error tracking with Sentry</li>
-                    <li>Cross-platform compatibility</li>
-                    <li>Automated CI/CD pipeline</li>
-                    <li>Performance optimization</li>
+                    {language === "en" ? (
+                      <>
+                        <li>Comprehensive offline functionality</li>
+                        <li>Real-time data synchronization</li>
+                        <li>Advanced error tracking with Sentry</li>
+                        <li>Cross-platform compatibility</li>
+                        <li>Automated CI/CD pipeline</li>
+                        <li>Performance optimization</li>
+                      </>
+                    ) : (
+                      <>
+                        <li>包括的なオフライン機能</li>
+                        <li>リアルタイムデータ同期</li>
+                        <li>Sentryを使用した高度なエラー追跡</li>
+                        <li>クロスプラットフォーム互換性</li>
+                        <li>自動化されたCI/CDパイプライン</li>
+                        <li>パフォーマンス最適化</li>
+                      </>
+                    )}
                   </ul>
                 </section>
               </div>

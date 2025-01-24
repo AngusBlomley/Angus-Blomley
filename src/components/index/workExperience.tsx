@@ -2,11 +2,13 @@ import React, { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { useDarkMode } from "@/contexts/darkModeContext";
+import { useLanguage } from "@/contexts/language";
 import Image from "next/image";
 import Link from "next/link";
 
 function WorkExperience() {
   const { isDarkMode } = useDarkMode();
+  const { language } = useLanguage();
   const backgroundColor = isDarkMode
     ? "var(--background-color-dark)"
     : "var(--background-color-light)";
@@ -33,43 +35,83 @@ function WorkExperience() {
           className="text-4xl font-hiraKakuPro text-center mb-24 max-md:mb-16"
           data-aos="fade-in"
         >
-          Professional Journey
+          {language === "en" ? "Professional Journey" : "職歴"}
         </h2>
         <div className="grid grid-cols-2 max-md:grid-cols-1 gap-y-32 max-md:gap-y-16 items-center">
           <div className="pr-12 max-md:pr-0" data-aos="fade-right">
             <div className="max-w-xl">
               <h3 className="text-3xl font-semibold mb-3">
-                React / React Native Developer
+                {language === "en"
+                  ? "React / React Native Developer"
+                  : "React / React Native 開発者"}
               </h3>
               <p className="mb-6 text-lg opacity-90">
-                Compute and Cultivate Ltd (PWG Windows & Doors)
-                <br />
-                Contract Position • 3 Years
+                {language === "en" ? (
+                  <>
+                    Compute and Cultivate Ltd (PWG Windows & Doors)
+                    <br />
+                    Contract Position • 3 Years
+                  </>
+                ) : (
+                  <>
+                    Compute and Cultivate Ltd（PWG Windows & Doors）
+                    <br />
+                    契約ポジション • 3年間
+                  </>
+                )}
               </p>
               <div>
                 <h4 className="text-xl font-semibold mb-4">
-                  Key Achievements & Responsibilities
+                  {language === "en"
+                    ? "Key Achievements & Responsibilities"
+                    : "主な実績と責任"}
                 </h4>
                 <ul className="list-disc pl-5 space-y-2 text-base">
-                  <li>
-                    Developed and deployed a React Native mobile application for
-                    field engineers, improving site visit efficiency.
-                  </li>
-                  <li>
-                    Implemented real-time calendar integration and advanced form
-                    processing system using RESTful APIs
-                  </li>
-                  <li>
-                    Collaborated in an agile environment with cross-functional
-                    teams to gather requirements and iterate on features
-                  </li>
-                  <li>
-                    Designed and integrated secure database connections for
-                    sensitive customer data handling
-                  </li>
-                  <li>
-                    Established CI/CD pipelines for streamlined deployment
-                  </li>
+                  {language === "en" ? (
+                    <>
+                      <li>
+                        Developed and deployed a React Native mobile application
+                        for field engineers, improving site visit efficiency.
+                      </li>
+                      <li>
+                        Implemented real-time calendar integration and advanced
+                        form processing system using RESTful APIs
+                      </li>
+                      <li>
+                        Collaborated in an agile environment with
+                        cross-functional teams to gather requirements and
+                        iterate on features
+                      </li>
+                      <li>
+                        Designed and integrated secure database connections for
+                        sensitive customer data handling
+                      </li>
+                      <li>
+                        Established CI/CD pipelines for streamlined deployment
+                      </li>
+                    </>
+                  ) : (
+                    <>
+                      <li>
+                        現場エンジニア向けのReact
+                        Nativeモバイルアプリケーションを開発・展開し、
+                        現場訪問の効率を向上
+                      </li>
+                      <li>
+                        RESTful
+                        APIを使用したリアルタイムカレンダー統合と高度なフォーム処理システムを実装
+                      </li>
+                      <li>
+                        アジャイル環境で機能横断的なチームと協力し、要件収集と機能の反復を実施
+                      </li>
+                      <li>
+                        機密性の高い顧客データ処理のための安全なデータベース接続を設計・統合
+                      </li>
+                      <li>
+                        効率的なデプロイメントのためのCI/CDパイプラインを確立
+                      </li>
+                    </>
+                  )}
                 </ul>
               </div>
             </div>
@@ -81,14 +123,18 @@ function WorkExperience() {
                 className="inline-block mt-4 px-6 py-2 border border-current rounded relative overflow-hidden group"
               >
                 <span className="absolute left-0 top-0 h-full w-0 bg-blue-500/40 transition-all duration-300 group-hover:w-full"></span>
-                <span className="relative z-10">Visit Website</span>
+                <span className="relative z-10">
+                  {language === "en" ? "Visit Website" : "ウェブサイトへ"}
+                </span>
               </a>
               <Link
                 href="/work/pwg"
                 className="inline-block mt-4 px-6 py-2 border border-current rounded relative overflow-hidden group"
               >
                 <span className="absolute left-0 top-0 h-full w-0 bg-blue-500/40 transition-all duration-300 group-hover:w-full"></span>
-                <span className="relative z-10">Learn More</span>
+                <span className="relative z-10">
+                  {language === "en" ? "Learn More" : "詳細を見る"}
+                </span>
               </Link>
             </div>
           </div>
@@ -144,37 +190,76 @@ function WorkExperience() {
           >
             <div className="max-w-xl">
               <h3 className="text-3xl font-semibold mb-3">
-                Frontend Developer
+                {language === "en"
+                  ? "Frontend Developer"
+                  : "フロントエンド開発者"}
               </h3>
               <p className="mb-6 text-lg opacity-90">
-                Vocabo - Language Learning Platform
-                <br />6 Months
+                {language === "en" ? (
+                  <>
+                    Vocabo - Language Learning Platform
+                    <br />6 Months
+                  </>
+                ) : (
+                  <>
+                    Vocabo - 語学学習プラットフォーム
+                    <br />
+                    6ヶ月間
+                  </>
+                )}
               </p>
               <div>
                 <h4 className="text-xl font-semibold mb-4">
-                  Technical Highlights
+                  {language === "en"
+                    ? "Technical Highlights"
+                    : "技術的なハイライト"}
                 </h4>
                 <ul className="list-disc pl-5 space-y-2 text-base">
-                  <li>
-                    Built a Chrome extension using React and modern JavaScript
-                    practices for seamless language learning integration
-                  </li>
-                  <li>
-                    Implemented complex state management and real-time
-                    translation features using multiple language APIs
-                  </li>
-                  <li>
-                    Developed a robust Express.js backend server to secure api
-                    usage, data persistence and language tokenisation
-                  </li>
-                  <li>
-                    Utilized Vite and Webpack for optimal bundle optimization
-                    and performance improvements
-                  </li>
-                  <li>
-                    Participated in daily stand-ups and sprint planning to
-                    ensure efficient feature delivery
-                  </li>
+                  {language === "en" ? (
+                    <>
+                      <li>
+                        Built a Chrome extension using React and modern
+                        JavaScript practices for seamless language learning
+                        integration
+                      </li>
+                      <li>
+                        Implemented complex state management and real-time
+                        translation features using multiple language APIs
+                      </li>
+                      <li>
+                        Developed a robust Express.js backend server to secure
+                        api usage, data persistence and language tokenisation
+                      </li>
+                      <li>
+                        Utilized Vite and Webpack for optimal bundle
+                        optimization and performance improvements
+                      </li>
+                      <li>
+                        Participated in daily stand-ups and sprint planning to
+                        ensure efficient feature delivery
+                      </li>
+                    </>
+                  ) : (
+                    <>
+                      <li>
+                        ReactとモダンなJavaScriptを使用してChrome拡張機能を開発し、
+                        シームレスな言語学習統合を実現
+                      </li>
+                      <li>
+                        複数の言語APIを使用した複雑な状態管理とリアルタイム翻訳機能を実装
+                      </li>
+                      <li>
+                        APIの使用、データの永続化、言語のトークン化を確保するための
+                        堅牢なExpress.jsバックエンドサーバーを開発
+                      </li>
+                      <li>
+                        ViteとWebpackを活用して、バンドルの最適化とパフォーマンスを改善
+                      </li>
+                      <li>
+                        デイリースタンドアップとスプリント計画に参加し、効率的な機能提供を確保
+                      </li>
+                    </>
+                  )}
                 </ul>
               </div>
             </div>
@@ -186,14 +271,20 @@ function WorkExperience() {
                 className="inline-block mt-4 px-6 py-2 border border-current rounded relative overflow-hidden group"
               >
                 <span className="absolute left-0 top-0 h-full w-0 bg-blue-500/40 transition-all duration-300 group-hover:w-full"></span>
-                <span className="relative z-10">Visit Chrome Extension</span>
+                <span className="relative z-10">
+                  {language === "en"
+                    ? "Visit Chrome Extension"
+                    : "Chrome拡張機能へ"}
+                </span>
               </a>
               <Link
                 href="/work/vocabo"
                 className="inline-block mt-4 px-6 py-2 border border-current rounded relative overflow-hidden group"
               >
                 <span className="absolute left-0 top-0 h-full w-0 bg-blue-500/40 transition-all duration-300 group-hover:w-full"></span>
-                <span className="relative z-10">Learn More</span>
+                <span className="relative z-10">
+                  {language === "en" ? "Learn More" : "詳細を見る"}
+                </span>
               </Link>
             </div>
           </div>
@@ -201,34 +292,67 @@ function WorkExperience() {
           <div className="pr-12 max-md:pr-0 order-4" data-aos="fade-right">
             <div className="max-w-xl">
               <h3 className="text-3xl font-semibold mb-3">
-                Frontend Developer
+                {language === "en"
+                  ? "Frontend Developer"
+                  : "フロントエンド開発者"}
               </h3>
               <p className="mb-6 text-lg opacity-90">
-                Open Fern Studio
-                <br />
-                Contract Position • 2 Months
+                {language === "en" ? (
+                  <>
+                    Open Fern Studio
+                    <br />
+                    Contract Position • 2 Months
+                  </>
+                ) : (
+                  <>
+                    Open Fern Studio
+                    <br />
+                    契約ポジション • 2ヶ月間
+                  </>
+                )}
               </p>
               <div>
                 <h4 className="text-xl font-semibold mb-4">
-                  Key Achievements & Responsibilities
+                  {language === "en"
+                    ? "Key Achievements & Responsibilities"
+                    : "主な実績と責任"}
                 </h4>
                 <ul className="list-disc pl-5 space-y-2 text-base">
-                  <li>
-                    Developed a responsive business website for a social media
-                    marketing company
-                  </li>
-                  <li>
-                    Implemented modern design practices and animations to create
-                    an engaging user experience
-                  </li>
-                  <li>
-                    Built a contact form system with email integration for
-                    client communications
-                  </li>
-                  <li>
-                    Optimized website performance and SEO to improve search
-                    engine visibility
-                  </li>
+                  {language === "en" ? (
+                    <>
+                      <li>
+                        Developed a responsive business website for a social
+                        media marketing company
+                      </li>
+                      <li>
+                        Implemented modern design practices and animations to
+                        create an engaging user experience
+                      </li>
+                      <li>
+                        Built a contact form system with email integration for
+                        client communications
+                      </li>
+                      <li>
+                        Optimized website performance and SEO to improve search
+                        engine visibility
+                      </li>
+                    </>
+                  ) : (
+                    <>
+                      <li>
+                        ソーシャルメディアマーケティング企業向けのレスポンシブなビジネスウェブサイトを開発
+                      </li>
+                      <li>
+                        魅力的なユーザー体験を創出するため、モダンなデザインとアニメーションを実装
+                      </li>
+                      <li>
+                        クライアントとのコミュニケーション用にメール統合されたコンタクトフォームシステムを構築
+                      </li>
+                      <li>
+                        検索エンジンでの視認性を向上させるため、ウェブサイトのパフォーマンスとSEOを最適化
+                      </li>
+                    </>
+                  )}
                 </ul>
               </div>
             </div>
@@ -240,14 +364,18 @@ function WorkExperience() {
                 className="inline-block mt-4 px-6 py-2 border border-current rounded relative overflow-hidden group"
               >
                 <span className="absolute left-0 top-0 h-full w-0 bg-blue-500/40 transition-all duration-300 group-hover:w-full"></span>
-                <span className="relative z-10">Visit Website</span>
+                <span className="relative z-10">
+                  {language === "en" ? "Visit Website" : "ウェブサイトへ"}
+                </span>
               </a>
               <Link
                 href="/work/openfern"
                 className="inline-block mt-4 px-6 py-2 border border-current rounded relative overflow-hidden group"
               >
                 <span className="absolute left-0 top-0 h-full w-0 bg-blue-500/40 transition-all duration-300 group-hover:w-full"></span>
-                <span className="relative z-10">Learn More</span>
+                <span className="relative z-10">
+                  {language === "en" ? "Learn More" : "詳細を見る"}
+                </span>
               </Link>
             </div>
           </div>

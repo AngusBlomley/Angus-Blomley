@@ -8,11 +8,13 @@ import "../../app/globals.css";
 import Link from "next/link";
 import Image from "next/image";
 import { useDarkMode } from "@/contexts/darkModeContext";
+import { useLanguage } from "@/contexts/language";
 
 SwiperCore.use([Autoplay, Pagination, Navigation]);
 
 function Work(): JSX.Element {
   const { isDarkMode } = useDarkMode();
+  const { language } = useLanguage();
   const [animationComplete, setAnimationComplete] = useState(false);
 
   useEffect(() => {
@@ -55,13 +57,16 @@ function Work(): JSX.Element {
       type: "video",
       src: "/videos/stringBox.mp4",
       link: "/work/stringBox",
-      title: "String Box Project",
+      title:
+        language === "en"
+          ? "String Box Project"
+          : "ストリングボックスプロジェクト",
     },
     {
       type: "image",
       src: "/images/work/cst2.jpg",
       link: "/work/celestialObjectTracker",
-      title: "Final Major Project",
+      title: language === "en" ? "Final Major Project" : "卒業制作",
     },
     {
       type: "video",
@@ -91,13 +96,17 @@ function Work(): JSX.Element {
       type: "video",
       src: "/videos/beFirst.mp4",
       link: "/work/beFirst",
-      title: "Be First Barking Heritage Videos",
+      title:
+        language === "en"
+          ? "Be First Barking Heritage Videos"
+          : "Be First バーキング・ヘリテージ動画",
     },
     {
       type: "video",
       src: "/videos/misuzu.mp4",
       link: "/work/misuzuPortfolio",
-      title: "Misuzu Collaboration",
+      title:
+        language === "en" ? "Misuzu Collaboration" : "美鈴とのコラボレーション",
     },
   ];
 
@@ -111,7 +120,9 @@ function Work(): JSX.Element {
       className="py-20 lg:mt-40 max-lg:mt-16 flex flex-col justify-center items-center z-10"
     >
       <div className="z-10" data-aos="fade-up">
-        <h2 className="text-4xl font-hiraKakuPro mb-8">Projects</h2>
+        <h2 className="text-4xl font-hiraKakuPro mb-8">
+          {language === "en" ? "Projects" : "プロジェクト"}
+        </h2>
       </div>
       <div
         data-aos="fade-up"
@@ -173,7 +184,9 @@ function Work(): JSX.Element {
         data-aos-delay="600"
         className="text-center mt-8 opacity-75 italic"
       >
-        Where pixels meet purpose, and coffee meets code. 🚀☕
+        {language === "en"
+          ? "Where pixels meet purpose, and coffee meets code. 🚀☕"
+          : "ピクセルと目的、コーヒーとコードが出会う場所。🚀☕"}
       </div>
       <style jsx global>{`
         .swiper-button-prev,

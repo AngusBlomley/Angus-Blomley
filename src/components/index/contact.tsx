@@ -4,6 +4,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import Image from "next/image";
 import { useDarkMode } from "@/contexts/darkModeContext";
+import { useLanguage } from "@/contexts/language";
 
 function Contact(): JSX.Element {
   const [formData, setFormData] = useState({
@@ -14,7 +15,10 @@ function Contact(): JSX.Element {
   });
   const [submitted, setSubmitted] = useState(false);
   const [recaptchaLoaded, setRecaptchaLoaded] = useState(false);
-  const [buttonText, setButtonText] = useState("Send");
+  const { language } = useLanguage();
+  const [buttonText, setButtonText] = useState(
+    language === "en" ? "Send" : "送信"
+  );
   const [isSending, setIsSending] = useState(false);
 
   const { isDarkMode } = useDarkMode();
@@ -57,12 +61,16 @@ function Contact(): JSX.Element {
     if (isSending) {
       let dots = 0;
       const interval = setInterval(() => {
-        setButtonText(`Sending${".".repeat((dots % 3) + 1)}`);
+        setButtonText(
+          `${language === "en" ? "Sending" : "送信中"}${".".repeat(
+            (dots % 3) + 1
+          )}`
+        );
         dots += 1;
       }, 500);
       return () => clearInterval(interval);
     }
-  }, [isSending]);
+  }, [isSending, language]);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -111,7 +119,7 @@ function Contact(): JSX.Element {
   return (
     <section
       id="contact"
-      className=" px-4 z-10 h-screen flex justify-center items-center"
+      className="px-4 z-10 h-screen flex justify-center items-center"
     >
       <div className="grid grid-cols-2 w-full max-lg:grid-cols-1 gap-x-28 text-gray-100 max-lg:mx-auto max-lg:px-4 lg:w-[1200px]">
         {submitted ? (
@@ -119,7 +127,9 @@ function Contact(): JSX.Element {
             className="text-2xl font-ibmPlexMono text-green-500 col-start-1"
             data-aos="fade-right"
           >
-            Thank you for your message!
+            {language === "en"
+              ? "Thank you for your message!"
+              : "メッセージをお送りいただき、ありがとうございます！"}
           </div>
         ) : (
           <form
@@ -131,7 +141,7 @@ function Contact(): JSX.Element {
               className="max-lg:mt-20 text-4xl mb-8"
               style={{ color }}
             >
-              Drop Me a Line
+              {language === "en" ? "Drop Me a Line" : "お問い合わせ"}
             </h2>
             <div
               data-aos="fade-right"
@@ -143,7 +153,7 @@ function Contact(): JSX.Element {
                 name="name"
                 value={formData.name}
                 onChange={handleChange}
-                placeholder="Name"
+                placeholder={language === "en" ? "Name" : "お名前"}
                 className="w-full px-4 py-2 font-ibmPlexMono rounded-lg text-black border-b-2 border-gray-400 focus:outline-none focus:border-blue-500"
                 required
               />
@@ -158,7 +168,7 @@ function Contact(): JSX.Element {
                 name="email"
                 value={formData.email}
                 onChange={handleChange}
-                placeholder="Email"
+                placeholder={language === "en" ? "Email" : "メールアドレス"}
                 className="w-full px-4 py-2 font-ibmPlexMono rounded-lg text-black border-b-2 border-gray-400 focus:outline-none focus:border-blue-500"
                 required
               />
@@ -173,7 +183,7 @@ function Contact(): JSX.Element {
                 name="subject"
                 value={formData.subject}
                 onChange={handleChange}
-                placeholder="Subject"
+                placeholder={language === "en" ? "Subject" : "件名"}
                 className="w-full px-4 py-2 font-ibmPlexMono rounded-lg text-black border-b-2 border-gray-400 focus:outline-none focus:border-blue-500"
               />
             </div>
@@ -186,7 +196,7 @@ function Contact(): JSX.Element {
                 name="message"
                 value={formData.message}
                 onChange={handleChange}
-                placeholder="Message"
+                placeholder={language === "en" ? "Message" : "メッセージ"}
                 className="w-full px-4 py-2 font-ibmPlexMono rounded-lg text-black border-b-2 border-gray-400 focus:outline-none focus:border-blue-500"
                 rows={6}
                 required
