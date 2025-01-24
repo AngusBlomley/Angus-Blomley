@@ -106,6 +106,10 @@ const OpenFern = () => {
                       width={50}
                       height={50}
                       className="mx-2"
+                      style={{
+                        objectFit: "contain",
+                        filter: isDarkMode ? "invert(1)" : "invert(0)",
+                      }}
                     />
                     <Image
                       src="/images/icons/js.webp"
@@ -127,6 +131,10 @@ const OpenFern = () => {
                       width={50}
                       height={50}
                       className="mx-2"
+                      style={{
+                        objectFit: "contain",
+                        filter: isDarkMode ? "invert(0)" : "invert(1)",
+                      }}
                     />
                   </div>
                 </section>
@@ -134,10 +142,12 @@ const OpenFern = () => {
 
               <div className="space-y-8">
                 <div className="rounded-lg overflow-hidden shadow-lg">
-                  <img
+                  <Image
                     src="/images/work/openfern.png"
-                    className="w-full rounded-lg shadow-xl"
                     alt="Open Fern Studio"
+                    width={500}
+                    height={300}
+                    className="w-full rounded-lg shadow-xl"
                   />
                 </div>
                 <section>
