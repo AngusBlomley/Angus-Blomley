@@ -69,90 +69,75 @@ function Education() {
     >
       <div className=" overflow-x-hidden px-4">
         <h2
-          className={`text-4xl text-center mb-24 max-md:mb-16 ${
-            language === "ja" ? "font-hiraKakuPro" : ""
-          }`}
+          className="text-4xl text-center mb-20 max-lg:text-start"
           data-aos="fade-in"
         >
           {language === "en" ? "Building My Foundation" : "私の基盤作り"}
         </h2>
-        <div className="grid grid-cols-2 max-md:grid-cols-1 gap-y-32 max-md:gap-y-16 items-center">
-          <div className="pr-12 max-md:pr-0" data-aos="fade-right">
-            <div className="max-w-xl">
-              <h3
-                className={`text-3xl font-semibold mb-3 ${
-                  language === "ja" ? "font-hiraKakuPro" : ""
-                }`}
-              >
+        <div className="grid grid-cols-2 max-md:grid-cols-1 gap-y-20 gap-x-60 max-xl:gap-x-20 max-md:gap-y-10">
+          <div
+            className="mb-12 max-md:mb-0 rounded-lg duration-300 flex flex-col items-end max-md:items-start"
+            data-aos="fade-right"
+          >
+            <div>
+              <h3 className="text-2xl font-semibold mb-2">
                 {language === "en"
                   ? "Ravensbourne University London"
                   : "レーベンズボーン大学ロンドン"}
               </h3>
-              <p
-                className={`mb-6 text-lg opacity-90 ${
-                  language === "ja" ? "font-hiraKakuPro" : ""
-                }`}
-              >
-                {language === "en"
-                  ? "BSc (Hons) Digital & Technology Solutions"
-                  : "デジタル＆テクノロジーソリューション学士（優等）"}
-              </p>
-              <p
-                className={`mb-6 text-lg opacity-90 ${
-                  language === "ja" ? "font-hiraKakuPro" : ""
-                }`}
-              >
-                {language === "en" ? "Key courses included:" : "主要な科目："}
-              </p>
-              <ul
-                className={`list-disc pl-6 mb-6 text-lg opacity-90 ${
-                  language === "ja" ? "font-hiraKakuPro" : ""
-                }`}
-              >
+              <p className="degree mb-4">
                 {language === "en" ? (
                   <>
-                    <li>Software Engineering & Design Patterns</li>
-                    <li>Web Development & Mobile Applications</li>
-                    <li>Database Systems & Cloud Computing</li>
-                    <li>Project Management & Agile Methodologies</li>
+                    BSc (Hons) Broadcast Engineering - 2:1 <br />
+                    September 2021 - April 2024
                   </>
                 ) : (
                   <>
-                    <li>ソフトウェアエンジニアリング＆デザインパターン</li>
-                    <li>ウェブ開発＆モバイルアプリケーション</li>
-                    <li>データベースシステム＆クラウドコンピューティング</li>
-                    <li>プロジェクト管理＆アジャイル手法</li>
+                    放送工学学士（優等） - 2:1 <br />
+                    2021年9月 - 2024年4月
                   </>
                 )}
-              </ul>
-              <p
-                className={`mb-6 text-lg opacity-90 ${
-                  language === "ja" ? "font-hiraKakuPro" : ""
-                }`}
-              >
-                {language === "en"
-                  ? "Notable projects:"
-                  : "主要なプロジェクト："}
               </p>
-              <ul
-                className={`list-disc pl-6 mb-6 text-lg opacity-90 ${
-                  language === "ja" ? "font-hiraKakuPro" : ""
-                }`}
-              >
-                {language === "en" ? (
-                  <>
-                    <li>Celestial Object Tracker (Final Year Project)</li>
-                    <li>Re-String Box (E-commerce Platform)</li>
-                    <li>Vocabo (Chrome Extension)</li>
-                  </>
-                ) : (
-                  <>
-                    <li>天体追跡装置（卒業制作）</li>
-                    <li>Re-String Box（Eコマースプラットフォーム）</li>
-                    <li>Vocabo（Chrome拡張機能）</li>
-                  </>
-                )}
-              </ul>
+              <div className="education-level mt-2">
+                <h4 className="text-xl mb-2 font-semibold">
+                  {language === "en"
+                    ? "Key Courses and Projects"
+                    : "主要コースとプロジェクト"}
+                </h4>
+                <ul className="course-list list-disc pl-5 mb-4">
+                  {language === "en" ? (
+                    <>
+                      <li>Software Development & Programming</li>
+                      <li>Python & Data Structures</li>
+                      <li>Low-Level Programming (Arduino)</li>
+                      <li>Computer Architecture & Operating Systems</li>
+                      <li>Algorithms & Computational Theory</li>
+                      <li>Final Major Project</li>
+                    </>
+                  ) : (
+                    <>
+                      <li>ソフトウェア開発とプログラミング</li>
+                      <li>Pythonとデータ構造</li>
+                      <li>低レベルプログラミング（Arduino）</li>
+                      <li>コンピュータアーキテクチャとOS</li>
+                      <li>アルゴリズムと計算理論</li>
+                      <li>卒業制作</li>
+                    </>
+                  )}
+                </ul>
+                <p className="font-semibold mt-2 mb-2">
+                  {language === "en"
+                    ? "Total Degree Credits: 360"
+                    : "総取得単位数：360"}
+                </p>
+                <Image
+                  width={300}
+                  height={150}
+                  id="ravensbourne"
+                  src={ravensbourneImage}
+                  alt="Ravensbourne University"
+                />
+              </div>
             </div>
           </div>
 
