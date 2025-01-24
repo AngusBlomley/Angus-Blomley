@@ -137,133 +137,84 @@ function Contact(): JSX.Element {
             className="space-y-4 col-start-1 max-lg:w-full"
           >
             <h2
-              className={`text-4xl text-center mb-24 max-md:mb-16 ${
-                language === "ja" ? "font-hiraKakuPro" : ""
-              }`}
-              data-aos="fade-in"
+              data-aos="fade-right"
+              className="max-lg:mt-20 text-4xl mb-8"
+              style={{ color }}
             >
               {language === "en" ? "Drop Me a Line" : "お問い合わせ"}
             </h2>
-            <div className="grid grid-cols-2 max-md:grid-cols-1 gap-y-32 max-md:gap-y-16 items-center">
-              <div className="pr-12 max-md:pr-0" data-aos="fade-right">
-                <div className="max-w-xl">
-                  <div className="mb-4">
-                    <label
-                      htmlFor="name"
-                      className={`block text-sm font-medium mb-2 ${
-                        language === "ja" ? "font-hiraKakuPro" : ""
-                      }`}
-                    >
-                      {language === "en" ? "Name" : "お名前"}
-                    </label>
-                    <input
-                      type="text"
-                      id="name"
-                      name="name"
-                      value={formData.name}
-                      onChange={handleChange}
-                      placeholder={
-                        language === "en"
-                          ? "Your name"
-                          : "お名前を入力してください"
-                      }
-                      className="w-full p-2 border rounded"
-                      required
-                    />
-                  </div>
-                  <div className="mb-4">
-                    <label
-                      htmlFor="email"
-                      className={`block text-sm font-medium mb-2 ${
-                        language === "ja" ? "font-hiraKakuPro" : ""
-                      }`}
-                    >
-                      {language === "en" ? "Email" : "メールアドレス"}
-                    </label>
-                    <input
-                      type="email"
-                      id="email"
-                      name="email"
-                      value={formData.email}
-                      onChange={handleChange}
-                      placeholder={
-                        language === "en"
-                          ? "Your email"
-                          : "メールアドレスを入力してください"
-                      }
-                      className="w-full p-2 border rounded"
-                      required
-                    />
-                  </div>
-                  <div className="mb-4">
-                    <label
-                      htmlFor="subject"
-                      className={`block text-sm font-medium mb-2 ${
-                        language === "ja" ? "font-hiraKakuPro" : ""
-                      }`}
-                    >
-                      {language === "en" ? "Subject" : "件名"}
-                    </label>
-                    <input
-                      type="text"
-                      id="subject"
-                      name="subject"
-                      value={formData.subject}
-                      onChange={handleChange}
-                      placeholder={
-                        language === "en" ? "Subject" : "件名を入力してください"
-                      }
-                      className="w-full p-2 border rounded"
-                      required
-                    />
-                  </div>
-                  <div className="mb-4">
-                    <label
-                      htmlFor="message"
-                      className={`block text-sm font-medium mb-2 ${
-                        language === "ja" ? "font-hiraKakuPro" : ""
-                      }`}
-                    >
-                      {language === "en" ? "Message" : "メッセージ"}
-                    </label>
-                    <textarea
-                      id="message"
-                      name="message"
-                      value={formData.message}
-                      onChange={handleChange}
-                      rows={4}
-                      className="w-full p-2 border rounded"
-                      placeholder={
-                        language === "en"
-                          ? "Your message"
-                          : "メッセージを入力してください"
-                      }
-                      required
-                    ></textarea>
-                  </div>
-                  <div
-                    id="recaptcha-container"
-                    style={{ display: "none" }}
-                  ></div>
-                  <div className="mt-4">
-                    <button
-                      type="submit"
-                      className={`bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 ${
-                        language === "ja" ? "font-hiraKakuPro" : ""
-                      }`}
-                      disabled={isSending}
-                    >
-                      {isSending
-                        ? language === "en"
-                          ? "Sending..."
-                          : "送信中..."
-                        : language === "en"
-                        ? "Send"
-                        : "送信"}
-                    </button>
-                  </div>
-                </div>
-              </div>
+            <div
+              data-aos="fade-right"
+              data-aos-delay="200"
+              className="gap-4 items-center"
+            >
+              <input
+                type="text"
+                name="name"
+                value={formData.name}
+                onChange={handleChange}
+                placeholder={language === "en" ? "Name" : "お名前"}
+                className="w-full px-4 py-2 font-ibmPlexMono rounded-lg text-black border-b-2 border-gray-400 focus:outline-none focus:border-blue-500"
+                required
+              />
+            </div>
+            <div
+              data-aos="fade-right"
+              data-aos-delay="400"
+              className="gap-4 items-center"
+            >
+              <input
+                type="email"
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
+                placeholder={language === "en" ? "Email" : "メールアドレス"}
+                className="w-full px-4 py-2 font-ibmPlexMono rounded-lg text-black border-b-2 border-gray-400 focus:outline-none focus:border-blue-500"
+                required
+              />
+            </div>
+            <div
+              data-aos="fade-right"
+              data-aos-delay="600"
+              className="gap-4 items-center"
+            >
+              <input
+                type="text"
+                name="subject"
+                value={formData.subject}
+                onChange={handleChange}
+                placeholder={language === "en" ? "Subject" : "件名"}
+                className="w-full px-4 py-2 font-ibmPlexMono rounded-lg text-black border-b-2 border-gray-400 focus:outline-none focus:border-blue-500"
+              />
+            </div>
+            <div
+              data-aos="fade-right"
+              data-aos-delay="800"
+              className="gap-4 items-center"
+            >
+              <textarea
+                name="message"
+                value={formData.message}
+                onChange={handleChange}
+                placeholder={language === "en" ? "Message" : "メッセージ"}
+                className="w-full px-4 py-2 font-ibmPlexMono rounded-lg text-black border-b-2 border-gray-400 focus:outline-none focus:border-blue-500"
+                rows={6}
+                required
+              />
+            </div>
+            <div id="recaptcha-container" style={{ display: "none" }}></div>
+            <div
+              data-aos="fade-right"
+              data-aos-delay="1000"
+              className="gap-4 items-center"
+            >
+              <button
+                type="submit"
+                className="px-6 py-2 font-ibmPlexMono rounded-lg bg-green-600 text-white w-full hover:bg-green-900 duration-100"
+                disabled={isSending}
+              >
+                {buttonText}
+              </button>
             </div>
           </form>
         )}
