@@ -33,15 +33,23 @@ const OpenFern = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
           <div className="space-y-8" data-aos="fade-up">
             <div className="text-center">
-              <h1 className="text-4xl font-bold mb-4">
+              <h1
+                className={`text-4xl mt-16 font-bold mb-4 ${
+                  language === "ja" ? "font-hiraKakuPro" : ""
+                }`}
+              >
                 {language === "en"
                   ? "Open Fern Studio - Web Development Agency"
                   : "Open Fern Studio - ウェブ開発エージェンシー"}
               </h1>
-              <p className="text-lg max-w-3xl mx-auto">
+              <p
+                className={`text-lg ${
+                  language === "ja" ? "font-hiraKakuPro" : ""
+                }`}
+              >
                 {language === "en"
                   ? "A modern web development agency website showcasing services, portfolio, and expertise. Built with Next.js and featuring dynamic content management."
-                  : "サービス、ポートフォリオ、専門知識を紹介するモダンなウェブ開発エージェンシーのウェブサイト。Next.jsで構築され、動的なコンテンツ管理を特徴としています。"}{" "}
+                  : "サービス、ポートフォリオ、専門知識を紹介するモダンなウェブ開発エージェンシーのウェブサイト。Next.jsで構築され、動的なコンテンツ管理を特徴としています。"}
                 <a
                   className="text-blue-500 hover:text-blue-700 px-2 py-1 rounded-md"
                   href="https://openfern.studio"
@@ -56,12 +64,16 @@ const OpenFern = () => {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
               <div className="space-y-8">
                 <section>
-                  <h2 className="text-2xl font-semibold mb-4">
+                  <h2
+                    className={`text-2xl font-semibold mb-4 ${
+                      language === "ja" ? "font-hiraKakuPro" : ""
+                    }`}
+                  >
                     {language === "en"
                       ? "Project Overview"
                       : "プロジェクト概要"}
                   </h2>
-                  <p className="text-lg">
+                  <p className={language === "ja" ? "font-hiraKakuPro" : ""}>
                     {language === "en"
                       ? "Open Fern Studio represents a sophisticated web development agency platform that demonstrates expertise in modern web technologies and design principles. The project showcases a perfect blend of aesthetic appeal and technical excellence, featuring responsive design, smooth animations, and optimized performance."
                       : "Open Fern Studioは、最新のウェブ技術とデザイン原則における専門知識を実証する洗練されたウェブ開発エージェンシープラットフォームです。このプロジェクトは、レスポンシブデザイン、スムーズなアニメーション、最適化されたパフォーマンスを特徴とし、美的魅力と技術的卓越性の完璧な調和を示しています。"}
@@ -69,19 +81,31 @@ const OpenFern = () => {
                 </section>
 
                 <section>
-                  <h2 className="text-2xl font-semibold mb-4">
+                  <h2
+                    className={`text-2xl font-semibold mb-4 ${
+                      language === "ja" ? "font-hiraKakuPro" : ""
+                    }`}
+                  >
                     {language === "en"
                       ? "Technical Implementation"
                       : "技術実装"}
                   </h2>
                   <div className="space-y-6">
                     <div>
-                      <h3 className="text-xl font-medium mb-2">
+                      <h3
+                        className={`text-xl font-medium mb-2 ${
+                          language === "ja" ? "font-hiraKakuPro" : ""
+                        }`}
+                      >
                         {language === "en"
                           ? "Frontend Architecture"
                           : "フロントエンドアーキテクチャ"}
                       </h3>
-                      <ul className="list-disc pl-5 space-y-1">
+                      <ul
+                        className={`list-disc pl-5 space-y-1 ${
+                          language === "ja" ? "font-hiraKakuPro" : ""
+                        }`}
+                      >
                         {language === "en" ? (
                           <>
                             <li>
@@ -106,12 +130,20 @@ const OpenFern = () => {
                       </ul>
                     </div>
                     <div>
-                      <h3 className="text-xl font-medium mb-2">
+                      <h3
+                        className={`text-xl font-medium mb-2 ${
+                          language === "ja" ? "font-hiraKakuPro" : ""
+                        }`}
+                      >
                         {language === "en"
                           ? "Development Features"
                           : "開発機能"}
                       </h3>
-                      <ul className="list-disc pl-5 space-y-1">
+                      <ul
+                        className={`list-disc pl-5 space-y-1 ${
+                          language === "ja" ? "font-hiraKakuPro" : ""
+                        }`}
+                      >
                         {language === "en" ? (
                           <>
                             <li>Responsive design across all devices</li>
@@ -133,7 +165,11 @@ const OpenFern = () => {
                 </section>
 
                 <section>
-                  <h2 className="text-2xl font-semibold mb-4">
+                  <h2
+                    className={`text-2xl font-semibold mb-4 ${
+                      language === "ja" ? "font-hiraKakuPro" : ""
+                    }`}
+                  >
                     {language === "en"
                       ? "Development Practices"
                       : "開発プラクティス"}
@@ -190,10 +226,18 @@ const OpenFern = () => {
                   />
                 </div>
                 <section>
-                  <h2 className="text-2xl font-semibold mb-4">
+                  <h2
+                    className={`text-2xl font-semibold mb-4 ${
+                      language === "ja" ? "font-hiraKakuPro" : ""
+                    }`}
+                  >
                     {language === "en" ? "Key Features" : "主な機能"}
                   </h2>
-                  <ul className="list-disc pl-5 space-y-2">
+                  <ul
+                    className={`list-disc pl-5 space-y-2 ${
+                      language === "ja" ? "font-hiraKakuPro" : ""
+                    }`}
+                  >
                     {language === "en" ? (
                       <>
                         <li>Modern and responsive design</li>

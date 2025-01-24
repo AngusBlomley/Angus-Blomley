@@ -105,13 +105,19 @@ const WorldMap: React.FC<WorldMapProps> = ({ visitedCountries }) => {
               data-aos-duration="1000"
               data-aos-delay={location.country === "USA" ? "0" : "200"}
             >
-              <p className="mb-2">
+              <p
+                className={`mb-2 ${
+                  language === "ja" ? "font-hiraKakuPro" : ""
+                }`}
+              >
                 {location.description[language === "en" ? "en" : "ja"]}
               </p>
               {(location.country === "USA" || location.country === "GBR") && (
                 <a
                   href={`#${location.country.toLowerCase()}`}
-                  className="text-blue-500 hover:text-blue-600"
+                  className={`text-blue-500 hover:text-blue-600 ${
+                    language === "ja" ? "font-hiraKakuPro" : ""
+                  }`}
                 >
                   {language === "en" ? "Learn more →" : "詳しく見る →"}
                 </a>

@@ -31,12 +31,18 @@ const Meetly = () => {
       <HeaderGlobal />
       <div id="stringBox" data-aos="fade-in" style={{ backgroundColor, color }}>
         <div className="container mx-auto px-4 py-8">
-          <h1 className="text-4xl mt-16 font-bold mb-4 ">
+          <h1
+            className={`text-4xl mt-16 font-bold mb-4 ${
+              language === "ja" ? "font-hiraKakuPro" : ""
+            }`}
+          >
             {language === "en"
               ? "Meetly - Find The Central Train Station Between Two Locations"
               : "Meetly - 2つの場所の中間にある駅を探す"}
           </h1>
-          <p className="text-lg ">
+          <p
+            className={`text-lg ${language === "ja" ? "font-hiraKakuPro" : ""}`}
+          >
             {language === "en"
               ? "Welcome to Meetly, a web application that helps users find the central train station between two addresses. This page demonstrates the work I've done on this project, including the technology stack used and key features implemented."
               : "Meetlyへようこそ。2つの住所の中間にある駅を見つけるウェブアプリケーションです。このページでは、使用した技術スタックと実装した主要機能を含む、このプロジェクトでの私の作業を紹介します。"}
@@ -65,10 +71,14 @@ const Meetly = () => {
 
           <div className="grid grid-cols-3 border-b border-opacity-10 border-gray-100 max-2xl:col-span-2 max-lg:grid-cols-1">
             <section className="pb-8 pt-8 pr-8 border-b border-opacity-10 border-gray-100 col-span-3 max-2xl:col-span-1">
-              <h2 className="text-2xl font-semibold mb-2 ">
+              <h2
+                className={`text-2xl font-semibold mb-2 ${
+                  language === "ja" ? "font-hiraKakuPro" : ""
+                }`}
+              >
                 {language === "en" ? "Project Overview" : "プロジェクト概要"}
               </h2>
-              <p className="">
+              <p className={language === "ja" ? "font-hiraKakuPro" : ""}>
                 {language === "en"
                   ? "Meetly is a web application that allows users to find the central train station between two addresses, making it perfect for planning meetups. Users can quickly discover a convenient location for both parties."
                   : "Meetlyは、2つの住所の中間にある駅を見つけることができるウェブアプリケーションで、待ち合わせの計画に最適です。両者にとって便利な場所をすぐに見つけることができます。"}
@@ -76,10 +86,18 @@ const Meetly = () => {
             </section>
 
             <section className="h-full pt-8 pr-8 grid-cols-1 max-lg:row-start-2 border-b border-gray-100 border-opacity-10 max-2xl:pb-8">
-              <h2 className="text-2xl font-semibold mb-2 ">
+              <h2
+                className={`text-2xl font-semibold mb-2 ${
+                  language === "ja" ? "font-hiraKakuPro" : ""
+                }`}
+              >
                 {language === "en" ? "Technology Stack" : "技術スタック"}
               </h2>
-              <ul className="list-disc pl-5 ">
+              <ul
+                className={`list-disc pl-5 ${
+                  language === "ja" ? "font-hiraKakuPro" : ""
+                }`}
+              >
                 {language === "en" ? (
                   <>
                     <li>React.js for the frontend framework</li>
@@ -100,11 +118,19 @@ const Meetly = () => {
               </ul>
             </section>
 
-            <section className="h-full pr-8 pt-8 row-start-3 max-2xl:pb-8 max-2xl:row-start-1 max-2xl:col-end-3 max-lg:row-start-3 max-lg:col-start-1 border-b border-gray-100 border-opacity-10 max-lg:pb-8 max-2xl:pt-8">
-              <h2 className="text-2xl font-semibold mb-2 ">
+            <section className="h-full pr-8 pt-8 row-start-3 max-2xl:row-start-1 max-2xl:col-end-3 max-lg:row-start-3 max-lg:col-start-1 border-b border-gray-100 border-opacity-10 max-lg:pb-8 max-2xl:pt-8">
+              <h2
+                className={`text-2xl font-semibold mb-2 ${
+                  language === "ja" ? "font-hiraKakuPro" : ""
+                }`}
+              >
                 {language === "en" ? "Key Features" : "主な機能"}
               </h2>
-              <ul className="list-disc pl-5 ">
+              <ul
+                className={`list-disc pl-5 ${
+                  language === "ja" ? "font-hiraKakuPro" : ""
+                }`}
+              >
                 {language === "en" ? (
                   <>
                     <li>
@@ -163,7 +189,11 @@ const Meetly = () => {
           </div>
           <div className="grid grid-cols-6 grid-rows-2 mt-8 max-lg:grid-cols-1">
             <section className="row-span-full col-span-2 col-start-2 max-lg:row-start-3 max-lg:row-span-1 pt-8 border-r border-gray-100 border-opacity-10 bg-gray-100 bg-opacity-20 max-2xl:col-span-3">
-              <h2 className="text-2xl font-semibold mb-2  pl-4">
+              <h2
+                className={`text-2xl font-semibold mb-2  pl-4 ${
+                  language === "ja" ? "font-hiraKakuPro" : ""
+                }`}
+              >
                 {language === "en" ? "Package.json" : "Package.json"}
               </h2>
               <pre className="p-4 rounded-md flex-1 overflow-x-auto max-w-full">
@@ -200,20 +230,36 @@ const Meetly = () => {
             </section>
 
             <div className="p-8 max-lg:px-0 col-span-2 col-start-4 row-span-full max-2xl:col-span-3">
-              <h2 className="text-2xl font-semibold mb-2">
+              <h2
+                className={`text-2xl font-semibold mb-2 ${
+                  language === "ja" ? "font-hiraKakuPro" : ""
+                }`}
+              >
                 {language === "en" ? "Deployment" : "デプロイメント"}
               </h2>
-              <p className="pb-8 border-b border-gray-100 border-opacity-10">
+              <p
+                className={`pb-8 border-b border-gray-100 border-opacity-10 ${
+                  language === "ja" ? "font-hiraKakuPro" : ""
+                }`}
+              >
                 {language === "en"
                   ? "This project is deployed on Vercel, leveraging its powerful deployment platform for Next.js applications. Vercel provides automatic scaling, a global CDN, and easy-to-configure deployment settings."
                   : "このプロジェクトはVercelにデプロイされており、Next.jsアプリケーション向けの強力なデプロイメントプラットフォームを活用しています。Vercelは自動スケーリング、グローバルCDN、簡単に設定できるデプロイメント設定を提供しています。"}
               </p>
-              <h2 className="text-2xl font-semibold mb-2 pt-8">
+              <h2
+                className={`text-2xl font-semibold mb-2 pt-8 ${
+                  language === "ja" ? "font-hiraKakuPro" : ""
+                }`}
+              >
                 {language === "en"
                   ? "Database Information"
                   : "データベース情報"}
               </h2>
-              <p className="pb-8 border-b border-gray-100 border-opacity-10">
+              <p
+                className={`pb-8 border-b border-gray-100 border-opacity-10 ${
+                  language === "ja" ? "font-hiraKakuPro" : ""
+                }`}
+              >
                 {language === "en"
                   ? "Meetly uses a combination of Google Maps API for location services and does not require a traditional database for the main functionality."
                   : "Meetlyは位置情報サービスにGoogle Maps APIを使用しており、主要機能には従来のデータベースを必要としません。"}

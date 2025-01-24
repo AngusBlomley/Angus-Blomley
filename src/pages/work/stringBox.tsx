@@ -32,12 +32,20 @@ const StringBox = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
           <div className="space-y-8" data-aos="fade-up">
             <div className="text-center">
-              <h1 className="text-4xl font-bold mb-4">
+              <h1
+                className={`text-4xl mt-16 font-bold mb-4 ${
+                  language === "ja" ? "font-hiraKakuPro" : ""
+                }`}
+              >
                 {language === "en"
                   ? "Re-StringBox - Restringing and Ecommerce Website"
                   : "Re-StringBox - ラケット張替とEコマースウェブサイト"}
               </h1>
-              <p className="text-lg max-w-3xl mx-auto">
+              <p
+                className={`text-lg ${
+                  language === "ja" ? "font-hiraKakuPro" : ""
+                }`}
+              >
                 {language === "en"
                   ? "A modern ecommerce platform for racquet restringing services, built with Next.js and a robust tech stack. "
                   : "Next.jsと堅牢な技術スタックで構築された、ラケット張替サービスのためのモダンなEコマースプラットフォーム。"}
@@ -64,12 +72,20 @@ const StringBox = () => {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
               <div className="space-y-8">
                 <section>
-                  <h2 className="text-2xl font-semibold mb-4">
+                  <h2
+                    className={`text-2xl font-semibold mb-4 ${
+                      language === "ja" ? "font-hiraKakuPro" : ""
+                    }`}
+                  >
                     {language === "en"
                       ? "Project Overview"
                       : "プロジェクト概要"}
                   </h2>
-                  <p className="text-lg">
+                  <p
+                    className={`text-lg ${
+                      language === "ja" ? "font-hiraKakuPro" : ""
+                    }`}
+                  >
                     {language === "en"
                       ? "Re-StringBox is a comprehensive ecommerce solution designed for racquet sports professionals. It enables users to book restringing services, purchase equipment, and manage their orders seamlessly. Built with scalability and performance in mind, it features a modern tech stack and intuitive user interface."
                       : "Re-StringBoxは、ラケットスポーツのプロフェッショナル向けに設計された包括的なEコマースソリューションです。ユーザーは張替サービスの予約、機器の購入、注文の管理をシームレスに行うことができます。スケーラビリティとパフォーマンスを考慮して構築され、最新の技術スタックと直感的なユーザーインターフェースを特徴としています。"}
@@ -77,19 +93,31 @@ const StringBox = () => {
                 </section>
 
                 <section>
-                  <h2 className="text-2xl font-semibold mb-4">
+                  <h2
+                    className={`text-2xl font-semibold mb-4 ${
+                      language === "ja" ? "font-hiraKakuPro" : ""
+                    }`}
+                  >
                     {language === "en"
                       ? "Technical Implementation"
                       : "技術実装"}
                   </h2>
                   <div className="space-y-6">
                     <div>
-                      <h3 className="text-xl font-medium mb-2">
+                      <h3
+                        className={`text-xl font-medium mb-2 ${
+                          language === "ja" ? "font-hiraKakuPro" : ""
+                        }`}
+                      >
                         {language === "en"
                           ? "Frontend Architecture"
                           : "フロントエンドアーキテクチャ"}
                       </h3>
-                      <ul className="list-disc pl-5 space-y-1">
+                      <ul
+                        className={`list-disc pl-5 space-y-1 ${
+                          language === "ja" ? "font-hiraKakuPro" : ""
+                        }`}
+                      >
                         {language === "en" ? (
                           <>
                             <li>
@@ -116,12 +144,20 @@ const StringBox = () => {
                       </ul>
                     </div>
                     <div>
-                      <h3 className="text-xl font-medium mb-2">
+                      <h3
+                        className={`text-xl font-medium mb-2 ${
+                          language === "ja" ? "font-hiraKakuPro" : ""
+                        }`}
+                      >
                         {language === "en"
                           ? "Backend Services"
                           : "バックエンドサービス"}
                       </h3>
-                      <ul className="list-disc pl-5 space-y-1">
+                      <ul
+                        className={`list-disc pl-5 space-y-1 ${
+                          language === "ja" ? "font-hiraKakuPro" : ""
+                        }`}
+                      >
                         {language === "en" ? (
                           <>
                             <li>MongoDB with Mongoose for data persistence</li>
@@ -155,7 +191,11 @@ const StringBox = () => {
                 </div>
 
                 <section>
-                  <h2 className="text-2xl font-semibold mb-4">
+                  <h2
+                    className={`text-2xl font-semibold mb-4 ${
+                      language === "ja" ? "font-hiraKakuPro" : ""
+                    }`}
+                  >
                     {language === "en"
                       ? "Development Practices"
                       : "開発プラクティス"}
@@ -197,10 +237,18 @@ const StringBox = () => {
                 </section>
 
                 <section>
-                  <h2 className="text-2xl font-semibold mb-4">
+                  <h2
+                    className={`text-2xl font-semibold mb-4 ${
+                      language === "ja" ? "font-hiraKakuPro" : ""
+                    }`}
+                  >
                     {language === "en" ? "Key Features" : "主な機能"}
                   </h2>
-                  <ul className="list-disc pl-5 space-y-2">
+                  <ul
+                    className={`list-disc pl-5 space-y-2 ${
+                      language === "ja" ? "font-hiraKakuPro" : ""
+                    }`}
+                  >
                     {language === "en" ? (
                       <>
                         <li>Secure user authentication and authorization</li>
@@ -226,7 +274,11 @@ const StringBox = () => {
             </div>
 
             <section className="mt-12">
-              <h2 className="text-2xl font-semibold mb-4">
+              <h2
+                className={`text-2xl font-semibold mb-4 ${
+                  language === "ja" ? "font-hiraKakuPro" : ""
+                }`}
+              >
                 {language === "en" ? "Package Information" : "パッケージ情報"}
               </h2>
               <div className="bg-opacity-5 bg-white dark:bg-opacity-5 dark:bg-black rounded-lg p-6">

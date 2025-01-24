@@ -32,12 +32,20 @@ const Vocabo = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
           <div className="space-y-8" data-aos="fade-up">
             <div className="text-center">
-              <h1 className="text-4xl font-bold mb-4">
+              <h1
+                className={`text-4xl mt-16 font-bold mb-4 ${
+                  language === "ja" ? "font-hiraKakuPro" : ""
+                }`}
+              >
                 {language === "en"
                   ? "Vocabo - Chrome Extension Development"
                   : "Vocabo - Chrome拡張機能開発"}
               </h1>
-              <p className="text-lg max-w-3xl mx-auto">
+              <p
+                className={`text-lg ${
+                  language === "ja" ? "font-hiraKakuPro" : ""
+                }`}
+              >
                 {language === "en"
                   ? "A sophisticated Chrome extension for language learners, featuring real-time translation, vocabulary management, and spaced repetition learning. "
                   : "リアルタイム翻訳、語彙管理、間隔反復学習を特徴とする、語学学習者のための高度なChrome拡張機能。"}

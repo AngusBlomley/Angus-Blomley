@@ -32,7 +32,9 @@ function WorkExperience() {
     >
       <div className="container mx-auto px-4 max-w-7xl">
         <h2
-          className="text-4xl font-hiraKakuPro text-center mb-24 max-md:mb-16"
+          className={`text-4xl font-hiraKakuPro text-center mb-24 max-md:mb-16 ${
+            language === "ja" ? "font-hiraKakuPro" : ""
+          }`}
           data-aos="fade-in"
         >
           {language === "en" ? "Professional Journey" : "職歴"}
@@ -40,10 +42,20 @@ function WorkExperience() {
         <div className="grid grid-cols-2 max-md:grid-cols-1 gap-y-32 max-md:gap-y-16 items-center">
           <div className="pr-12 max-md:pr-0" data-aos="fade-right">
             <div className="max-w-xl">
-              <h3 className="text-3xl font-semibold mb-3">
-                React / React Native Developer
+              <h3
+                className={`text-3xl font-semibold mb-3 ${
+                  language === "ja" ? "font-hiraKakuPro" : ""
+                }`}
+              >
+                {language === "en"
+                  ? "React / React Native Developer"
+                  : "React / React Nativeディベロッパー"}
               </h3>
-              <p className="mb-6 text-lg opacity-90">
+              <p
+                className={`mb-6 text-lg opacity-90 ${
+                  language === "ja" ? "font-hiraKakuPro" : ""
+                }`}
+              >
                 {language === "en" ? (
                   <>
                     Compute and Cultivate Ltd (PWG Windows & Doors)
@@ -59,12 +71,20 @@ function WorkExperience() {
                 )}
               </p>
               <div>
-                <h4 className="text-xl font-semibold mb-4">
+                <h4
+                  className={`text-xl font-semibold mb-4 ${
+                    language === "ja" ? "font-hiraKakuPro" : ""
+                  }`}
+                >
                   {language === "en"
                     ? "Key Achievements & Responsibilities"
                     : "業務内容"}
                 </h4>
-                <ul className="list-disc pl-5 space-y-2 text-base">
+                <ul
+                  className={`list-disc pl-5 space-y-2 text-base ${
+                    language === "ja" ? "font-hiraKakuPro" : ""
+                  }`}
+                >
                   {language === "en" ? (
                     <>
                       <li>
@@ -187,12 +207,20 @@ function WorkExperience() {
             data-aos="fade-left"
           >
             <div className="max-w-xl">
-              <h3 className="text-3xl font-semibold mb-3">
+              <h3
+                className={`text-3xl font-semibold mb-3 ${
+                  language === "ja" ? "font-hiraKakuPro" : ""
+                }`}
+              >
                 {language === "en"
                   ? "Frontend Developer"
                   : "フロントエンドディベロッパー"}
               </h3>
-              <p className="mb-6 text-lg opacity-90">
+              <p
+                className={`mb-6 text-lg opacity-90 ${
+                  language === "ja" ? "font-hiraKakuPro" : ""
+                }`}
+              >
                 {language === "en" ? (
                   <>
                     Vocabo - Language Learning Platform
@@ -207,10 +235,18 @@ function WorkExperience() {
                 )}
               </p>
               <div>
-                <h4 className="text-xl font-semibold mb-4">
+                <h4
+                  className={`text-xl font-semibold mb-4 ${
+                    language === "ja" ? "font-hiraKakuPro" : ""
+                  }`}
+                >
                   {language === "en" ? "Technical Highlights" : "業務内容"}
                 </h4>
-                <ul className="list-disc pl-5 space-y-2 text-base">
+                <ul
+                  className={`list-disc pl-5 space-y-2 text-base ${
+                    language === "ja" ? "font-hiraKakuPro" : ""
+                  }`}
+                >
                   {language === "en" ? (
                     <>
                       <li>
@@ -264,7 +300,9 @@ function WorkExperience() {
                 href="https://chromewebstore.google.com/detail/vocabo/jkidhonedioaomijgdccandhiffoiheb"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-block mt-4 px-6 py-2 border border-current rounded relative overflow-hidden group"
+                className={`inline-block mt-4 px-6 py-2 border border-current rounded relative overflow-hidden group ${
+                  language === "ja" ? "font-hiraKakuPro" : ""
+                }`}
               >
                 <span className="absolute left-0 top-0 h-full w-0 bg-blue-500/40 transition-all duration-300 group-hover:w-full"></span>
                 <span className="relative z-10">
@@ -275,7 +313,9 @@ function WorkExperience() {
               </a>
               <Link
                 href="/work/vocabo"
-                className="inline-block mt-4 px-6 py-2 border border-current rounded relative overflow-hidden group"
+                className={`inline-block mt-4 px-6 py-2 border border-current rounded relative overflow-hidden group ${
+                  language === "ja" ? "font-hiraKakuPro" : ""
+                }`}
               >
                 <span className="absolute left-0 top-0 h-full w-0 bg-blue-500/40 transition-all duration-300 group-hover:w-full"></span>
                 <span className="relative z-10">
@@ -287,12 +327,20 @@ function WorkExperience() {
 
           <div className="pr-12 max-md:pr-0 order-4" data-aos="fade-right">
             <div className="max-w-xl">
-              <h3 className="text-3xl font-semibold mb-3">
+              <h3
+                className={`text-3xl font-semibold mb-3 ${
+                  language === "ja" ? "font-hiraKakuPro" : ""
+                }`}
+              >
                 {language === "en"
                   ? "Frontend Developer"
                   : "フロントエンドディベロッパー"}
               </h3>
-              <p className="mb-6 text-lg opacity-90">
+              <p
+                className={`mb-6 text-lg opacity-90 ${
+                  language === "ja" ? "font-hiraKakuPro" : ""
+                }`}
+              >
                 {language === "en" ? (
                   <>
                     Open Fern Studio
@@ -308,12 +356,20 @@ function WorkExperience() {
                 )}
               </p>
               <div>
-                <h4 className="text-xl font-semibold mb-4">
+                <h4
+                  className={`text-xl font-semibold mb-4 ${
+                    language === "ja" ? "font-hiraKakuPro" : ""
+                  }`}
+                >
                   {language === "en"
                     ? "Key Achievements & Responsibilities"
                     : "業務内容"}
                 </h4>
-                <ul className="list-disc pl-5 space-y-2 text-base">
+                <ul
+                  className={`list-disc pl-5 space-y-2 text-base ${
+                    language === "ja" ? "font-hiraKakuPro" : ""
+                  }`}
+                >
                   {language === "en" ? (
                     <>
                       <li>
@@ -366,7 +422,9 @@ function WorkExperience() {
               </a>
               <Link
                 href="/work/openfern"
-                className="inline-block mt-4 px-6 py-2 border border-current rounded relative overflow-hidden group"
+                className={`inline-block mt-4 px-6 py-2 border border-current rounded relative overflow-hidden group ${
+                  language === "ja" ? "font-hiraKakuPro" : ""
+                }`}
               >
                 <span className="absolute left-0 top-0 h-full w-0 bg-blue-500/40 transition-all duration-300 group-hover:w-full"></span>
                 <span className="relative z-10">
