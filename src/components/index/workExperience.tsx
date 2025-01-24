@@ -190,7 +190,7 @@ function WorkExperience() {
               <h3 className="text-3xl font-semibold mb-3">
                 {language === "en"
                   ? "Frontend Developer"
-                  : "フロントエンド開発者"}
+                  : "フロントエンドディベロッパー"}
               </h3>
               <p className="mb-6 text-lg opacity-90">
                 {language === "en" ? (
@@ -202,15 +202,13 @@ function WorkExperience() {
                   <>
                     Vocabo - 語学学習プラットフォーム
                     <br />
-                    6ヶ月間
+                    期間・６ヶ月
                   </>
                 )}
               </p>
               <div>
                 <h4 className="text-xl font-semibold mb-4">
-                  {language === "en"
-                    ? "Technical Highlights"
-                    : "技術的なハイライト"}
+                  {language === "en" ? "Technical Highlights" : "業務内容"}
                 </h4>
                 <ul className="list-disc pl-5 space-y-2 text-base">
                   {language === "en" ? (
@@ -292,7 +290,7 @@ function WorkExperience() {
               <h3 className="text-3xl font-semibold mb-3">
                 {language === "en"
                   ? "Frontend Developer"
-                  : "フロントエンド開発者"}
+                  : "フロントエンドディベロッパー"}
               </h3>
               <p className="mb-6 text-lg opacity-90">
                 {language === "en" ? (
