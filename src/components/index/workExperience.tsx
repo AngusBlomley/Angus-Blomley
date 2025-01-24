@@ -56,7 +56,7 @@ function WorkExperience() {
                   <>
                     Compute and Cultivate Ltd（PWG Windows & Doors）
                     <br />
-                    期間
+                    期間・2年間
                   </>
                 )}
               </p>
@@ -64,7 +64,7 @@ function WorkExperience() {
                 <h4 className="text-xl font-semibold mb-4">
                   {language === "en"
                     ? "Key Achievements & Responsibilities"
-                    : "主な実績と責任"}
+                    : "業務内容"}
                 </h4>
                 <ul className="list-disc pl-5 space-y-2 text-base">
                   {language === "en" ? (
@@ -315,7 +315,7 @@ function WorkExperience() {
                 <h4 className="text-xl font-semibold mb-4">
                   {language === "en"
                     ? "Key Achievements & Responsibilities"
-                    : "主な実績と責任"}
+                    : "業務内容"}
                 </h4>
                 <ul className="list-disc pl-5 space-y-2 text-base">
                   {language === "en" ? (
