@@ -31,18 +31,18 @@ function About() {
           ピクセルの背後にいる人
         </h2>
         <p className="font-hiraKakuPro mb-6 leading-relaxed" data-aos="fade-up">
-          こんにちは！私はアンガス・ブロムリーです。優れたウェブ体験を作ることに情熱を注ぐReact開発者です。2014年5月にプログラミングの旅を始めて以来、HTML、CSS、JavaScript、React、React
-          Native、さまざまな最新のウェブ技術に精通しています。
+          こんにちは！僕の名前はアンガス・ブロムリーです。素晴らしいウェブを制作することに力を注いでいるリアクトディベロッパーです。2014年5月からプログラミングについて学び始め、HTMLやCSS、JavaScript、React、React
+          Nativeなど、さまざまな最新のウェブ技術について知識を得てきました。
         </p>
         <p className="font-hiraKakuPro mb-6 leading-relaxed" data-aos="fade-up">
-          プログラミング言語だけでなく、言語そのものにも興味があり、彼女とコミュニケーションを取るために日本語を学んでいます。{" "}
+          また、プログラミング言語だけでなく、言語学習そのものにも興味があり、日本人の彼女とコミュニケーションを取るために、日々日本語を学んでいます。
         </p>
         <p
           className="font-hiraKakuPro mb-6 leading-relaxed"
           data-aos="fade-up"
           data-aos-delay="200"
         >
-          元国際スプリングボードダイバーとして、挑戦的なアウトドア活動を楽しみ、同じ志を持つ仲間と共に過ごすことが好きです。私の冒険心は、新しい技術を探求し、専門的および個人的な追求において常に限界を押し広げる原動力となっています。
+          そして、元国際飛び込み選手の経験があり、同じ目標を持つ仲間たちと努力し、挑戦する楽しさや厳しさやを学びました。それらの経験により、何事にも探求し挑戦することを日々意識しています。{" "}
         </p>
         <p
           className="font-hiraKakuPro leading-relaxed"

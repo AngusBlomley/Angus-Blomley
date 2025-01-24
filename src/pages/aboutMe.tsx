@@ -2,6 +2,7 @@
 import React, { useEffect } from "react";
 import WorldMap from "@/components/WorldMap";
 import { useDarkMode } from "@/contexts/darkModeContext";
+import { useLanguage } from "@/contexts/language";
 import HeaderGlobal from "@/components/globals/headerGlobal";
 import AOS from "aos";
 import "aos/dist/aos.css";
@@ -15,14 +16,18 @@ const visitedCountries = [
   {
     country: "USA",
     coordinates: [39.1653, -86.5264],
-    description:
-      "Attended a two-week diving camp at Indiana University to improve springboard and platform skills.",
+    description: {
+      en: "Attended a two-week diving camp at Indiana University to improve springboard and platform skills.",
+      ja: "インディアナ大学で2週間のダイビングキャンプに参加し、スプリングボードとプラットフォームのスキルを向上させました。",
+    },
   },
   {
     country: "GBR",
     coordinates: [51.5074, -0.1278],
-    description:
-      "Born and raised in the UK, studied Broadcast Engineering at Ravensbourne University Londonfor three years, engineering and programming.",
+    description: {
+      en: "Born and raised in the UK, studied Broadcast Engineering at Ravensbourne University London for three years, engineering and programming.",
+      ja: "イギリスで生まれ育ち、ロンドンのレイヴンズボーン大学で3年間放送工学を学び、エンジニアリングとプログラミングを専攻しました。",
+    },
   },
   { country: "USA-las-vegas", coordinates: [37.1699, -112.1398] },
   { country: "AUS", coordinates: [-14.8688, 151.2093] },
@@ -38,6 +43,7 @@ const visitedCountries = [
 
 export default function AboutMe() {
   const { isDarkMode } = useDarkMode();
+  const { language } = useLanguage();
 
   useEffect(() => {
     AOS.init({
@@ -68,7 +74,7 @@ export default function AboutMe() {
               data-aos-delay="1000"
               data-aos-duration="2000"
             >
-              Some places I have been
+              {language === "en" ? "Some places I have been" : "訪れた場所"}
             </h1>
           </div>
           <section>
@@ -78,7 +84,7 @@ export default function AboutMe() {
                   visitedCountries as {
                     country: string;
                     coordinates: [number, number];
-                    description?: string;
+                    description?: { en: string; ja: string };
                   }[]
                 }
               />
@@ -91,7 +97,7 @@ export default function AboutMe() {
                   ?.scrollIntoView({ behavior: "smooth", block: "start" });
               }}
             >
-              <p>LEARN MORE</p>
+              <p>{language === "en" ? "LEARN MORE" : "詳しく見る"}</p>
               <FontAwesomeIcon
                 icon={faArrowDown}
                 size="1x"
@@ -103,20 +109,19 @@ export default function AboutMe() {
           <div className="max-w-6xl mx-auto">
             <section id="gbr" className="mb-8 sm:mb-12 scroll-mt-24">
               <h2 className="text-2xl font-semibold mb-4 text-center sm:text-left">
-                Hi, I'm Angus Blomley
+                {language === "en"
+                  ? "Hi, I'm Angus Blomley"
+                  : "こんにちは、アンガス・ブロムリーです"}
               </h2>
               <div className="flex flex-col-reverse sm:flex-row justify-center items-center gap-6 sm:gap-8">
-                <p className="italic font-karla text-lg text-center sm:text-left">
-                  I'm a software engineer with a passion for creating efficient,
-                  high-performance web applications. My journey into languages
-                  began with Japanese, where I combine traditional mentorship
-                  with modern technology like spaced repetition and Anki to
-                  optimize my learning. When I'm not immersed in code or
-                  language study, I explore different cultures through travel -
-                  having experienced 12 countries and counting! I believe in
-                  leveraging technology to create powerful learning
-                  opportunities, whether it's in software development or
-                  language acquisition.
+                <p
+                  className={`italic font-karla text-lg text-center sm:text-left ${
+                    language === "ja" ? "font-hiraKakuPro" : ""
+                  }`}
+                >
+                  {language === "en"
+                    ? "I'm a software engineer with a passion for creating efficient, high-performance web applications. My journey into languages began with Japanese, where I combine traditional mentorship with modern technology like spaced repetition and Anki to optimize my learning. When I'm not immersed in code or language study, I explore different cultures through travel - having experienced 12 countries and counting! I believe in leveraging technology to create powerful learning opportunities, whether it's in software development or language acquisition."
+                    : "効率的で高性能なウェブアプリケーションの作成に情熱を注ぐソフトウェアエンジニアです。言語への旅は日本語から始まり、伝統的な指導と間隔反復やAnkiなどの最新技術を組み合わせて学習を最適化しています。コーディングや言語学習に没頭していない時は、旅行を通じて異なる文化を探求しています - これまでに12カ国を経験し、その数は増え続けています！ソフトウェア開発であれ言語習得であれ、テクノロジーを活用して強力な学習機会を創出することを信念としています。"}
                 </p>
                 <Image
                   src="/images/about/portrait.jpeg"
@@ -133,70 +138,100 @@ export default function AboutMe() {
               className="mb-8 sm:mb-12 scroll-mt-24"
             >
               <h2 className="text-2xl font-semibold mb-4 text-center sm:text-left">
-                Language Learning Journey
+                {language === "en"
+                  ? "Language Learning Journey"
+                  : "言語学習の旅"}
               </h2>
               <div className="space-y-4">
-                <p className="italic font-karla text-lg text-center sm:text-left">
-                  My language learning journey has been deeply intertwined with
-                  my love for technology and different cultures. Through
-                  immersion-based learning and leveraging modern language
-                  learning tools, I've been steadily progressing in Japanese. I
-                  believe in the power of combining traditional study methods
-                  with innovative technology to create effective learning
-                  experiences.
+                <p
+                  className={`italic font-karla text-lg text-center sm:text-left ${
+                    language === "ja" ? "font-hiraKakuPro" : ""
+                  }`}
+                >
+                  {language === "en"
+                    ? "My language learning journey has been deeply intertwined with my love for technology and different cultures. Through immersion-based learning and leveraging modern language learning tools, I've been steadily progressing in Japanese. I believe in the power of combining traditional study methods with innovative technology to create effective learning experiences."
+                    : "私の言語学習の旅は、テクノロジーと異文化への愛と深く結びついています。没入型学習と最新の言語学習ツールを活用することで、日本語の習得を着実に進めています。伝統的な学習方法と革新的なテクノロジーを組み合わせることで、効果的な学習体験を生み出すことができると信じています。"}
                 </p>
               </div>
             </section>
 
             <section className="mb-8 sm:mb-12">
               <h2 className="text-2xl font-semibold mb-4 text-center sm:text-left">
-                Global Perspective
+                {language === "en" ? "Global Perspective" : "グローバルな視点"}
               </h2>
               <div className="space-y-4">
-                <p className="italic font-karla text-lg text-center sm:text-left">
-                  Born and raised in the United Kingdom, I pursued my higher
-                  education at Ravensbourne University, where I studied
-                  Broadcast Engineering for three years. This program gave me a
-                  deep understanding of signal processing and low-level
-                  programming, forming the foundation of my technical expertise.
+                <p
+                  className={`italic font-karla text-lg text-center sm:text-left ${
+                    language === "ja" ? "font-hiraKakuPro" : ""
+                  }`}
+                >
+                  {language === "en"
+                    ? "Born and raised in the United Kingdom, I pursued my higher education at Ravensbourne University, where I studied Broadcast Engineering for three years. This program gave me a deep understanding of signal processing and low-level programming, forming the foundation of my technical expertise."
+                    : "イギリスで生まれ育ち、レイヴンズボーン大学で3年間放送工学を学びました。このプログラムを通じて、信号処理と低レベルプログラミングについての深い理解を得ることができ、それが私の技術的専門知識の基礎となっています。"}
                 </p>
-                <p className="text-center sm:text-left">
-                  Having traveled to 12 countries across multiple continents,
-                  I've gained a global perspective that influences both my
-                  personal and professional life. Each journey has contributed
-                  to my understanding of different cultures and approaches to
-                  problem-solving, making me a more adaptable and empathetic
-                  developer.
+                <p
+                  className={`text-center sm:text-left ${
+                    language === "ja" ? "font-hiraKakuPro" : ""
+                  }`}
+                >
+                  {language === "en"
+                    ? "Having traveled to 12 countries across multiple continents, I've gained a global perspective that influences both my personal and professional life. Each journey has contributed to my understanding of different cultures and approaches to problem-solving, making me a more adaptable and empathetic developer."
+                    : "複数の大陸にまたがる12カ国を旅することで、私の個人生活と職業生活の両方に影響を与えるグローバルな視点を得ることができました。それぞれの旅は、異なる文化や問題解決へのアプローチについての理解を深め、より適応力があり共感できる開発者となる助けとなっています。"}
                 </p>
               </div>
             </section>
 
             <section className="mb-8 sm:mb-12">
               <h2 className="text-2xl font-semibold mb-4 text-center sm:text-left">
-                My Programming Journey
+                {language === "en"
+                  ? "My Programming Journey"
+                  : "プログラミングの旅"}
               </h2>
               <div className="space-y-4">
                 <div className="flex flex-col sm:flex-row justify-between items-center gap-8">
                   <div className="w-full sm:w-1/2">
-                    <p className="italic font-karla text-lg text-center sm:text-left">
-                      My programming journey began in 2014 at the age of 16,
-                      when I first discovered my passion for coding. Starting
-                      with basic web development, I quickly progressed through
-                      various programming languages and technologies.
+                    <p
+                      className={`italic font-karla text-lg text-center sm:text-left ${
+                        language === "ja" ? "font-hiraKakuPro" : ""
+                      }`}
+                    >
+                      {language === "en"
+                        ? "My programming journey began in 2014 at the age of 16, when I first discovered my passion for coding. Starting with basic web development, I quickly progressed through various programming languages and technologies."
+                        : "私のプログラミングの旅は、16歳だった2014年にコーディングへの情熱を見出したことから始まりました。基本的なウェブ開発から始め、様々なプログラミング言語とテクノロジーを素早く習得していきました。"}
                     </p>
-                    <p className="mt-4 italic font-karla text-lg text-center sm:text-left">
-                      Through platforms like{" "}
-                      <a
-                        href="https://www.codecademy.com/users/AngusBlomley/achievements"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-blue-500 hover:text-blue-600"
-                      >
-                        Codecademy
-                      </a>
-                      , I built a strong foundation in programming fundamentals
-                      and continued to expand my skills through practical
-                      projects, formal education and mentorship.
+                    <p
+                      className={`mt-4 italic font-karla text-lg text-center sm:text-left ${
+                        language === "ja" ? "font-hiraKakuPro" : ""
+                      }`}
+                    >
+                      {language === "en" ? (
+                        <>
+                          Through platforms like{" "}
+                          <a
+                            href="https://www.codecademy.com/users/AngusBlomley/achievements"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-blue-500 hover:text-blue-600"
+                          >
+                            Codecademy
+                          </a>
+                          , I built a strong foundation in programming
+                          fundamentals and continued to expand my skills through
+                          practical projects, formal education and mentorship.
+                        </>
+                      ) : (
+                        <>
+                          <a
+                            href="https://www.codecademy.com/users/AngusBlomley/achievements"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-blue-500 hover:text-blue-600"
+                          >
+                            Codecademy
+                          </a>
+                          などのプラットフォームを通じて、プログラミングの基礎を固め、実践的なプロジェクト、正規教育、メンターシップを通じてスキルを拡大し続けています。
+                        </>
+                      )}
                     </p>
                   </div>
                   <Link
@@ -219,7 +254,9 @@ export default function AboutMe() {
 
             <section id="usa" className="mb-8 sm:mb-12 scroll-mt-24">
               <h2 className="text-2xl font-semibold mb-4 text-center sm:text-left">
-                My Experience at Indiana University
+                {language === "en"
+                  ? "My Experience at Indiana University"
+                  : "インディアナ大学での経験"}
               </h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div className="flex justify-center items-center overflow-hidden h-[300px] sm:h-[550px]">
@@ -233,21 +270,27 @@ export default function AboutMe() {
                 </div>
                 <div className="space-y-4">
                   <h3 className="text-xl font-medium text-center sm:text-left">
-                    Indiana University Diving Academy
+                    {language === "en"
+                      ? "Indiana University Diving Academy"
+                      : "インディアナ大学ダイビングアカデミー"}
                   </h3>
-                  <p className="italic font-karla text-lg text-center sm:text-left">
-                    During my time at Indiana University, I had the incredible
-                    opportunity to participate in an intensive two-week diving
-                    camp. This experience was focused on improving both my
-                    springboard and platform diving techniques under the
-                    guidance of experienced coaches.
+                  <p
+                    className={`italic font-karla text-lg text-center sm:text-left ${
+                      language === "ja" ? "font-hiraKakuPro" : ""
+                    }`}
+                  >
+                    {language === "en"
+                      ? "During my time at Indiana University, I had the incredible opportunity to participate in an intensive two-week diving camp. This experience was focused on improving both my springboard and platform diving techniques under the guidance of experienced coaches."
+                      : "インディアナ大学での滞在中、2週間の集中ダイビングキャンプに参加する素晴らしい機会を得ました。この経験は、経験豊富なコーチの指導のもと、スプリングボードとプラットフォームの両方のダイビング技術の向上に焦点を当てたものでした。"}
                   </p>
-                  <p className="italic font-karla text-lg text-center sm:text-left">
-                    The camp not only enhanced my diving skills but also allowed
-                    me to train in world-class facilities and connect with other
-                    passionate divers from around the globe. The technical
-                    expertise and confidence I gained during this program have
-                    been invaluable to my development as a diver.
+                  <p
+                    className={`italic font-karla text-lg text-center sm:text-left ${
+                      language === "ja" ? "font-hiraKakuPro" : ""
+                    }`}
+                  >
+                    {language === "en"
+                      ? "The camp not only enhanced my diving skills but also allowed me to train in world-class facilities and connect with other passionate divers from around the globe. The technical expertise and confidence I gained during this program have been invaluable to my development as a diver."
+                      : "このキャンプは、ダイビングスキルを向上させただけでなく、世界クラスの施設でトレーニングを行い、世界中の情熱的なダイバーたちと交流する機会を与えてくれました。このプログラムで得た技術的な専門知識と自信は、ダイバーとしての成長に計り知れない価値をもたらしました。"}
                   </p>
                   <div>
                     <h4 className="font-medium mb-2 text-center sm:text-left">
@@ -268,29 +311,26 @@ export default function AboutMe() {
 
             <section className="mb-8 sm:mb-12 pb-8 sm:pb-12">
               <h2 className="text-2xl font-semibold mb-4 sm:text-left">
-                Looking Forward
+                {language === "en" ? "Looking Forward" : "今後の展望"}
               </h2>
               <div>
                 <div className="space-y-4">
                   <p className="italic font-karla text-lg sm:text-left">
-                    Today, I continue to push the boundaries of what's possible
-                    in software development, combining my broadcast engineering
-                    background with modern web technologies. I'm particularly
-                    excited about the intersection of performance optimization
-                    and user experience.
+                    {language === "en"
+                      ? "Today, I continue to push the boundaries of what's possible in software development, combining my broadcast engineering background with modern web technologies. I'm particularly excited about the intersection of performance optimization and user experience."
+                      : "今日、私はソフトウェア開発における可能な限りの境界を押し広げています。放送工学の背景と最新のウェブ技術を組み合わせることで、パフォーマンスの最適化とユーザー体験の交差点に興味を持っています。"}
                   </p>
                   <p className="italic font-karla text-lg sm:text-left">
-                    I'm always open to discussing new projects, technical
-                    challenges, or potential collaborations. Whether you're
-                    interested in working together or just want to connect, feel
-                    free to reach out through email using the contact form.
+                    {language === "en"
+                      ? "I'm always open to discussing new projects, technical challenges, or potential collaborations. Whether you're interested in working together or just want to connect, feel free to reach out through email using the contact form."
+                      : "新しいプロジェクト、技術的な課題、または潜在的なコラボレーションについて話し合うことに常に開いています。一緒に働くか、ただ接続したいだけなら、連絡を取るのは自由です。"}
                   </p>
                   <div className="flex justify-center pt-4">
                     <Link
                       href="/#contact"
                       className="inline-flex border items-center px-6 py-3 text-center mx-auto hover:border-green-400 hover:text-green-400 group z-50 cursor-pointer text-white font-medium rounded-lg transition-colors duration-200"
                     >
-                      Get in Touch
+                      {language === "en" ? "Get in Touch" : "お問い合わせ"}
                       <FaMailBulk className="w-5 h-5 ml-2" />
                     </Link>
                   </div>
