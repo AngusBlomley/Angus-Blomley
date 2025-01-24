@@ -307,40 +307,43 @@ skyfield==1.48`}
                   : "天体追跡装置は、Fusion 360を使用して作成されたカスタムデザインの3Dプリントフレームを特徴としています。このデザインは、天体追跡における安定性と精度を確保します。最適なパフォーマンスと耐久性を実現するため、プロトタイプの複数の反復が開発とテストを重ねられました。"}
               </p>
               <h2 className="text-2xl font-semibold mb-2 pt-8">
-                Hardware Integration
+                {language === "en"
+                  ? "Hardware Integration"
+                  : "ハードウェア統合"}
               </h2>
               <p className="pb-8 border-b border-gray-100 border-opacity-10">
-                This project integrates various hardware components including
-                stepper motors, an Arduino, and a Raspberry Pi. The stepper
-                motors provide precise movements, controlled via the Arduino,
-                while the Raspberry Pi handles processing and real-time data
-                updates. An MPU6050 sensor is used for orientation, and a GT-U7
-                module provides GPS data for accurate positioning.
+                {language === "en"
+                  ? "This project integrates various hardware components including stepper motors, an Arduino, and a Raspberry Pi. The stepper motors provide precise movements, controlled via the Arduino, while the Raspberry Pi handles processing and real-time data updates. An MPU6050 sensor is used for orientation, and a GT-U7 module provides GPS data for accurate positioning."
+                  : "このプロジェクトは、ステッピングモーター、Arduino、Raspberry Piなど、様々なハードウェアコンポーネントを統合しています。ステッピングモーターはArduinoを介して制御され、精密な動きを提供し、Raspberry Piは処理とリアルタイムデータの更新を担当します。MPU6050センサーは方向検知に使用され、GT-U7モジュールは正確な位置決めのためのGPSデータを提供します。"}
               </p>
               <h2 className="text-2xl font-semibold mb-4 mt-8">
-                Software Development
+                {language === "en"
+                  ? "Software Development"
+                  : "ソフトウェア開発"}
               </h2>
               <div className="software-development mb-8">
                 <div>
                   <h3 className="text-xl font-semibold">
-                    Python & Arduino Programming
+                    {language === "en"
+                      ? "Python & Arduino Programming"
+                      : "PythonとArduinoのプログラミング"}
                   </h3>
-                  <p className=" w-full mt-2">
-                    The software for the Celestial Object Tracker is developed
-                    using Python for high-level control and Arduino programming
-                    for hardware interfacing. The Python code handles celestial
-                    calculations using the Skyfield API, while the Arduino code
-                    manages motor control and sensor data acquisition.
+                  <p className="w-full mt-2">
+                    {language === "en"
+                      ? "The software for the Celestial Object Tracker is developed using Python for high-level control and Arduino programming for hardware interfacing. The Python code handles celestial calculations using the Skyfield API, while the Arduino code manages motor control and sensor data acquisition."
+                      : "天体追跡装置のソフトウェアは、高レベル制御にPythonを、ハードウェアインターフェースにArduinoプログラミングを使用して開発されています。PythonコードはSkyfield APIを使用して天体計算を処理し、Arduinoコードはモーター制御とセンサーデータの取得を管理します。"}
                   </p>
                 </div>
                 <div className="mt-8">
-                  <h3 className="text-xl font-semibold">User Interface</h3>
-                  <p className=" w-full mt-2">
-                    A user-friendly GUI is implemented using Tkinter in Python,
-                    allowing users to select celestial objects, view real-time
-                    data, and control the tracker. The interface provides an
-                    intuitive way to interact with the system, ensuring
-                    accessibility for users of all experience levels.
+                  <h3 className="text-xl font-semibold">
+                    {language === "en"
+                      ? "User Interface"
+                      : "ユーザーインターフェース"}
+                  </h3>
+                  <p className="w-full mt-2">
+                    {language === "en"
+                      ? "A user-friendly GUI is implemented using Tkinter in Python, allowing users to select celestial objects, view real-time data, and control the tracker. The interface provides an intuitive way to interact with the system, ensuring accessibility for users of all experience levels."
+                      : "PythonのTkinterを使用してユーザーフレンドリーなGUIが実装され、ユーザーは天体の選択、リアルタイムデータの表示、トラッカーの制御が可能です。インターフェースはシステムとの直感的な対話方法を提供し、すべての経験レベルのユーザーにとってのアクセシビリティを確保しています。"}
                   </p>
                 </div>
               </div>
