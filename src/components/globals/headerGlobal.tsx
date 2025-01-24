@@ -15,6 +15,8 @@ import {
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { useDarkMode } from "@/contexts/darkModeContext";
+import { useLanguage } from "@/contexts/language";
+import { RiEnglishInput } from "react-icons/ri";
 
 interface Section {
   id: string;
@@ -27,6 +29,7 @@ interface Section {
 
 function HeaderGlobal(): JSX.Element {
   const { isDarkMode, toggleDarkMode } = useDarkMode();
+  const { language, toggleLanguage } = useLanguage();
   const [menuVisible, setMenuVisible] = useState<boolean>(false);
   const [workSublinksVisible, setWorkSublinksVisible] =
     useState<boolean>(false);
@@ -41,6 +44,29 @@ function HeaderGlobal(): JSX.Element {
   useEffect(() => {
     AOS.init({ duration: 1000 });
   }, []);
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      const menuContainer = document.getElementById("menucontainer");
+      const toggleButton = document.getElementById("togglebutton");
+
+      if (
+        menuVisible &&
+        menuContainer &&
+        !menuContainer.contains(event.target as Node) &&
+        toggleButton &&
+        !toggleButton.contains(event.target as Node)
+      ) {
+        setMenuVisible(false);
+        document.body.classList.remove("menu-open");
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [menuVisible]);
 
   const toggleMenu = (): void => {
     setMenuVisible(!menuVisible);
@@ -68,44 +94,83 @@ function HeaderGlobal(): JSX.Element {
   };
 
   const sections: Section[] = [
-    { id: "home", link: "/", name: "Home", icon: <FaHome /> },
-    { id: "about", link: "/aboutMe", name: "About", icon: <FaInfo /> },
+    {
+      id: "home",
+      link: "/",
+      name: language === "en" ? "Home" : "ホーム",
+      icon: <FaHome />,
+    },
+    {
+      id: "about",
+      link: "/aboutMe",
+      name: language === "en" ? "About" : "私について",
+      icon: <FaInfo />,
+    },
     {
       id: "experience",
       link: "/#experience",
-      name: "Experience",
+      name: language === "en" ? "Experience" : "経験",
       icon: <FaBriefcase />,
     },
     {
       id: "education",
       link: "/#education",
-      name: "Education",
+      name: language === "en" ? "Education" : "学歴",
       icon: <FaGraduationCap />,
     },
     {
       id: "work",
-      name: "Work",
+      name: language === "en" ? "Work" : "仕事",
       icon: <FaBriefcase />,
       link: "/#work",
       subLinks: [
-        { name: "PWG Windows & Doors", link: "/work/pwg" },
-        { name: "Vocabo", link: "/work/vocabo" },
-        { name: "Open Fern Studio", link: "/work/openfern" },
-        { name: "Re-String Box", link: "/work/stringBox" },
         {
-          name: "Celestial Object Tracker",
+          name: "PWG Windows & Doors",
+          link: "/work/pwg",
+        },
+        {
+          name: "Vocabo",
+          link: "/work/vocabo",
+        },
+        {
+          name:
+            language === "en" ? "Open Fern Studio" : "オープンファーンスタジオ",
+          link: "/work/openfern",
+        },
+        {
+          name: language === "en" ? "Re-String Box" : "ストリングボックス",
+          link: "/work/stringBox",
+        },
+        {
+          name:
+            language === "en" ? "Celestial Object Tracker" : "天体追跡システム",
           link: "/work/celestialObjectTracker",
         },
-        { name: "Meetly", link: "/work/meetly" },
-        { name: "Be First", link: "/work/beFirst" },
-        { name: `Misuzu's Portfolio`, link: "/work/misuzuPortfolio" },
+        {
+          name: "Meetly",
+          link: "/work/meetly",
+        },
+        {
+          name: "Be First",
+          link: "/work/beFirst",
+        },
+        {
+          name:
+            language === "en" ? "Misuzu's Portfolio" : "美鈴のポートフォリオ",
+          link: "/work/misuzuPortfolio",
+        },
       ],
     },
-    { id: "contact", link: "/#contact", name: "Contact", icon: <FaEnvelope /> },
+    {
+      id: "contact",
+      link: "/#contact",
+      name: language === "en" ? "Contact" : "連絡",
+      icon: <FaEnvelope />,
+    },
     {
       id: "resume",
       link: "",
-      name: "Resume",
+      name: language === "en" ? "Resume" : "履歴書",
       icon: <FaFileDownload />,
       action: handleResumeClick,
     },
@@ -142,7 +207,7 @@ function HeaderGlobal(): JSX.Element {
                 </Link>
                 {section.subLinks && (
                   <div
-                    className="absolute px-5 py-4 -left-2 mt-0 w-64 shadow-lg rounded hidden group-hover:block transition-opacity duration-75 border border-gray-800 gap-2"
+                    className="absolute px-5 py-4 -left-2 mt-0 w-64 shadow-lg rounded hidden group-hover:flex flex-col transition-opacity duration-75 border border-gray-800 gap-2"
                     style={{ backgroundColor }}
                   >
                     {section.subLinks.map((subLink) => (
@@ -186,6 +251,20 @@ function HeaderGlobal(): JSX.Element {
               >
                 {isDarkMode ? <FaSun /> : <FaMoon />}
               </button>
+              <div className="flex items-center justify-center w-[74px]">
+                <button
+                  onClick={toggleLanguage}
+                  className="inline-block bg-inherit opacity-75 p-1 px-3 hover:opacity-100 hover:bg-opacity-10 hover:bg-white rounded-md transition-all duration-75"
+                >
+                  {language === "en" ? (
+                    <span className="font-hiraKakuPro">日本語</span>
+                  ) : (
+                    <span>
+                      <RiEnglishInput className="w-10 my-1" />
+                    </span>
+                  )}
+                </button>
+              </div>
             </div>
           </nav>
 
@@ -201,7 +280,7 @@ function HeaderGlobal(): JSX.Element {
 
           <div
             id="menucontainer"
-            className={`fixed top-0 right-0 w-1/2 h-screen duration-300 ${
+            className={`fixed top-0 right-0 w-3/4 md:w-2/3 lg:w-1/2 h-screen duration-300 ${
               menuVisible ? "translate-x-0" : "translate-x-full"
             } flex flex-col items-center shadow-xl z-50 overflow-y-auto`}
             style={{ backgroundColor }}
@@ -278,13 +357,32 @@ function HeaderGlobal(): JSX.Element {
                   <span>{isDarkMode ? "Light Mode" : "Dark Mode"}</span>
                 </button>
               </li>
+              <li className="px-4">
+                <button
+                  onClick={toggleLanguage}
+                  className="bg-inherit opacity-75 p-1 px-3 no-underline font-ibmPlexMono hover:opacity-100 hover:bg-opacity-10 hover:bg-white rounded-md transition-all duration-75 flex items-center"
+                >
+                  {language === "en" ? (
+                    <>
+                      <span className="mr-2">🇯🇵</span>
+                      <span className="font-hiraKakuPro">日本語</span>
+                    </>
+                  ) : (
+                    <>
+                      <span className="mr-2">🇬🇧</span>
+                      <span>English</span>
+                    </>
+                  )}
+                </button>
+              </li>
             </ul>
           </div>
         </div>
         <div
-          className={`fixed top-0 left-0 w-full h-full bg-opacity-50 z-40 transition-opacity duration-300 ${
-            menuVisible ? "opacity-50" : "opacity-0 pointer-events-none"
+          className={`fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 z-40 transition-opacity duration-300 ${
+            menuVisible ? "opacity-100" : "opacity-0 pointer-events-none"
           }`}
+          onClick={toggleMenu}
         ></div>
       </header>
       {pdfVisible && (

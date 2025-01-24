@@ -9,9 +9,11 @@ import {
   faArrowUpRightFromSquare,
 } from "@fortawesome/free-solid-svg-icons";
 import { useDarkMode } from "@/contexts/darkModeContext";
+import { useLanguage } from "@/contexts/language";
 
 function Main(): JSX.Element {
   const { isDarkMode } = useDarkMode();
+  const { language } = useLanguage();
   const backgroundColor = isDarkMode
     ? "var(--background-color-dark)"
     : "var(--background-color-light)";
@@ -45,22 +47,39 @@ function Main(): JSX.Element {
   }, []);
 
   const words = useMemo(
-    () => [
-      "React.",
-      "React Native.",
-      "engineering.",
-      "design.",
-      "development.",
-      "data analysis.",
-      "software engineering.",
-      "UI/UX design.",
-      "sustainable technology.",
-      "digital transformation.",
-      "mobile development.",
-      "web development.",
-      "project management.",
-    ],
-    []
+    () =>
+      language === "en"
+        ? [
+            "React.",
+            "React Native.",
+            "engineering.",
+            "design.",
+            "development.",
+            "data analysis.",
+            "software engineering.",
+            "UI/UX design.",
+            "sustainable technology.",
+            "digital transformation.",
+            "mobile development.",
+            "web development.",
+            "project management.",
+          ]
+        : [
+            "React.",
+            "React Native.",
+            "エンジニアリング.",
+            "デザイン.",
+            "開発.",
+            "データ分析.",
+            "ソフトウェアエンジニアリング.",
+            "UI/UXデザイン.",
+            "持続可能な技術.",
+            "デジタルトランスフォーメーション.",
+            "モバイル開発.",
+            "ウェブ開発.",
+            "プロジェクト管理.",
+          ],
+    [language]
   );
 
   useEffect(() => {
@@ -172,14 +191,34 @@ $XXXXxxxxxxxxxxxxxxxxx++++xxxx+xxxXXxXXXXXXXXXXXXXXXXXX$$$$$$$X+;+XXXXXXXXXXXXXX
       <main className="max-lg:mt-20 max-lg:w-screen max-sm:w-full max-lg:px-4">
         <article className="grid grid-cols-2 max-md:grid-cols-1 duration-500">
           <div className="max-md:mx-auto max-md:w-96 max-sm:w-72">
-            <h1 className="font-ibmPlexMono italic mb-2">Angus Blomley</h1>
+            <h1 className="font-ibmPlexMono italic mb-2">
+              {language === "en" ? "Angus Blomley" : "アングス・ブロムリー"}
+            </h1>
             <h2 className="xl:text-2xl font-karla w-full mb-2 max-lg:text-base">
-              An engineer with a passion<br></br>
-              <span className="typed-text"> for {typedText}</span>
+              {language === "en" ? (
+                <>
+                  An engineer with a passion<br></br>
+                  <span className="typed-text"> for {typedText}</span>
+                </>
+              ) : (
+                <>
+                  <span className="font-hiraKakuPro">情熱を持つエンジニア</span>
+                  <br></br>
+                  <span className="typed-text font-hiraKakuPro">
+                    {typedText}
+                  </span>
+                </>
+              )}
               <span className="cursor bg-inherit"></span>
             </h2>
             <div id="links" className="grid grid-cols-1 mb-20">
-              <h3 className="font-ibmPlexMono mb-2">Work:</h3>
+              <h3 className="font-ibmPlexMono mb-2">
+                {language === "en" ? (
+                  "Work:"
+                ) : (
+                  <span className="font-hiraKakuPro">仕事:</span>
+                )}
+              </h3>
               <Link
                 href="/work/pwg"
                 className="text-[0.9em] after:inline-block bg-inherit opacity-75 p-1 px-2 no-underline font-ibmPlexMono hover:opacity-100 hover:bg-opacity-10 hover:bg-white rounded-md transition-all duration-75 -ml-2 w-fit flex items-center gap-2 group"
@@ -214,7 +253,14 @@ $XXXXxxxxxxxxxxxxxxxxx++++xxxx+xxxXXxXXXXXXXXXXXXXXXXXX$$$$$$$X+;+XXXXXXXXXXXXXX
                 href="/work/openfern"
                 className="text-[0.9em] bg-inherit opacity-75 p-1 px-2 no-underline font-ibmPlexMono hover:opacity-100 hover:bg-opacity-10 hover:bg-white rounded-md transition-all duration-75 -ml-2 w-fit flex items-center gap-2 group"
               >
-                - Open Fern Studio
+                -{" "}
+                {language === "en" ? (
+                  "Open Fern Studio"
+                ) : (
+                  <span className="font-hiraKakuPro">
+                    オープンファーンスタジオ
+                  </span>
+                )}
                 <FontAwesomeIcon
                   icon={faArrowUpRightFromSquare}
                   className="h-2.5 w-2.5 transition-opacity"
@@ -241,12 +287,23 @@ $XXXXxxxxxxxxxxxxxxxxx++++xxxx+xxxXXxXXXXXXXXXXXXXXXXXX$$$$$$$X+;+XXXXXXXXXXXXXX
                 />
               </Link>
 
-              <h3 className="font-ibmPlexMono mt-3 mb-1">Projects:</h3>
+              <h3 className="font-ibmPlexMono mt-3 mb-1">
+                {language === "en" ? (
+                  "Projects:"
+                ) : (
+                  <span className="font-hiraKakuPro">プロジェクト:</span>
+                )}
+              </h3>
               <Link
                 href="/work/stringBox"
                 className="text-[0.9em] bg-inherit opacity-75 p-1 px-2 no-underline font-ibmPlexMono hover:opacity-100 hover:bg-opacity-10 hover:bg-white rounded-md transition-all duration-75 -ml-2 w-fit flex items-center gap-2 group"
               >
-                - String Box
+                -{" "}
+                {language === "en" ? (
+                  "String Box"
+                ) : (
+                  <span className="font-hiraKakuPro">ストリングボックス</span>
+                )}
                 <FontAwesomeIcon
                   icon={faArrowUpRightFromSquare}
                   className="h-2.5 w-2.5 transition-opacity"
@@ -288,7 +345,10 @@ $XXXXxxxxxxxxxxxxxxxxx++++xxxx+xxxXXxXXXXXXXXXXXXXXXXXX$$$$$$$X+;+XXXXXXXXXXXXXX
                 />
               </Link>
 
-              <h3 className="font-ibmPlexMono mt-3 mb-1">Profiles:</h3>
+              <h3 className="font-ibmPlexMono mt-3 mb-1">
+                {" "}
+                {language === "en" ? "Profiles:" : "プロフィール："}
+              </h3>
               <a
                 href="https://www.codecademy.com/users/AngusBlomley/achievements"
                 target="_blank"
@@ -344,7 +404,7 @@ $XXXXxxxxxxxxxxxxxxxxx++++xxxx+xxxXXxXXXXXXXXXXXXXXXXXX$$$$$$$X+;+XXXXXXXXXXXXXX
                 className="text-[0.9em] bg-inherit opacity-75 p-1 px-2 no-underline font-ibmPlexMono hover:opacity-100 hover:bg-opacity-10 hover:bg-white rounded-md transition-all duration-75 -ml-2 w-fit cursor-pointer flex items-center gap-2 group"
                 onClick={handleResumeClick}
               >
-                - Resume
+                - {language === "en" ? "Resume" : "履歴書"}
                 <FontAwesomeIcon
                   icon={faArrowUpRightFromSquare}
                   className="h-2.5 w-2.5 transition-opacity"
@@ -373,7 +433,11 @@ $XXXXxxxxxxxxxxxxxxxxx++++xxxx+xxxXXxXXXXXXXXXXXXXXXXXX$$$$$$$X+;+XXXXXXXXXXXXXX
             className="col-span-2 max-md:col-span-1 w-fit mx-auto"
           >
             <div className="text-center mx-auto mt-20 hover:text-green-400 group">
-              <p>LEARN MORE</p>
+              {language === "en" ? (
+                <p>LEARN MORE</p>
+              ) : (
+                <p className="font-hiraKakuPro">続きを読む</p>
+              )}
               <FontAwesomeIcon
                 icon={faArrowDown}
                 size="1x"

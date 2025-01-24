@@ -1,5 +1,10 @@
 import React, { JSX, useEffect, useState } from "react";
 import Link from "next/link";
+import "../../app/globals.css";
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { useLanguage } from "@/contexts/language";
+import { useDarkMode } from "@/contexts/darkModeContext";
 import {
   FaHome,
   FaInfo,
@@ -12,10 +17,7 @@ import {
   FaSun,
   FaMoon,
 } from "react-icons/fa";
-import "../../app/globals.css";
-import { useDarkMode } from "@/contexts/darkModeContext";
-import AOS from "aos";
-import "aos/dist/aos.css";
+import { RiEnglishInput } from "react-icons/ri";
 
 interface Section {
   id: string;
@@ -28,6 +30,8 @@ interface Section {
 
 function Header(): JSX.Element {
   const { isDarkMode, toggleDarkMode } = useDarkMode();
+  const { language, toggleLanguage } = useLanguage();
+
   const [menuVisible, setMenuVisible] = useState(false);
   const [workSublinksVisible, setWorkSublinksVisible] = useState(false);
   const [pdfVisible, setPdfVisible] = useState(false);
@@ -67,6 +71,29 @@ function Header(): JSX.Element {
     return () => observer.disconnect();
   }, [isDarkMode]);
 
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      const menuContainer = document.getElementById("menucontainer");
+      const toggleButton = document.getElementById("togglebutton");
+
+      if (
+        menuVisible &&
+        menuContainer &&
+        !menuContainer.contains(event.target as Node) &&
+        toggleButton &&
+        !toggleButton.contains(event.target as Node)
+      ) {
+        setMenuVisible(false);
+        document.body.classList.remove("menu-open");
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [menuVisible]);
+
   const toggleMenu = () => {
     setMenuVisible(!menuVisible);
     if (!menuVisible) {
@@ -89,43 +116,82 @@ function Header(): JSX.Element {
   };
 
   const sections: Section[] = [
-    { id: "home", name: "Home", icon: <FaHome />, link: "/" },
-    { id: "about", name: "About", icon: <FaInfo />, link: "/aboutMe" },
+    {
+      id: "home",
+      name: language === "en" ? "Home" : "ホーム",
+      icon: <FaHome />,
+      link: "/",
+    },
+    {
+      id: "about",
+      name: language === "en" ? "About" : "私について",
+      icon: <FaInfo />,
+      link: "/aboutMe",
+    },
     {
       id: "experience",
-      name: "Experience",
+      name: language === "en" ? "Experience" : "経験",
       icon: <FaBriefcase />,
       link: "/#experience",
     },
     {
       id: "education",
-      name: "Education",
+      name: language === "en" ? "Education" : "学歴",
       icon: <FaGraduationCap />,
       link: "/#education",
     },
     {
       id: "work",
-      name: "Work",
+      name: language === "en" ? "Work" : "仕事",
       icon: <FaBriefcase />,
       link: "/#work",
       subLinks: [
-        { name: "PWG Windows & Doors", link: "/work/pwg" },
-        { name: "Vocabo", link: "/work/vocabo" },
-        { name: "Open Fern Studio", link: "/work/openfern" },
-        { name: "Re-String Box", link: "/work/stringBox" },
         {
-          name: "Celestial Object Tracker",
+          name: "PWG Windows & Doors",
+          link: "/work/pwg",
+        },
+        {
+          name: "Vocabo",
+          link: "/work/vocabo",
+        },
+        {
+          name:
+            language === "en" ? "Open Fern Studio" : "オープンファーンスタジオ",
+          link: "/work/openfern",
+        },
+        {
+          name: language === "en" ? "Re-String Box" : "ストリングボックス",
+          link: "/work/stringBox",
+        },
+        {
+          name:
+            language === "en" ? "Celestial Object Tracker" : "天体追跡システム",
           link: "/work/celestialObjectTracker",
         },
-        { name: "Meetly", link: "/work/meetly" },
-        { name: "Be First", link: "/work/beFirst" },
-        { name: `Misuzu's Portfolio`, link: "/work/misuzuPortfolio" },
+        {
+          name: "Meetly",
+          link: "/work/meetly",
+        },
+        {
+          name: "Be First",
+          link: "/work/beFirst",
+        },
+        {
+          name:
+            language === "en" ? "Misuzu's Portfolio" : "美鈴のポートフォリオ",
+          link: "/work/misuzuPortfolio",
+        },
       ],
     },
-    { id: "contact", name: "Contact", icon: <FaEnvelope />, link: "/#contact" },
+    {
+      id: "contact",
+      name: language === "en" ? "Contact" : "連絡",
+      icon: <FaEnvelope />,
+      link: "/#contact",
+    },
     {
       id: "resume",
-      name: "Resume",
+      name: language === "en" ? "Resume" : "履歴書",
       icon: <FaFileDownload />,
       action: handleResumeClick,
     },
@@ -177,7 +243,7 @@ function Header(): JSX.Element {
                 )}
                 {section.subLinks && (
                   <div
-                    className="absolute px-5 py-4 -left-2 mt-0 w-64 shadow-lg rounded hidden group-hover:block transition-opacity duration-75 border border-gray-800 flex flex-col gap-2"
+                    className="absolute px-5 py-4 -left-2 mt-0 w-64 shadow-lg rounded hidden group-hover:flex flex-col transition-opacity duration-75 border border-gray-800 gap-2"
                     style={{ backgroundColor }}
                   >
                     {section.subLinks.map((subLink) => (
@@ -196,7 +262,7 @@ function Header(): JSX.Element {
                 href="https://github.com/AngusBlomley"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-block bg-inherit opacity-75 p-1 px-3 hover:opacity-100 hover:bg-opacity-10 hover:bg-white rounded-md transition-all duration-75"
+                className="inline-block bg-inherit opacity-75 p-2 px-3 hover:opacity-100 hover:bg-opacity-10 hover:bg-white rounded-md transition-all duration-75"
               >
                 <FaGithub />
               </a>
@@ -204,19 +270,33 @@ function Header(): JSX.Element {
                 href="https://www.linkedin.com/in/angus-blomley-82b45a177/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-block bg-inherit opacity-75 p-1 px-3 hover:opacity-100 hover:bg-opacity-10 hover:bg-white rounded-md transition-all duration-75"
+                className="inline-block bg-inherit opacity-75 p-2 px-3 hover:opacity-100 hover:bg-opacity-10 hover:bg-white rounded-md transition-all duration-75"
               >
                 <FaLinkedin />
               </a>
               <button
                 onClick={toggleDarkMode}
-                className="inline-block bg-inherit opacity-75 p-1 px-3 hover:opacity-100 hover:bg-opacity-10 hover:bg-white rounded-md transition-all duration-75"
+                className="inline-block bg-inherit opacity-75 p-2 px-3 hover:opacity-100 hover:bg-opacity-10 hover:bg-white rounded-md transition-all duration-75"
                 aria-label={
                   isDarkMode ? "Switch to Light Mode" : "Switch to Dark Mode"
                 }
               >
                 {isDarkMode ? <FaSun /> : <FaMoon />}
               </button>
+              <div className="flex items-center justify-center w-[74px]">
+                <button
+                  onClick={toggleLanguage}
+                  className="inline-block bg-inherit opacity-75 p-1 px-3 hover:opacity-100 hover:bg-opacity-10 hover:bg-white rounded-md transition-all duration-75"
+                >
+                  {language === "en" ? (
+                    <span className="font-hiraKakuPro">日本語</span>
+                  ) : (
+                    <span>
+                      <RiEnglishInput className="w-10 my-1" />
+                    </span>
+                  )}
+                </button>
+              </div>
             </div>
           </nav>
 
@@ -232,9 +312,9 @@ function Header(): JSX.Element {
 
           <div
             id="menucontainer"
-            className={`fixed top-0 right-0 w-1/2 h-screen duration-300 ${
+            className={`fixed top-0 right-0 w-3/4 md:w-2/3 lg:w-1/2 h-screen duration-300 ${
               menuVisible ? "translate-x-0" : "translate-x-full"
-            } flex flex-col items-center shadow-xl z-50`}
+            } flex flex-col items-center shadow-xl z-50 overflow-y-auto`}
             style={{ backgroundColor }}
           >
             <div
@@ -294,26 +374,53 @@ function Header(): JSX.Element {
                   )}
                 </li>
               ))}
-              <li className="px-4 no-underline flex items-center">
+              <li className="px-4">
                 <button
                   onClick={toggleDarkMode}
-                  className="opacity-50 hover:opacity-100 duration-200 flex items-center"
+                  className="bg-inherit opacity-75 p-1 px-3 no-underline font-ibmPlexMono hover:opacity-100 hover:bg-opacity-10 hover:bg-white rounded-md transition-all duration-75 flex items-center"
                 >
                   {isDarkMode ? (
                     <FaSun className="mr-2" />
                   ) : (
                     <FaMoon className="mr-2" />
                   )}
-                  <span>{isDarkMode ? "Light Mode" : "Dark Mode"}</span>
+                  <span>
+                    {isDarkMode
+                      ? language === "en"
+                        ? "Light Mode"
+                        : "ライトモード"
+                      : language === "en"
+                      ? "Dark Mode"
+                      : "ダークモード"}
+                  </span>
+                </button>
+              </li>
+              <li className="px-4">
+                <button
+                  onClick={toggleLanguage}
+                  className="bg-inherit opacity-75 p-1 px-3 no-underline font-ibmPlexMono hover:opacity-100 hover:bg-opacity-10 hover:bg-white rounded-md transition-all duration-75 flex items-center"
+                >
+                  {language === "en" ? (
+                    <>
+                      <span className="mr-2">🇯🇵</span>
+                      <span className="font-hiraKakuPro">日本語</span>
+                    </>
+                  ) : (
+                    <>
+                      <span className="mr-2">🇬🇧</span>
+                      <span>English</span>
+                    </>
+                  )}
                 </button>
               </li>
             </ul>
           </div>
         </div>
         <div
-          className={`fixed top-0 left-0 w-full h-full bg-opacity-50 z-40 transition-opacity duration-300 ${
-            menuVisible ? "opacity-50" : "opacity-0 pointer-events-none"
+          className={`fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 z-40 transition-opacity duration-300 ${
+            menuVisible ? "opacity-100" : "opacity-0 pointer-events-none"
           }`}
+          onClick={toggleMenu}
         ></div>
       </header>
       {pdfVisible && (

@@ -5,10 +5,14 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import Image from "next/image";
 import { useDarkMode } from "@/contexts/darkModeContext";
+import { useLanguage } from "@/contexts/language";
+
 import Link from "next/link";
 
 function About() {
   const { isDarkMode } = useDarkMode();
+  const { language } = useLanguage();
+
   useEffect(() => {
     AOS.init({
       duration: 1000,
@@ -19,6 +23,95 @@ function About() {
   const backgroundColor = isDarkMode
     ? "var(--background-color-dark)"
     : "var(--background-color-light)";
+
+  const content =
+    language === "ja" ? (
+      <>
+        <h2 className="text-4xl mb-8" data-aos="fade-up">
+          ピクセルの背後にいる人
+        </h2>
+        <p className="font-hiraKakuPro mb-6 leading-relaxed" data-aos="fade-up">
+          こんにちは！私はアンガス・ブロムリーです。優れたウェブ体験を作ることに情熱を注ぐReact開発者です。2014年5月にプログラミングの旅を始めて以来、HTML、CSS、JavaScript、React、React
+          Native、さまざまな最新のウェブ技術に精通しています。
+        </p>
+        <p className="font-hiraKakuPro mb-6 leading-relaxed" data-aos="fade-up">
+          プログラミング言語だけでなく、言語そのものにも興味があり、彼女とコミュニケーションを取るために日本語を学んでいます。{" "}
+        </p>
+        <p
+          className="font-hiraKakuPro mb-6 leading-relaxed"
+          data-aos="fade-up"
+          data-aos-delay="200"
+        >
+          元国際スプリングボードダイバーとして、挑戦的なアウトドア活動を楽しみ、同じ志を持つ仲間と共に過ごすことが好きです。私の冒険心は、新しい技術を探求し、専門的および個人的な追求において常に限界を押し広げる原動力となっています。
+        </p>
+        <p
+          className="font-hiraKakuPro leading-relaxed"
+          data-aos="fade-up"
+          data-aos-delay="400"
+        >
+          <Link
+            href="/aboutMe"
+            className="inline-block mt-4 px-6 py-2 border border-current rounded relative overflow-hidden group mr-4"
+          >
+            <span className="absolute left-0 top-0 h-full w-0 bg-blue-500/80 transition-all duration-300 group-hover:w-full"></span>
+            <span className="relative z-10">私の物語</span>
+          </Link>
+          <Link
+            href="/#contact"
+            className="inline-block mt-4 px-6 py-2 border border-current rounded relative overflow-hidden group"
+          >
+            <span className="absolute left-0 top-0 h-full w-0 bg-blue-500/80 transition-all duration-300 group-hover:w-full"></span>
+            <span className="relative z-10">連絡する</span>
+          </Link>
+        </p>
+      </>
+    ) : (
+      <>
+        <h2 className="text-4xl mb-8" data-aos="fade-up">
+          The Person Behind the Pixels
+        </h2>
+        <p className="text-lg mb-6 leading-relaxed" data-aos="fade-up">
+          Hello! I'm Angus Blomley, a React developer passionate about crafting
+          exceptional web experiences. Since I started my programming journey in
+          May 2014, I've developed expertise in HTML, CSS, JavaScript, React,
+          React Native and various modern web technologies.
+        </p>
+        <p className="text-lg mb-6 leading-relaxed" data-aos="fade-up">
+          It's not just about the programming languages but language in general,
+          I'm currently learning japanese to help connect with my girlfriend.
+        </p>
+        <p
+          className="text-lg mb-6 leading-relaxed"
+          data-aos="fade-up"
+          data-aos-delay="200"
+        >
+          As a former international springboard diver, I enjoy challenging
+          outdoor activities and thrive in like-minded company. My adventurous
+          spirit drives me to explore new technologies and constantly push my
+          boundaries in both professional and personal pursuits.
+        </p>
+        <p
+          className="text-lg leading-relaxed"
+          data-aos="fade-up"
+          data-aos-delay="400"
+        >
+          <Link
+            href="/aboutMe"
+            className="inline-block mt-4 px-6 py-2 border border-current rounded relative overflow-hidden group mr-4"
+          >
+            <span className="absolute left-0 top-0 h-full w-0 bg-blue-500/80 transition-all duration-300 group-hover:w-full"></span>
+            <span className="relative z-10">My Story</span>
+          </Link>
+          <Link
+            href="/#contact"
+            className="inline-block mt-4 px-6 py-2 border border-current rounded relative overflow-hidden group"
+          >
+            <span className="absolute left-0 top-0 h-full w-0 bg-blue-500/80 transition-all duration-300 group-hover:w-full"></span>
+            <span className="relative z-10">Reach out</span>
+          </Link>
+        </p>
+      </>
+    );
 
   return (
     <section
@@ -64,51 +157,7 @@ function About() {
         />
       </div>
       <div className="max-w-2xl ml-44 my-40 relative z-10 text-gray-100 max-lg:mx-auto max-lg:px-4">
-        <h2 className="text-4xl mb-8" data-aos="fade-up">
-          The Person Behind the Pixels
-        </h2>
-        <p className="text-lg mb-6 leading-relaxed" data-aos="fade-up">
-          Hello! I'm Angus Blomley, a React developer passionate about crafting
-          exceptional web experiences. Since I started my programming journey in
-          May 2014, I've developed expertise in HTML, CSS, JavaScript, React,
-          React Native and various modern web technologies.
-        </p>
-        <p className="text-lg mb-6 leading-relaxed" data-aos="fade-up">
-          It's not just about the programming languages but language in general,
-          I'm currently learning japanese to help connect with my girlfriend.
-          <br></br>
-          日本語を学ぶのも楽しいですよ！
-        </p>
-        <p
-          className="text-lg mb-6 leading-relaxed"
-          data-aos="fade-up"
-          data-aos-delay="200"
-        >
-          As a former international springboard diver, I enjoy challenging
-          outdoor activities and thrive in like-minded company. My adventurous
-          spirit drives me to explore new technologies and constantly push my
-          boundaries in both professional and personal pursuits.
-        </p>
-        <p
-          className="text-lg leading-relaxed"
-          data-aos="fade-up"
-          data-aos-delay="400"
-        >
-          <Link
-            href="/aboutMe"
-            className="inline-block mt-4 px-6 py-2 border border-current rounded relative overflow-hidden group mr-4"
-          >
-            <span className="absolute left-0 top-0 h-full w-0 bg-blue-500/80 transition-all duration-300 group-hover:w-full"></span>
-            <span className="relative z-10">My Story</span>
-          </Link>
-          <Link
-            href="/#contact"
-            className="inline-block mt-4 px-6 py-2 border border-current rounded relative overflow-hidden group"
-          >
-            <span className="absolute left-0 top-0 h-full w-0 bg-blue-500/80 transition-all duration-300 group-hover:w-full"></span>
-            <span className="relative z-10">Reach out</span>
-          </Link>
-        </p>
+        {content}
       </div>
     </section>
   );
