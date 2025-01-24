@@ -1,16 +1,24 @@
+import React from "react";
 import { WorldMap as World } from "react-svg-worldmap";
 import { useDarkMode } from "@/contexts/darkModeContext";
+import { useLanguage } from "@/contexts/language";
 
-interface Props {
-  visitedCountries: {
-    country: string;
-    coordinates: [number, number];
-    description?: string;
-  }[];
+interface VisitedCountry {
+  country: string;
+  coordinates: [number, number];
+  description?: {
+    en: string;
+    ja: string;
+  };
 }
 
-const WorldMap: React.FC<Props> = ({ visitedCountries }) => {
+interface WorldMapProps {
+  visitedCountries: VisitedCountry[];
+}
+
+const WorldMap: React.FC<WorldMapProps> = ({ visitedCountries }) => {
   const { isDarkMode } = useDarkMode();
+  const { language } = useLanguage();
 
   const backgroundColor = isDarkMode
     ? "var(--background-color-dark)"
@@ -72,7 +80,6 @@ const WorldMap: React.FC<Props> = ({ visitedCountries }) => {
       {visitedCountries.map((location) => {
         if (!location.description) return null;
 
-        // Adjust x coordinate based on country to position UK window better
         const x =
           location.country === "GBR"
             ? ((location.coordinates[1] + 180) / 360) * 60
@@ -98,13 +105,15 @@ const WorldMap: React.FC<Props> = ({ visitedCountries }) => {
               data-aos-duration="1000"
               data-aos-delay={location.country === "USA" ? "0" : "200"}
             >
-              <p className="mb-2">{location.description}</p>
+              <p className="mb-2">
+                {location.description[language === "en" ? "en" : "ja"]}
+              </p>
               {(location.country === "USA" || location.country === "GBR") && (
                 <a
                   href={`#${location.country.toLowerCase()}`}
                   className="text-blue-500 hover:text-blue-600"
                 >
-                  Learn more →
+                  {language === "en" ? "Learn more →" : "詳しく見る →"}
                 </a>
               )}
             </div>

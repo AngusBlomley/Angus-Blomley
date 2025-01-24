@@ -7,9 +7,11 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import Image from "next/image";
 import { useDarkMode } from "@/contexts/darkModeContext";
+import { useLanguage } from "@/contexts/language";
 
 const OpenFern = () => {
   const { isDarkMode } = useDarkMode();
+  const { language } = useLanguage();
   const backgroundColor = isDarkMode
     ? "var(--background-color-dark)"
     : "var(--background-color-light)";
@@ -32,19 +34,21 @@ const OpenFern = () => {
           <div className="space-y-8" data-aos="fade-up">
             <div className="text-center">
               <h1 className="text-4xl font-bold mb-4">
-                Open Fern Studio - Web Development Agency
+                {language === "en"
+                  ? "Open Fern Studio - Web Development Agency"
+                  : "Open Fern Studio - ウェブ開発エージェンシー"}
               </h1>
               <p className="text-lg max-w-3xl mx-auto">
-                A modern web development agency website showcasing services,
-                portfolio, and expertise. Built with Next.js and featuring
-                dynamic content management.{" "}
+                {language === "en"
+                  ? "A modern web development agency website showcasing services, portfolio, and expertise. Built with Next.js and featuring dynamic content management."
+                  : "サービス、ポートフォリオ、専門知識を紹介するモダンなウェブ開発エージェンシーのウェブサイト。Next.jsで構築され、動的なコンテンツ管理を特徴としています。"}{" "}
                 <a
                   className="text-blue-500 hover:text-blue-700 px-2 py-1 rounded-md"
                   href="https://openfern.studio"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  Visit the website
+                  {language === "en" ? "Visit the website" : "ウェブサイトへ"}
                 </a>
               </p>
             </div>
@@ -53,43 +57,76 @@ const OpenFern = () => {
               <div className="space-y-8">
                 <section>
                   <h2 className="text-2xl font-semibold mb-4">
-                    Project Overview
+                    {language === "en"
+                      ? "Project Overview"
+                      : "プロジェクト概要"}
                   </h2>
                   <p className="text-lg">
-                    Open Fern Studio represents a sophisticated web development
-                    agency platform that demonstrates expertise in modern web
-                    technologies and design principles. The project showcases a
-                    perfect blend of aesthetic appeal and technical excellence,
-                    featuring responsive design, smooth animations, and
-                    optimized performance.
+                    {language === "en"
+                      ? "Open Fern Studio represents a sophisticated web development agency platform that demonstrates expertise in modern web technologies and design principles. The project showcases a perfect blend of aesthetic appeal and technical excellence, featuring responsive design, smooth animations, and optimized performance."
+                      : "Open Fern Studioは、最新のウェブ技術とデザイン原則における専門知識を実証する洗練されたウェブ開発エージェンシープラットフォームです。このプロジェクトは、レスポンシブデザイン、スムーズなアニメーション、最適化されたパフォーマンスを特徴とし、美的魅力と技術的卓越性の完璧な調和を示しています。"}
                   </p>
                 </section>
 
                 <section>
                   <h2 className="text-2xl font-semibold mb-4">
-                    Technical Implementation
+                    {language === "en"
+                      ? "Technical Implementation"
+                      : "技術実装"}
                   </h2>
                   <div className="space-y-6">
                     <div>
                       <h3 className="text-xl font-medium mb-2">
-                        Frontend Architecture
+                        {language === "en"
+                          ? "Frontend Architecture"
+                          : "フロントエンドアーキテクチャ"}
                       </h3>
                       <ul className="list-disc pl-5 space-y-1">
-                        <li>Next.js with TypeScript for robust development</li>
-                        <li>Tailwind CSS for responsive design</li>
-                        <li>Framer Motion for smooth animations</li>
-                        <li>Dynamic routing and SEO optimization</li>
+                        {language === "en" ? (
+                          <>
+                            <li>
+                              Next.js with TypeScript for robust development
+                            </li>
+                            <li>Tailwind CSS for responsive design</li>
+                            <li>Framer Motion for smooth animations</li>
+                            <li>Dynamic routing and SEO optimization</li>
+                          </>
+                        ) : (
+                          <>
+                            <li>
+                              堅牢な開発のためのTypeScriptを使用したNext.js
+                            </li>
+                            <li>レスポンシブデザインのためのTailwind CSS</li>
+                            <li>
+                              スムーズなアニメーションのためのFramer Motion
+                            </li>
+                            <li>動的ルーティングとSEO最適化</li>
+                          </>
+                        )}
                       </ul>
                     </div>
                     <div>
                       <h3 className="text-xl font-medium mb-2">
-                        Development Features
+                        {language === "en"
+                          ? "Development Features"
+                          : "開発機能"}
                       </h3>
                       <ul className="list-disc pl-5 space-y-1">
-                        <li>Responsive design across all devices</li>
-                        <li>Performance optimization techniques</li>
-                        <li>Modern UI/UX principles</li>
-                        <li>Content management integration</li>
+                        {language === "en" ? (
+                          <>
+                            <li>Responsive design across all devices</li>
+                            <li>Performance optimization techniques</li>
+                            <li>Modern UI/UX principles</li>
+                            <li>Content management integration</li>
+                          </>
+                        ) : (
+                          <>
+                            <li>全デバイス対応のレスポンシブデザイン</li>
+                            <li>パフォーマンス最適化技術</li>
+                            <li>モダンなUI/UX原則</li>
+                            <li>コンテンツ管理の統合</li>
+                          </>
+                        )}
                       </ul>
                     </div>
                   </div>
@@ -97,7 +134,9 @@ const OpenFern = () => {
 
                 <section>
                   <h2 className="text-2xl font-semibold mb-4">
-                    Development Practices
+                    {language === "en"
+                      ? "Development Practices"
+                      : "開発プラクティス"}
                   </h2>
                   <div className="flex justify-start">
                     <Image
@@ -151,14 +190,29 @@ const OpenFern = () => {
                   />
                 </div>
                 <section>
-                  <h2 className="text-2xl font-semibold mb-4">Key Features</h2>
+                  <h2 className="text-2xl font-semibold mb-4">
+                    {language === "en" ? "Key Features" : "主な機能"}
+                  </h2>
                   <ul className="list-disc pl-5 space-y-2">
-                    <li>Modern and responsive design</li>
-                    <li>Dynamic content management</li>
-                    <li>Portfolio showcase with filtering</li>
-                    <li>Team member profiles</li>
-                    <li>Service descriptions and pricing</li>
-                    <li>Contact form with validation</li>
+                    {language === "en" ? (
+                      <>
+                        <li>Modern and responsive design</li>
+                        <li>Dynamic content management</li>
+                        <li>Portfolio showcase with filtering</li>
+                        <li>Team member profiles</li>
+                        <li>Service descriptions and pricing</li>
+                        <li>Contact form with validation</li>
+                      </>
+                    ) : (
+                      <>
+                        <li>モダンでレスポンシブなデザイン</li>
+                        <li>動的コンテンツ管理</li>
+                        <li>フィルタリング機能付きポートフォリオ展示</li>
+                        <li>チームメンバープロフィール</li>
+                        <li>サービス説明と価格設定</li>
+                        <li>バリデーション付きコンタクトフォーム</li>
+                      </>
+                    )}
                   </ul>
                 </section>
               </div>
