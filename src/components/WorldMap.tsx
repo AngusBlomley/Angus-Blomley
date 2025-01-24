@@ -87,7 +87,7 @@ const WorldMap: React.FC<WorldMapProps> = ({ visitedCountries }) => {
         const y =
           location.country === "GBR"
             ? ((90 - location.coordinates[0]) / 180) * 110
-            : ((90 - location.coordinates[0]) / 180) * 130;
+            : ((90 - location.coordinates[0]) / 180) * 120;
 
         return (
           <div
