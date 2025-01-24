@@ -33,12 +33,20 @@ const PWG = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
           <div className="space-y-8" data-aos="fade-up">
             <div className="text-center">
-              <h1 className="text-4xl font-bold mb-4">
+              <h1
+                className={`text-4xl mt-16 font-bold mb-4 ${
+                  language === "ja" ? "font-hiraKakuPro" : ""
+                }`}
+              >
                 {language === "en"
                   ? "PWG Windows & Doors - Mobile App Development"
                   : "PWG Windows & Doors - モバイルアプリ開発"}
               </h1>
-              <p className="text-lg max-w-3xl mx-auto">
+              <p
+                className={`text-lg ${
+                  language === "ja" ? "font-hiraKakuPro" : ""
+                }`}
+              >
                 {language === "en"
                   ? "A comprehensive React Native mobile application for engineers to perform on-site assessments of custom windows and doors, featuring robust offline capabilities and enterprise-level state management."
                   : "カスタムウィンドウとドアのオンサイト評価を行うエンジニア向けの包括的なReact Nativeモバイルアプリケーション。堅牢なオフライン機能とエンタープライズレベルの状態管理を特徴としています。"}

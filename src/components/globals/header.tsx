@@ -178,7 +178,7 @@ function Header(): JSX.Element {
         },
         {
           name:
-            language === "en" ? "Misuzu's Portfolio" : "美鈴のポートフォリオ",
+            language === "en" ? "Misuzu's Portfolio" : "美涼のポートフォリオ",
           link: "/work/misuzuPortfolio",
         },
       ],

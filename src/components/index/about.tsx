@@ -27,23 +27,49 @@ function About() {
   const content =
     language === "ja" ? (
       <>
-        <h2 className="text-4xl mb-8" data-aos="fade-up">
-          ピクセルの背後にいる人
-        </h2>
-        <p className="font-hiraKakuPro mb-6 leading-relaxed" data-aos="fade-up">
-          こんにちは！僕の名前はアンガス・ブロムリーです。素晴らしいウェブを制作することに力を注いでいるリアクトディベロッパーです。2014年5月からプログラミングについて学び始め、HTMLやCSS、JavaScript、React、React
-          Nativeなど、さまざまな最新のウェブ技術について知識を得てきました。
-        </p>
-        <p className="font-hiraKakuPro mb-6 leading-relaxed" data-aos="fade-up">
-          また、プログラミング言語だけでなく、言語学習そのものにも興味があり、日本人の彼女とコミュニケーションを取るために、日々日本語を学んでいます。
-        </p>
-        <p
-          className="font-hiraKakuPro mb-6 leading-relaxed"
-          data-aos="fade-up"
-          data-aos-delay="200"
+        <h2
+          className={`text-4xl text-center mb-24 max-md:mb-16 font-hiraKakuPro`}
+          data-aos="fade-in"
         >
-          そして、元国際飛び込み選手の経験があり、同じ目標を持つ仲間たちと努力し、挑戦する楽しさや厳しさやを学びました。それらの経験により、何事にも探求し挑戦することを日々意識しています。{" "}
-        </p>
+          こんにちは、アンガス・ブロムリーです
+        </h2>
+        <div className="grid grid-cols-2 max-md:grid-cols-1 gap-y-32 max-md:gap-y-16 items-center">
+          <div className="pr-12 max-md:pr-0" data-aos="fade-right">
+            <div className="max-w-xl">
+              <h3 className={`text-3xl font-semibold mb-3 font-hiraKakuPro`}>
+                言語学習の旅
+              </h3>
+              <p className={`mb-6 text-lg opacity-90 font-hiraKakuPro`}>
+                日本語と日本文化への情熱は、私の個人的および職業的な成長の原動力となってきました。熱心な学習と没入を通じて、日本語能力試験N2レベルを達成し、日本のクライアントや同僚と有意義なコミュニケーションを取ることができるようになりました。
+              </p>
+            </div>
+          </div>
+
+          <div
+            className="pl-12 max-md:pl-0 order-3 max-md:order-2"
+            data-aos="fade-left"
+          >
+            <div className="max-w-xl">
+              <h3 className={`text-3xl font-semibold mb-3 font-hiraKakuPro`}>
+                グローバルな視点
+              </h3>
+              <p className={`mb-6 text-lg opacity-90 font-hiraKakuPro`}>
+                複数の国で生活し、働いた経験から、開発業務にユニークなグローバルな視点をもたらしています。この国際的な経験は、文化の境界を超えて共感を呼ぶソリューションを生み出す能力を高めています。
+              </p>
+            </div>
+          </div>
+
+          <div className="pr-12 max-md:pr-0 order-4" data-aos="fade-right">
+            <div className="max-w-xl">
+              <h3 className={`text-3xl font-semibold mb-3 font-hiraKakuPro`}>
+                プログラミングの旅
+              </h3>
+              <p className={`mb-6 text-lg opacity-90 font-hiraKakuPro`}>
+                プログラミングの旅は、インタラクティブな体験を作ることへの魅力から始まりました。長年にわたり、ウェブとモバイル開発に焦点を当て、様々な技術の専門知識を身につけてきました。特に、直感的なユーザーインターフェースと堅牢なバックエンドシステムの作成に情熱を注いでいます。
+              </p>
+            </div>
+          </div>
+        </div>
         <p
           className="font-hiraKakuPro leading-relaxed"
           data-aos="fade-up"

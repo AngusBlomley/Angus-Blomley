@@ -106,7 +106,7 @@ function Work(): JSX.Element {
       src: "/videos/misuzu.mp4",
       link: "/work/misuzuPortfolio",
       title:
-        language === "en" ? "Misuzu Collaboration" : "美鈴とのコラボレーション",
+        language === "en" ? "Misuzu Collaboration" : "美涼とのコラボレーション",
     },
   ];
 
@@ -120,7 +120,12 @@ function Work(): JSX.Element {
       className="py-20 lg:mt-40 max-lg:mt-16 flex flex-col justify-center items-center z-10"
     >
       <div className="z-10" data-aos="fade-up">
-        <h2 className="text-4xl font-hiraKakuPro mb-8">
+        <h2
+          className={`text-4xl text-center mb-24 max-md:mb-16 ${
+            language === "ja" ? "font-hiraKakuPro" : ""
+          }`}
+          data-aos="fade-in"
+        >
           {language === "en" ? "Projects" : "プロジェクト"}
         </h2>
       </div>

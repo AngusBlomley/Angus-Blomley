@@ -191,26 +191,54 @@ $XXXXxxxxxxxxxxxxxxxxx++++xxxx+xxxXXxXXXXXXXXXXXXXXXXXX$$$$$$$X+;+XXXXXXXXXXXXXX
       <main className="max-lg:mt-20 max-lg:w-screen max-sm:w-full max-lg:px-4">
         <article className="grid grid-cols-2 max-md:grid-cols-1 duration-500">
           <div className="max-md:mx-auto max-md:w-96 max-sm:w-72">
-            <h1 className="font-ibmPlexMono italic mb-2">
-              {language === "en" ? "Angus Blomley" : "アングス・ブロムリー"}
+            <h1
+              className={`text-6xl font-bold mb-4 ${
+                language === "ja" ? "font-hiraKakuPro" : ""
+              }`}
+              data-aos="fade-up"
+            >
+              {language === "en" ? "Angus Blomley" : "アンガス・ブロムリー"}
             </h1>
-            <h2 className="xl:text-2xl font-karla w-full mb-2 max-lg:text-base">
-              {language === "en" ? (
-                <>
-                  An engineer with a passion<br></br>
-                  <span className="typed-text"> for {typedText}</span>
-                </>
-              ) : (
-                <>
-                  <span className="font-hiraKakuPro">情熱を持つエンジニア</span>
-                  <br></br>
-                  <span className="typed-text font-hiraKakuPro">
-                    {typedText}
-                  </span>
-                </>
-              )}
-              <span className="cursor bg-inherit"></span>
+            <h2
+              className={`text-2xl mb-8 ${
+                language === "ja" ? "font-hiraKakuPro" : ""
+              }`}
+              data-aos="fade-up"
+              data-aos-delay="200"
+            >
+              {language === "en"
+                ? "Full Stack Developer & Language Enthusiast"
+                : "フルスタック開発者＆言語愛好家"}
             </h2>
+            <p
+              className={`text-lg mb-8 max-w-2xl ${
+                language === "ja" ? "font-hiraKakuPro" : ""
+              }`}
+              data-aos="fade-up"
+              data-aos-delay="400"
+            >
+              {language === "en"
+                ? "Crafting digital experiences with code and creativity. Passionate about building intuitive web applications and bridging cultural gaps through technology."
+                : "コードと創造性でデジタル体験を作り出します。直感的なウェブアプリケーションの構築と、テクノロジーを通じた文化的ギャップの架け橋に情熱を注いでいます。"}
+            </p>
+            <div className="flex gap-4" data-aos="fade-up" data-aos-delay="600">
+              <Link
+                href="/about"
+                className={`bg-blue-500 text-white px-6 py-3 rounded-lg hover:bg-blue-600 transition-colors ${
+                  language === "ja" ? "font-hiraKakuPro" : ""
+                }`}
+              >
+                {language === "en" ? "Learn More" : "詳しく見る"}
+              </Link>
+              <Link
+                href="/contact"
+                className={`bg-gray-800 text-white px-6 py-3 rounded-lg hover:bg-gray-700 transition-colors ${
+                  language === "ja" ? "font-hiraKakuPro" : ""
+                }`}
+              >
+                {language === "en" ? "Get in Touch" : "お問い合わせ"}
+              </Link>
+            </div>
             <div id="links" className="grid grid-cols-1 mb-20">
               <h3 className="font-ibmPlexMono mb-2">
                 {language === "en" ? (
