@@ -115,8 +115,8 @@ export default function AboutMe() {
               </h2>
               <div className="flex flex-col-reverse sm:flex-row justify-center items-center gap-6 sm:gap-8">
                 <p
-                  className={`italic font-karla text-lg text-center sm:text-left ${
-                    language === "ja" ? "font-hiraKakuPro" : ""
+                  className={`italic  text-lg text-center sm:text-left ${
+                    language === "ja" ? "font-hiraKakuPro" : "font-karla"
                   }`}
                 >
                   {language === "en"
@@ -137,15 +137,19 @@ export default function AboutMe() {
               id="language-journey"
               className="mb-8 sm:mb-12 scroll-mt-24"
             >
-              <h2 className="text-2xl font-semibold mb-4 text-center sm:text-left">
+              <h2
+                className={`text-2xl font-semibold mb-4 text-center sm:text-left ${
+                  language === "ja" ? "font-hiraKakuPro" : "font-karla"
+                }`}
+              >
                 {language === "en"
                   ? "Language Learning Journey"
                   : "言語学習の旅"}
               </h2>
               <div className="space-y-4">
                 <p
-                  className={`italic font-karla text-lg text-center sm:text-left ${
-                    language === "ja" ? "font-hiraKakuPro" : ""
+                  className={`italic  text-lg text-center sm:text-left ${
+                    language === "ja" ? "font-hiraKakuPro" : "font-karla"
                   }`}
                 >
                   {language === "en"
@@ -156,13 +160,17 @@ export default function AboutMe() {
             </section>
 
             <section className="mb-8 sm:mb-12">
-              <h2 className="text-2xl font-semibold mb-4 text-center sm:text-left">
+              <h2
+                className={`text-2xl font-semibold mb-4 text-center sm:text-left ${
+                  language === "ja" ? "font-hiraKakuPro" : "font-karla"
+                }`}
+              >
                 {language === "en" ? "Global Perspective" : "グローバルな視点"}
               </h2>
               <div className="space-y-4">
                 <p
-                  className={`italic font-karla text-lg text-center sm:text-left ${
-                    language === "ja" ? "font-hiraKakuPro" : ""
+                  className={`italic  text-lg text-center sm:text-left ${
+                    language === "ja" ? "font-hiraKakuPro" : "font-karla"
                   }`}
                 >
                   {language === "en"
@@ -170,8 +178,8 @@ export default function AboutMe() {
                     : "イギリスで生まれ育ち、レイヴンズボーン大学で3年間放送工学を学びました。このプログラムを通じて、信号処理と低レベルプログラミングについての深い理解を得ることができ、それが私の技術的専門知識の基礎となっています。"}
                 </p>
                 <p
-                  className={`text-center sm:text-left ${
-                    language === "ja" ? "font-hiraKakuPro" : ""
+                  className={`text-center sm:text-left  ${
+                    language === "ja" ? "font-hiraKakuPro" : "font-karla"
                   }`}
                 >
                   {language === "en"
@@ -182,7 +190,11 @@ export default function AboutMe() {
             </section>
 
             <section className="mb-8 sm:mb-12">
-              <h2 className="text-2xl font-semibold mb-4 text-center sm:text-left">
+              <h2
+                className={`text-2xl font-semibold mb-4 text-center sm:text-left ${
+                  language === "ja" ? "font-hiraKakuPro" : "font-karla"
+                }`}
+              >
                 {language === "en"
                   ? "My Programming Journey"
                   : "プログラミングの旅"}
@@ -191,8 +203,8 @@ export default function AboutMe() {
                 <div className="flex flex-col sm:flex-row justify-between items-center gap-8">
                   <div className="w-full sm:w-1/2">
                     <p
-                      className={`italic font-karla text-lg text-center sm:text-left ${
-                        language === "ja" ? "font-hiraKakuPro" : ""
+                      className={`italic  text-lg text-center sm:text-left ${
+                        language === "ja" ? "font-hiraKakuPro" : "font-karla"
                       }`}
                     >
                       {language === "en"
@@ -200,8 +212,8 @@ export default function AboutMe() {
                         : "私のプログラミングの旅は、16歳だった2014年にコーディングへの情熱を見出したことから始まりました。基本的なウェブ開発から始め、様々なプログラミング言語とテクノロジーを素早く習得していきました。"}
                     </p>
                     <p
-                      className={`mt-4 italic font-karla text-lg text-center sm:text-left ${
-                        language === "ja" ? "font-hiraKakuPro" : ""
+                      className={`mt-4 italic  text-lg text-center sm:text-left ${
+                        language === "ja" ? "font-hiraKakuPro" : "font-karla"
                       }`}
                     >
                       {language === "en" ? (
@@ -253,7 +265,11 @@ export default function AboutMe() {
             </section>
 
             <section id="usa" className="mb-8 sm:mb-12 scroll-mt-24">
-              <h2 className="text-2xl font-semibold mb-4 text-center sm:text-left">
+              <h2
+                className={`text-2xl font-semibold mb-4 text-center sm:text-left ${
+                  language === "ja" ? "font-hiraKakuPro" : "font-karla"
+                }`}
+              >
                 {language === "en"
                   ? "My Experience at Indiana University"
                   : "インディアナ大学での経験"}
@@ -269,14 +285,18 @@ export default function AboutMe() {
                   />
                 </div>
                 <div className="space-y-4">
-                  <h3 className="text-xl font-medium text-center sm:text-left">
+                  <h3
+                    className={`text-xl font-medium  text-center sm:text-left ${
+                      language === "ja" ? "font-hiraKakuPro" : "font-karla"
+                    }`}
+                  >
                     {language === "en"
                       ? "Indiana University Diving Academy"
                       : "インディアナ大学ダイビングアカデミー"}
                   </h3>
                   <p
-                    className={`italic font-karla text-lg text-center sm:text-left ${
-                      language === "ja" ? "font-hiraKakuPro" : ""
+                    className={`italic  text-lg text-center sm:text-left ${
+                      language === "ja" ? "font-hiraKakuPro" : "font-karla"
                     }`}
                   >
                     {language === "en"
@@ -284,8 +304,8 @@ export default function AboutMe() {
                       : "インディアナ大学での滞在中、2週間の集中ダイビングキャンプに参加する素晴らしい機会を得ました。この経験は、経験豊富なコーチの指導のもと、スプリングボードとプラットフォームの両方のダイビング技術の向上に焦点を当てたものでした。"}
                   </p>
                   <p
-                    className={`italic font-karla text-lg text-center sm:text-left ${
-                      language === "ja" ? "font-hiraKakuPro" : ""
+                    className={`italic text-lg text-center sm:text-left ${
+                      language === "ja" ? "font-hiraKakuPro" : "font-karla"
                     }`}
                   >
                     {language === "en"
@@ -293,16 +313,44 @@ export default function AboutMe() {
                       : "このキャンプは、ダイビングスキルを向上させただけでなく、世界クラスの施設でトレーニングを行い、世界中の情熱的なダイバーたちと交流する機会を与えてくれました。このプログラムで得た技術的な専門知識と自信は、ダイバーとしての成長に計り知れない価値をもたらしました。"}
                   </p>
                   <div>
-                    <h4 className="font-medium mb-2 text-center sm:text-left">
-                      Key Takeaways:
+                    <h4 className={`font-medium mb-2 text-center sm:text-left ${
+                      language === "ja" ? "font-hiraKakuPro" : "font-karla"
+                    }`}>
+                      {language === "en" ? "Key Takeaways:" : "主要な成果:"}
                     </h4>
-                    <ul className="list-disc list-inside space-y-1 text-center sm:text-left">
-                      <li>Advanced springboard technique training</li>
-                      <li>Platform diving skill development</li>
-                      <li>Professional coaching and feedback</li>
-                      <li>Experience with Olympic-standard facilities</li>
-                      <li>Learned how to focus the mind and body</li>
-                      <li>Meditation and mental health sessions</li>
+                    <ul className={`list-disc list-inside space-y-1  text-center sm:text-left ${
+                      language === "ja" ? "font-hiraKakuPro" : "font-karla"
+                    }`}>
+                      <li>
+                        {language === "en"
+                          ? "Advanced springboard technique training"
+                          : "高度なスプリングボード技術トレーニング"}
+                      </li>
+                      <li>
+                        {language === "en"
+                          ? "Platform diving skill development"
+                          : "プラットフォームダイビングスキル開発"}
+                      </li>
+                      <li>
+                        {language === "en"
+                          ? "Professional coaching and feedback"
+                          : "プロのコーチングとフィードバック"}
+                      </li>
+                      <li>
+                        {language === "en"
+                          ? "Experience with Olympic-standard facilities"
+                          : "オリンピック標準の施設での経験"}
+                      </li>
+                      <li>
+                        {language === "en"
+                          ? "Learned how to focus the mind and body"
+                          : "心と体を集中させる方法を学んだ"}
+                      </li>
+                      <li>
+                        {language === "en"
+                          ? "Meditation and mental health sessions"
+                          : "瞑想とメンタルヘルスセッション"}
+                      </li>
                     </ul>
                   </div>
                 </div>
@@ -310,17 +358,25 @@ export default function AboutMe() {
             </section>
 
             <section className="mb-8 sm:mb-12 pb-8 sm:pb-12">
-              <h2 className="text-2xl font-semibold mb-4 sm:text-left">
+              <h2
+                className={`text-2xl font-semibold mb-4 sm:text-left ${
+                  language === "ja" ? "font-hiraKakuPro" : "font-karla"
+                }`}
+              >
                 {language === "en" ? "Looking Forward" : "今後の展望"}
               </h2>
               <div>
                 <div className="space-y-4">
-                  <p className="italic font-karla text-lg sm:text-left">
+                  <p className={`italic  text-lg sm:text-left ${
+                      language === "ja" ? "font-hiraKakuPro" : "font-karla"
+                    }`}>
                     {language === "en"
                       ? "Today, I continue to push the boundaries of what's possible in software development, combining my broadcast engineering background with modern web technologies. I'm particularly excited about the intersection of performance optimization and user experience."
                       : "今日、私はソフトウェア開発における可能な限りの境界を押し広げています。放送工学の背景と最新のウェブ技術を組み合わせることで、パフォーマンスの最適化とユーザー体験の交差点に興味を持っています。"}
                   </p>
-                  <p className="italic font-karla text-lg sm:text-left">
+                  <p className={`italic  text-lg sm:text-left ${
+                      language === "ja" ? "font-hiraKakuPro" : "font-karla"
+                    }`}>
                     {language === "en"
                       ? "I'm always open to discussing new projects, technical challenges, or potential collaborations. Whether you're interested in working together or just want to connect, feel free to reach out through email using the contact form."
                       : "新しいプロジェクト、技術的な課題、または潜在的なコラボレーションについて話し合うことに常に開いています。一緒に働くか、ただ接続したいだけなら、連絡を取るのは自由です。"}
