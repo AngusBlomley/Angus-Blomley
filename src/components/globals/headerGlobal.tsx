@@ -187,7 +187,9 @@ function HeaderGlobal(): JSX.Element {
           <Link href="/" passHref>
             <h2
               id="logo"
-              className="text-3xl font-rubik font-bold opacity-75 hover:opacity-100 duration-75 cursor-pointer no-underline"
+              className={`text-3xl font-rubik font-bold opacity-75 hover:opacity-100 duration-75 cursor-pointer no-underline ${
+                language === "en" ? "font-ibmPlexMono" : "font-hiraKakuPro"
+              }`}
             >
               AB
             </h2>
@@ -197,7 +199,11 @@ function HeaderGlobal(): JSX.Element {
               <div key={section.id} className="relative group">
                 <Link href={section.link || ""} passHref>
                   <div
-                    className="inline-block bg-inherit opacity-75 p-1 px-3 no-underline font-ibmPlexMono hover:opacity-100 hover:bg-opacity-10 hover:bg-white rounded-md transition-all duration-75 cursor-pointer"
+                    className={`inline-block bg-inherit opacity-75 p-1 px-3 no-underline hover:opacity-100 hover:bg-opacity-10 hover:bg-white rounded-md transition-all duration-75 cursor-pointer ${
+                      language === "en"
+                        ? "font-ibmPlexMono"
+                        : "font-hiraKakuPro"
+                    }`}
                     onClick={(e: React.MouseEvent<HTMLDivElement>) =>
                       section.action && section.action()
                     }
@@ -216,7 +222,13 @@ function HeaderGlobal(): JSX.Element {
                         href={subLink.link || ""}
                         passHref
                       >
-                        <div className="inline-block bg-inherit opacity-75 p-1 px-3 no-underline font-ibmPlexMono hover:opacity-100 hover:bg-opacity-10 hover:bg-white rounded-md transition-all duration-75 cursor-pointer w-full">
+                        <div
+                          className={`inline-block bg-inherit opacity-75 p-1 px-3 no-underline hover:opacity-100 hover:bg-opacity-10 hover:bg-white rounded-md transition-all duration-75 cursor-pointer w-full ${
+                            language === "en"
+                              ? "font-ibmPlexMono"
+                              : "font-hiraKakuPro"
+                          }`}
+                        >
                           {subLink.name}
                         </div>
                       </Link>
@@ -297,7 +309,11 @@ function HeaderGlobal(): JSX.Element {
                   {section.id !== "work" ? (
                     <Link href={section.link || ""} passHref>
                       <div
-                        className="bg-inherit opacity-75 p-1 px-3 no-underline font-ibmPlexMono hover:opacity-100 hover:bg-opacity-10 hover:bg-white rounded-md transition-all duration-75 cursor-pointer flex items-center"
+                        className={`bg-inherit opacity-75 p-1 px-3 no-underline hover:opacity-100 hover:bg-opacity-10 hover:bg-white rounded-md transition-all duration-75 cursor-pointer flex items-center ${
+                          language === "en"
+                            ? "font-ibmPlexMono"
+                            : "font-hiraKakuPro"
+                        }`}
                         onClick={() => {
                           handleLinkClick();
                           section.action && section.action();
@@ -305,14 +321,18 @@ function HeaderGlobal(): JSX.Element {
                       >
                         {section.icon}
                         <span className="ml-2">
-                          {section.id === "resume" ? "Resume" : section.name}
+                          {section.id === "履歴書" ? "Resume" : section.name}
                         </span>
                       </div>
                     </Link>
                   ) : (
                     <>
                       <div
-                        className="bg-inherit opacity-75 p-1 px-3 no-underline font-ibmPlexMono hover:opacity-100 hover:bg-opacity-10 hover:bg-white rounded-md transition-all duration-75 cursor-pointer flex items-center"
+                        className={`bg-inherit opacity-75 p-1 px-3 no-underline hover:opacity-100 hover:bg-opacity-10 hover:bg-white rounded-md transition-all duration-75 cursor-pointer flex items-center ${
+                          language === "en"
+                            ? "font-ibmPlexMono"
+                            : "font-hiraKakuPro"
+                        }`}
                         onClick={() =>
                           setWorkSublinksVisible(!workSublinksVisible)
                         }
@@ -330,7 +350,11 @@ function HeaderGlobal(): JSX.Element {
                             <li key={subLink.name}>
                               <Link href={subLink.link || ""} passHref>
                                 <div
-                                  className="inline-block bg-inherit opacity-75 p-1 px-3 ml-2 text-base no-underline font-ibmPlexMono hover:opacity-100 hover:bg-opacity-10 hover:bg-white rounded-md transition-all duration-75 cursor-pointer"
+                                  className={`inline-block bg-inherit opacity-75 p-1 px-3 ml-2 text-base no-underline hover:opacity-100 hover:bg-opacity-10 hover:bg-white rounded-md transition-all duration-75 cursor-pointer ${
+                                    language === "en"
+                                      ? "font-ibmPlexMono"
+                                      : "font-hiraKakuPro"
+                                  }`}
                                   onClick={handleLinkClick}
                                 >
                                   {subLink.name}
@@ -347,7 +371,9 @@ function HeaderGlobal(): JSX.Element {
               <li className="px-4">
                 <button
                   onClick={toggleDarkMode}
-                  className="bg-inherit opacity-75 p-1 px-3 no-underline font-ibmPlexMono hover:opacity-100 hover:bg-opacity-10 hover:bg-white rounded-md transition-all duration-75 flex items-center"
+                  className={`bg-inherit opacity-75 p-1 px-3 no-underline hover:opacity-100 hover:bg-opacity-10 hover:bg-white rounded-md transition-all duration-75 flex items-center ${
+                    language === "en" ? "font-ibmPlexMono" : "font-hiraKakuPro"
+                  }`}
                 >
                   {isDarkMode ? (
                     <FaSun className="mr-2" />
@@ -360,7 +386,9 @@ function HeaderGlobal(): JSX.Element {
               <li className="px-4">
                 <button
                   onClick={toggleLanguage}
-                  className="bg-inherit opacity-75 p-1 px-3 no-underline font-ibmPlexMono hover:opacity-100 hover:bg-opacity-10 hover:bg-white rounded-md transition-all duration-75 flex items-center"
+                  className={`bg-inherit opacity-75 p-1 px-3 no-underline hover:opacity-100 hover:bg-opacity-10 hover:bg-white rounded-md transition-all duration-75 flex items-center ${
+                    language === "en" ? "font-ibmPlexMono" : "font-hiraKakuPro"
+                  }`}
                 >
                   {language === "en" ? (
                     <>

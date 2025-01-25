@@ -212,7 +212,9 @@ function Header(): JSX.Element {
           <Link href="/" passHref>
             <h2
               id="logo"
-              className="text-3xl font-rubik font-bold opacity-50 hover:opacity-100 duration-75 cursor-pointer no-underline"
+              className={`text-3xl font-bold opacity-50 hover:opacity-100 duration-75 cursor-pointer no-underline ${
+                language === "ja" ? "font-hiraKakuPro" : "font-ibmPlexMono"
+              }`}
             >
               AB
             </h2>
@@ -223,7 +225,11 @@ function Header(): JSX.Element {
                 {section.link ? (
                   <Link href={section.link} passHref>
                     <div
-                      className="inline-block bg-inherit opacity-75 p-1 px-3 no-underline font-ibmPlexMono hover:opacity-100 hover:bg-opacity-10 hover:bg-white rounded-md transition-all duration-75 cursor-pointer"
+                      className={`inline-block bg-inherit opacity-75 p-1 px-3 no-underline hover:opacity-100 hover:bg-opacity-10 hover:bg-white rounded-md transition-all duration-75 cursor-pointer ${
+                        language === "ja"
+                          ? "font-hiraKakuPro"
+                          : "font-ibmPlexMono"
+                      }`}
                       onClick={(e: React.MouseEvent<HTMLDivElement>) =>
                         section.action && section.action()
                       }
@@ -233,7 +239,11 @@ function Header(): JSX.Element {
                   </Link>
                 ) : (
                   <div
-                    className="inline-block bg-inherit opacity-75 p-1 px-3 no-underline font-ibmPlexMono hover:opacity-100 hover:bg-opacity-10 hover:bg-white rounded-md transition-all duration-75 cursor-pointer"
+                    className={`inline-block bg-inherit opacity-75 p-1 px-3 no-underline hover:opacity-100 hover:bg-opacity-10 hover:bg-white rounded-md transition-all duration-75 cursor-pointer ${
+                      language === "ja"
+                        ? "font-hiraKakuPro"
+                        : "font-ibmPlexMono"
+                    }`}
                     onClick={(e: React.MouseEvent<HTMLDivElement>) =>
                       section.action && section.action()
                     }
@@ -286,7 +296,9 @@ function Header(): JSX.Element {
               <div className="flex items-center justify-center w-[74px]">
                 <button
                   onClick={toggleLanguage}
-                  className="inline-block bg-inherit opacity-75 p-1 px-3 hover:opacity-100 hover:bg-opacity-10 hover:bg-white rounded-md transition-all duration-75"
+                  className={`inline-block bg-inherit opacity-75 p-1 px-3 hover:opacity-100 hover:bg-opacity-10 hover:bg-white rounded-md transition-all duration-75 ${
+                    language === "ja" ? "font-hiraKakuPro" : "font-ibmPlexMono"
+                  }`}
                 >
                   {language === "en" ? (
                     <span className="font-hiraKakuPro">日本語</span>
@@ -398,17 +410,19 @@ function Header(): JSX.Element {
               <li className="px-4">
                 <button
                   onClick={toggleLanguage}
-                  className="bg-inherit opacity-75 p-1 px-3 no-underline font-ibmPlexMono hover:opacity-100 hover:bg-opacity-10 hover:bg-white rounded-md transition-all duration-75 flex items-center"
+                  className={`bg-inherit opacity-75 p-1 px-3 no-underline hover:opacity-100 hover:bg-opacity-10 hover:bg-white rounded-md transition-all duration-75 flex items-center ${
+                    language === "ja" ? "font-hiraKakuPro" : "font-ibmPlexMono"
+                  }`}
                 >
-                  {language === "en" ? (
-                    <>
-                      <span className="mr-2">🇯🇵</span>
-                      <span className="font-hiraKakuPro">日本語</span>
-                    </>
-                  ) : (
+                  {language === "ja" ? (
                     <>
                       <span className="mr-2">🇬🇧</span>
                       <span>English</span>
+                    </>
+                  ) : (
+                    <>
+                      <span className="mr-2">🇯🇵</span>
+                      <span className="font-hiraKakuPro">日本語</span>
                     </>
                   )}
                 </button>
