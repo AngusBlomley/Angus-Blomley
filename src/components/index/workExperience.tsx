@@ -60,13 +60,13 @@ function WorkExperience() {
                   <>
                     Compute and Cultivate Ltd (PWG Windows & Doors)
                     <br />
-                    Contract Position • 3 Years
+                    Contract Position • 1.5 Years
                   </>
                 ) : (
                   <>
                     Compute and Cultivate Ltd（PWG Windows & Doors）
                     <br />
-                    期間・2年間
+                    期間・1.5年間
                   </>
                 )}
               </p>
