@@ -14,29 +14,31 @@ import { FaMailBulk } from "react-icons/fa";
 
 const visitedCountries = [
   {
-    country: "Japan",
-    coordinates: [35.6762, 139.6503] as [number, number],
+    country: "USA",
+    coordinates: [39.1653, -86.5264],
     description: {
-      en: "Lived in Tokyo for 6 months, studying Japanese and experiencing the culture firsthand.",
-      ja: "6ヶ月間東京に住み、日本語を学び、文化を直接体験しました。",
+      en: "Attended a two-week diving camp at Indiana University to improve springboard and platform skills.",
+      ja: "インディアナ大学で2週間のダイビングキャンプに参加し、スプリングボードとプラットフォームのスキルを向上させました。",
     },
   },
   {
-    country: "Australia",
-    coordinates: [-25.2744, 133.7751] as [number, number],
+    country: "GBR",
+    coordinates: [51.5074, -0.1278],
     description: {
-      en: "Competed in diving competitions and explored the diverse landscapes.",
-      ja: "飛び込み競技に参加し、多様な景観を探索しました。",
+      en: "Born and raised in the UK, studied Broadcast Engineering at Ravensbourne University London for three years, engineering and programming.",
+      ja: "イギリスで生まれ育ち、ロンドンのレイヴンズボーン大学で3年間放送工学を学び、エンジニアリングとプログラミングを専攻しました。",
     },
   },
-  {
-    country: "United Kingdom",
-    coordinates: [55.3781, -3.436] as [number, number],
-    description: {
-      en: "My home country, where I've lived most of my life and completed my education.",
-      ja: "私の母国で、人生の大半を過ごし、教育を受けた場所です。",
-    },
-  },
+  { country: "USA-las-vegas", coordinates: [37.1699, -112.1398] },
+  { country: "AUS", coordinates: [-14.8688, 151.2093] },
+  { country: "CHN", coordinates: [39.9042, 116.4074] },
+  { country: "PRT", coordinates: [39.3999, -8.2245] },
+  { country: "ESP", coordinates: [40.4637, -3.7492] },
+  { country: "AUT", coordinates: [47.5162, 14.5501] },
+  { country: "SGP", coordinates: [11.3521, 103.8198] },
+  { country: "FRA", coordinates: [46.8566, 2.3522] },
+  { country: "NLD", coordinates: [50.8676, 4.9041] },
+  { country: "KEN", coordinates: [10.0236, 37.9062] },
 ];
 
 export default function AboutMe() {
@@ -67,79 +69,13 @@ export default function AboutMe() {
         <div data-aos="fade-in">
           <div className="z-50 mt-10 sm:mt-20 absolute">
             <h1
-              className={`text-4xl font-bold mb-8 ${
-                language === "ja" ? "font-hiraKakuPro" : ""
-              }`}
-              data-aos="fade-up"
-            >
-              {language === "en" ? "About Me" : "私について"}
-            </h1>
-          </div>
-          <div className="grid grid-cols-2 gap-8 mb-16 max-md:grid-cols-1">
-            <div data-aos="fade-right">
-              <h2
-                className={`text-2xl font-semibold mb-4 ${
-                  language === "ja" ? "font-hiraKakuPro" : ""
-                }`}
-              >
-                {language === "en" ? "My Journey" : "私の旅"}
-              </h2>
-              <p
-                className={`text-lg mb-4 ${
-                  language === "ja" ? "font-hiraKakuPro" : ""
-                }`}
-              >
-                {language === "en"
-                  ? "From diving into code to diving in pools (as a former international diver), my journey has been anything but conventional. I've always been drawn to challenges that push me beyond my comfort zone."
-                  : "コードに没頭することからプールに飛び込むこと（元国際ダイバーとして）まで、私の旅は決して conventional ではありませんでした。私は常に、自分の快適なゾーンを超えて挑戦することに魅力を感じてきました。"}
-              </p>
-              <p
-                className={`text-lg mb-4 ${
-                  language === "ja" ? "font-hiraKakuPro" : ""
-                }`}
-              >
-                {language === "en"
-                  ? "Today, I channel that same spirit of determination into creating innovative digital solutions and bridging cultural gaps through technology."
-                  : "今日、私はその同じ決意の精神を、革新的なデジタルソリューションの創造と、テクノロジーを通じた文化的ギャップの架け橋に注いでいます。"}
-              </p>
-            </div>
-            <div data-aos="fade-left">
-              <h2
-                className={`text-2xl font-semibold mb-4 ${
-                  language === "ja" ? "font-hiraKakuPro" : ""
-                }`}
-              >
-                {language === "en" ? "Technical Expertise" : "技術的専門知識"}
-              </h2>
-              <p
-                className={`text-lg mb-4 ${
-                  language === "ja" ? "font-hiraKakuPro" : ""
-                }`}
-              >
-                {language === "en"
-                  ? "Specializing in full-stack development, I work with modern technologies like React, Next.js, and Node.js. I'm particularly passionate about creating intuitive user interfaces and robust backend systems."
-                  : "フルスタック開発を専門とし、React、Next.js、Node.jsなどの最新技術を使用しています。特に、直感的なユーザーインターフェースと堅牢なバックエンドシステムの作成に情熱を注いでいます。"}
-              </p>
-              <p
-                className={`text-lg mb-4 ${
-                  language === "ja" ? "font-hiraKakuPro" : ""
-                }`}
-              >
-                {language === "en"
-                  ? "My approach combines technical excellence with a deep understanding of user needs and business objectives."
-                  : "私のアプローチは、技術的な卓越性とユーザーニーズおよびビジネス目標への深い理解を組み合わせています。"}
-              </p>
-            </div>
-          </div>
-          <div className="mb-16" data-aos="fade-up">
-            <h2
-              className={`text-2xl font-semibold mb-4 ${
-                language === "ja" ? "font-hiraKakuPro" : ""
-              }`}
+              className="text-xl font-hiraKakuPro text-center mb-8 sm:ml-80 z-50 hidden xl:block"
+              data-aos="fade"
+              data-aos-delay="1000"
+              data-aos-duration="2000"
             >
               {language === "en" ? "Some places I have been" : "訪れた場所"}
-            </h2>
-            <WorldMap visitedCountries={visitedCountries} />
+            </h1>
           </div>
           <section>
             <div className="w-full h-full flex items-center justify-center">
