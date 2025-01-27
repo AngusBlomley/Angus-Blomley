@@ -371,34 +371,40 @@ function HeaderGlobal(): JSX.Element {
               <li className="px-4">
                 <button
                   onClick={toggleDarkMode}
-                  className={`bg-inherit opacity-75 p-1 px-3 no-underline hover:opacity-100 hover:bg-opacity-10 hover:bg-white rounded-md transition-all duration-75 flex items-center ${
-                    language === "en" ? "font-ibmPlexMono" : "font-hiraKakuPro"
-                  }`}
+                  className="bg-inherit opacity-75 mt-5 ml-2 no-underline font-ibmPlexMono hover:opacity-100 hover:bg-opacity-10 hover:bg-white rounded-md transition-all duration-75 flex items-center"
                 >
                   {isDarkMode ? (
                     <FaSun className="mr-2" />
                   ) : (
                     <FaMoon className="mr-2" />
                   )}
-                  <span>{isDarkMode ? "Light Mode" : "Dark Mode"}</span>
+                  <span>
+                    {isDarkMode
+                      ? language === "en"
+                        ? "Light Mode"
+                        : "ライトモード"
+                      : language === "en"
+                      ? "Dark Mode"
+                      : "ダークモード"}
+                  </span>
                 </button>
               </li>
               <li className="px-4">
                 <button
                   onClick={toggleLanguage}
-                  className={`bg-inherit opacity-75 p-1 px-3 no-underline hover:opacity-100 hover:bg-opacity-10 hover:bg-white rounded-md transition-all duration-75 flex items-center ${
-                    language === "en" ? "font-ibmPlexMono" : "font-hiraKakuPro"
+                  className={`bg-inherit opacity-75 mt-8 ml-3 no-underline hover:opacity-100 hover:bg-opacity-10 hover:bg-white rounded-md transition-all duration-75 flex items-center ${
+                    language === "ja" ? "font-hiraKakuPro" : "font-ibmPlexMono"
                   }`}
                 >
-                  {language === "en" ? (
-                    <>
-                      <span className="mr-2">🇯🇵</span>
-                      <span className="font-hiraKakuPro">日本語</span>
-                    </>
-                  ) : (
+                  {language === "ja" ? (
                     <>
                       <span className="mr-2">🇬🇧</span>
                       <span>English</span>
+                    </>
+                  ) : (
+                    <>
+                      <span className="mr-2">🇯🇵</span>
+                      <span className="font-hiraKakuPro">日本語</span>
                     </>
                   )}
                 </button>

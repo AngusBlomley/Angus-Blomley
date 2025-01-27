@@ -389,7 +389,7 @@ function Header(): JSX.Element {
               <li className="px-4">
                 <button
                   onClick={toggleDarkMode}
-                  className="bg-inherit opacity-75 p-1 px-3 no-underline font-ibmPlexMono hover:opacity-100 hover:bg-opacity-10 hover:bg-white rounded-md transition-all duration-75 flex items-center"
+                  className="bg-inherit opacity-75 mt-5 no-underline font-ibmPlexMono hover:opacity-100 hover:bg-opacity-10 hover:bg-white rounded-md transition-all duration-75 flex items-center"
                 >
                   {isDarkMode ? (
                     <FaSun className="mr-2" />
@@ -410,7 +410,7 @@ function Header(): JSX.Element {
               <li className="px-4">
                 <button
                   onClick={toggleLanguage}
-                  className={`bg-inherit opacity-75 p-1 px-3 no-underline hover:opacity-100 hover:bg-opacity-10 hover:bg-white rounded-md transition-all duration-75 flex items-center ${
+                  className={`bg-inherit opacity-75 mt-8 no-underline hover:opacity-100 hover:bg-opacity-10 hover:bg-white rounded-md transition-all duration-75 flex items-center ${
                     language === "ja" ? "font-hiraKakuPro" : "font-ibmPlexMono"
                   }`}
                 >
