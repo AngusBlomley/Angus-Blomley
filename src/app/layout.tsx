@@ -54,6 +54,20 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <link rel="canonical" href="https://www.angusblomley.com" />
+        <link
+          rel="preload"
+          href="/fonts/HiraKakuPro-W3.otf"
+          as="font"
+          type="font/otf"
+          crossOrigin="anonymous"
+        />
+        <link
+          rel="preload"
+          href="/fonts/HiraKakuPro-W6.otf"
+          as="font"
+          type="font/otf"
+          crossOrigin="anonymous"
+        />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta charSet="utf-8" />
       </head>
