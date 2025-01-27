@@ -95,6 +95,15 @@ const Vocabo = () => {
                             <li>Chrome Extension Manifest V3 compliance</li>
                             <li>Background service workers for processing</li>
                             <li>Content scripts for webpage integration</li>
+                            <li>Vite for webpacking and bundling</li>
+                            <li>
+                              IIFE (Immediately Invoked Function Expression) for
+                              library or plugin integration
+                            </li>
+                            <li>
+                              pnpm for package management and turbo for HMR
+                            </li>
+                            <li>Multi-package build setup</li>
                           </>
                         ) : (
                           <>
@@ -105,6 +114,14 @@ const Vocabo = () => {
                             </li>
                             <li>
                               ウェブページ統合のためのコンテンツスクリプト
+                            </li>
+                            <li>Viteによるウェブパッキングとバンドリング</li>
+                            <li>
+                              IIFE（即時実行関数式）によるライブラリまたはプラグインの統合
+                            </li>
+                            <li>pnpmによるパッケージ管理とturboによるHMR</li>
+                            <li>
+                              複数のpackage.jsonファイルを1つのdistにまとめる
                             </li>
                           </>
                         )}
@@ -120,15 +137,13 @@ const Vocabo = () => {
                         {language === "en" ? (
                           <>
                             <li>Node.js and Express for API endpoints</li>
-                            <li>MongoDB for vocabulary storage</li>
-                            <li>JWT authentication for secure access</li>
+                            <li>Chrome Local Storage for vocabulary storage</li>
                             <li>RESTful API design principles</li>
                           </>
                         ) : (
                           <>
                             <li>APIエンドポイントのためのNode.jsとExpress</li>
-                            <li>語彙ストレージのためのMongoDB</li>
-                            <li>セキュアなアクセスのためのJWT認証</li>
+                            <li>語彙ストレージのためのChrome Local Storage</li>
                             <li>RESTful APIの設計原則</li>
                           </>
                         )}
@@ -154,13 +169,6 @@ const Vocabo = () => {
                     <Image
                       src="/images/icons/js.webp"
                       alt="JavaScript"
-                      width={50}
-                      height={50}
-                      className="mx-2"
-                    />
-                    <Image
-                      src="/images/icons/mongodb.webp"
-                      alt="MongoDB"
                       width={50}
                       height={50}
                       className="mx-2"
