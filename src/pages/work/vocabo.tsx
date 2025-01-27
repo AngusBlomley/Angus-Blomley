@@ -70,8 +70,8 @@ const Vocabo = () => {
                   </h2>
                   <p className="text-lg">
                     {language === "en"
-                      ? "Vocabo demonstrates expertise in Chrome extension development and full-stack integration. The project showcases advanced JavaScript capabilities, real-time data processing, and seamless integration with browser APIs. Built with modern web technologies and following best practices in extension development."
-                      : "VocaboはChrome拡張機能開発とフルスタック統合における専門知識を実証します。このプロジェクトは、高度なJavaScript機能、リアルタイムデータ処理、ブラウザAPIとのシームレスな統合を特徴としています。最新のWeb技術を使用し、拡張機能開発のベストプラクティスに従って構築されています。"}
+                      ? "Vocabo demonstrates expertise in Chrome extension development and full-stack integration. The project showcases advanced JavaScript capabilities, including sophisticated DOM manipulation for real-time text scanning and translation. Using DOM mutation observers and regex pattern matching, it dynamically identifies and translates target words by comparing page content against the user's word bank. Built with modern web technologies and following best practices in extension development."
+                      : "VocaboはChrome拡張機能開発とフルスタック統合における専門知識を実証します。DOMの操作を活用してテキストのリアルタイムスキャンと翻訳を行い、DOM変更の監視とregexパターンマッチングにより、ユーザーの単語帳と照合してページ上の対象単語を動的に特定・翻訳します。最新のWeb技術を使用し、拡張機能開発のベストプラクティスに従って構築されています。"}
                   </p>
                 </section>
 
@@ -92,8 +92,8 @@ const Vocabo = () => {
                         {language === "en" ? (
                           <>
                             <li>React for component-based UI development</li>
+                            <li>React injection for dynamic component rendering</li>
                             <li>Chrome Extension Manifest V3 compliance</li>
-                            <li>Background service workers for processing</li>
                             <li>Content scripts for webpage integration</li>
                             <li>Vite for webpacking and bundling</li>
                             <li>
@@ -108,10 +108,9 @@ const Vocabo = () => {
                         ) : (
                           <>
                             <li>コンポーネントベースのUI開発のためのReact</li>
+                            <li>動的なコンポーネントレンダリングのためのReactのインジェクション</li>
                             <li>Chrome Extension Manifest V3への準拠</li>
-                            <li>
-                              処理のためのバックグラウンドサービスワーカー
-                            </li>
+
                             <li>
                               ウェブページ統合のためのコンテンツスクリプト
                             </li>
