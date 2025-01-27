@@ -149,11 +149,13 @@ function About() {
         ></div>
 
         <Image
-          alt=""
+          alt="About background image"
           src="/images/index/back.jpg"
           layout="fill"
           objectFit="cover"
           className="z-0"
+          priority
+          quality={75}
         />
       </div>
       <div className="max-w-2xl ml-44 my-40 relative z-10 text-gray-100 max-lg:mx-auto max-lg:px-4">

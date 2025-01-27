@@ -1,16 +1,25 @@
 import React, { JSX, useEffect, useState } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import "swiper/swiper-bundle.min.css";
-import SwiperCore, { Autoplay, Pagination, Navigation } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, Navigation, Pagination } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import "swiper/css/autoplay";
 import "../../app/globals.css";
 import Link from "next/link";
 import Image from "next/image";
 import { useDarkMode } from "@/contexts/darkModeContext";
 import { useLanguage } from "@/contexts/language";
 
-SwiperCore.use([Autoplay, Pagination, Navigation]);
+// Add TypeScript interface for media items
+interface MediaItem {
+  type: "video" | "image";
+  src: string;
+  link: string;
+  title: string;
+}
 
 function Work(): JSX.Element {
   const { isDarkMode } = useDarkMode();
@@ -36,23 +45,23 @@ function Work(): JSX.Element {
     };
 
     const carousel = document.querySelector(".carousel-wrapper");
-    if (carousel) {
-      carousel.addEventListener("touchmove", handleTouchMove as EventListener);
+    carousel?.addEventListener("touchmove", handleTouchMove as EventListener);
 
-      return () => {
-        carousel.removeEventListener(
-          "touchmove",
-          handleTouchMove as EventListener
-        );
-      };
-    }
+    // Cleanup function
+    return () => {
+      clearTimeout(timer);
+      carousel?.removeEventListener(
+        "touchmove",
+        handleTouchMove as EventListener
+      );
+    };
   }, []);
 
   const color = isDarkMode
     ? "var(--foreground-color-dark)"
     : "var(--foreground-color-light)";
 
-  const media = [
+  const media: MediaItem[] = [
     {
       type: "video",
       src: "/videos/stringBox.mp4",
@@ -118,6 +127,9 @@ function Work(): JSX.Element {
         scrollMarginTop: animationComplete ? "100px" : "300px",
       }}
       className="py-20 lg:mt-40 max-lg:mt-16 flex flex-col justify-center items-center z-10"
+      aria-label={
+        language === "en" ? "Projects Section" : "プロジェクトセクション"
+      }
     >
       <div className="z-10" data-aos="fade-up">
         <h2
@@ -141,10 +153,15 @@ function Work(): JSX.Element {
             delay: 4000,
             disableOnInteraction: false,
           }}
+          pagination={{
+            clickable: true,
+            dynamicBullets: true,
+          }}
           navigation={{
             nextEl: ".swiper-button-next",
             prevEl: ".swiper-button-prev",
           }}
+          modules={[Autoplay, Navigation, Pagination]}
           className="w-full h-full lg:rounded-lg"
         >
           {media.map((item, index) => (
@@ -152,37 +169,55 @@ function Work(): JSX.Element {
               key={index}
               className="flex justify-center items-center relative w-full"
             >
-              <Link href={item.link} legacyBehavior>
-                <a className="absolute w-full h-full hover:brightness-75 duration-200">
-                  {item.type === "video" ? (
-                    <video
-                      autoPlay
-                      loop
-                      muted
-                      src={item.src}
-                      title={item.title}
-                      className="object-cover filter brightness-75 w-full h-full shadow-lg rounded-lg max-lg:rounded-none"
-                    />
-                  ) : (
-                    <Image
-                      src={item.src}
-                      alt={item.title}
-                      layout="fill"
-                      className="object-cover filter brightness-75 w-full h-full shadow-lg rounded-lg max-lg:rounded-none"
-                    />
-                  )}
-                </a>
+              <Link
+                href={item.link}
+                className="absolute w-full h-full hover:brightness-75 duration-200"
+              >
+                {item.type === "video" ? (
+                  <video
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    src={item.src}
+                    title={item.title}
+                    className="object-cover filter brightness-75 w-full h-full shadow-lg rounded-lg max-lg:rounded-none"
+                    onError={(e) => {
+                      console.error(`Error loading video: ${item.src}`);
+                      e.currentTarget.style.display = "none";
+                    }}
+                  />
+                ) : (
+                  <Image
+                    src={item.src}
+                    alt={item.title}
+                    fill
+                    className="object-cover filter brightness-75 w-full h-full shadow-lg rounded-lg max-lg:rounded-none"
+                    onError={() =>
+                      console.error(`Error loading image: ${item.src}`)
+                    }
+                  />
+                )}
               </Link>
-              <Link href={item.link} legacyBehavior>
-                <a className="absolute w-full bg-black bg-opacity-40 max-lg:text-center text-white font-hiraKakuPro bottom-0 py-2 px-4">
-                  {item.title}
-                </a>
+              <Link
+                href={item.link}
+                className="absolute w-full bg-black bg-opacity-40 max-lg:text-center text-white font-hiraKakuPro bottom-0 py-2 px-4"
+                aria-label={item.title}
+              >
+                {item.title}
               </Link>
             </SwiperSlide>
           ))}
         </Swiper>
-        <div className="swiper-button-prev"></div>
-        <div className="swiper-button-next"></div>
+        <div
+          className="swiper-button-prev"
+          aria-label={language === "en" ? "Previous slide" : "前のスライド"}
+        ></div>
+        <div
+          className="swiper-button-next"
+          aria-label={language === "en" ? "Next slide" : "次のスライド"}
+        ></div>
+        <div className="swiper-pagination"></div>
       </div>
       <div
         data-aos="fade-up"
@@ -196,11 +231,14 @@ function Work(): JSX.Element {
       <style jsx global>{`
         .swiper-button-prev,
         .swiper-button-next {
-          color: white; /* Change the color to white or any desired color */
+          color: white;
         }
         .swiper-button-prev:after,
         .swiper-button-next:after {
-          font-size: 20px; /* Adjust the size if needed */
+          font-size: 20px;
+        }
+        .swiper-pagination-bullet {
+          background: white;
         }
       `}</style>
     </section>
