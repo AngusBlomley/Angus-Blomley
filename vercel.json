@@ -1,0 +1,9 @@
+{
+  "redirects": [
+    {
+      "source": "/:path*",
+      "destination": "https://www.angusblomley.com/:path*",
+      "permanent": true
+    }
+  ]
+}
