@@ -115,13 +115,13 @@ export default function AboutMe() {
               </h2>
               <div className="flex flex-col-reverse sm:flex-row justify-center items-center gap-6 sm:gap-8">
                 <p
-                  className={`italic  text-lg text-center sm:text-left ${
+                  className={`italic text-lg text-center sm:text-left ${
                     language === "ja" ? "font-hiraKakuPro" : "font-karla"
                   }`}
                 >
                   {language === "en"
-                    ? "I'm a software engineer with a passion for creating efficient, high-performance web applications. My journey into languages began with Japanese, where I combine traditional mentorship with modern technology like spaced repetition and Anki to optimize my learning. When I'm not immersed in code or language study, I explore different cultures through travel - having experienced 12 countries and counting! I believe in leveraging technology to create powerful learning opportunities, whether it's in software development or language acquisition."
-                    : "効率的で高性能なウェブアプリケーションの作成に情熱を注ぐソフトウェアエンジニアです。言語への旅は日本語から始まり、伝統的な指導と間隔反復やAnkiなどの最新技術を組み合わせて学習を最適化しています。コーディングや言語学習に没頭していない時は、旅行を通じて異なる文化を探求しています - これまでに12カ国を経験し、その数は増え続けています！ソフトウェア開発であれ言語習得であれ、テクノロジーを活用して強力な学習機会を創出することを信念としています。"}
+                    ? "I’m a software engineer specializing in creating high-performance web and mobile applications. My experience includes developing advanced Chrome extensions and React / React Native apps. I’ve also honed strong teamwork and adaptability skills in fast-paced bar environments, where I learned to thrive under pressure and collaborate effectively. I’m always eager to take on new challenges, drive innovation, and build impactful solutions."
+                    : "私は、高性能のウェブとモバイルアプリケーションの作成に特化したソフトウェアエンジニアです。私の経験には、先進的なChrome拡張機能とReact / React Nativeアプリの開発が含まれます。また、激しいバーの環境で、圧力に耐え、効果的に協力する能力を身に付けました。私は、新しい挑戦に臨み、イノベーションを推進し、影響力のあるソリューションを構築することを常に熱望しています。"}
                 </p>
                 <Image
                   src="/images/about/portrait.jpeg"
@@ -148,7 +148,7 @@ export default function AboutMe() {
               </h2>
               <div className="space-y-4">
                 <p
-                  className={`italic  text-lg text-center sm:text-left ${
+                  className={`italic text-lg text-center sm:text-left ${
                     language === "ja" ? "font-hiraKakuPro" : "font-karla"
                   }`}
                 >
@@ -169,7 +169,7 @@ export default function AboutMe() {
               </h2>
               <div className="space-y-4">
                 <p
-                  className={`italic  text-lg text-center sm:text-left ${
+                  className={`italic text-lg text-center sm:text-left ${
                     language === "ja" ? "font-hiraKakuPro" : "font-karla"
                   }`}
                 >
@@ -178,7 +178,7 @@ export default function AboutMe() {
                     : "イギリスで生まれ育ち、レイヴンズボーン大学で3年間放送工学を学びました。このプログラムを通じて、信号処理と低レベルプログラミングについての深い理解を得ることができ、それが私の技術的専門知識の基礎となっています。"}
                 </p>
                 <p
-                  className={`text-center sm:text-left  ${
+                  className={`italic text-lg text-center sm:text-left ${
                     language === "ja" ? "font-hiraKakuPro" : "font-karla"
                   }`}
                 >
@@ -203,7 +203,7 @@ export default function AboutMe() {
                 <div className="flex flex-col sm:flex-row justify-between items-center gap-8">
                   <div className="w-full sm:w-1/2">
                     <p
-                      className={`italic  text-lg text-center sm:text-left ${
+                      className={`italic text-lg text-center sm:text-left ${
                         language === "ja" ? "font-hiraKakuPro" : "font-karla"
                       }`}
                     >
@@ -212,7 +212,7 @@ export default function AboutMe() {
                         : "私のプログラミングの旅は、16歳だった2014年にコーディングへの情熱を見出したことから始まりました。基本的なウェブ開発から始め、様々なプログラミング言語とテクノロジーを素早く習得していきました。"}
                     </p>
                     <p
-                      className={`mt-4 italic  text-lg text-center sm:text-left ${
+                      className={`mt-4 italic text-lg text-center sm:text-left ${
                         language === "ja" ? "font-hiraKakuPro" : "font-karla"
                       }`}
                     >
@@ -295,7 +295,7 @@ export default function AboutMe() {
                       : "インディアナ大学ダイビングアカデミー"}
                   </h3>
                   <p
-                    className={`italic  text-lg text-center sm:text-left ${
+                    className={`italic text-lg text-center sm:text-left ${
                       language === "ja" ? "font-hiraKakuPro" : "font-karla"
                     }`}
                   >
@@ -313,14 +313,18 @@ export default function AboutMe() {
                       : "このキャンプは、ダイビングスキルを向上させただけでなく、世界クラスの施設でトレーニングを行い、世界中の情熱的なダイバーたちと交流する機会を与えてくれました。このプログラムで得た技術的な専門知識と自信は、ダイバーとしての成長に計り知れない価値をもたらしました。"}
                   </p>
                   <div>
-                    <h4 className={`font-medium mb-2 text-center sm:text-left ${
-                      language === "ja" ? "font-hiraKakuPro" : "font-karla"
-                    }`}>
+                    <h4
+                      className={`font-medium mb-2 text-center sm:text-left ${
+                        language === "ja" ? "font-hiraKakuPro" : "font-karla"
+                      }`}
+                    >
                       {language === "en" ? "Key Takeaways:" : "主要な成果:"}
                     </h4>
-                    <ul className={`list-disc list-inside space-y-1  text-center sm:text-left ${
-                      language === "ja" ? "font-hiraKakuPro" : "font-karla"
-                    }`}>
+                    <ul
+                      className={`list-disc list-inside space-y-1  text-center sm:text-left ${
+                        language === "ja" ? "font-hiraKakuPro" : "font-karla"
+                      }`}
+                    >
                       <li>
                         {language === "en"
                           ? "Advanced springboard technique training"
@@ -367,16 +371,20 @@ export default function AboutMe() {
               </h2>
               <div>
                 <div className="space-y-4">
-                  <p className={`italic  text-lg sm:text-left ${
+                  <p
+                    className={`italic  text-lg sm:text-left ${
                       language === "ja" ? "font-hiraKakuPro" : "font-karla"
-                    }`}>
+                    }`}
+                  >
                     {language === "en"
                       ? "Today, I continue to push the boundaries of what's possible in software development, combining my broadcast engineering background with modern web technologies. I'm particularly excited about the intersection of performance optimization and user experience."
                       : "今日、私はソフトウェア開発における可能な限りの境界を押し広げています。放送工学の背景と最新のウェブ技術を組み合わせることで、パフォーマンスの最適化とユーザー体験の交差点に興味を持っています。"}
                   </p>
-                  <p className={`italic  text-lg sm:text-left ${
+                  <p
+                    className={`italic  text-lg sm:text-left ${
                       language === "ja" ? "font-hiraKakuPro" : "font-karla"
-                    }`}>
+                    }`}
+                  >
                     {language === "en"
                       ? "I'm always open to discussing new projects, technical challenges, or potential collaborations. Whether you're interested in working together or just want to connect, feel free to reach out through email using the contact form."
                       : "新しいプロジェクト、技術的な課題、または潜在的なコラボレーションについて話し合うことに常に開いています。一緒に働くか、ただ接続したいだけなら、連絡を取るのは自由です。"}
