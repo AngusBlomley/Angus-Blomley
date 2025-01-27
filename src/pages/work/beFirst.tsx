@@ -51,11 +51,12 @@ const BeFirst = () => {
               target="_blank"
               rel="noopener noreferrer"
               className="text-blue-500 hover:text-blue-700"
+              aria-label="Visit the Barking Heritage Project website to learn more about the digital exhibition"
             >
               <span>
                 {language === "en"
-                  ? " Learn more about the Barking Heritage Project."
-                  : " バーキング文化遺産プロジェクトについて詳しく見る。"}
+                  ? " Learn more about the Barking Heritage Project"
+                  : " バーキング文化遺産プロジェクトについて詳しく見る"}
               </span>
             </a>
           </p>

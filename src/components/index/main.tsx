@@ -237,11 +237,13 @@ $XXXXxxxxxxxxxxxxxxxxx++++xxxx+xxxXXxXXXXXXXXXXXXXXXXXX$$$$$$$X+;+XXXXXXXXXXXXXX
               <Link
                 href="/work/vocabo"
                 className="text-[0.9em] bg-inherit opacity-75 p-1 px-2 no-underline font-ibmPlexMono hover:opacity-100 hover:bg-opacity-10 hover:bg-white rounded-md transition-all duration-75 -ml-2 w-fit flex items-center gap-2 group"
+                aria-label="View details about the Vocabo language learning project"
               >
                 - Vocabo
                 <FontAwesomeIcon
                   icon={faArrowUpRightFromSquare}
                   className="h-2.5 w-2.5 transition-opacity"
+                  aria-hidden="true"
                   style={{
                     color: isDarkMode
                       ? "var(--foreground-color-dark)"
