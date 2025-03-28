@@ -246,20 +246,36 @@ export default function AboutMe() {
                       )}
                     </p>
                   </div>
-                  <Link
-                    href="https://www.codecademy.com/users/AngusBlomley/achievements"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-full sm:w-1/2 flex justify-center"
-                  >
-                    <Image
-                      src="/images/about/certificate.png"
-                      alt="Codecademy"
-                      width={200}
-                      height={200}
-                      className="rounded-lg shadow-xl hover:brightness-75 duration-200"
-                    />
-                  </Link>
+                  <div className="flex flex-col sm:flex-row justify-between items-center gap-8">
+                    <Link
+                      href="https://www.codecademy.com/users/AngusBlomley/achievements"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-full sm:w-1/2 flex justify-center"
+                    >
+                      <Image
+                        src="/images/about/certificateStart.png"
+                        alt="Codecademy"
+                        width={200}
+                        height={200}
+                        className="rounded-lg shadow-xl hover:brightness-75 duration-200"
+                      />
+                    </Link>
+                    <Link
+                      href="https://www.codecademy.com/users/AngusBlomley/achievements"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-full sm:w-1/2 flex justify-center"
+                    >
+                      <Image
+                        src="/images/about/certificate.png"
+                        alt="Codecademy"
+                        width={200}
+                        height={200}
+                        className="rounded-lg shadow-xl hover:brightness-75 duration-200"
+                      />
+                    </Link>
+                  </div>
                 </div>
               </div>
             </section>
