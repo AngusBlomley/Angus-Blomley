@@ -53,15 +53,12 @@ const ProjectNavigation: React.FC<ProjectNavigationProps> = ({
             <div className="inline-flex items-center text-sm opacity-75 hover:opacity-100 transition-opacity cursor-pointer">
               <FaArrowLeft className="mr-2" />
               <div>
-                <div>Previous Project</div>
                 <div className="font-semibold">{prevProject.title}</div>
               </div>
             </div>
           </Link>
         ) : (
-          <div className="text-sm text-gray-400 dark:text-gray-600">
-            No Previous Project
-          </div> // Placeholder for styling when no prev exists
+          <div className="text-sm text-gray-400 dark:text-gray-600"></div> // Placeholder for styling when no prev exists
         )}
       </div>
 
@@ -75,16 +72,13 @@ const ProjectNavigation: React.FC<ProjectNavigationProps> = ({
           <Link href={`/work/${nextProject.slug}`} passHref>
             <div className="inline-flex items-center text-sm opacity-75 hover:opacity-100 transition-opacity cursor-pointer">
               <div>
-                <div>Next Project</div>
                 <div className="font-semibold">{nextProject.title}</div>
               </div>
               <FaArrowRight className="ml-2" />
             </div>
           </Link>
         ) : (
-          <div className="text-sm text-gray-400 dark:text-gray-600">
-            No Next Project
-          </div> // Placeholder for styling when no next exists
+          <div className="text-sm text-gray-400 dark:text-gray-600"></div> // Placeholder for styling when no next exists
         )}
       </div>
     </nav>
