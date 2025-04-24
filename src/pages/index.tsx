@@ -1,30 +1,14 @@
 import React, { useState, useEffect } from "react";
-import dynamic from "next/dynamic";
 import Head from "next/head";
 import { useDarkMode } from "@/contexts/darkModeContext";
 import { FaArrowUp } from "react-icons/fa";
-
-const Header = dynamic(() => import("@/components/globals/header"), {
-  ssr: false,
-});
-const Main = dynamic(() => import("@/components/index/main"), { ssr: false });
-const About = dynamic(() => import("@/components/index/about"), { ssr: false });
-const Education = dynamic(() => import("@/components/index/education"), {
-  ssr: false,
-});
-const Work = dynamic(() => import("@/components/index/work"), { ssr: false });
-const Contact = dynamic(() => import("@/components/index/contact"), {
-  ssr: false,
-});
-const Footer = dynamic(() => import("@/components/globals/footer"), {
-  ssr: false,
-});
-const WorkExperience = dynamic(
-  () => import("@/components/index/workExperience"),
-  {
-    ssr: false,
-  }
-);
+import Header from "@/components/globals/header";
+import Main from "@/components/index/main";
+import About from "@/components/index/about";
+import Education from "@/components/index/education";
+import Contact from "@/components/index/contact";
+import Footer from "@/components/globals/footer";
+import WorkExperience from "@/components/index/workExperience";
 
 function HomePage() {
   const { isDarkMode } = useDarkMode();
@@ -78,7 +62,6 @@ function HomePage() {
       <About />
       <WorkExperience />
       <Education />
-      <Work />
       <Contact />
       <Footer />
 

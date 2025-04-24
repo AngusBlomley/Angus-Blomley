@@ -1,16 +1,12 @@
-import React, { useEffect } from "react";
+import React from "react";
 import HeaderGlobal from "@/components/globals/headerGlobal";
 import Footer from "@/components/globals/footer";
-import { WorkNavigation } from "@/components/work/WorkNavigation";
-import AOS from "aos";
-import "aos/dist/aos.css";
-import Image from "next/image";
 import { useDarkMode } from "@/contexts/darkModeContext";
-import { useLanguage } from "@/contexts/language";
+import Image from "next/image";
+import { WorkNavigation } from "@/components/work/WorkNavigation";
 
 const StringBox = () => {
   const { isDarkMode } = useDarkMode();
-  const { language } = useLanguage();
   const backgroundColor = isDarkMode
     ? "var(--background-color-dark)"
     : "var(--background-color-light)";
@@ -18,325 +14,238 @@ const StringBox = () => {
     ? "var(--foreground-color-dark)"
     : "var(--foreground-color-light)";
 
-  useEffect(() => {
-    AOS.init({
-      duration: 1000,
-      once: false,
-    });
-  }, []);
-
   return (
     <>
       <HeaderGlobal />
-      <main className="min-h-screen pt-20" style={{ backgroundColor, color }}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-          <div className="space-y-8" data-aos="fade-up">
-            <div className="text-center">
-              <h1
-                className={`text-4xl mt-16 font-bold mb-4 ${
-                  language === "ja" ? "font-hiraKakuPro" : ""
-                }`}
-              >
-                {language === "en"
-                  ? "Re-StringBox - Restringing and Ecommerce Website"
-                  : "Re-StringBox - ラケット張替とEコマースウェブサイト"}
-              </h1>
-              <p
-                className={`text-lg ${
-                  language === "ja" ? "font-hiraKakuPro" : ""
-                }`}
-              >
-                {language === "en"
-                  ? "A modern ecommerce platform for racquet restringing services, built with Next.js and a robust tech stack. "
-                  : "Next.jsと堅牢な技術スタックで構築された、ラケット張替サービスのためのモダンなEコマースプラットフォーム。"}
-                <a
-                  href="https://string-box.vercel.app/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-blue-500 hover:text-blue-600"
-                >
-                  {language === "en" ? "Visit the website" : "ウェブサイトへ"}
-                </a>{" "}
-                {language === "en" ? "or" : "または"}{" "}
-                <a
-                  href="https://github.com/AngusBlomley/string-box"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-blue-500 hover:text-blue-600"
-                >
-                  {language === "en" ? "view on GitHub" : "GitHubで見る"}
-                </a>
+      <div id="stringBox" style={{ backgroundColor, color }}>
+        <div className="container mx-auto px-4 py-8">
+          <h1 className="text-4xl mt-16 font-bold mb-4">
+            StringBox - Innovative Business Card
+          </h1>
+          <p className="text-lg">
+            The StringBox is a digital business card solution that enables users
+            to create a personalized profile and share it via QR code with
+            others. The application allows for seamless connectivity and
+            networking between professionals.
+          </p>
+          <div className="grid grid-cols-3 max-lg:grid-cols-1 mt-8">
+            <section className="col-span-1 pr-8">
+              <h2 className="text-2xl font-semibold mb-2">Project Overview</h2>
+              <div className="mt-4">
+                <p>
+                  StringBox is a digital business card application designed to
+                  simplify professional networking. The application allows users
+                  to create a profile with their professional details, contact
+                  information, and links to their social media platforms. Users
+                  can then share this profile with others via QR code, making it
+                  easy to connect and network at events or meetings.
+                </p>
+                <h3 className="text-xl font-semibold mt-4 mb-2">
+                  Key Features
+                </h3>
+                <ul className="list-disc pl-5">
+                  <li>User profile creation and management</li>
+                  <li>QR code generation for profile sharing</li>
+                  <li>Responsive design for all devices</li>
+                  <li>Seamless scanning and connection</li>
+                  <li>Real-time profile updates</li>
+                </ul>
+              </div>
+            </section>
+
+            <section className="col-span-2 mb-8">
+              <h2 className="text-2xl font-semibold mb-2">Technology Stack</h2>
+              <p>
+                StringBox was developed using a modern technology stack to
+                ensure a robust and responsive user experience.
               </p>
-            </div>
-
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-              <div className="space-y-8">
-                <section>
-                  <h2
-                    className={`text-2xl font-semibold mb-4 ${
-                      language === "ja" ? "font-hiraKakuPro" : ""
-                    }`}
-                  >
-                    {language === "en"
-                      ? "Project Overview"
-                      : "プロジェクト概要"}
-                  </h2>
-                  <p
-                    className={`text-lg ${
-                      language === "ja" ? "font-hiraKakuPro" : ""
-                    }`}
-                  >
-                    {language === "en"
-                      ? "Re-StringBox is a comprehensive ecommerce solution designed for racquet sports professionals. It enables users to book restringing services, purchase equipment, and manage their orders seamlessly. Built with scalability and performance in mind, it features a modern tech stack and intuitive user interface."
-                      : "Re-StringBoxは、ラケットスポーツのプロフェッショナル向けに設計された包括的なEコマースソリューションです。ユーザーは張替サービスの予約、機器の購入、注文の管理をシームレスに行うことができます。スケーラビリティとパフォーマンスを考慮して構築され、最新の技術スタックと直感的なユーザーインターフェースを特徴としています。"}
-                  </p>
-                </section>
-
-                <section>
-                  <h2
-                    className={`text-2xl font-semibold mb-4 ${
-                      language === "ja" ? "font-hiraKakuPro" : ""
-                    }`}
-                  >
-                    {language === "en"
-                      ? "Technical Implementation"
-                      : "技術実装"}
-                  </h2>
-                  <div className="space-y-6">
-                    <div>
-                      <h3
-                        className={`text-xl font-medium mb-2 ${
-                          language === "ja" ? "font-hiraKakuPro" : ""
-                        }`}
-                      >
-                        {language === "en"
-                          ? "Frontend Architecture"
-                          : "フロントエンドアーキテクチャ"}
-                      </h3>
-                      <ul
-                        className={`list-disc pl-5 space-y-1 ${
-                          language === "ja" ? "font-hiraKakuPro" : ""
-                        }`}
-                      >
-                        {language === "en" ? (
-                          <>
-                            <li>
-                              Next.js for server-side rendering and routing
-                            </li>
-                            <li>
-                              Redux Toolkit for centralized state management
-                            </li>
-                            <li>Tailwind CSS for responsive design</li>
-                            <li>
-                              Stripe Elements for secure payment processing
-                            </li>
-                          </>
-                        ) : (
-                          <>
-                            <li>
-                              サーバーサイドレンダリングとルーティングのためのNext.js
-                            </li>
-                            <li>集中状態管理のためのRedux Toolkit</li>
-                            <li>レスポンシブデザインのためのTailwind CSS</li>
-                            <li>安全な決済処理のためのStripe Elements</li>
-                          </>
-                        )}
-                      </ul>
-                    </div>
-                    <div>
-                      <h3
-                        className={`text-xl font-medium mb-2 ${
-                          language === "ja" ? "font-hiraKakuPro" : ""
-                        }`}
-                      >
-                        {language === "en"
-                          ? "Backend Services"
-                          : "バックエンドサービス"}
-                      </h3>
-                      <ul
-                        className={`list-disc pl-5 space-y-1 ${
-                          language === "ja" ? "font-hiraKakuPro" : ""
-                        }`}
-                      >
-                        {language === "en" ? (
-                          <>
-                            <li>MongoDB with Mongoose for data persistence</li>
-                            <li>NextAuth.js for secure authentication</li>
-                            <li>RESTful API endpoints for order management</li>
-                            <li>Nodemailer for automated notifications</li>
-                          </>
-                        ) : (
-                          <>
-                            <li>データ永続化のためのMongoDBとMongoose</li>
-                            <li>安全な認証のためのNextAuth.js</li>
-                            <li>注文管理のためのRESTful APIエンドポイント</li>
-                            <li>自動通知のためのNodemailer</li>
-                          </>
-                        )}
-                      </ul>
-                    </div>
-                  </div>
-                </section>
-              </div>
-
-              <div className="space-y-8">
-                <div className="rounded-lg overflow-hidden shadow-lg">
-                  <video
-                    src="/videos/stringBoxWeb.mp4"
-                    autoPlay
-                    muted
-                    loop
-                    className="w-full"
-                  />
-                </div>
-
-                <section>
-                  <h2
-                    className={`text-2xl font-semibold mb-4 ${
-                      language === "ja" ? "font-hiraKakuPro" : ""
-                    }`}
-                  >
-                    {language === "en"
-                      ? "Development Practices"
-                      : "開発プラクティス"}
-                  </h2>
-                  <div className="flex gap-4">
-                    <Image
-                      src="/images/icons/next.webp"
-                      alt="Next.js"
-                      width={50}
-                      height={50}
-                      className="mx-2"
-                      style={{
-                        objectFit: "contain",
-                        filter: isDarkMode ? "invert(1)" : "invert(0)",
-                      }}
-                    />
-                    <Image
-                      src="/images/icons/js.webp"
-                      alt="JavaScript"
-                      width={50}
-                      height={50}
-                      className=""
-                    />
-                    <Image
-                      src="/images/icons/mongodb.webp"
-                      alt="MongoDB"
-                      width={50}
-                      height={50}
-                      className=""
-                    />
-                    <Image
-                      src="/images/icons/tailwind.webp"
-                      alt="Tailwind CSS"
-                      width={50}
-                      height={50}
-                      className="py-2"
-                    />
-                  </div>
-                </section>
-
-                <section>
-                  <h2
-                    className={`text-2xl font-semibold mb-4 ${
-                      language === "ja" ? "font-hiraKakuPro" : ""
-                    }`}
-                  >
-                    {language === "en" ? "Key Features" : "主な機能"}
-                  </h2>
-                  <ul
-                    className={`list-disc pl-5 space-y-2 ${
-                      language === "ja" ? "font-hiraKakuPro" : ""
-                    }`}
-                  >
-                    {language === "en" ? (
-                      <>
-                        <li>Secure user authentication and authorization</li>
-                        <li>Integrated payment processing with Stripe</li>
-                        <li>Real-time order tracking and management</li>
-                        <li>Responsive design for all devices</li>
-                        <li>Admin dashboard for business operations</li>
-                        <li>Automated email notifications</li>
-                      </>
-                    ) : (
-                      <>
-                        <li>安全なユーザー認証と認可</li>
-                        <li>Stripeを使用した統合決済処理</li>
-                        <li>リアルタイムの注文追跡と管理</li>
-                        <li>全デバイス対応のレスポンシブデザイン</li>
-                        <li>ビジネス運営のための管理ダッシュボード</li>
-                        <li>自動メール通知</li>
-                      </>
-                    )}
+              <div className="grid grid-cols-3 gap-4 mt-4 max-md:grid-cols-1">
+                <div className="border border-gray-300 rounded-lg p-4 border-opacity-20">
+                  <h3 className="text-xl font-semibold mb-2">Frontend</h3>
+                  <ul className="list-disc pl-5">
+                    <li>React</li>
+                    <li>Next.js</li>
+                    <li>Tailwind CSS</li>
+                    <li>QR Code Generator</li>
+                    <li>PWA capability</li>
                   </ul>
-                </section>
-              </div>
-            </div>
-
-            <section className="mt-12">
-              <h2
-                className={`text-2xl font-semibold mb-4 ${
-                  language === "ja" ? "font-hiraKakuPro" : ""
-                }`}
-              >
-                {language === "en" ? "Package Information" : "パッケージ情報"}
-              </h2>
-              <div className="bg-opacity-5 bg-white dark:bg-opacity-5 dark:bg-black rounded-lg p-6">
-                <pre className="overflow-x-auto">
-                  <code>
-                    {`{
-  "name": "string-box",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
-  },
-  "dependencies": {
-    "@reduxjs/toolkit": "^2.2.3",
-    "@stripe/react-stripe-js": "^2.7.1",
-    "@stripe/stripe-js": "^3.4.0",
-    "autoprefixer": "^10.4.19",
-    "axios": "^1.6.8",
-    "bcryptjs": "^2.4.3",
-    "cors": "^2.8.5",
-    "dotenv": "^16.4.5",
-    "googleapis": "^137.1.0",
-    "jsonwebtoken": "^9.0.2",
-    "mongodb": "^6.6.1",
-    "mongoose": "^8.3.4",
-    "next": "^14.2.3",
-    "next-auth": "^4.24.7",
-    "nodemailer": "^6.9.13",
-    "pg": "^8.11.5",
-    "react": "^18",
-    "react-dom": "^18",
-    "react-redux": "^9.1.1",
-    "react-responsive": "^10.0.0",
-    "redux": "^5.0.1",
-    "redux-thunk": "^3.1.0",
-    "sharp": "^0.33.3",
-    "stripe": "^15.5.0",
-    "react-recaptcha-v3": "^1.9.1"
-  },
-  "devDependencies": {
-    "eslint": "^8",
-    "eslint-config-next": "14.2.3",
-    "postcss": "^8.4.38",
-    "tailwindcss": "^3.4.3"
-  }
-}`}
-                  </code>
-                </pre>
+                </div>
+                <div className="border border-gray-300 rounded-lg p-4 border-opacity-20">
+                  <h3 className="text-xl font-semibold mb-2">Backend</h3>
+                  <ul className="list-disc pl-5">
+                    <li>Node.js</li>
+                    <li>Express</li>
+                    <li>MongoDB</li>
+                    <li>RESTful API</li>
+                    <li>JWT Authentication</li>
+                  </ul>
+                </div>
+                <div className="border border-gray-300 rounded-lg p-4 border-opacity-20">
+                  <h3 className="text-xl font-semibold mb-2">
+                    Development Tools
+                  </h3>
+                  <ul className="list-disc pl-5">
+                    <li>Git & GitHub</li>
+                    <li>Docker</li>
+                    <li>Jest for testing</li>
+                    <li>CI/CD pipelines</li>
+                    <li>Vercel deployment</li>
+                  </ul>
+                </div>
               </div>
             </section>
           </div>
 
+          <div className="my-8">
+            <h2 className="text-2xl font-semibold mb-4">Project Screenshots</h2>
+            <div className="grid grid-cols-3 gap-4 max-md:grid-cols-1">
+              <div className="border border-gray-300 rounded-lg overflow-hidden border-opacity-20">
+                <Image
+                  src="/images/stringbox/landing.png"
+                  alt="StringBox Landing Page"
+                  width={400}
+                  height={300}
+                  className="w-full"
+                />
+                <div className="p-4">
+                  <h3 className="text-xl font-semibold mb-2">Landing Page</h3>
+                  <p>
+                    The main landing page of StringBox, showcasing the app&apos;s
+                    features and benefits.
+                  </p>
+                </div>
+              </div>
+              <div className="border border-gray-300 rounded-lg overflow-hidden border-opacity-20">
+                <Image
+                  src="/images/stringbox/profile.png"
+                  alt="User Profile Page"
+                  width={400}
+                  height={300}
+                  className="w-full"
+                />
+                <div className="p-4">
+                  <h3 className="text-xl font-semibold mb-2">User Profile</h3>
+                  <p>
+                    The user profile page where users can view and edit their
+                    professional information.
+                  </p>
+                </div>
+              </div>
+              <div className="border border-gray-300 rounded-lg overflow-hidden border-opacity-20">
+                <Image
+                  src="/images/stringbox/qrcode.png"
+                  alt="QR Code Sharing"
+                  width={400}
+                  height={300}
+                  className="w-full"
+                />
+                <div className="p-4">
+                  <h3 className="text-xl font-semibold mb-2">
+                    QR Code Sharing
+                  </h3>
+                  <p>
+                    The QR code generation and sharing feature, making it easy
+                    to connect with others.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="my-8">
+            <h2 className="text-2xl font-semibold mb-4">Development Process</h2>
+            <div className="grid grid-cols-2 gap-4 max-md:grid-cols-1">
+              <div className="border border-gray-300 rounded-lg p-4 border-opacity-20">
+                <h3 className="text-xl font-semibold mb-2">
+                  Design & Planning
+                </h3>
+                <p>
+                  The development process began with thorough planning and
+                  design. User personas were created to understand the target
+                  audience, and wireframes were designed to map out the user
+                  experience. The technology stack was carefully selected to
+                  ensure scalability and performance.
+                </p>
+              </div>
+              <div className="border border-gray-300 rounded-lg p-4 border-opacity-20">
+                <h3 className="text-xl font-semibold mb-2">Implementation</h3>
+                <p>
+                  The implementation phase followed an agile methodology, with
+                  regular sprints and feature prioritization. The frontend and
+                  backend were developed in parallel, with continuous
+                  integration and testing to ensure code quality and
+                  functionality.
+                </p>
+              </div>
+              <div className="border border-gray-300 rounded-lg p-4 border-opacity-20">
+                <h3 className="text-xl font-semibold mb-2">
+                  Testing & Validation
+                </h3>
+                <p>
+                  Rigorous testing was conducted to ensure the application met
+                  all requirements and performed optimally. This included unit
+                  testing, integration testing, and user acceptance testing.
+                  Feedback from test users was incorporated to improve the user
+                  experience.
+                </p>
+              </div>
+              <div className="border border-gray-300 rounded-lg p-4 border-opacity-20">
+                <h3 className="text-xl font-semibold mb-2">
+                  Deployment & Maintenance
+                </h3>
+                <p>
+                  The application was deployed using CI/CD pipelines to ensure
+                  smooth and reliable releases. Post-deployment, a maintenance
+                  plan was established to address bugs, implement new features,
+                  and ensure the application remains up-to-date with the latest
+                  security standards.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div className="my-8">
+            <h2 className="text-2xl font-semibold mb-4">Future Enhancements</h2>
+            <p>
+              The development of StringBox is an ongoing process, with several
+              enhancements planned for future releases:
+            </p>
+            <ul className="list-disc pl-5 mt-2">
+              <li>Integration with professional networks like LinkedIn</li>
+              <li>
+                Enhanced analytics for tracking profile views and interactions
+              </li>
+              <li>Customizable templates for business cards</li>
+              <li>Direct messaging capabilities between users</li>
+              <li>
+                Advanced search functionality to find professionals by industry
+                or skills
+              </li>
+            </ul>
+          </div>
+
+          <div className="mt-8 mb-16">
+            <h2 className="text-2xl font-semibold mb-4">Conclusion</h2>
+            <p>
+              StringBox represents a significant step forward in professional
+              networking, providing a digital solution to the traditional
+              business card. By leveraging modern web technologies and focusing
+              on user experience, StringBox offers a seamless and efficient way
+              for professionals to connect and share their information.
+            </p>
+            <a
+              href="https://github.com/your-username/stringbox"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-500 hover:text-blue-700 mt-4 inline-block"
+            >
+              View on GitHub
+            </a>
+          </div>
+
           <WorkNavigation currentPath="/work/stringBox" />
         </div>
-      </main>
+      </div>
       <Footer />
     </>
   );

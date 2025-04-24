@@ -1,16 +1,12 @@
 import React, { useState, useEffect } from "react";
 import HeaderGlobal from "@/components/globals/headerGlobal";
 import Footer from "@/components/globals/footer";
-import AOS from "aos";
-import "aos/dist/aos.css";
 import Image from "next/image";
 import { useDarkMode } from "@/contexts/darkModeContext";
-import { useLanguage } from "@/contexts/language";
 import { WorkNavigation } from "@/components/work/WorkNavigation";
 
 const CelestialObjectTracker = () => {
   const { isDarkMode } = useDarkMode();
-  const { language } = useLanguage();
   const backgroundColor = isDarkMode
     ? "var(--background-color-dark)"
     : "var(--background-color-light)";
@@ -18,7 +14,6 @@ const CelestialObjectTracker = () => {
     ? "var(--foreground-color-dark)"
     : "var(--foreground-color-light)";
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [showPdf, setShowPdf] = useState(false);
 
   const images = [
     "/images/celestialobjecttracker/img1.jpg",
@@ -34,187 +29,83 @@ const CelestialObjectTracker = () => {
   ];
 
   useEffect(() => {
-    AOS.init({
-      duration: 1000,
-      once: false,
-    });
-
     const interval = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
-      AOS.refresh();
     }, 3000);
 
     return () => clearInterval(interval);
   }, [images.length]);
 
   const openPdf = () => {
-    if (window.innerWidth < 1024) {
-      // 1024px is the breakpoint for 'lg'
-      const link = document.createElement("a");
-      link.href = "/pdf/Angus_Blomley_Final_Major_Project_Report.pdf";
-      link.download = "Angus_Blomley_Final_Major_Project_Report.pdf";
-      link.click();
-    } else {
-      setShowPdf(true);
-    }
-  };
-
-  const closePdf = () => {
-    setShowPdf(false);
+    // Open PDF in a new tab
+    window.open("/pdf/Angus_Blomley_Final_Major_Project_Report.pdf", "_blank");
   };
 
   return (
     <>
       <HeaderGlobal />
-      <div
-        id="celestialObjectTracker"
-        data-aos="fade-in"
-        style={{ backgroundColor, color }}
-      >
+      <div id="celestialObjectTracker" style={{ backgroundColor, color }}>
         <div className="container mx-auto px-4 py-8">
-          <h1
-            className={`text-4xl mt-16 font-bold mb-4 ${
-              language === "ja" ? "font-hiraKakuPro" : ""
-            }`}
-          >
-            {language === "en"
-              ? "Celestial Object Tracker - Final Major Project"
-              : "天体追跡装置 - 卒業制作"}
+          <h1 className="text-4xl mt-16 font-bold mb-4">
+            Celestial Object Tracker - Final Major Project
           </h1>
-          <p
-            className={`text-lg ${language === "ja" ? "font-hiraKakuPro" : ""}`}
-          >
-            {language === "en"
-              ? "Welcome to the Celestial Object Tracker project. This section showcases my final major project, including the technology stack used and key features implemented."
-              : "天体追跡装置プロジェクトへようこそ。このセクションでは、使用した技術スタックと実装した主要機能を含む、私の卒業制作を紹介します。"}{" "}
+          <p className="text-lg">
+            Welcome to the Celestial Object Tracker project. This section
+            showcases my final major project, including the technology stack
+            used and key features implemented.
             <a
-              className={`text-blue-500 hover:text-blue-700 cursor-pointer ${
-                language === "ja" ? "font-hiraKakuPro" : ""
-              }`}
+              className="text-blue-500 hover:text-blue-700 cursor-pointer"
               onClick={openPdf}
             >
-              {language === "en"
-                ? "View the project Report"
-                : "プロジェクトレポートを見る"}
+              View the project Report
             </a>{" "}
-            {language === "en" ? "or" : "または"}{" "}
+            or{" "}
             <a
               href="https://github.com/AngusBlomley/Celestial-Object-Tracker"
               target="_blank"
               rel="noopener noreferrer"
-              className={`text-blue-500 hover:text-blue-700 ${
-                language === "ja" ? "font-hiraKakuPro" : ""
-              }`}
+              className="text-blue-500 hover:text-blue-700"
             >
-              {language === "en"
-                ? "view the project on Github."
-                : "GitHubでプロジェクトを見る。"}
+              view the project on Github.
             </a>
           </p>
-          {showPdf && (
-            <div
-              className="fixed inset-0 bg-black bg-opacity-80 flex justify-center"
-              onClick={closePdf}
-            >
-              <div
-                className="relative w-3/5 h-full shadow-lg"
-                onClick={(e) => e.stopPropagation()}
-              >
-                <iframe
-                  title="Celestial Object Tracker Project Report"
-                  src="/pdf/Angus_Blomley_Final_Major_Project_Report.pdf"
-                  className="w-full h-screen pt-16 pb-10"
-                ></iframe>
-              </div>
-            </div>
-          )}
           <div className="grid grid-cols-3 border-b border-opacity-10 border-gray-100 max-2xl:col-span-2 max-lg:grid-cols-1">
             <section className="pb-8 pt-8 pr-8 border-b border-opacity-10 border-gray-100 col-span-3 max-2xl:col-span-1">
-              <h2
-                className={`text-2xl font-semibold mb-2 ${
-                  language === "ja" ? "font-hiraKakuPro" : ""
-                }`}
-              >
-                {language === "en" ? "Project Overview" : "プロジェクト概要"}
-              </h2>
-              <p className={language === "ja" ? "font-hiraKakuPro" : ""}>
-                {language === "en"
-                  ? "The Celestial Object Tracker is an affordable and scalable electronic device designed to track celestial objects in real-time. It combines stepper motors for precise movement, an Arduino, a Raspberry Pi for control processing, and a camera for capturing real-time celestial observations."
-                  : "天体追跡装置は、天体をリアルタイムで追跡するために設計された、手頃な価格でスケーラブルな電子デバイスです。精密な動きのためのステッピングモーター、制御処理のためのArduinoとRaspberry Pi、そしてリアルタイムの天体観測のためのカメラを組み合わせています。"}
+              <h2 className="text-2xl font-semibold mb-2">Project Overview</h2>
+              <p>
+                The Celestial Object Tracker is an affordable and scalable
+                electronic device designed to track celestial objects in
+                real-time. It combines stepper motors for precise movement, an
+                Arduino, a Raspberry Pi for control processing, and a camera for
+                capturing real-time celestial observations.
               </p>
             </section>
 
             <section className="h-full pt-8 pr-8 grid-cols-1 max-lg:row-start-2 border-b border-gray-100 border-opacity-10 max-2xl:pb-8">
-              <h2
-                className={`text-2xl font-semibold mb-2 ${
-                  language === "ja" ? "font-hiraKakuPro" : ""
-                }`}
-              >
-                {language === "en" ? "Technology Stack" : "技術スタック"}
-              </h2>
-              <ul
-                className={`list-disc pl-5 ${
-                  language === "ja" ? "font-hiraKakuPro" : ""
-                }`}
-              >
-                {language === "en" ? (
-                  <>
-                    <li>Raspberry Pi for control processing</li>
-                    <li>Arduino for hardware control</li>
-                    <li>Python for software development</li>
-                    <li>Arduino programming</li>
-                    <li>MPU6050 for orientation sensing</li>
-                    <li>GT-U7 for GPS data</li>
-                    <li>Skyfield API for celestial coordinates</li>
-                    <li>Fusion 360 for 3D design</li>
-                  </>
-                ) : (
-                  <>
-                    <li>制御処理のためのRaspberry Pi</li>
-                    <li>ハードウェア制御のためのArduino</li>
-                    <li>ソフトウェア開発のためのPython</li>
-                    <li>Arduinoプログラミング</li>
-                    <li>方向検知のためのMPU6050</li>
-                    <li>GPS データのためのGT-U7</li>
-                    <li>天体座標のためのSkyfield API</li>
-                    <li>3Dデザインのための Fusion 360</li>
-                  </>
-                )}
+              <h2 className="text-2xl font-semibold mb-2">Technology Stack</h2>
+              <ul className="list-disc pl-5">
+                <li>Raspberry Pi for control processing</li>
+                <li>Arduino for hardware control</li>
+                <li>Python for software development</li>
+                <li>Arduino programming</li>
+                <li>MPU6050 for orientation sensing</li>
+                <li>GT-U7 for GPS data</li>
+                <li>Skyfield API for celestial coordinates</li>
+                <li>Fusion 360 for 3D design</li>
               </ul>
             </section>
 
             <section className="h-full pr-8 pt-8 row-start-3 max-2xl:row-start-1 max-2xl:col-end-3 max-lg:row-start-3 max-lg:col-start-1 border-b border-gray-100 border-opacity-10 max-lg:pb-8 max-2xl:pt-8">
-              <h2
-                className={`text-2xl font-semibold mb-2 ${
-                  language === "ja" ? "font-hiraKakuPro" : ""
-                }`}
-              >
-                {language === "en" ? "Key Features" : "主な機能"}
-              </h2>
-              <ul
-                className={`list-disc pl-5 ${
-                  language === "ja" ? "font-hiraKakuPro" : ""
-                }`}
-              >
-                {language === "en" ? (
-                  <>
-                    <li>
-                      Accurate celestial object tracking using GPS and IMU data
-                    </li>
-                    <li>Real-time updates with Skyfield API integration</li>
-                    <li>
-                      Automated control of stepper motors for precise movement
-                    </li>
-                    <li>Interactive GUI for user-friendly operation</li>
-                  </>
-                ) : (
-                  <>
-                    <li>GPSとIMUデータを使用した正確な天体追跡</li>
-                    <li>Skyfield API統合によるリアルタイム更新</li>
-                    <li>精密な動きのためのステッピングモーターの自動制御</li>
-                    <li>ユーザーフレンドリーな操作のための対話型GUI</li>
-                  </>
-                )}
+              <h2 className="text-2xl font-semibold mb-2">Key Features</h2>
+              <ul className="list-disc pl-5">
+                <li>
+                  Accurate celestial object tracking using GPS and IMU data
+                </li>
+                <li>Real-time updates with Skyfield API integration</li>
+                <li>
+                  Automated control of stepper motors for precise movement
+                </li>
+                <li>Interactive GUI for user-friendly operation</li>
               </ul>
             </section>
 
@@ -235,32 +126,17 @@ const CelestialObjectTracker = () => {
           </div>
           <div className="grid grid-cols-6 grid-rows-2 mt-8 max-lg:grid-cols-1">
             <section className="row-span-full col-span-2 col-start-2 max-lg:row-start-3 max-lg:row-span-1 pt-8 border-r border-gray-100 border-opacity-10 bg-gray-100 bg-opacity-20 max-2xl:col-span-3">
-              <h2
-                className={`text-2xl font-semibold mb-2 pl-4 ${
-                  language === "ja" ? "font-hiraKakuPro" : ""
-                }`}
-              >
-                {language === "en"
-                  ? "Software & Libraries"
-                  : "ソフトウェアとライブラリ"}
+              <h2 className="text-2xl font-semibold mb-2 pl-4">
+                Software & Libraries
               </h2>
-              <p
-                className={`px-4 pb-4 ${
-                  language === "ja" ? "font-hiraKakuPro" : ""
-                }`}
-              >
-                {language === "en"
-                  ? "The Celestial Object Tracker project leverages a range of libraries and software to achieve its functionality. Below is a list of key dependencies used in the project, demonstrating the diverse set of tools and technologies employed."
-                  : "天体追跡装置プロジェクトは、その機能を実現するために様々なライブラリとソフトウェアを活用しています。以下は、プロジェクトで使用された主要な依存関係のリストで、採用された多様なツールと技術を示しています。"}
+              <p className="px-4 pb-4">
+                The Celestial Object Tracker project leverages a range of
+                libraries and software to achieve its functionality. Below is a
+                list of key dependencies used in the project, demonstrating the
+                diverse set of tools and technologies employed.
               </p>
-              <h3
-                className={`text-xl font-semibold pl-4 ${
-                  language === "ja" ? "font-hiraKakuPro" : ""
-                }`}
-              >
-                {language === "en"
-                  ? "Python and Arduino Libraries"
-                  : "PythonとArduinoのライブラリ"}
+              <h3 className="text-xl font-semibold pl-4">
+                Python and Arduino Libraries
               </h3>
               <pre className="p-4 rounded-md flex-1 overflow-x-auto max-w-full">
                 <code>
@@ -277,171 +153,95 @@ sgp4==2.23
 skyfield==1.48`}
                 </code>
               </pre>
-              <h3
-                className={`text-xl font-semibold pl-4 pt-4 ${
-                  language === "ja" ? "font-hiraKakuPro" : ""
-                }`}
-              >
-                {language === "en"
-                  ? "Project Highlights"
-                  : "プロジェクトのハイライト"}
+              <h3 className="text-xl font-semibold pl-4 pt-4">
+                Project Highlights
               </h3>
-              <ul
-                className={`list-disc pl-8 pb-4 ${
-                  language === "ja" ? "font-hiraKakuPro" : ""
-                }`}
-              >
-                {language === "en" ? (
-                  <>
-                    <li>
-                      Utilizes OpenCV for real-time image processing and object
-                      detection.
-                    </li>
-                    <li>
-                      Employs Skyfield and SGP4 for precise astronomical
-                      calculations and satellite tracking.
-                    </li>
-                    <li>
-                      Integrates NumPy for efficient numerical computations and
-                      data manipulation.
-                    </li>
-                    <li>
-                      Leverages the Pillow library for image handling and
-                      manipulation.
-                    </li>
-                    <li>
-                      Uses PyYAML for configuration management, ensuring
-                      flexibility and ease of setup.
-                    </li>
-                  </>
-                ) : (
-                  <>
-                    <li>
-                      リアルタイムの画像処理と物体検出のためのOpenCVの活用
-                    </li>
-                    <li>
-                      精密な天文計算と衛星追跡のためのSkyfieldとSGP4の採用
-                    </li>
-                    <li>効率的な数値計算とデータ操作のためのNumPyの統合</li>
-                    <li>画像処理と操作のためのPillowライブラリの活用</li>
-                    <li>
-                      柔軟性と簡単なセットアップを確保するための設定管理にPyYAMLを使用
-                    </li>
-                  </>
-                )}
+              <ul className="list-disc pl-8 pb-4">
+                <li>
+                  Utilizes OpenCV for real-time image processing and object
+                  detection.
+                </li>
+                <li>
+                  Employs Skyfield and SGP4 for precise astronomical
+                  calculations and satellite tracking.
+                </li>
+                <li>
+                  Integrates NumPy for efficient numerical computations and data
+                  manipulation.
+                </li>
+                <li>
+                  Leverages the Pillow library for image handling and
+                  manipulation.
+                </li>
+                <li>
+                  Uses PyYAML for configuration management, ensuring flexibility
+                  and ease of setup.
+                </li>
               </ul>
-              <h3
-                className={`text-xl font-semibold pl-4 pt-4 ${
-                  language === "ja" ? "font-hiraKakuPro" : ""
-                }`}
-              >
-                {language === "en" ? "Learning & Application" : "学習と応用"}
+              <h3 className="text-xl font-semibold pl-4 pt-4">
+                Learning & Application
               </h3>
-              <p
-                className={`px-4 pb-4 ${
-                  language === "ja" ? "font-hiraKakuPro" : ""
-                }`}
-              >
-                {language === "en"
-                  ? "This project provided extensive learning opportunities in areas such as hardware-software integration, real-time data processing, and GUI development. The hands-on experience with these libraries has honed skills in both development and problem-solving, making it a robust showcase of technical abilities and project management."
-                  : "このプロジェクトは、ハードウェアとソフトウェアの統合、リアルタイムデータ処理、GUI開発などの分野で広範な学習機会を提供しました。これらのライブラリを使用した実践的な経験により、開発と問題解決の両方のスキルが磨かれ、技術力とプロジェクト管理の堅実なショーケースとなっています。"}
+              <p className="px-4 pb-4">
+                This project provided extensive learning opportunities in areas
+                such as hardware-software integration, real-time data
+                processing, and GUI development. The hands-on experience with
+                these libraries has honed skills in both development and
+                problem-solving, making it a robust showcase of technical
+                abilities and project management.
               </p>
-              <p
-                className={`px-4 pb-4 ${
-                  language === "ja" ? "font-hiraKakuPro" : ""
-                }`}
-              >
-                {language === "en"
-                  ? "I plan to continuely update this project as a side hobby of mine, to recreate it in actual C++ not Arduino and improve performance and user experience."
-                  : "このプロジェクトを私の趣味の一つとして継続的に更新し、ArduinoではなくC++で再作成し、パフォーマンスとユーザー体験を向上させる計画です。"}
+              <p className="px-4 pb-4">
+                I plan to continuely update this project as a side hobby of
+                mine, to recreate it in actual C++ not Arduino and improve
+                performance and user experience.
               </p>
             </section>
 
             <div className="p-8 max-lg:px-0 col-span-2 col-start-4 row-span-full max-2xl:col-span-3">
-              <h2
-                className={`text-2xl font-semibold mb-2 ${
-                  language === "ja" ? "font-hiraKakuPro" : ""
-                }`}
-              >
-                {language === "en"
-                  ? "3D Design & Prototyping"
-                  : "3Dデザインとプロトタイピング"}
+              <h2 className="text-2xl font-semibold mb-2">
+                3D Design & Prototyping
               </h2>
-              <p
-                className={`pb-8 border-b border-gray-100 border-opacity-10 ${
-                  language === "ja" ? "font-hiraKakuPro" : ""
-                }`}
-              >
-                {language === "en"
-                  ? "The Celestial Object Tracker features a custom-designed 3D-printed frame, created using Fusion 360. The design ensures stability and precision in tracking celestial objects. Multiple iterations of the prototype were developed and tested to achieve optimal performance and durability."
-                  : "天体追跡装置は、Fusion 360を使用して作成されたカスタムデザインの3Dプリントフレームを特徴としています。このデザインは、天体追跡における安定性と精度を確保します。最適なパフォーマンスと耐久性を実現するため、プロトタイプの複数の反復が開発とテストを重ねられました。"}
+              <p className="pb-8 border-b border-gray-100 border-opacity-10">
+                The Celestial Object Tracker features a custom-designed
+                3D-printed frame, created using Fusion 360. The design ensures
+                stability and precision in tracking celestial objects. Multiple
+                iterations of the prototype were developed and tested to achieve
+                optimal performance and durability.
               </p>
-              <h2
-                className={`text-2xl font-semibold mb-2 pt-8 ${
-                  language === "ja" ? "font-hiraKakuPro" : ""
-                }`}
-              >
-                {language === "en"
-                  ? "Hardware Integration"
-                  : "ハードウェア統合"}
+              <h2 className="text-2xl font-semibold mb-2 pt-8">
+                Hardware Integration
               </h2>
-              <p
-                className={`pb-8 border-b border-gray-100 border-opacity-10 ${
-                  language === "ja" ? "font-hiraKakuPro" : ""
-                }`}
-              >
-                {language === "en"
-                  ? "This project integrates various hardware components including stepper motors, an Arduino, and a Raspberry Pi. The stepper motors provide precise movements, controlled via the Arduino, while the Raspberry Pi handles processing and real-time data updates. An MPU6050 sensor is used for orientation, and a GT-U7 module provides GPS data for accurate positioning."
-                  : "このプロジェクトは、ステッピングモーター、Arduino、Raspberry Piなど、様々なハードウェアコンポーネントを統合しています。ステッピングモーターはArduinoを介して制御され、精密な動きを提供し、Raspberry Piは処理とリアルタイムデータの更新を担当します。MPU6050センサーは方向検知に使用され、GT-U7モジュールは正確な位置決めのためのGPSデータを提供します。"}
+              <p className="pb-8 border-b border-gray-100 border-opacity-10">
+                This project integrates various hardware components including
+                stepper motors, an Arduino, and a Raspberry Pi. The stepper
+                motors provide precise movements, controlled via the Arduino,
+                while the Raspberry Pi handles processing and real-time data
+                updates. An MPU6050 sensor is used for orientation, and a GT-U7
+                module provides GPS data for accurate positioning.
               </p>
-              <h2
-                className={`text-2xl font-semibold mb-4 mt-8 ${
-                  language === "ja" ? "font-hiraKakuPro" : ""
-                }`}
-              >
-                {language === "en"
-                  ? "Software Development"
-                  : "ソフトウェア開発"}
+              <h2 className="text-2xl font-semibold mb-4 mt-8">
+                Software Development
               </h2>
               <div className="software-development mb-8">
                 <div>
-                  <h3
-                    className={`text-xl font-semibold ${
-                      language === "ja" ? "font-hiraKakuPro" : ""
-                    }`}
-                  >
-                    {language === "en"
-                      ? "Python & Arduino Programming"
-                      : "PythonとArduinoのプログラミング"}
+                  <h3 className="text-xl font-semibold">
+                    Python & Arduino Programming
                   </h3>
-                  <p
-                    className={`w-full mt-2 ${
-                      language === "ja" ? "font-hiraKakuPro" : ""
-                    }`}
-                  >
-                    {language === "en"
-                      ? "The software for the Celestial Object Tracker is developed using Python for high-level control and Arduino programming for hardware interfacing. The Python code handles celestial calculations using the Skyfield API, while the Arduino code manages motor control and sensor data acquisition."
-                      : "天体追跡装置のソフトウェアは、高レベル制御にPythonを、ハードウェアインターフェースにArduinoプログラミングを使用して開発されています。PythonコードはSkyfield APIを使用して天体計算を処理し、Arduinoコードはモーター制御とセンサーデータの取得を管理します。"}
+                  <p className="w-full mt-2">
+                    The software for the Celestial Object Tracker is developed
+                    using Python for high-level control and Arduino programming
+                    for hardware interfacing. The Python code handles celestial
+                    calculations using the Skyfield API, while the Arduino code
+                    manages motor control and sensor data acquisition.
                   </p>
                 </div>
                 <div className="mt-8">
-                  <h3
-                    className={`text-xl font-semibold ${
-                      language === "ja" ? "font-hiraKakuPro" : ""
-                    }`}
-                  >
-                    {language === "en"
-                      ? "User Interface"
-                      : "ユーザーインターフェース"}
-                  </h3>
-                  <p
-                    className={`w-full mt-2 ${
-                      language === "ja" ? "font-hiraKakuPro" : ""
-                    }`}
-                  >
-                    {language === "en"
-                      ? "A user-friendly GUI is implemented using Tkinter in Python, allowing users to select celestial objects, view real-time data, and control the tracker. The interface provides an intuitive way to interact with the system, ensuring accessibility for users of all experience levels."
-                      : "PythonのTkinterを使用してユーザーフレンドリーなGUIが実装され、ユーザーは天体の選択、リアルタイムデータの表示、トラッカーの制御が可能です。インターフェースはシステムとの直感的な対話方法を提供し、すべての経験レベルのユーザーにとってのアクセシビリティを確保しています。"}
+                  <h3 className="text-xl font-semibold">User Interface</h3>
+                  <p className="w-full mt-2">
+                    A user-friendly GUI is implemented using Tkinter in Python,
+                    allowing users to select celestial objects, view real-time
+                    data, and control the tracker. The interface provides an
+                    intuitive way to interact with the system, ensuring
+                    accessibility for users of all experience levels.
                   </p>
                 </div>
               </div>

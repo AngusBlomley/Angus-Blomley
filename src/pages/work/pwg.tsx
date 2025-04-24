@@ -1,10 +1,7 @@
 /* eslint-disable react/no-unescaped-entities */
-import React, { useEffect } from "react";
 import HeaderGlobal from "@/components/globals/headerGlobal";
 import Footer from "@/components/globals/footer";
 import { WorkNavigation } from "@/components/work/WorkNavigation";
-import AOS from "aos";
-import "aos/dist/aos.css";
 import Image from "next/image";
 import { useDarkMode } from "@/contexts/darkModeContext";
 import { useLanguage } from "@/contexts/language";
@@ -19,19 +16,12 @@ const PWG = () => {
     ? "var(--foreground-color-dark)"
     : "var(--foreground-color-light)";
 
-  useEffect(() => {
-    AOS.init({
-      duration: 1000,
-      once: false,
-    });
-  }, []);
-
   return (
     <>
       <HeaderGlobal />
       <main className="min-h-screen pt-20" style={{ backgroundColor, color }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-          <div className="space-y-8" data-aos="fade-up">
+          <div className="space-y-8">
             <div className="text-center">
               <h1
                 className={`text-4xl mt-16 font-bold mb-4 ${
