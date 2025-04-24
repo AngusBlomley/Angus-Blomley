@@ -47,7 +47,7 @@ const ProjectNavigation: React.FC<ProjectNavigationProps> = ({
       className="max-w-4xl mx-auto mt-12 mb-8 p-4 border-t border-gray-300 dark:border-gray-700 flex justify-between items-center font-ibmPlexMono"
       aria-label="Project navigation"
     >
-      <div>
+      <div className="flex-1 text-left">
         {prevProject ? (
           <Link href={`/work/${prevProject.slug}`} passHref>
             <div className="inline-flex items-center text-sm opacity-75 hover:opacity-100 transition-opacity cursor-pointer">
@@ -58,16 +58,16 @@ const ProjectNavigation: React.FC<ProjectNavigationProps> = ({
             </div>
           </Link>
         ) : (
-          <div className="text-sm text-gray-400 dark:text-gray-600"></div> // Placeholder for styling when no prev exists
+          <div className="text-sm text-gray-400 dark:text-gray-600"></div>
         )}
       </div>
 
       {/* Project Counter */}
-      <div className="text-center text-sm text-gray-500 dark:text-gray-400">
+      <div className="text-center text-sm text-gray-500 dark:text-gray-400 whitespace-nowrap px-4">
         {currentIndex + 1} / {projects.length}
       </div>
 
-      <div className="text-right">
+      <div className="flex-1 text-right">
         {nextProject ? (
           <Link href={`/work/${nextProject.slug}`} passHref>
             <div className="inline-flex items-center text-sm opacity-75 hover:opacity-100 transition-opacity cursor-pointer">
@@ -78,7 +78,7 @@ const ProjectNavigation: React.FC<ProjectNavigationProps> = ({
             </div>
           </Link>
         ) : (
-          <div className="text-sm text-gray-400 dark:text-gray-600"></div> // Placeholder for styling when no next exists
+          <div className="text-sm text-gray-400 dark:text-gray-600"></div>
         )}
       </div>
     </nav>
