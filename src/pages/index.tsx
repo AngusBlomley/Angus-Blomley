@@ -1,14 +1,23 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, lazy, Suspense } from "react";
 import Head from "next/head";
 import { useDarkMode } from "@/contexts/darkModeContext";
 import { FaArrowUp } from "react-icons/fa";
 import Header from "@/components/globals/header";
 import Main from "@/components/index/main";
 import About from "@/components/index/about";
-import Education from "@/components/index/education";
 import Contact from "@/components/index/contact";
 import Footer from "@/components/globals/footer";
-import WorkExperience from "@/components/index/workExperience";
+
+// Lazy load non-critical components
+const Education = lazy(() => import("@/components/index/education"));
+const WorkExperience = lazy(() => import("@/components/index/workExperience"));
+
+// Loading fallback
+const LoadingFallback = () => (
+  <div className="flex justify-center items-center py-16">
+    <div className="w-8 h-8 border-4 border-blue-200 border-t-sky-800 rounded-full animate-spin"></div>
+  </div>
+);
 
 function HomePage() {
   const { isDarkMode } = useDarkMode();
@@ -60,8 +69,12 @@ function HomePage() {
       <Header />
       <Main />
       <About />
-      <WorkExperience />
-      <Education />
+      <Suspense fallback={<LoadingFallback />}>
+        <WorkExperience />
+      </Suspense>
+      <Suspense fallback={<LoadingFallback />}>
+        <Education />
+      </Suspense>
       <Contact />
       <Footer />
 

@@ -92,6 +92,8 @@ function WorkExperience() {
                     width={800}
                     height={1200}
                     className="w-full h-auto"
+                    preload="auto"
+                    playsInline
                   />
                 </div>
               </Link>

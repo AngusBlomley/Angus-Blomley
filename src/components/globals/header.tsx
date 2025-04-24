@@ -344,9 +344,7 @@ function Header(): JSX.Element {
                   ) : (
                     <FaMoon className="mr-2" />
                   )}
-                  <span>
-                    {isDarkMode ? "Light Mode" : "Dark Mode"}
-                  </span>
+                  <span>{isDarkMode ? "Light Mode" : "Dark Mode"}</span>
                 </button>
               </li>
             </ul>
