@@ -3,7 +3,10 @@ import HeaderGlobal from "@/components/globals/headerGlobal";
 import Footer from "@/components/globals/footer";
 import Image from "next/image";
 import { useDarkMode } from "@/contexts/darkModeContext";
-import { WorkNavigation } from "@/components/work/WorkNavigation";
+import ProjectNavigation from "@/components/work/ProjectNavigation";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faGithub } from "@fortawesome/free-brands-svg-icons";
+import { faExternalLinkAlt } from "@fortawesome/free-solid-svg-icons";
 
 const Meetly = () => {
   const { isDarkMode } = useDarkMode();
@@ -17,212 +20,182 @@ const Meetly = () => {
   return (
     <>
       <HeaderGlobal />
-      <div id="stringBox" style={{ backgroundColor, color }}>
-        <div className="container mx-auto px-4 py-8">
-          <h1 className="text-4xl mt-16 font-bold mb-4">
-            Meetly - Find The Central Train Station Between Two Locations
-          </h1>
-          <p className="text-lg">
-            Welcome to Meetly, a web application that helps users find the
-            central train station between two addresses. This page demonstrates
-            the work I've done on this project, including the technology stack
-            used and key features implemented.
-            <a
-              href="https://meetly-zeta.vercel.app/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-blue-500 hover:text-blue-700"
-            >
-              Visit the Meetly app
-            </a>
-            <span> or </span>
-            <a
-              href="https://github.com/AngusBlomley/Meetly"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-blue-500 hover:text-blue-700"
-            >
-              view the Meetly Github.
-            </a>
-          </p>
+      <main
+        className="flex-grow container mx-auto px-4 py-8 pt-24 lg:pt-32"
+        style={{ backgroundColor, color }}
+      >
+        {/* Title */}
+        <h1 className="text-4xl font-bold mb-6 text-center font-ibmPlexMono italic">
+          Meetly - Central Meeting Point Finder
+        </h1>
 
-          <div className="grid grid-cols-3 border-b border-opacity-10 border-gray-100 max-2xl:col-span-2 max-lg:grid-cols-1">
-            <section className="pb-8 pt-8 pr-8 border-b border-opacity-10 border-gray-100 col-span-3 max-2xl:col-span-1">
-              <h2 className="text-2xl font-semibold mb-2">Project Overview</h2>
-              <p>
-                Meetly is a web application that allows users to find the
-                central train station between two addresses, making it perfect
-                for planning meetups. Users can quickly discover a convenient
-                location for both parties.
-              </p>
-            </section>
+        {/* Links */}
+        <div className="flex justify-center gap-4 mb-8">
+          <a
+            href="https://meetly-zeta.vercel.app/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-colors duration-150"
+            aria-label="Visit live site (opens in a new tab)"
+          >
+            <FontAwesomeIcon icon={faExternalLinkAlt} className="mr-2" />
+            Live Site
+          </a>
+          <a
+            href="https://github.com/AngusBlomley/Meetly"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center px-4 py-2 border border-gray-300 dark:border-gray-600 text-sm font-medium rounded-md shadow-sm text-gray-700 dark:text-gray-200 bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-colors duration-150"
+            aria-label="View source code on GitHub (opens in a new tab)"
+          >
+            <FontAwesomeIcon icon={faGithub} className="mr-2" />
+            GitHub
+          </a>
+        </div>
 
-            <section className="h-full pt-8 pr-8 grid-cols-1 max-lg:row-start-2 border-b border-gray-100 border-opacity-10 max-2xl:pb-8">
-              <h2 className="text-2xl font-semibold mb-2">Technology Stack</h2>
-              <ul className="list-disc pl-5">
-                <li>React.js for the frontend framework</li>
-                <li>Next.js for server-side rendering</li>
-                <li>TypeScript for type safety</li>
-                <li>Google Maps API for location services</li>
-                <li>Axios for making HTTP requests</li>
-              </ul>
-            </section>
+        {/* Main Video */}
+        <div className="mb-8 max-w-4xl mx-auto rounded-lg overflow-hidden shadow-lg border border-gray-700">
+          <video
+            src="/videos/meetly.mp4"
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="metadata"
+            className="w-full h-auto aspect-video"
+          />
+        </div>
 
-            <section className="h-full pr-8 pt-8 row-start-3 max-2xl:row-start-1 max-2xl:col-end-3 max-lg:row-start-3 max-lg:col-start-1 border-b border-gray-100 border-opacity-10 max-lg:pb-8 max-2xl:pt-8">
-              <h2 className="text-2xl font-semibold mb-2">Key Features</h2>
-              <ul className="list-disc pl-5">
-                <li>
-                  Enter two addresses and the application will find the
-                  midpoint.
-                </li>
-                <li>
-                  Displays the nearest train station to the midpoint on a Google
-                  Map.
-                </li>
-                <li>
-                  The map is initially blurred and hidden, becoming visible and
-                  focused upon submitting the addresses.
-                </li>
-                <li>
-                  A back button allows users to return to the form and enter new
-                  addresses.
-                </li>
-              </ul>
-            </section>
+        {/* Content Area */}
+        <div className="max-w-4xl mx-auto space-y-8 font-karla">
+          {/* Project Overview */}
+          <section>
+            <h2 className="text-2xl font-semibold mb-3 font-ibmPlexMono">
+              Project Overview
+            </h2>
+            <p>
+              Meetly is a practical web application designed to simplify meeting
+              arrangements by finding the central train station between two
+              specified addresses. It's ideal for users needing to find a
+              mutually convenient public transport location.
+            </p>
+          </section>
 
-            <section className="border-l pt-8 pl-8 pb-8 border-opacity-10 border-gray-100 row-span-2 col-span-2 max-2xl:col-span-3 max-2xl:border-none max-2xl:px-0 ">
-              <a
-                href="https://meetly-zeta.vercel.app/"
-                className="filter hover:brightness-75 duration-200"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <video
-                  title="Meetly Application"
-                  src="/videos/meetly.mp4"
-                  autoPlay
-                  muted
-                  loop
-                  width={960}
-                  height={480}
-                  className="w-full"
-                />
-              </a>
-            </section>
-          </div>
-          <div className="grid grid-cols-6 grid-rows-2 mt-8 max-lg:grid-cols-1">
-            <section className="row-span-full col-span-2 col-start-2 max-lg:row-start-3 max-lg:row-span-1 pt-8 border-r border-gray-100 border-opacity-10 bg-gray-100 bg-opacity-20 max-2xl:col-span-3">
-              <h2 className="text-2xl font-semibold mb-2  pl-4">
-                Package.json
-              </h2>
-              <pre className="p-4 rounded-md flex-1 overflow-x-auto max-w-full">
-                <code>
-                  {`{
-  "private": true,
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start"
-  },
-  "dependencies": {
-    "@google/maps": "^1.1.3",
-    "@react-google-maps/api": "^2.19.3",
-    "axios": "^1.3.4",
-    "google-map-react": "^2.2.0",
-    "next": "^14.1.4",
-    "react": "18.2.0",
-    "react-dom": "18.2.0"
-  },
-  "devDependencies": {
-    "@types/google-map-react": "^2.1.7",
-    "@types/node": "18.11.3",
-    "@types/react": "18.0.21",
-    "@types/react-dom": "18.0.6",
-    "autoprefixer": "^10.4.12",
-    "postcss": "^8.4.18",
-    "tailwindcss": "^3.2.4",
-    "typescript": "4.9.4"
-  }
-}`}
-                </code>
-              </pre>
-            </section>
+          {/* Technical Overview */}
+          <section>
+            <h2 className="text-2xl font-semibold mb-3 font-ibmPlexMono">
+              Technical Overview
+            </h2>
+            <p className="mb-4">
+              This project integrates frontend technologies with external APIs
+              to provide a location-based service. Built using Next.js for
+              server-side rendering benefits and React for the UI, it leverages
+              the Google Maps API for geocoding addresses, calculating
+              midpoints, and finding nearby train stations.
+            </p>
 
-            <div className="p-8 max-lg:px-0 col-span-2 col-start-4 row-span-full max-2xl:col-span-3">
-              <h2 className="text-2xl font-semibold mb-2">Deployment</h2>
-              <p className="pb-8 border-b border-gray-100 border-opacity-10">
-                This project is deployed on Vercel, leveraging its powerful
-                deployment platform for Next.js applications. Vercel provides
-                automatic scaling, a global CDN, and easy-to-configure
-                deployment settings.
-              </p>
-              <h2 className="text-2xl font-semibold mb-2 pt-8">
-                Database Information
-              </h2>
-              <p className="pb-8 border-b border-gray-100 border-opacity-10">
-                Meetly uses a combination of Google Maps API for location
-                services and does not require a traditional database for the
-                main functionality.
-              </p>
-              <h2 className="text-2xl font-semibold mb-4 mt-8">Client</h2>
-              <div className="team-member mb-8">
-                <div className="flex items-center">
-                  <div>
-                    <h3 className="text-xl font-semibold"></h3>
-                  </div>
-                </div>
-              </div>
-              <div className="team-member">
-                <div className="flex items-center">
-                  <div>
-                    <h3 className="text-xl font-semibold"></h3>
-                    <p className="text-gray-500 w-full mt-2"></p>
-                  </div>
-                </div>
-              </div>
-              <div className="flex row h-16 flex-wrap">
+            <h3 className="text-xl font-semibold mb-2">Architecture & Stack</h3>
+            <ul className="list-disc list-inside space-y-1 mb-4">
+              <li>
+                <strong>Framework:</strong> Next.js (React)
+              </li>
+              <li>
+                <strong>Language:</strong> TypeScript
+              </li>
+              <li>
+                <strong>API Integration:</strong> Google Maps API (Geocoding,
+                Places)
+              </li>
+              <li>
+                <strong>HTTP Client:</strong> Axios
+              </li>
+              <li>
+                <strong>Styling:</strong> Tailwind CSS
+              </li>
+              <li>
+                <strong>Deployment:</strong> Vercel
+              </li>
+            </ul>
+
+            <h3 className="text-xl font-semibold mb-2">Core Functionality</h3>
+            <ul className="list-disc list-inside space-y-1">
+              <li>Input fields for two addresses.</li>
+              <li>Midpoint calculation between the two geocoded addresses.</li>
+              <li>
+                Finding the nearest train station to the calculated midpoint
+                using Google Places API.
+              </li>
+              <li>
+                Displaying the resulting station and route on an interactive
+                Google Map.
+              </li>
+              <li>
+                Dynamic map visibility (initially blurred/hidden, revealed on
+                submit).
+              </li>
+            </ul>
+
+            <div className="mt-6">
+              <h3 className="text-xl font-semibold mb-2">Technologies Used</h3>
+              <div className="flex flex-wrap gap-4 items-center">
                 <Image
                   src="/images/icons/next.webp"
                   alt="Next.js"
-                  width={50}
-                  height={50}
-                  className="my-2 py-2"
-                />
-                <Image
-                  src="/images/icons/maps2.png"
-                  alt="Maps"
-                  width={50}
-                  height={50}
-                  className="my-2 py-2 ml-2"
-                />
-                <Image
-                  src="/images/icons/axios.webp"
-                  alt="Axios"
-                  width={50}
-                  height={50}
-                  className="my-2 py-2 ml-2"
+                  width={40}
+                  height={40}
+                  style={{
+                    objectFit: "contain",
+                    filter: isDarkMode ? "invert(1)" : "invert(0)",
+                  }}
                 />
                 <Image
                   src="/images/icons/react.webp"
-                  alt="Axios"
-                  width={50}
-                  height={50}
-                  className="ml-2 py-4"
+                  alt="React"
+                  width={40}
+                  height={40}
+                  style={{ objectFit: "contain" }}
                 />
                 <Image
                   src="/images/icons/tailwind.webp"
                   alt="Tailwind CSS"
-                  width={50}
-                  height={50}
-                  className="ml-2 my-2 py-4"
+                  width={40}
+                  height={40}
+                  style={{ objectFit: "contain" }}
+                />
+                <Image
+                  src="/images/icons/maps2.png"
+                  alt="Google Maps API"
+                  width={40}
+                  height={40}
+                  style={{ objectFit: "contain" }}
+                />
+                <Image
+                  src="/images/icons/axios.webp"
+                  alt="Axios"
+                  width={40}
+                  height={40}
+                  style={{
+                    objectFit: "contain",
+                    filter: isDarkMode ? "invert(1)" : "invert(0)",
+                  }}
+                />
+                <Image
+                  src="/images/icons/github.webp"
+                  alt="GitHub"
+                  width={40}
+                  height={40}
+                  style={{
+                    objectFit: "contain",
+                    filter: isDarkMode ? "invert(0)" : "invert(1)",
+                  }}
                 />
               </div>
             </div>
-          </div>
-
-          <WorkNavigation currentPath="/work/meetly" />
+          </section>
         </div>
-      </div>
+
+        <ProjectNavigation currentSlug="meetly" />
+      </main>
       <Footer />
     </>
   );

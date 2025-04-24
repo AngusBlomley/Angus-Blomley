@@ -3,7 +3,10 @@ import HeaderGlobal from "@/components/globals/headerGlobal";
 import Footer from "@/components/globals/footer";
 import Image from "next/image";
 import { useDarkMode } from "@/contexts/darkModeContext";
-import { WorkNavigation } from "@/components/work/WorkNavigation";
+import ProjectNavigation from "@/components/work/ProjectNavigation";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faGithub } from "@fortawesome/free-brands-svg-icons";
+import { faFilePdf } from "@fortawesome/free-solid-svg-icons";
 
 const CelestialObjectTracker = () => {
   const { isDarkMode } = useDarkMode();
@@ -36,111 +39,199 @@ const CelestialObjectTracker = () => {
     return () => clearInterval(interval);
   }, [images.length]);
 
-  const openPdf = () => {
-    // Open PDF in a new tab
-    window.open("/pdf/Angus_Blomley_Final_Major_Project_Report.pdf", "_blank");
-  };
-
   return (
     <>
       <HeaderGlobal />
-      <div id="celestialObjectTracker" style={{ backgroundColor, color }}>
-        <div className="container mx-auto px-4 py-8">
-          <h1 className="text-4xl mt-16 font-bold mb-4">
-            Celestial Object Tracker - Final Major Project
-          </h1>
-          <p className="text-lg">
-            Welcome to the Celestial Object Tracker project. This section
-            showcases my final major project, including the technology stack
-            used and key features implemented.
-            <a
-              className="text-blue-500 hover:text-blue-700 cursor-pointer"
-              onClick={openPdf}
-            >
-              View the project Report
-            </a>{" "}
-            or{" "}
-            <a
-              href="https://github.com/AngusBlomley/Celestial-Object-Tracker"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-blue-500 hover:text-blue-700"
-            >
-              view the project on Github.
-            </a>
-          </p>
-          <div className="grid grid-cols-3 border-b border-opacity-10 border-gray-100 max-2xl:col-span-2 max-lg:grid-cols-1">
-            <section className="pb-8 pt-8 pr-8 border-b border-opacity-10 border-gray-100 col-span-3 max-2xl:col-span-1">
-              <h2 className="text-2xl font-semibold mb-2">Project Overview</h2>
-              <p>
-                The Celestial Object Tracker is an affordable and scalable
-                electronic device designed to track celestial objects in
-                real-time. It combines stepper motors for precise movement, an
-                Arduino, a Raspberry Pi for control processing, and a camera for
-                capturing real-time celestial observations.
-              </p>
-            </section>
+      <main
+        className="flex-grow container mx-auto px-4 py-8 pt-24 lg:pt-32"
+        style={{ backgroundColor, color }}
+      >
+        <h1 className="text-4xl font-bold mb-6 text-center font-ibmPlexMono italic">
+          Celestial Object Tracker
+        </h1>
 
-            <section className="h-full pt-8 pr-8 grid-cols-1 max-lg:row-start-2 border-b border-gray-100 border-opacity-10 max-2xl:pb-8">
-              <h2 className="text-2xl font-semibold mb-2">Technology Stack</h2>
-              <ul className="list-disc pl-5">
-                <li>Raspberry Pi for control processing</li>
-                <li>Arduino for hardware control</li>
-                <li>Python for software development</li>
-                <li>Arduino programming</li>
-                <li>MPU6050 for orientation sensing</li>
-                <li>GT-U7 for GPS data</li>
-                <li>Skyfield API for celestial coordinates</li>
-                <li>Fusion 360 for 3D design</li>
-              </ul>
-            </section>
+        <div className="flex justify-center gap-4 mb-8">
+          <a
+            href="/pdf/Angus_Blomley_Final_Major_Project_Report.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-colors duration-150"
+            aria-label="View Project Report PDF (opens in a new tab)"
+          >
+            <FontAwesomeIcon icon={faFilePdf} className="mr-2" />
+            Project Report
+          </a>
+          <a
+            href="https://github.com/AngusBlomley/Celestial-Object-Tracker"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center px-4 py-2 border border-gray-300 dark:border-gray-600 text-sm font-medium rounded-md shadow-sm text-gray-700 dark:text-gray-200 bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-colors duration-150"
+            aria-label="View source code on GitHub (opens in a new tab)"
+          >
+            <FontAwesomeIcon icon={faGithub} className="mr-2" />
+            GitHub
+          </a>
+        </div>
 
-            <section className="h-full pr-8 pt-8 row-start-3 max-2xl:row-start-1 max-2xl:col-end-3 max-lg:row-start-3 max-lg:col-start-1 border-b border-gray-100 border-opacity-10 max-lg:pb-8 max-2xl:pt-8">
-              <h2 className="text-2xl font-semibold mb-2">Key Features</h2>
-              <ul className="list-disc pl-5">
-                <li>
-                  Accurate celestial object tracking using GPS and IMU data
-                </li>
-                <li>Real-time updates with Skyfield API integration</li>
-                <li>
-                  Automated control of stepper motors for precise movement
-                </li>
-                <li>Interactive GUI for user-friendly operation</li>
-              </ul>
-            </section>
-
-            <section className="border-l pt-8 pl-8 pb-8 border-opacity-10 border-gray-100 row-span-2 col-span-2 max-2xl:col-span-3 max-2xl:border-none max-2xl:px-0 ">
-              <a
-                onClick={openPdf}
-                className="filter hover:brightness-75 duration-200 cursor-pointer"
-              >
-                <Image
-                  alt="Celestial Object Tracker Project"
-                  src={images[currentIndex]}
-                  width={960}
-                  height={480}
-                  className="w-full"
-                />
-              </a>
-            </section>
+        <div className="mb-8 max-w-4xl mx-auto rounded-lg overflow-hidden shadow-lg border border-gray-700">
+          <div className="relative w-full aspect-video">
+            <Image
+              alt="Celestial Object Tracker Project Image Carousel"
+              src={images[currentIndex]}
+              layout="fill"
+              objectFit="cover"
+              className="transition-opacity duration-500 ease-in-out"
+              key={currentIndex}
+              priority
+            />
           </div>
-          <div className="grid grid-cols-6 grid-rows-2 mt-8 max-lg:grid-cols-1">
-            <section className="row-span-full col-span-2 col-start-2 max-lg:row-start-3 max-lg:row-span-1 pt-8 border-r border-gray-100 border-opacity-10 bg-gray-100 bg-opacity-20 max-2xl:col-span-3">
-              <h2 className="text-2xl font-semibold mb-2 pl-4">
-                Software & Libraries
-              </h2>
-              <p className="px-4 pb-4">
-                The Celestial Object Tracker project leverages a range of
-                libraries and software to achieve its functionality. Below is a
-                list of key dependencies used in the project, demonstrating the
-                diverse set of tools and technologies employed.
-              </p>
-              <h3 className="text-xl font-semibold pl-4">
-                Python and Arduino Libraries
-              </h3>
-              <pre className="p-4 rounded-md flex-1 overflow-x-auto max-w-full">
-                <code>
-                  {`certifi==2024.2.2
+        </div>
+
+        <div className="max-w-4xl mx-auto space-y-8 font-karla">
+          <section>
+            <h2 className="text-2xl font-semibold mb-3 font-ibmPlexMono">
+              Project Overview
+            </h2>
+            <p>
+              My final major university project: an affordable and scalable
+              electronic device designed to track celestial objects in
+              real-time. It combines stepper motors for precise movement, an
+              Arduino for low-level hardware control, a Raspberry Pi for
+              processing and calculations, and a camera for capturing real-time
+              celestial observations.
+            </p>
+          </section>
+
+          <section>
+            <h2 className="text-2xl font-semibold mb-3 font-ibmPlexMono">
+              Technical Overview
+            </h2>
+            <p className="mb-4">
+              This complex project involved integrating hardware (Raspberry Pi,
+              Arduino, sensors, motors) with software (Python) to perform
+              real-time calculations and control physical movements based on
+              astronomical data. It included 3D design and printing for the
+              physical structure.
+            </p>
+
+            <h3 className="text-xl font-semibold mb-2">Architecture & Stack</h3>
+            <ul className="list-disc list-inside space-y-1 mb-4">
+              <li>
+                <strong>Control Processing:</strong> Raspberry Pi
+              </li>
+              <li>
+                <strong>Hardware Control:</strong> Arduino
+              </li>
+              <li>
+                <strong>Software:</strong> Python (with libraries like Skyfield,
+                OpenCV, NumPy, Pillow)
+              </li>
+              <li>
+                <strong>Sensors:</strong> MPU6050 (IMU), GT-U7 (GPS)
+              </li>
+              <li>
+                <strong>Actuators:</strong> Stepper Motors
+              </li>
+              <li>
+                <strong>API Integration:</strong> Skyfield API (for celestial
+                coordinates)
+              </li>
+              <li>
+                <strong>UI:</strong> Tkinter GUI
+              </li>
+              <li>
+                <strong>3D Design:</strong> Autodesk Fusion 360
+              </li>
+            </ul>
+
+            <h3 className="text-xl font-semibold mb-2">Core Functionality</h3>
+            <ul className="list-disc list-inside space-y-1">
+              <li>
+                Accurate celestial object tracking using GPS, IMU, and time
+                data.
+              </li>
+              <li>Real-time coordinate calculation using Skyfield API.</li>
+              <li>
+                Automated, precise control of stepper motors based on calculated
+                coordinates.
+              </li>
+              <li>
+                Interactive Tkinter GUI for selecting targets and monitoring
+                status.
+              </li>
+              <li>Real-time image processing potential with OpenCV.</li>
+            </ul>
+
+            <div className="mt-6">
+              <h3 className="text-xl font-semibold mb-2">Technologies Used</h3>
+              <div className="flex flex-wrap gap-4 items-center">
+                <Image
+                  src="/images/icons/python.webp"
+                  alt="Python"
+                  width={40}
+                  height={40}
+                  style={{ objectFit: "contain" }}
+                />
+                <Image
+                  src="/images/icons/raspberrypi.webp"
+                  alt="Raspberry Pi"
+                  width={40}
+                  height={40}
+                  style={{ objectFit: "contain" }}
+                />
+                <Image
+                  src="/images/icons/arduino.webp"
+                  alt="Arduino"
+                  width={40}
+                  height={40}
+                  style={{ objectFit: "contain" }}
+                />
+                <Image
+                  src="/images/icons/opencv.svg"
+                  alt="OpenCV"
+                  width={35}
+                  height={35}
+                  style={{ objectFit: "contain" }}
+                />
+                <Image
+                  src="/images/icons/numpy.svg"
+                  alt="NumPy"
+                  width={35}
+                  height={35}
+                  style={{ objectFit: "contain" }}
+                />
+                <Image
+                  src="/images/icons/fusion360.png"
+                  alt="Fusion 360"
+                  width={40}
+                  height={40}
+                  style={{ objectFit: "contain" }}
+                />
+                <Image
+                  src="/images/icons/github.webp"
+                  alt="GitHub"
+                  width={40}
+                  height={40}
+                  style={{
+                    objectFit: "contain",
+                    filter: isDarkMode ? "invert(0)" : "invert(1)",
+                  }}
+                />
+              </div>
+            </div>
+          </section>
+
+          <section>
+            <h2 className="text-2xl font-semibold mb-3 font-ibmPlexMono">
+              Development Insights
+            </h2>
+            <h3 className="text-xl font-semibold mb-2">
+              Software & Libraries Used
+            </h3>
+            <pre className="p-4 mb-4 rounded-md bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-100 text-xs overflow-x-auto">
+              <code>
+                {`# Key Python Dependencies
+certifi==2024.2.2
 future==1.0.0
 iso8601==2.1.0
 jplephem==2.21
@@ -151,146 +242,31 @@ PyYAML==6.0.1
 serial==0.0.97
 sgp4==2.23
 skyfield==1.48`}
-                </code>
-              </pre>
-              <h3 className="text-xl font-semibold pl-4 pt-4">
-                Project Highlights
-              </h3>
-              <ul className="list-disc pl-8 pb-4">
-                <li>
-                  Utilizes OpenCV for real-time image processing and object
-                  detection.
-                </li>
-                <li>
-                  Employs Skyfield and SGP4 for precise astronomical
-                  calculations and satellite tracking.
-                </li>
-                <li>
-                  Integrates NumPy for efficient numerical computations and data
-                  manipulation.
-                </li>
-                <li>
-                  Leverages the Pillow library for image handling and
-                  manipulation.
-                </li>
-                <li>
-                  Uses PyYAML for configuration management, ensuring flexibility
-                  and ease of setup.
-                </li>
-              </ul>
-              <h3 className="text-xl font-semibold pl-4 pt-4">
-                Learning & Application
-              </h3>
-              <p className="px-4 pb-4">
-                This project provided extensive learning opportunities in areas
-                such as hardware-software integration, real-time data
-                processing, and GUI development. The hands-on experience with
-                these libraries has honed skills in both development and
-                problem-solving, making it a robust showcase of technical
-                abilities and project management.
-              </p>
-              <p className="px-4 pb-4">
-                I plan to continuely update this project as a side hobby of
-                mine, to recreate it in actual C++ not Arduino and improve
-                performance and user experience.
-              </p>
-            </section>
-
-            <div className="p-8 max-lg:px-0 col-span-2 col-start-4 row-span-full max-2xl:col-span-3">
-              <h2 className="text-2xl font-semibold mb-2">
-                3D Design & Prototyping
-              </h2>
-              <p className="pb-8 border-b border-gray-100 border-opacity-10">
-                The Celestial Object Tracker features a custom-designed
-                3D-printed frame, created using Fusion 360. The design ensures
-                stability and precision in tracking celestial objects. Multiple
-                iterations of the prototype were developed and tested to achieve
-                optimal performance and durability.
-              </p>
-              <h2 className="text-2xl font-semibold mb-2 pt-8">
-                Hardware Integration
-              </h2>
-              <p className="pb-8 border-b border-gray-100 border-opacity-10">
-                This project integrates various hardware components including
-                stepper motors, an Arduino, and a Raspberry Pi. The stepper
-                motors provide precise movements, controlled via the Arduino,
-                while the Raspberry Pi handles processing and real-time data
-                updates. An MPU6050 sensor is used for orientation, and a GT-U7
-                module provides GPS data for accurate positioning.
-              </p>
-              <h2 className="text-2xl font-semibold mb-4 mt-8">
-                Software Development
-              </h2>
-              <div className="software-development mb-8">
-                <div>
-                  <h3 className="text-xl font-semibold">
-                    Python & Arduino Programming
-                  </h3>
-                  <p className="w-full mt-2">
-                    The software for the Celestial Object Tracker is developed
-                    using Python for high-level control and Arduino programming
-                    for hardware interfacing. The Python code handles celestial
-                    calculations using the Skyfield API, while the Arduino code
-                    manages motor control and sensor data acquisition.
-                  </p>
-                </div>
-                <div className="mt-8">
-                  <h3 className="text-xl font-semibold">User Interface</h3>
-                  <p className="w-full mt-2">
-                    A user-friendly GUI is implemented using Tkinter in Python,
-                    allowing users to select celestial objects, view real-time
-                    data, and control the tracker. The interface provides an
-                    intuitive way to interact with the system, ensuring
-                    accessibility for users of all experience levels.
-                  </p>
-                </div>
-              </div>
-
-              <div className="pt-8 pb-8 mb-8">
-                <div className="flex row h-16 flex-wrap">
-                  <Image
-                    src="/images/icons/raspberrypi.webp"
-                    alt="Raspberry Pi"
-                    width={50}
-                    height={50}
-                    className="py-1"
-                  />
-                  <Image
-                    src="/images/icons/arduino.webp"
-                    alt="Arduino"
-                    width={50}
-                    height={50}
-                    className="m-2"
-                  />
-                  <Image
-                    src="/images/icons/python.webp"
-                    alt="Python"
-                    width={50}
-                    height={50}
-                    className="m-2"
-                  />
-                  <Image
-                    src="/images/icons/fusion360.png"
-                    alt="Fusion 360"
-                    width={50}
-                    height={50}
-                    className="m-2"
-                  />
-                  <Image
-                    src="/images/icons/tkinter.jpeg"
-                    alt="Tkinter"
-                    width={50}
-                    height={50}
-                    className="m-2"
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <WorkNavigation currentPath="/work/celestialObjectTracker" />
+              </code>
+            </pre>
+            <h3 className="text-xl font-semibold mb-2">
+              Hardware Integration & 3D Design
+            </h3>
+            <p className="mb-4">
+              The project involved significant hardware integration, interfacing
+              sensors (IMU, GPS) and motors with the Arduino and Raspberry Pi. A
+              custom 3D-printed frame, designed iteratively in Fusion 360,
+              provided the necessary stability and mounting for the components.
+            </p>
+            <h3 className="text-xl font-semibold mb-2">
+              Learning & Future Plans
+            </h3>
+            <p>
+              This project was a major learning experience in hardware-software
+              co-design, real-time systems, and applied mathematics/astronomy.
+              Future plans include refactoring the control logic into C++ for
+              improved performance and enhancing the user interface.
+            </p>
+          </section>
         </div>
-      </div>
+
+        <ProjectNavigation currentSlug="celestialObjectTracker" />
+      </main>
       <Footer />
     </>
   );
