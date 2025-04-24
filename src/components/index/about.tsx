@@ -29,12 +29,9 @@ function About() {
           ariaLabel="Read more about my personal story and background"
           className="mr-4"
         >
-          My Story
+          Learn More
         </Button>
-        <Button
-          href="#contact"
-          ariaLabel="Navigate to contact section"
-        >
+        <Button href="#contact" ariaLabel="Navigate to contact section">
           Reach out
         </Button>
       </p>
