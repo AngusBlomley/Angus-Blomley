@@ -67,7 +67,7 @@ const ProjectNavigation: React.FC<ProjectNavigationProps> = ({
 
       {/* Project Counter */}
       <div className="text-center text-sm text-gray-500 dark:text-gray-400">
-        Page {currentIndex + 1} / {projects.length}
+        {currentIndex + 1} / {projects.length}
       </div>
 
       <div className="text-right">
