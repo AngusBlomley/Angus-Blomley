@@ -5,6 +5,7 @@ import { useDarkMode } from "@/contexts/darkModeContext";
 import ProjectNavigation from "@/components/work/ProjectNavigation";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChrome } from "@fortawesome/free-brands-svg-icons";
+import { useState } from "react";
 
 const Vocabo = () => {
   const { isDarkMode } = useDarkMode();
@@ -14,6 +15,8 @@ const Vocabo = () => {
   const color = isDarkMode
     ? "var(--foreground-color-dark)"
     : "var(--foreground-color-light)";
+
+  const [isVideoLoading, setIsVideoLoading] = useState(true);
 
   return (
     <>
@@ -45,14 +48,26 @@ const Vocabo = () => {
           </div>
 
           <div className="mb-8 max-w-4xl mx-auto">
-            <video
-              src="/videos/vocabo.mp4"
-              controls
-              autoPlay
-              muted
-              loop
-              className="rounded-lg shadow-lg border border-gray-700 w-full h-auto"
-            />
+            <div className="rounded-lg shadow-lg border border-gray-700 relative aspect-video">
+              {isVideoLoading && (
+                <div className="absolute inset-0 flex items-center justify-center bg-gray-200 dark:bg-gray-700">
+                  <span className="text-gray-500 dark:text-gray-400">
+                    Loading video...
+                  </span>
+                </div>
+              )}
+              <video
+                src="/videos/vocabo.mp4"
+                controls
+                autoPlay
+                muted
+                loop
+                className={`rounded-lg w-full h-auto transition-opacity duration-300 ${
+                  isVideoLoading ? "opacity-0" : "opacity-100"
+                }`}
+                onLoadedData={() => setIsVideoLoading(false)}
+              />
+            </div>
           </div>
 
           <div className="max-w-4xl mx-auto space-y-8 font-karla">

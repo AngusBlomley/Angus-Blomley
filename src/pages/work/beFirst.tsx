@@ -4,6 +4,7 @@ import Footer from "@/components/globals/footer";
 import Image from "next/image";
 import { useDarkMode } from "@/contexts/darkModeContext";
 import ProjectNavigation from "@/components/work/ProjectNavigation";
+import { useState } from "react";
 
 const BeFirst = () => {
   const { isDarkMode } = useDarkMode();
@@ -13,6 +14,8 @@ const BeFirst = () => {
   const color = isDarkMode
     ? "var(--foreground-color-dark)"
     : "var(--foreground-color-light)";
+
+  const [isVideoLoading, setIsVideoLoading] = useState(true);
 
   return (
     <>
@@ -89,16 +92,30 @@ const BeFirst = () => {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <video
-                  title="Advent Delights Project"
-                  src="/videos/beFirst.mp4"
-                  autoPlay
-                  muted
-                  loop
-                  width={960}
-                  height={480}
-                  className="w-full"
-                />
+                <div className="relative aspect-video">
+                  {isVideoLoading && (
+                    <div className="absolute inset-0 flex items-center justify-center bg-gray-200 dark:bg-gray-700">
+                      <span className="text-gray-500 dark:text-gray-400">
+                        Loading video...
+                      </span>
+                    </div>
+                  )}
+                  <video
+                    title="Advent Delights Project"
+                    src="/videos/beFirst.mp4"
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    preload="metadata"
+                    width={960}
+                    height={480}
+                    className={`w-full transition-opacity duration-300 ${
+                      isVideoLoading ? "opacity-0" : "opacity-100"
+                    }`}
+                    onLoadedData={() => setIsVideoLoading(false)}
+                  />
+                </div>
               </a>
             </section>
           </div>

@@ -7,6 +7,7 @@ import ProjectNavigation from "@/components/work/ProjectNavigation";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import { faExternalLinkAlt } from "@fortawesome/free-solid-svg-icons";
+import { useState } from "react";
 
 const Meetly = () => {
   const { isDarkMode } = useDarkMode();
@@ -16,6 +17,9 @@ const Meetly = () => {
   const color = isDarkMode
     ? "var(--foreground-color-dark)"
     : "var(--foreground-color-light)";
+
+  // Add state for video loading
+  const [isVideoLoading, setIsVideoLoading] = useState(true);
 
   return (
     <>
@@ -54,7 +58,14 @@ const Meetly = () => {
         </div>
 
         {/* Main Video */}
-        <div className="mb-8 max-w-4xl mx-auto rounded-lg overflow-hidden shadow-lg border border-gray-700">
+        <div className="mb-8 max-w-4xl mx-auto rounded-lg overflow-hidden shadow-lg border border-gray-700 relative aspect-video">
+          {isVideoLoading && (
+            <div className="absolute inset-0 flex items-center justify-center bg-gray-200 dark:bg-gray-700">
+              <span className="text-gray-500 dark:text-gray-400">
+                Loading video...
+              </span>
+            </div>
+          )}
           <video
             src="/videos/meetly.mp4"
             autoPlay
@@ -62,7 +73,10 @@ const Meetly = () => {
             loop
             playsInline
             preload="metadata"
-            className="w-full h-auto aspect-video"
+            className={`w-full h-auto transition-opacity duration-300 ${
+              isVideoLoading ? "opacity-0" : "opacity-100"
+            }`}
+            onLoadedData={() => setIsVideoLoading(false)}
           />
         </div>
 
