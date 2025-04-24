@@ -99,12 +99,12 @@ const WorldMap: React.FC<WorldMapProps> = ({ visitedCountries }) => {
               style={{ backgroundColor: backgroundColor }}
             >
               <p className="mb-2">{location.description}</p>
-              {(location.country === "USA" || location.country === "GBR") && (
+              {location.country === "GBR" && (
                 <a
                   href={`#${location.country.toLowerCase()}`}
                   className="text-blue-500 hover:text-blue-600"
                 >
-                  Learn more →
+                  Learn more
                 </a>
               )}
             </div>
