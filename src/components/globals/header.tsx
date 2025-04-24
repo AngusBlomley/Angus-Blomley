@@ -140,10 +140,10 @@ function Header(): JSX.Element {
           name: "Open Fern Studio",
           link: "/work/openfern",
         },
-        {
-          name: "Re-String Box",
-          link: "/work/stringBox",
-        },
+        // {
+        //   name: "Re-String Box",
+        //   link: "/work/stringBox",
+        // },
         {
           name: "Celestial Object Tracker",
           link: "/work/celestialObjectTracker",
