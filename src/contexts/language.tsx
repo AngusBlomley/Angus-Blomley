@@ -1,5 +1,3 @@
-"use client";
-
 import React, {
   createContext,
   useState,
@@ -12,6 +10,8 @@ interface LanguageContextType {
   language: string;
   toggleLanguage: () => void;
 }
+
+//TODO: Set language to en for now...
 
 export const LanguageContext = createContext<LanguageContextType | undefined>(
   undefined

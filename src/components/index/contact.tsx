@@ -1,10 +1,7 @@
 import React, { useState, useEffect, JSX } from "react";
-import "../../app/globals.css";
-import AOS from "aos";
-import "aos/dist/aos.css";
-import Image from "next/image";
 import { useDarkMode } from "@/contexts/darkModeContext";
 import { useLanguage } from "@/contexts/language";
+import Image from "next/image";
 
 function Contact(): JSX.Element {
   const [formData, setFormData] = useState({
@@ -16,23 +13,13 @@ function Contact(): JSX.Element {
   const [submitted, setSubmitted] = useState(false);
   const [recaptchaLoaded, setRecaptchaLoaded] = useState(false);
   const { language } = useLanguage();
-  const [buttonText, setButtonText] = useState(
-    language === "en" ? "Send" : "送信"
-  );
+  const [buttonText, setButtonText] = useState("Send");
   const [isSending, setIsSending] = useState(false);
 
   const { isDarkMode } = useDarkMode();
   const color = isDarkMode
     ? "var(--foreground-color-dark)"
     : "var(--foreground-color-light)";
-
-  useEffect(() => {
-    AOS.init({
-      duration: 1000,
-      once: true,
-      offset: -200,
-    });
-  }, []);
 
   useEffect(() => {
     const loadRecaptcha = () => {
@@ -61,16 +48,12 @@ function Contact(): JSX.Element {
     if (isSending) {
       let dots = 0;
       const interval = setInterval(() => {
-        setButtonText(
-          `${language === "en" ? "Sending" : "送信中"}${".".repeat(
-            (dots % 3) + 1
-          )}`
-        );
+        setButtonText(`Sending${".".repeat((dots % 3) + 1)}`);
         dots += 1;
       }, 500);
       return () => clearInterval(interval);
     }
-  }, [isSending, language]);
+  }, [isSending]);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -123,91 +106,62 @@ function Contact(): JSX.Element {
     >
       <div className="grid grid-cols-2 w-full max-lg:grid-cols-1 gap-x-28 text-gray-100 max-lg:mx-auto max-lg:px-4 lg:w-[1200px]">
         {submitted ? (
-          <div
-            className="text-2xl font-ibmPlexMono text-green-500 col-start-1"
-            data-aos="fade-right"
-          >
-            {language === "en"
-              ? "Thank you for your message!"
-              : "メッセージをお送りいただき、ありがとうございます！"}
+          <div className="text-2xl font-ibmPlexMono text-green-500 col-start-1">
+            Thank you for your message!
           </div>
         ) : (
           <form
             onSubmit={handleSubmit}
             className="space-y-4 col-start-1 max-lg:w-full"
           >
-            <h2
-              data-aos="fade-right"
-              className="max-lg:mt-20 text-4xl mb-8"
-              style={{ color }}
-            >
-              {language === "en" ? "Drop Me a Line" : "お問い合わせ"}
+            <h2 className="max-lg:mt-20 text-4xl mb-8" style={{ color }}>
+              Drop Me a Line
             </h2>
-            <div
-              data-aos="fade-right"
-              data-aos-delay="200"
-              className="gap-4 items-center"
-            >
+            <div className="gap-4 items-center">
               <input
                 type="text"
                 name="name"
                 value={formData.name}
                 onChange={handleChange}
-                placeholder={language === "en" ? "Name" : "お名前"}
+                placeholder="Name"
                 className="w-full px-4 py-2 font-ibmPlexMono rounded-lg text-black border-b-2 border-gray-400 focus:outline-none focus:border-blue-500"
                 required
               />
             </div>
-            <div
-              data-aos="fade-right"
-              data-aos-delay="400"
-              className="gap-4 items-center"
-            >
+            <div className="gap-4 items-center">
               <input
                 type="email"
                 name="email"
                 value={formData.email}
                 onChange={handleChange}
-                placeholder={language === "en" ? "Email" : "メールアドレス"}
+                placeholder="Email"
                 className="w-full px-4 py-2 font-ibmPlexMono rounded-lg text-black border-b-2 border-gray-400 focus:outline-none focus:border-blue-500"
                 required
               />
             </div>
-            <div
-              data-aos="fade-right"
-              data-aos-delay="600"
-              className="gap-4 items-center"
-            >
+            <div className="gap-4 items-center">
               <input
                 type="text"
                 name="subject"
                 value={formData.subject}
                 onChange={handleChange}
-                placeholder={language === "en" ? "Subject" : "件名"}
+                placeholder="Subject"
                 className="w-full px-4 py-2 font-ibmPlexMono rounded-lg text-black border-b-2 border-gray-400 focus:outline-none focus:border-blue-500"
               />
             </div>
-            <div
-              data-aos="fade-right"
-              data-aos-delay="800"
-              className="gap-4 items-center"
-            >
+            <div className="gap-4 items-center">
               <textarea
                 name="message"
                 value={formData.message}
                 onChange={handleChange}
-                placeholder={language === "en" ? "Message" : "メッセージ"}
+                placeholder="Message"
                 className="w-full px-4 py-2 font-ibmPlexMono rounded-lg text-black border-b-2 border-gray-400 focus:outline-none focus:border-blue-500"
                 rows={6}
                 required
               />
             </div>
             <div id="recaptcha-container" style={{ display: "none" }}></div>
-            <div
-              data-aos="fade-right"
-              data-aos-delay="1000"
-              className="gap-4 items-center"
-            >
+            <div className="gap-4 items-center">
               <button
                 type="submit"
                 className="px-6 py-2 font-ibmPlexMono rounded-lg bg-green-600 text-white w-full hover:bg-green-900 duration-100"
@@ -224,8 +178,6 @@ function Contact(): JSX.Element {
           width={550}
           height={550}
           className="max-lg:hidden self-center"
-          data-aos="fade-left"
-          data-aos-delay="600"
         />
       </div>
     </section>

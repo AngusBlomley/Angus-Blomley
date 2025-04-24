@@ -1,19 +1,14 @@
 import React, { useEffect, useState, useMemo, JSX } from "react";
 import Link from "next/link";
-import AOS from "aos";
-import "aos/dist/aos.css";
-import "../../app/globals.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faArrowDown,
   faArrowUpRightFromSquare,
 } from "@fortawesome/free-solid-svg-icons";
 import { useDarkMode } from "@/contexts/darkModeContext";
-import { useLanguage } from "@/contexts/language";
 
 function Main(): JSX.Element {
   const { isDarkMode } = useDarkMode();
-  const { language } = useLanguage();
   const backgroundColor = isDarkMode
     ? "var(--background-color-dark)"
     : "var(--background-color-light)";
@@ -25,61 +20,29 @@ function Main(): JSX.Element {
   const [isDeleting, setIsDeleting] = useState(false);
   const [loopNum, setLoopNum] = useState(0);
   const [typingSpeed, setTypingSpeed] = useState(100);
-  const [pdfVisible, setPdfVisible] = useState(false);
 
   const handleResumeClick = () => {
-    if (window.innerWidth < 1024) {
-      const link = document.createElement("a");
-      link.href = "/pdf/Angus-Blomley.pdf";
-      link.download = "Angus-Blomley.pdf";
-      link.click();
-    } else {
-      setPdfVisible(true);
-    }
+    // Open resume in a new tab regardless of screen size
+    window.open("/pdf/Angus-Blomley.pdf", "_blank");
   };
 
-  useEffect(() => {
-    AOS.init({
-      duration: 1000,
-      delay: 200,
-      once: true,
-    });
-  }, []);
-
   const words = useMemo(
-    () =>
-      language === "en"
-        ? [
-            "React.",
-            "React Native.",
-            "engineering.",
-            "design.",
-            "development.",
-            "data analysis.",
-            "software engineering.",
-            "UI/UX design.",
-            "sustainable technology.",
-            "digital transformation.",
-            "mobile development.",
-            "web development.",
-            "project management.",
-          ]
-        : [
-            "React.",
-            "React Native.",
-            "エンジニアリング.",
-            "デザイン.",
-            "開発.",
-            "データ分析.",
-            "ソフトウェアエンジニアリング.",
-            "UI/UXデザイン.",
-            "持続可能な技術.",
-            "デジタルトランスフォーメーション.",
-            "モバイル開発.",
-            "ウェブ開発.",
-            "プロジェクト管理.",
-          ],
-    [language]
+    () => [
+      "React.",
+      "React Native.",
+      "engineering.",
+      "design.",
+      "development.",
+      "data analysis.",
+      "software engineering.",
+      "UI/UX design.",
+      "sustainable technology.",
+      "digital transformation.",
+      "mobile development.",
+      "web development.",
+      "project management.",
+    ],
+    []
   );
 
   useEffect(() => {
@@ -185,43 +148,25 @@ $XXXXxxxxxxxxxxxxxxxxx++++xxxx+xxxXXxXXXXXXXXXXXXXXXXXX$$$$$$$X+;+XXXXXXXXXXXXXX
   return (
     <section
       className="section flex lg:mt-40 justify-center w-full lg:h-screen"
-      data-aos="fade-in"
       style={{ backgroundColor, color }}
     >
       <main className="max-lg:mt-20 max-lg:w-screen max-sm:w-full max-lg:px-4">
-        <article className="grid grid-cols-2 max-md:grid-cols-1 duration-500">
+        <article className="grid grid-cols-2 max-md:grid-cols-1">
           <div className="max-md:mx-auto max-md:w-96 max-sm:w-72">
-            <h1 className="font-ibmPlexMono italic mb-2">
-              {language === "en" ? "Angus Blomley" : "アングス・ブロムリー"}
-            </h1>
+            <h1 className="font-ibmPlexMono italic mb-2">Angus Blomley</h1>
             <h2 className="xl:text-2xl font-karla w-full mb-2 max-lg:text-base">
-              {language === "en" ? (
-                <>
-                  An engineer with a passion<br></br>
-                  <span className="typed-text"> for {typedText}</span>
-                </>
-              ) : (
-                <>
-                  <span className="font-hiraKakuPro">情熱を持つエンジニア</span>
-                  <br></br>
-                  <span className="typed-text font-hiraKakuPro">
-                    {typedText}
-                  </span>
-                </>
-              )}
+              <>
+                An engineer with a passion
+                <br />
+                <span className="typed-text"> for {typedText}</span>
+              </>
               <span className="cursor bg-inherit"></span>
             </h2>
             <div id="links" className="grid grid-cols-1 mb-20">
-              <h3 className="font-ibmPlexMono mb-2">
-                {language === "en" ? (
-                  "Work:"
-                ) : (
-                  <span className="font-hiraKakuPro">仕事:</span>
-                )}
-              </h3>
+              <h3 className="font-ibmPlexMono mb-2">Work:</h3>
               <Link
                 href="/work/pwg"
-                className="text-[0.9em] after:inline-block bg-inherit opacity-75 p-1 px-2 no-underline font-ibmPlexMono hover:opacity-100 hover:bg-opacity-10 hover:bg-white rounded-md transition-all duration-75 -ml-2 w-fit flex items-center gap-2 group"
+                className="text-[0.9em] after:inline-block bg-inherit opacity-75 p-1 px-2 no-underline font-ibmPlexMono hover:opacity-100 hover:bg-opacity-10 hover:bg-white rounded-md -ml-2 w-fit flex items-center gap-2 group"
               >
                 - PWG Windows & Doors
                 <FontAwesomeIcon
@@ -236,7 +181,7 @@ $XXXXxxxxxxxxxxxxxxxxx++++xxxx+xxxXXxXXXXXXXXXXXXXXXXXX$$$$$$$X+;+XXXXXXXXXXXXXX
               </Link>
               <Link
                 href="/work/vocabo"
-                className="text-[0.9em] bg-inherit opacity-75 p-1 px-2 no-underline font-ibmPlexMono hover:opacity-100 hover:bg-opacity-10 hover:bg-white rounded-md transition-all duration-75 -ml-2 w-fit flex items-center gap-2 group"
+                className="text-[0.9em] bg-inherit opacity-75 p-1 px-2 no-underline font-ibmPlexMono hover:opacity-100 hover:bg-opacity-10 hover:bg-white rounded-md -ml-2 w-fit flex items-center gap-2 group"
                 aria-label="View details about the Vocabo language learning project"
               >
                 - Vocabo
@@ -253,16 +198,9 @@ $XXXXxxxxxxxxxxxxxxxxx++++xxxx+xxxXXxXXXXXXXXXXXXXXXXXX$$$$$$$X+;+XXXXXXXXXXXXXX
               </Link>
               <Link
                 href="/work/openfern"
-                className="text-[0.9em] bg-inherit opacity-75 p-1 px-2 no-underline font-ibmPlexMono hover:opacity-100 hover:bg-opacity-10 hover:bg-white rounded-md transition-all duration-75 -ml-2 w-fit flex items-center gap-2 group"
+                className="text-[0.9em] bg-inherit opacity-75 p-1 px-2 no-underline font-ibmPlexMono hover:opacity-100 hover:bg-opacity-10 hover:bg-white rounded-md -ml-2 w-fit flex items-center gap-2 group"
               >
-                -{" "}
-                {language === "en" ? (
-                  "Open Fern Studio"
-                ) : (
-                  <span className="font-hiraKakuPro">
-                    オープンファーンスタジオ
-                  </span>
-                )}
+                - Open Fern Studio
                 <FontAwesomeIcon
                   icon={faArrowUpRightFromSquare}
                   className="h-2.5 w-2.5 transition-opacity"
@@ -275,7 +213,7 @@ $XXXXxxxxxxxxxxxxxxxxx++++xxxx+xxxXXxXXXXXXXXXXXXXXXXXX$$$$$$$X+;+XXXXXXXXXXXXXX
               </Link>
               <Link
                 href="/work/beFirst"
-                className="text-[0.9em] bg-inherit opacity-75 p-1 px-2 no-underline font-ibmPlexMono hover:opacity-100 hover:bg-opacity-10 hover:bg-white rounded-md transition-all duration-75 -ml-2 w-fit flex items-center gap-2 group"
+                className="text-[0.9em] bg-inherit opacity-75 p-1 px-2 no-underline font-ibmPlexMono hover:opacity-100 hover:bg-opacity-10 hover:bg-white rounded-md -ml-2 w-fit flex items-center gap-2 group"
               >
                 - Be First
                 <FontAwesomeIcon
@@ -289,23 +227,12 @@ $XXXXxxxxxxxxxxxxxxxxx++++xxxx+xxxXXxXXXXXXXXXXXXXXXXXX$$$$$$$X+;+XXXXXXXXXXXXXX
                 />
               </Link>
 
-              <h3 className="font-ibmPlexMono mt-3 mb-1">
-                {language === "en" ? (
-                  "Projects:"
-                ) : (
-                  <span className="font-hiraKakuPro">プロジェクト:</span>
-                )}
-              </h3>
+              <h3 className="font-ibmPlexMono mt-3 mb-1">Projects:</h3>
               <Link
                 href="/work/stringBox"
-                className="text-[0.9em] bg-inherit opacity-75 p-1 px-2 no-underline font-ibmPlexMono hover:opacity-100 hover:bg-opacity-10 hover:bg-white rounded-md transition-all duration-75 -ml-2 w-fit flex items-center gap-2 group"
+                className="text-[0.9em] bg-inherit opacity-75 p-1 px-2 no-underline font-ibmPlexMono hover:opacity-100 hover:bg-opacity-10 hover:bg-white rounded-md -ml-2 w-fit flex items-center gap-2 group"
               >
-                -{" "}
-                {language === "en" ? (
-                  "String Box"
-                ) : (
-                  <span className="font-hiraKakuPro">ストリングボックス</span>
-                )}
+                - String Box
                 <FontAwesomeIcon
                   icon={faArrowUpRightFromSquare}
                   className="h-2.5 w-2.5 transition-opacity"
@@ -318,7 +245,7 @@ $XXXXxxxxxxxxxxxxxxxxx++++xxxx+xxxXXxXXXXXXXXXXXXXXXXXX$$$$$$$X+;+XXXXXXXXXXXXXX
               </Link>
               <Link
                 href="/work/celestialObjectTracker"
-                className="text-[0.9em] bg-inherit opacity-75 p-1 px-2 no-underline font-ibmPlexMono hover:opacity-100 hover:bg-opacity-10 hover:bg-white rounded-md transition-all duration-75 -ml-2 w-fit flex items-center gap-2 group"
+                className="text-[0.9em] bg-inherit opacity-75 p-1 px-2 no-underline font-ibmPlexMono hover:opacity-100 hover:bg-opacity-10 hover:bg-white rounded-md -ml-2 w-fit flex items-center gap-2 group"
               >
                 - Celestial Object Tracker
                 <FontAwesomeIcon
@@ -333,7 +260,7 @@ $XXXXxxxxxxxxxxxxxxxxx++++xxxx+xxxXXxXXXXXXXXXXXXXXXXXX$$$$$$$X+;+XXXXXXXXXXXXXX
               </Link>
               <Link
                 href="/work/meetly"
-                className="text-[0.9em]bg-inherit opacity-75 p-1 px-2 no-underline font-ibmPlexMono hover:opacity-100 hover:bg-opacity-10 hover:bg-white rounded-md transition-all duration-75 -ml-2 w-fit flex items-center gap-2 group"
+                className="text-[0.9em]bg-inherit opacity-75 p-1 px-2 no-underline font-ibmPlexMono hover:opacity-100 hover:bg-opacity-10 hover:bg-white rounded-md -ml-2 w-fit flex items-center gap-2 group"
               >
                 - Meetly
                 <FontAwesomeIcon
@@ -347,15 +274,12 @@ $XXXXxxxxxxxxxxxxxxxxx++++xxxx+xxxXXxXXXXXXXXXXXXXXXXXX$$$$$$$X+;+XXXXXXXXXXXXXX
                 />
               </Link>
 
-              <h3 className="font-ibmPlexMono mt-3 mb-1">
-                {" "}
-                {language === "en" ? "Profiles:" : "プロフィール："}
-              </h3>
+              <h3 className="font-ibmPlexMono mt-3 mb-1">Profiles:</h3>
               <a
                 href="https://www.codecademy.com/users/AngusBlomley/achievements"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-[0.9em] bg-inherit opacity-75 p-1 px-2 no-underline font-ibmPlexMono hover:opacity-100 hover:bg-opacity-10 hover:bg-white rounded-md transition-all duration-75 -ml-2 w-fit flex items-center gap-2 group"
+                className="text-[0.9em] bg-inherit opacity-75 p-1 px-2 no-underline font-ibmPlexMono hover:opacity-100 hover:bg-opacity-10 hover:bg-white rounded-md -ml-2 w-fit flex items-center gap-2 group"
               >
                 - Codecademy
                 <FontAwesomeIcon
@@ -372,7 +296,7 @@ $XXXXxxxxxxxxxxxxxxxxx++++xxxx+xxxXXxXXXXXXXXXXXXXXXXXX$$$$$$$X+;+XXXXXXXXXXXXXX
                 href="https://github.com/AngusBlomley"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-[0.9em] bg-inherit opacity-75 p-1 px-2 no-underline font-ibmPlexMono hover:opacity-100 hover:bg-opacity-10 hover:bg-white rounded-md transition-all duration-75 -ml-2 w-fit flex items-center gap-2 group"
+                className="text-[0.9em] bg-inherit opacity-75 p-1 px-2 no-underline font-ibmPlexMono hover:opacity-100 hover:bg-opacity-10 hover:bg-white rounded-md -ml-2 w-fit flex items-center gap-2 group"
               >
                 - GitHub
                 <FontAwesomeIcon
@@ -389,7 +313,7 @@ $XXXXxxxxxxxxxxxxxxxxx++++xxxx+xxxXXxXXXXXXXXXXXXXXXXXX$$$$$$$X+;+XXXXXXXXXXXXXX
                 href="https://www.linkedin.com/in/angus-blomley-82b45a177/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-[0.9em] bg-inherit opacity-75 p-1 px-2 no-underline font-ibmPlexMono hover:opacity-100 hover:bg-opacity-10 hover:bg-white rounded-md transition-all duration-75 -ml-2 w-fit flex items-center gap-2 group"
+                className="text-[0.9em] bg-inherit opacity-75 p-1 px-2 no-underline font-ibmPlexMono hover:opacity-100 hover:bg-opacity-10 hover:bg-white rounded-md -ml-2 w-fit flex items-center gap-2 group"
               >
                 - LinkedIn
                 <FontAwesomeIcon
@@ -403,10 +327,10 @@ $XXXXxxxxxxxxxxxxxxxxx++++xxxx+xxxXXxXXXXXXXXXXXXXXXXXX$$$$$$$X+;+XXXXXXXXXXXXXX
                 />
               </a>
               <div
-                className="text-[0.9em] bg-inherit opacity-75 p-1 px-2 no-underline font-ibmPlexMono hover:opacity-100 hover:bg-opacity-10 hover:bg-white rounded-md transition-all duration-75 -ml-2 w-fit cursor-pointer flex items-center gap-2 group"
+                className="text-[0.9em] bg-inherit opacity-75 p-1 px-2 no-underline font-ibmPlexMono hover:opacity-100 hover:bg-opacity-10 hover:bg-white rounded-md -ml-2 w-fit cursor-pointer flex items-center gap-2 group"
                 onClick={handleResumeClick}
               >
-                - {language === "en" ? "Resume" : "履歴書"}
+                - Resume
                 <FontAwesomeIcon
                   icon={faArrowUpRightFromSquare}
                   className="h-2.5 w-2.5 transition-opacity"
@@ -435,11 +359,7 @@ $XXXXxxxxxxxxxxxxxxxxx++++xxxx+xxxXXxXXXXXXXXXXXXXXXXXX$$$$$$$X+;+XXXXXXXXXXXXXX
             className="col-span-2 max-md:col-span-1 w-fit mx-auto"
           >
             <div className="text-center mx-auto mt-20 hover:text-green-400 group">
-              {language === "en" ? (
-                <p>LEARN MORE</p>
-              ) : (
-                <p className="font-hiraKakuPro">続きを読む</p>
-              )}
+              <p>LEARN MORE</p>
               <FontAwesomeIcon
                 icon={faArrowDown}
                 size="1x"
@@ -449,22 +369,6 @@ $XXXXxxxxxxxxxxxxxxxxx++++xxxx+xxxXXxXXXXXXXXXXXXXXXXXX$$$$$$$X+;+XXXXXXXXXXXXXX
           </Link>
         </article>
       </main>
-
-      {pdfVisible && (
-        <div className="fixed -top-48 inset-0 flex items-center justify-center z-50">
-          <div
-            className="absolute inset-0 bg-black opacity-75"
-            onClick={() => setPdfVisible(false)}
-          ></div>
-          <div className="relative w-4/5 h-5/6">
-            <iframe
-              title="Angus-Blomley.pdf"
-              src="/pdf/Angus-Blomley.pdf"
-              className="w-full h-full"
-            />
-          </div>
-        </div>
-      )}
     </section>
   );
 }
