@@ -187,11 +187,15 @@ function Header(): JSX.Element {
             <h2
               id="logo"
               className="text-3xl font-bold opacity-50 hover:opacity-100 cursor-pointer no-underline font-ibmPlexMono"
+              aria-label="Homepage"
             >
               AB
             </h2>
           </Link>
-          <nav className="hidden lg:flex items-center">
+          <nav
+            className="hidden lg:flex items-center"
+            aria-label="Main navigation"
+          >
             {sections.map((section) => (
               <div key={section.id} className="relative group">
                 {section.link ? (
@@ -237,16 +241,18 @@ function Header(): JSX.Element {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-block bg-inherit opacity-75 p-2 px-3 hover:opacity-100 hover:bg-opacity-10 hover:bg-white rounded-md"
+                aria-label="GitHub profile"
               >
-                <FaGithub />
+                <FaGithub aria-hidden="true" />
               </a>
               <a
                 href="https://www.linkedin.com/in/angus-blomley-82b45a177/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-block bg-inherit opacity-75 p-2 px-3 hover:opacity-100 hover:bg-opacity-10 hover:bg-white rounded-md"
+                aria-label="LinkedIn profile"
               >
-                <FaLinkedin />
+                <FaLinkedin aria-hidden="true" />
               </a>
               <button
                 onClick={toggleDarkMode}
@@ -280,6 +286,14 @@ function Header(): JSX.Element {
             <div
               onClick={toggleMenu}
               className="cursor-pointer text-3xl fixed right-4 top-4 z-20"
+              role="button"
+              tabIndex={0}
+              aria-label="Close navigation menu"
+              onKeyDown={(e) => {
+                if (e.key === "Enter" || e.key === " ") {
+                  toggleMenu();
+                }
+              }}
             >
               &#x2715;
             </div>

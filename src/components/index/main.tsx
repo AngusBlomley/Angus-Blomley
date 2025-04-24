@@ -149,6 +149,8 @@ $XXXXxxxxxxxxxxxxxxxxx++++xxxx+xxxXXxXXXXXXXXXXXXXXXXXX$$$$$$$X+;+XXXXXXXXXXXXXX
     <section
       className="section flex lg:mt-40 justify-center w-full lg:h-screen"
       style={{ backgroundColor, color }}
+      role="region"
+      aria-label="Introduction"
     >
       <main className="max-lg:mt-20 max-lg:w-screen max-sm:w-full max-lg:px-4">
         <article className="grid grid-cols-2 max-md:grid-cols-1">
@@ -167,11 +169,13 @@ $XXXXxxxxxxxxxxxxxxxxx++++xxxx+xxxXXxXXXXXXXXXXXXXXXXXX$$$$$$$X+;+XXXXXXXXXXXXXX
               <Link
                 href="/work/pwg"
                 className="text-[0.9em] after:inline-block bg-inherit opacity-75 p-1 px-2 no-underline font-ibmPlexMono hover:opacity-100 hover:bg-opacity-10 hover:bg-white rounded-md -ml-2 w-fit flex items-center gap-2 group"
+                aria-label="View project details about PWG Windows & Doors"
               >
                 - PWG Windows & Doors
                 <FontAwesomeIcon
                   icon={faArrowUpRightFromSquare}
                   className="h-2.5 w-2.5 transition-opacity"
+                  aria-hidden="true"
                   style={{
                     color: isDarkMode
                       ? "var(--foreground-color-dark)"
@@ -199,11 +203,13 @@ $XXXXxxxxxxxxxxxxxxxxx++++xxxx+xxxXXxXXXXXXXXXXXXXXXXXX$$$$$$$X+;+XXXXXXXXXXXXXX
               <Link
                 href="/work/openfern"
                 className="text-[0.9em] bg-inherit opacity-75 p-1 px-2 no-underline font-ibmPlexMono hover:opacity-100 hover:bg-opacity-10 hover:bg-white rounded-md -ml-2 w-fit flex items-center gap-2 group"
+                aria-label="View project details about Open Fern Studio"
               >
                 - Open Fern Studio
                 <FontAwesomeIcon
                   icon={faArrowUpRightFromSquare}
                   className="h-2.5 w-2.5 transition-opacity"
+                  aria-hidden="true"
                   style={{
                     color: isDarkMode
                       ? "var(--foreground-color-dark)"
@@ -214,11 +220,13 @@ $XXXXxxxxxxxxxxxxxxxxx++++xxxx+xxxXXxXXXXXXXXXXXXXXXXXX$$$$$$$X+;+XXXXXXXXXXXXXX
               <Link
                 href="/work/beFirst"
                 className="text-[0.9em] bg-inherit opacity-75 p-1 px-2 no-underline font-ibmPlexMono hover:opacity-100 hover:bg-opacity-10 hover:bg-white rounded-md -ml-2 w-fit flex items-center gap-2 group"
+                aria-label="View project details about Be First"
               >
                 - Be First
                 <FontAwesomeIcon
                   icon={faArrowUpRightFromSquare}
                   className="h-2.5 w-2.5 transition-opacity"
+                  aria-hidden="true"
                   style={{
                     color: isDarkMode
                       ? "var(--foreground-color-dark)"
@@ -246,11 +254,13 @@ $XXXXxxxxxxxxxxxxxxxxx++++xxxx+xxxXXxXXXXXXXXXXXXXXXXXX$$$$$$$X+;+XXXXXXXXXXXXXX
               <Link
                 href="/work/celestialObjectTracker"
                 className="text-[0.9em] bg-inherit opacity-75 p-1 px-2 no-underline font-ibmPlexMono hover:opacity-100 hover:bg-opacity-10 hover:bg-white rounded-md -ml-2 w-fit flex items-center gap-2 group"
+                aria-label="View project details about Celestial Object Tracker"
               >
                 - Celestial Object Tracker
                 <FontAwesomeIcon
                   icon={faArrowUpRightFromSquare}
                   className="h-2.5 w-2.5 transition-opacity"
+                  aria-hidden="true"
                   style={{
                     color: isDarkMode
                       ? "var(--foreground-color-dark)"
@@ -261,11 +271,13 @@ $XXXXxxxxxxxxxxxxxxxxx++++xxxx+xxxXXxXXXXXXXXXXXXXXXXXX$$$$$$$X+;+XXXXXXXXXXXXXX
               <Link
                 href="/work/meetly"
                 className="text-[0.9em]bg-inherit opacity-75 p-1 px-2 no-underline font-ibmPlexMono hover:opacity-100 hover:bg-opacity-10 hover:bg-white rounded-md -ml-2 w-fit flex items-center gap-2 group"
+                aria-label="View project details about Meetly"
               >
                 - Meetly
                 <FontAwesomeIcon
                   icon={faArrowUpRightFromSquare}
                   className="h-2.5 w-2.5 transition-opacity"
+                  aria-hidden="true"
                   style={{
                     color: isDarkMode
                       ? "var(--foreground-color-dark)"
@@ -280,11 +292,13 @@ $XXXXxxxxxxxxxxxxxxxxx++++xxxx+xxxXXxXXXXXXXXXXXXXXXXXX$$$$$$$X+;+XXXXXXXXXXXXXX
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-[0.9em] bg-inherit opacity-75 p-1 px-2 no-underline font-ibmPlexMono hover:opacity-100 hover:bg-opacity-10 hover:bg-white rounded-md -ml-2 w-fit flex items-center gap-2 group"
+                aria-label="Visit my Codecademy profile (opens in a new tab)"
               >
                 - Codecademy
                 <FontAwesomeIcon
                   icon={faArrowUpRightFromSquare}
                   className="h-2.5 w-2.5 transition-opacity"
+                  aria-hidden="true"
                   style={{
                     color: isDarkMode
                       ? "var(--foreground-color-dark)"
@@ -297,11 +311,13 @@ $XXXXxxxxxxxxxxxxxxxxx++++xxxx+xxxXXxXXXXXXXXXXXXXXXXXX$$$$$$$X+;+XXXXXXXXXXXXXX
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-[0.9em] bg-inherit opacity-75 p-1 px-2 no-underline font-ibmPlexMono hover:opacity-100 hover:bg-opacity-10 hover:bg-white rounded-md -ml-2 w-fit flex items-center gap-2 group"
+                aria-label="Visit my GitHub profile (opens in a new tab)"
               >
                 - GitHub
                 <FontAwesomeIcon
                   icon={faArrowUpRightFromSquare}
                   className="h-2.5 w-2.5 transition-opacity"
+                  aria-hidden="true"
                   style={{
                     color: isDarkMode
                       ? "var(--foreground-color-dark)"
@@ -314,11 +330,13 @@ $XXXXxxxxxxxxxxxxxxxxx++++xxxx+xxxXXxXXXXXXXXXXXXXXXXXX$$$$$$$X+;+XXXXXXXXXXXXXX
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-[0.9em] bg-inherit opacity-75 p-1 px-2 no-underline font-ibmPlexMono hover:opacity-100 hover:bg-opacity-10 hover:bg-white rounded-md -ml-2 w-fit flex items-center gap-2 group"
+                aria-label="Visit my LinkedIn profile (opens in a new tab)"
               >
                 - LinkedIn
                 <FontAwesomeIcon
                   icon={faArrowUpRightFromSquare}
                   className="h-2.5 w-2.5 transition-opacity"
+                  aria-hidden="true"
                   style={{
                     color: isDarkMode
                       ? "var(--foreground-color-dark)"
@@ -329,11 +347,20 @@ $XXXXxxxxxxxxxxxxxxxxx++++xxxx+xxxXXxXXXXXXXXXXXXXXXXXX$$$$$$$X+;+XXXXXXXXXXXXXX
               <div
                 className="text-[0.9em] bg-inherit opacity-75 p-1 px-2 no-underline font-ibmPlexMono hover:opacity-100 hover:bg-opacity-10 hover:bg-white rounded-md -ml-2 w-fit cursor-pointer flex items-center gap-2 group"
                 onClick={handleResumeClick}
+                role="button"
+                tabIndex={0}
+                aria-label="View my resume (opens in a new tab)"
+                onKeyDown={(e) => {
+                  if (e.key === "Enter" || e.key === " ") {
+                    handleResumeClick();
+                  }
+                }}
               >
                 - Resume
                 <FontAwesomeIcon
                   icon={faArrowUpRightFromSquare}
                   className="h-2.5 w-2.5 transition-opacity"
+                  aria-hidden="true"
                   style={{
                     color: isDarkMode
                       ? "var(--foreground-color-dark)"
@@ -347,6 +374,7 @@ $XXXXxxxxxxxxxxxxxxxxx++++xxxx+xxxXXxXXXXXXXXXXXXXXXXXX$$$$$$$X+;+XXXXXXXXXXXXXX
             <pre
               id="text"
               className="whitespace-pre font-mono text-[10px] leading-[10px] tracking-normal transform-none max-xl:text-[8px] max-xl:leading-[8px] max-lg:w-[375px] max-lg:h-[400px] max-sm:w-full max-lg:text-[7px] max-lg:leading-[7px] max-sm:leading-[5px] max-sm:text-[5px]"
+              aria-hidden="true"
             >
               <p className="text-wrap bg-[#121212] text-white">
                 {displayedText}
@@ -357,6 +385,7 @@ $XXXXxxxxxxxxxxxxxxxxx++++xxxx+xxxXXxXXXXXXXXXXXXXXXXXX$$$$$$$X+;+XXXXXXXXXXXXXX
           <Link
             href="/#about"
             className="col-span-2 max-md:col-span-1 w-fit mx-auto"
+            aria-label="Scroll to the About section"
           >
             <div className="text-center mx-auto mt-20 hover:text-green-400 group">
               <p>LEARN MORE</p>
@@ -364,6 +393,7 @@ $XXXXxxxxxxxxxxxxxxxxx++++xxxx+xxxXXxXXXXXXXXXXXXXXXXXX$$$$$$$X+;+XXXXXXXXXXXXXX
                 icon={faArrowDown}
                 size="1x"
                 className="group-hover:animate-bounce -translate-y-1 mt-2"
+                aria-hidden="true"
               />
             </div>
           </Link>

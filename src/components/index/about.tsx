@@ -43,6 +43,8 @@ function About() {
       id="about"
       style={{ backgroundColor }}
       className="relative z-10 duration-1000 flex items-center pt-16"
+      role="region"
+      aria-label="About Me"
     >
       <div className="absolute inset-0">
         <div
