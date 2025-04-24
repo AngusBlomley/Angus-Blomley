@@ -4,11 +4,9 @@ import Footer from "@/components/globals/footer";
 import { WorkNavigation } from "@/components/work/WorkNavigation";
 import Image from "next/image";
 import { useDarkMode } from "@/contexts/darkModeContext";
-import { useLanguage } from "@/contexts/language";
 
 const PWG = () => {
   const { isDarkMode } = useDarkMode();
-  const { language } = useLanguage();
   const backgroundColor = isDarkMode
     ? "var(--background-color-dark)"
     : "var(--background-color-light)";
@@ -23,23 +21,14 @@ const PWG = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
           <div className="space-y-8">
             <div className="text-center">
-              <h1
-                className={`text-4xl mt-16 font-bold mb-4 ${
-                  language === "ja" ? "font-hiraKakuPro" : ""
-                }`}
-              >
-                {language === "en"
-                  ? "PWG Windows & Doors - Mobile App Development"
-                  : "PWG Windows & Doors - モバイルアプリ開発"}
+              <h1 className="text-4xl mt-16 font-bold mb-4">
+                PWG Windows & Doors - Mobile App Development
               </h1>
-              <p
-                className={`text-lg ${
-                  language === "ja" ? "font-hiraKakuPro" : ""
-                }`}
-              >
-                {language === "en"
-                  ? "A comprehensive React Native mobile application for engineers to perform on-site assessments of custom windows and doors, featuring robust offline capabilities and enterprise-level state management."
-                  : "カスタムウィンドウとドアのオンサイト評価を行うエンジニア向けの包括的なReact Nativeモバイルアプリケーション。堅牢なオフライン機能とエンタープライズレベルの状態管理を特徴としています。"}
+              <p className="text-lg">
+                A comprehensive React Native mobile application for engineers to
+                perform on-site assessments of custom windows and doors,
+                featuring robust offline capabilities and enterprise-level state
+                management.
               </p>
             </div>
 
@@ -47,116 +36,61 @@ const PWG = () => {
               <div className="space-y-8">
                 <section>
                   <h2 className="text-2xl font-semibold mb-4">
-                    {language === "en" ? "Technical Overview" : "技術概要"}
+                    Technical Overview
                   </h2>
                   <p className="text-lg">
-                    {language === "en"
-                      ? "Engineered a sophisticated React Native application that demonstrates expertise in mobile development, offline-first architecture, and complex state management. The project showcases proficiency in building enterprise-level mobile solutions with robust offline capabilities, efficient data synchronization, and comprehensive error tracking."
-                      : "モバイル開発、オフラインファーストアーキテクチャ、複雑な状態管理における専門知識を実証する高度なReact Nativeアプリケーションを設計。堅牢なオフライン機能、効率的なデータ同期、包括的なエラー追跡を備えたエンタープライズレベルのモバイルソリューションを構築する能力を示しています。"}
+                    Engineered a sophisticated React Native application that
+                    demonstrates expertise in mobile development, offline-first
+                    architecture, and complex state management. The project
+                    showcases proficiency in building enterprise-level mobile
+                    solutions with robust offline capabilities, efficient data
+                    synchronization, and comprehensive error tracking.
                   </p>
                 </section>
 
                 <section>
                   <h2 className="text-2xl font-semibold mb-4">
-                    {language === "en"
-                      ? "Technical Implementation"
-                      : "技術実装"}
+                    Technical Implementation
                   </h2>
                   <div className="space-y-6">
                     <div>
                       <h3 className="text-xl font-medium mb-2">
-                        {language === "en"
-                          ? "Mobile Development"
-                          : "モバイル開発"}
+                        Mobile Development
                       </h3>
                       <ul className="list-disc pl-5 space-y-1">
-                        {language === "en" ? (
-                          <>
-                            <li>
-                              React Native with TypeScript for cross-platform
-                              development
-                            </li>
-                            <li>
-                              Expo Router for seamless navigation and deep
-                              linking
-                            </li>
-                            <li>Custom hooks for complex business logic</li>
-                            <li>
-                              Context API and AsyncStorage for state persistence
-                            </li>
-                            <li>
-                              Native module integration for device features
-                            </li>
-                          </>
-                        ) : (
-                          <>
-                            <li>
-                              クロスプラットフォーム開発のためのTypeScript搭載React
-                              Native
-                            </li>
-                            <li>
-                              シームレスなナビゲーションとディープリンクのためのExpo
-                              Router
-                            </li>
-                            <li>
-                              複雑なビジネスロジックのためのカスタムフック
-                            </li>
-                            <li>状態永続化のためのContext APIとAsyncStorage</li>
-                            <li>
-                              デバイス機能のためのネイティブモジュール統合
-                            </li>
-                          </>
-                        )}
+                        <li>
+                          React Native with TypeScript for cross-platform
+                          development
+                        </li>
+                        <li>
+                          Expo Router for seamless navigation and deep linking
+                        </li>
+                        <li>Custom hooks for complex business logic</li>
+                        <li>
+                          Context API and AsyncStorage for state persistence
+                        </li>
+                        <li>Native module integration for device features</li>
                       </ul>
                     </div>
                     <div>
                       <h3 className="text-xl font-medium mb-2">
-                        {language === "en"
-                          ? "Architecture & Data Flow"
-                          : "アーキテクチャとデータフロー"}
+                        Architecture & Data Flow
                       </h3>
                       <ul className="list-disc pl-5 space-y-1">
-                        {language === "en" ? (
-                          <>
-                            <li>
-                              Offline-first architecture with data
-                              synchronization
-                            </li>
-                            <li>
-                              Queue-based system for handling offline actions
-                            </li>
-                            <li>
-                              RESTful API integration with retry mechanisms
-                            </li>
-                            <li>
-                              Efficient data caching and storage strategies
-                            </li>
-                            <li>
-                              Background task management for sync operations
-                            </li>
-                          </>
-                        ) : (
-                          <>
-                            <li>
-                              データ同期機能を備えたオフラインファーストアーキテクチャ
-                            </li>
-                            <li>
-                              オフラインアクション処理のためのキューベースシステム
-                            </li>
-                            <li>再試行メカニズムを備えたRESTful API統合</li>
-                            <li>効率的なデータキャッシュと保存戦略</li>
-                            <li>同期操作のためのバックグラウンドタスク管理</li>
-                          </>
-                        )}
+                        <li>
+                          Offline-first architecture with data synchronization
+                        </li>
+                        <li>Queue-based system for handling offline actions</li>
+                        <li>RESTful API integration with retry mechanisms</li>
+                        <li>Efficient data caching and storage strategies</li>
+                        <li>Background task management for sync operations</li>
                       </ul>
                     </div>
                   </div>
                 </section>
                 <section>
                   <h2 className="text-2xl font-semibold mb-4">
-                    {language === "en"
-                      ? "Development Practices"
-                      : "開発プラクティス"}
+                    Development Practices
                   </h2>
                   <div className="flex justify-start">
                     <Image
@@ -205,29 +139,14 @@ const PWG = () => {
                 </section>
 
                 <section>
-                  <h2 className="text-2xl font-semibold mb-4">
-                    {language === "en" ? "Key Features" : "主な機能"}
-                  </h2>
+                  <h2 className="text-2xl font-semibold mb-4">Key Features</h2>
                   <ul className="list-disc pl-5 space-y-2">
-                    {language === "en" ? (
-                      <>
-                        <li>Comprehensive offline functionality</li>
-                        <li>Real-time data synchronization</li>
-                        <li>Advanced error tracking with Sentry</li>
-                        <li>Cross-platform compatibility</li>
-                        <li>Automated CI/CD pipeline</li>
-                        <li>Performance optimization</li>
-                      </>
-                    ) : (
-                      <>
-                        <li>包括的なオフライン機能</li>
-                        <li>リアルタイムデータ同期</li>
-                        <li>Sentryを使用した高度なエラー追跡</li>
-                        <li>クロスプラットフォーム互換性</li>
-                        <li>自動化されたCI/CDパイプライン</li>
-                        <li>パフォーマンス最適化</li>
-                      </>
-                    )}
+                    <li>Comprehensive offline functionality</li>
+                    <li>Real-time data synchronization</li>
+                    <li>Advanced error tracking with Sentry</li>
+                    <li>Cross-platform compatibility</li>
+                    <li>Automated CI/CD pipeline</li>
+                    <li>Performance optimization</li>
                   </ul>
                 </section>
               </div>
@@ -239,6 +158,8 @@ const PWG = () => {
                     autoPlay
                     muted
                     loop
+                    playsInline
+                    preload="auto"
                     className="w-full rounded-lg shadow-xl"
                   />
                 </div>
@@ -249,14 +170,47 @@ const PWG = () => {
                     autoPlay
                     muted
                     loop
+                    playsInline
+                    preload="auto"
                     className="w-full rounded-lg shadow-xl"
                   />
                 </div>
               </div>
             </div>
-          </div>
 
-          <WorkNavigation currentPath="/work/pwg" />
+            <div className="mt-16">
+              <h2 className="text-2xl font-semibold mb-4">Project Impact</h2>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div className="bg-white bg-opacity-10 p-6 rounded-lg shadow-md">
+                  <h3 className="text-xl font-medium mb-2">
+                    Enhanced Efficiency
+                  </h3>
+                  <p>
+                    Reduced on-site assessment time by 40% through streamlined
+                    digital processes, replacing paper-based workflows.
+                  </p>
+                </div>
+                <div className="bg-white bg-opacity-10 p-6 rounded-lg shadow-md">
+                  <h3 className="text-xl font-medium mb-2">
+                    Improved Accuracy
+                  </h3>
+                  <p>
+                    Decreased measurement errors by 35% with digital validation
+                    and standardized assessment procedures.
+                  </p>
+                </div>
+                <div className="bg-white bg-opacity-10 p-6 rounded-lg shadow-md">
+                  <h3 className="text-xl font-medium mb-2">Business Growth</h3>
+                  <p>
+                    Enabled a 25% increase in assessment capacity, supporting
+                    business expansion into new regions.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <WorkNavigation currentPath="/work/pwg" />
+          </div>
         </div>
       </main>
       <Footer />
