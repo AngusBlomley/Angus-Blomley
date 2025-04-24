@@ -6,6 +6,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import { faExternalLinkAlt } from "@fortawesome/free-solid-svg-icons";
 import ProjectNavigation from "@/components/work/ProjectNavigation";
+import { useState } from "react";
 
 const StringBoxPage: React.FC = () => {
   const { isDarkMode } = useDarkMode();
@@ -15,6 +16,8 @@ const StringBoxPage: React.FC = () => {
   const color = isDarkMode
     ? "var(--foreground-color-dark)"
     : "var(--foreground-color-light)";
+
+  const [isVideoLoading, setIsVideoLoading] = useState(true);
 
   return (
     <div
@@ -51,7 +54,14 @@ const StringBoxPage: React.FC = () => {
         </div>
 
         {/* Main Video */}
-        <div className="mb-8 max-w-4xl mx-auto rounded-lg overflow-hidden shadow-lg">
+        <div className="mb-8 max-w-4xl mx-auto rounded-lg overflow-hidden shadow-lg relative aspect-video">
+          {isVideoLoading && (
+            <div className="absolute inset-0 flex items-center justify-center bg-gray-200 dark:bg-gray-700">
+              <span className="text-gray-500 dark:text-gray-400">
+                Loading video...
+              </span>
+            </div>
+          )}
           <video
             src="/videos/stringBoxWeb.mp4"
             autoPlay
@@ -59,7 +69,10 @@ const StringBoxPage: React.FC = () => {
             loop
             playsInline
             preload="metadata"
-            className="w-full h-auto aspect-video"
+            className={`w-full h-auto transition-opacity duration-300 ${
+              isVideoLoading ? "opacity-0" : "opacity-100"
+            }`}
+            onLoadedData={() => setIsVideoLoading(false)}
           />
         </div>
 

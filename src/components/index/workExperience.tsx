@@ -2,6 +2,7 @@ import { useDarkMode } from "@/contexts/darkModeContext";
 import Image from "next/image";
 import Link from "next/link";
 import Button from "../globals/Button";
+import { useState } from "react";
 
 function WorkExperience() {
   const { isDarkMode } = useDarkMode();
@@ -11,6 +12,9 @@ function WorkExperience() {
   const color = isDarkMode
     ? "var(--foreground-color-dark)"
     : "var(--foreground-color-light)";
+
+  const [isPwgVideoLoading, setIsPwgVideoLoading] = useState(true);
+  const [isVocaboVideoLoading, setIsVocaboVideoLoading] = useState(true);
 
   return (
     <section
@@ -82,7 +86,14 @@ function WorkExperience() {
 
             <div className="col-span-7 max-md:col-span-12 relative flex justify-center items-center">
               <Link href="/work/pwg">
-                <div className="rounded-lg overflow-hidden shadow-xl max-w-[70%] mx-auto">
+                <div className="rounded-lg overflow-hidden shadow-xl max-w-[70%] mx-auto relative aspect-[800/1200]">
+                  {isPwgVideoLoading && (
+                    <div className="absolute inset-0 flex items-center justify-center bg-gray-200 dark:bg-gray-700">
+                      <span className="text-gray-500 dark:text-gray-400">
+                        Loading demo...
+                      </span>
+                    </div>
+                  )}
                   <video
                     title="PWG Mobile App Demo"
                     src="/videos/pwg_tablet.webm"
@@ -91,9 +102,12 @@ function WorkExperience() {
                     loop
                     width={800}
                     height={1200}
-                    className="w-full h-auto"
+                    className={`w-full h-auto transition-opacity duration-300 ${
+                      isPwgVideoLoading ? "opacity-0" : "opacity-100"
+                    }`}
                     preload="auto"
                     playsInline
+                    onLoadedData={() => setIsPwgVideoLoading(false)}
                   />
                 </div>
               </Link>
@@ -112,19 +126,31 @@ function WorkExperience() {
                       <div className="w-2 h-2 rounded-full bg-green-400"></div>
                     </div>
                   </div>
-                  <video
-                    title="Vocabo Chrome Extension Demo"
-                    src="/videos/vocabo.mp4"
-                    autoPlay
-                    muted
-                    loop
-                    width={1280}
-                    height={720}
-                    className="h-auto w-full"
-                    style={{ objectFit: "contain" }}
-                    playsInline
-                    preload="auto"
-                  />
+                  <div className="relative aspect-video">
+                    {isVocaboVideoLoading && (
+                      <div className="absolute inset-0 flex items-center justify-center bg-gray-200 dark:bg-gray-700 pt-[1.9rem]">
+                        <span className="text-gray-500 dark:text-gray-400">
+                          Loading demo...
+                        </span>
+                      </div>
+                    )}
+                    <video
+                      title="Vocabo Chrome Extension Demo"
+                      src="/videos/vocabo.mp4"
+                      autoPlay
+                      muted
+                      loop
+                      width={1280}
+                      height={720}
+                      className={`h-auto w-full transition-opacity duration-300 ${
+                        isVocaboVideoLoading ? "opacity-0" : "opacity-100"
+                      }`}
+                      style={{ objectFit: "contain" }}
+                      playsInline
+                      preload="auto"
+                      onLoadedData={() => setIsVocaboVideoLoading(false)}
+                    />
+                  </div>
                 </div>
               </Link>
             </div>

@@ -7,6 +7,7 @@ import ProjectNavigation from "@/components/work/ProjectNavigation";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import { faLock } from "@fortawesome/free-solid-svg-icons";
+import { useState } from "react";
 
 const PWG = () => {
   const { isDarkMode } = useDarkMode();
@@ -16,6 +17,9 @@ const PWG = () => {
   const color = isDarkMode
     ? "var(--foreground-color-dark)"
     : "var(--foreground-color-light)";
+
+  const [isVideo1Loading, setIsVideo1Loading] = useState(true);
+  const [isVideo2Loading, setIsVideo2Loading] = useState(true);
 
   return (
     <>
@@ -41,7 +45,14 @@ const PWG = () => {
 
         {/* First Video */}
         <div className="mb-8 max-w-4xl mx-auto">
-          <div className="rounded-lg overflow-hidden shadow-lg">
+          <div className="rounded-lg overflow-hidden shadow-lg relative aspect-video">
+            {isVideo1Loading && (
+              <div className="absolute inset-0 flex items-center justify-center bg-gray-200 dark:bg-gray-700">
+                <span className="text-gray-500 dark:text-gray-400">
+                  Loading video...
+                </span>
+              </div>
+            )}
             <video
               src="/videos/pwg_web.mp4"
               autoPlay
@@ -49,7 +60,10 @@ const PWG = () => {
               loop
               playsInline
               preload="auto"
-              className="w-full rounded-lg shadow-xl"
+              className={`w-full rounded-lg shadow-xl transition-opacity duration-300 ${
+                isVideo1Loading ? "opacity-0" : "opacity-100"
+              }`}
+              onLoadedData={() => setIsVideo1Loading(false)}
             />
           </div>
         </div>
@@ -71,7 +85,14 @@ const PWG = () => {
 
           {/* Second Video - Moved and Resized */}
           <div className="my-8 max-w-lg mx-auto">
-            <div className="rounded-lg overflow-hidden shadow-lg">
+            <div className="rounded-lg overflow-hidden shadow-lg relative aspect-video">
+              {isVideo2Loading && (
+                <div className="absolute inset-0 flex items-center justify-center bg-gray-200 dark:bg-gray-700">
+                  <span className="text-gray-500 dark:text-gray-400">
+                    Loading video...
+                  </span>
+                </div>
+              )}
               <video
                 src="/videos/pwg_tablet.webm"
                 autoPlay
@@ -79,7 +100,10 @@ const PWG = () => {
                 loop
                 playsInline
                 preload="auto"
-                className="w-full rounded-lg shadow-xl"
+                className={`w-full rounded-lg shadow-xl transition-opacity duration-300 ${
+                  isVideo2Loading ? "opacity-0" : "opacity-100"
+                }`}
+                onLoadedData={() => setIsVideo2Loading(false)}
               />
             </div>
           </div>
@@ -190,37 +214,6 @@ const PWG = () => {
                     filter: isDarkMode ? "invert(0)" : "invert(1)",
                   }}
                 />
-              </div>
-            </div>
-          </section>
-
-          <section>
-            <h2 className="text-2xl font-semibold mb-3 font-ibmPlexMono">
-              Project Impact
-            </h2>
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-              <div className="bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-100 p-4 rounded-lg shadow">
-                <h3 className="text-lg font-medium mb-1">
-                  Enhanced Efficiency
-                </h3>
-                <p className="text-sm">
-                  Reduced on-site assessment time by 40% through streamlined
-                  digital processes.
-                </p>
-              </div>
-              <div className="bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-100 p-4 rounded-lg shadow">
-                <h3 className="text-lg font-medium mb-1">Improved Accuracy</h3>
-                <p className="text-sm">
-                  Decreased measurement errors by 35% with digital validation
-                  and standardized procedures.
-                </p>
-              </div>
-              <div className="bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-100 p-4 rounded-lg shadow">
-                <h3 className="text-lg font-medium mb-1">Business Growth</h3>
-                <p className="text-sm">
-                  Enabled a 25% increase in assessment capacity, supporting
-                  business expansion.
-                </p>
               </div>
             </div>
           </section>
