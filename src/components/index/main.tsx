@@ -228,7 +228,7 @@ $XXXXxxxxxxxxxxxxxxxxx++++xxxx+xxxXXxXXXXXXXXXXXXXXXXXX$$$$$$$X+;+XXXXXXXXXXXXXX
               </Link>
 
               <h3 className="font-ibmPlexMono mt-3 mb-1">Projects:</h3>
-              <Link
+              {/* <Link
                 href="/work/stringBox"
                 className="text-[0.9em] bg-inherit opacity-75 p-1 px-2 no-underline font-ibmPlexMono hover:opacity-100 hover:bg-opacity-10 hover:bg-white rounded-md -ml-2 w-fit flex items-center gap-2 group"
               >
@@ -242,7 +242,7 @@ $XXXXxxxxxxxxxxxxxxxxx++++xxxx+xxxXXxXXXXXXXXXXXXXXXXXX$$$$$$$X+;+XXXXXXXXXXXXXX
                       : "var(--foreground-color-light)",
                   }}
                 />
-              </Link>
+              </Link> */}
               <Link
                 href="/work/celestialObjectTracker"
                 className="text-[0.9em] bg-inherit opacity-75 p-1 px-2 no-underline font-ibmPlexMono hover:opacity-100 hover:bg-opacity-10 hover:bg-white rounded-md -ml-2 w-fit flex items-center gap-2 group"
