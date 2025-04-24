@@ -239,9 +239,9 @@ $XXXXxxxxxxxxxxxxxxxxx++++xxxx+xxxXXxXXXXXXXXXXXXXXXXXX$$$$$$$X+;+XXXXXXXXXXXXXX
               <Link
                 href="/work/japaneseHostFamily"
                 className="text-[0.9em] bg-inherit opacity-75 p-1 px-2 no-underline font-ibmPlexMono hover:opacity-100 hover:bg-opacity-10 hover:bg-white rounded-md -ml-2 w-fit flex items-center gap-2 group"
-                aria-label="View project details about Japanese Host Family Platform"
+                aria-label="View project details about Japanese Host Family"
               >
-                - Japanese Host Family Platform
+                - Japanese Host Family
                 <FontAwesomeIcon
                   icon={faArrowUpRightFromSquare}
                   className="h-2.5 w-2.5 transition-opacity"
