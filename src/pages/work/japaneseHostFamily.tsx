@@ -1,0 +1,216 @@
+import React, { useState } from "react";
+import Image from "next/image";
+import HeaderGlobal from "@/components/globals/headerGlobal";
+import Footer from "@/components/globals/footer";
+import { useDarkMode } from "@/contexts/darkModeContext";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faGithub } from "@fortawesome/free-brands-svg-icons";
+import { faExternalLinkAlt } from "@fortawesome/free-solid-svg-icons";
+import ProjectNavigation from "@/components/work/ProjectNavigation";
+
+const JapaneseHostFamilyPage: React.FC = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const { isDarkMode } = useDarkMode();
+  const backgroundColor = isDarkMode
+    ? "var(--background-color-dark)"
+    : "var(--background-color-light)";
+  const color = isDarkMode
+    ? "var(--foreground-color-dark)"
+    : "var(--foreground-color-light)";
+
+  return (
+    <div
+      style={{ backgroundColor, color, minHeight: "100vh" }}
+      className="flex flex-col"
+    >
+      <HeaderGlobal />
+      <main className="flex-grow container mx-auto px-4 py-0 pt-20 lg:pt-20">
+        <h1 className="text-4xl font-bold mb-6 text-center font-ibmPlexMono italic">
+          Japanese Host Family Platform
+        </h1>
+
+        <div className="flex justify-center gap-4 mb-8">
+          <a
+            href="https://japanese-host-family.vercel.app/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-colors duration-150"
+            aria-label="Visit live site (opens in a new tab)"
+          >
+            <FontAwesomeIcon icon={faExternalLinkAlt} className="mr-2" />
+            Live Site
+          </a>
+          <a
+            href="https://github.com/AngusBlomley/japanese-host-family"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center px-4 py-2 border border-gray-300 dark:border-gray-600 text-sm font-medium rounded-md shadow-sm text-gray-700 dark:text-gray-200 bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-colors duration-150"
+            aria-label="View source code on GitHub (opens in a new tab)"
+          >
+            <FontAwesomeIcon icon={faGithub} className="mr-2" />
+            GitHub
+          </a>
+        </div>
+
+        <div className="mb-8 max-w-4xl mx-auto">
+          <Image
+            src="/images/japanese-host-family/japanese-host-family.png"
+            alt="Japanese Host Family Platform Screenshot"
+            width={1200}
+            height={675}
+            className="rounded-lg shadow-lg border border-gray-700"
+            priority // Load image eagerly as it's the main content
+          />
+        </div>
+
+        <div className="max-w-4xl mx-auto space-y-8 font-karla">
+          <section>
+            <h2 className="text-2xl font-semibold mb-3 font-ibmPlexMono">
+              Website Summary
+            </h2>
+            <p>
+              This is a marketplace application connecting Japanese host
+              families with international guests seeking accommodation in Japan.
+              It facilitates homestay arrangements, offering an immersive
+              cultural and language experience for visitors.
+            </p>
+          </section>
+
+          <section>
+            <h2 className="text-2xl font-semibold mb-3 font-ibmPlexMono">
+              Technical Overview
+            </h2>
+            <p className="mb-4">
+              This project demonstrates comprehensive full-stack development
+              capabilities, encompassing frontend UI/UX, backend API
+              development, database design, authentication, and performance
+              optimization.
+            </p>
+
+            <h3 className="text-xl font-semibold mb-2">Architecture & Stack</h3>
+            <ul className="list-disc list-inside space-y-1 mb-4">
+              <li>
+                <strong>Frontend:</strong> React 18, TypeScript, Vite, React
+                Query, Context API, shadcn/ui, Tailwind CSS, React Router v6
+              </li>
+              <li>
+                <strong>Backend:</strong> Supabase (PostgreSQL, Auth, Storage),
+                Serverless Architecture
+              </li>
+              <li>
+                <strong>Database:</strong> PostgreSQL via Supabase (See diagram
+                below)
+              </li>
+              <li>
+                <strong>Real-time:</strong> WebSocket integration via Supabase
+              </li>
+              <li>
+                <strong>Internationalization:</strong> i18next
+              </li>
+            </ul>
+
+            <h3 className="text-xl font-semibold mb-2">Core Features</h3>
+            <ul className="list-disc list-inside space-y-1">
+              <li>
+                Dual user roles (Hosts, Guests) with distinct functionalities.
+              </li>
+              <li>Comprehensive listing management for hosts.</li>
+              <li>
+                Advanced search, filtering, and map-based discovery for guests.
+              </li>
+              <li>Real-time messaging system between users.</li>
+              <li>Detailed user profiles with rating/review system.</li>
+              <li>Full bilingual support (English/Japanese).</li>
+              <li>
+                Secure authentication (email/password, social login, password
+                reset).
+              </li>
+            </ul>
+
+            {/* Clickable Database Image Trigger */}
+            <div className="mt-6 mb-8 text-center">
+              <h3 className="text-xl font-semibold mb-3">Database Structure</h3>
+              <button
+                onClick={() => setIsModalOpen(true)}
+                className="cursor-pointer border-none bg-transparent p-0 transition-opacity hover:opacity-80 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 rounded-lg"
+                aria-label="Enlarge database structure diagram"
+              >
+                <div className="relative w-full max-w-xl mx-auto">
+                  <Image
+                    src="/images/japanese-host-family/database.png"
+                    alt="Database structure diagram - Click to enlarge"
+                    layout="responsive"
+                    width={1000}
+                    height={563}
+                    className="rounded-lg shadow-lg border border-gray-700"
+                  />
+                </div>
+              </button>
+            </div>
+          </section>
+
+          <section>
+            <h2 className="text-2xl font-semibold mb-3 font-ibmPlexMono">
+              Key Implementation Details
+            </h2>
+            <ul className="list-disc list-inside space-y-1 mb-4">
+              <li>Type-safe data flow using shared TypeScript interfaces.</li>
+              <li>
+                Custom React hooks for business logic (<code>useAuth</code>,{" "}
+                <code>useLanguage</code>, <code>useConversation</code>).
+              </li>
+              <li>Responsive layouts adapting from mobile to desktop.</li>
+              <li>
+                Data-driven UI components with loading, error, and success
+                states.
+              </li>
+              <li>
+                Optimized image loading and code splitting for performance.
+              </li>
+              <li>Row-level security in Supabase and secure API endpoints.</li>
+            </ul>
+          </section>
+        </div>
+        <ProjectNavigation currentSlug="japaneseHostFamily" />
+      </main>
+      <Footer />
+
+      {/* Image Modal */}
+      {isModalOpen && (
+        <div
+          className="fixed inset-0 z-[999] flex items-center justify-center bg-black bg-opacity-75 p-4"
+          onClick={() => setIsModalOpen(false)} // Close on overlay click
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="modal-title"
+        >
+          <div
+            className="relative max-w-6xl max-h-[98vh] bg-white dark:bg-gray-900 p-[3px] rounded-lg shadow-xl overflow-auto"
+            onClick={(e) => e.stopPropagation()} // Prevent closing when clicking inside modal content
+          >
+            <h2 id="modal-title" className="sr-only">
+              Database Structure Diagram
+            </h2>{" "}
+            {/* Screen reader title */}
+            <button
+              onClick={() => setIsModalOpen(false)}
+              className="absolute top-2 right-2 text-gray-600 dark:text-gray-300 hover:text-black dark:hover:text-white text-2xl leading-none p-1 bg-transparent border-none cursor-pointer focus:outline-none focus:ring-2 focus:ring-gray-500 rounded-full"
+              aria-label="Close modal"
+            >
+              &times;
+            </button>
+            <Image
+              src="/images/japanese-host-family/database.png"
+              alt="Enlarged database structure diagram"
+              width={2400} // Larger width for modal view
+              height={1350} // Corresponding height
+              className="block w-full h-auto"
+            />
+          </div>
+        </div>
+      )}
+    </div>
+  );
+};
+
+export default JapaneseHostFamilyPage;

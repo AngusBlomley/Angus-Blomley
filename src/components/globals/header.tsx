@@ -6,6 +6,7 @@ import {
   FaInfo,
   FaGraduationCap,
   FaBriefcase,
+  FaCode,
   FaEnvelope,
   FaFileDownload,
   FaGithub,
@@ -28,6 +29,7 @@ function Header(): JSX.Element {
 
   const [menuVisible, setMenuVisible] = useState(false);
   const [workSublinksVisible, setWorkSublinksVisible] = useState(false);
+  const [projectsSublinksVisible, setProjectsSublinksVisible] = useState(false);
 
   useEffect(() => {
     const headerElement = document.querySelector("header");
@@ -81,6 +83,13 @@ function Header(): JSX.Element {
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
+  }, [menuVisible]);
+
+  useEffect(() => {
+    if (!menuVisible) {
+      setWorkSublinksVisible(false);
+      setProjectsSublinksVisible(false);
+    }
   }, [menuVisible]);
 
   const toggleMenu = () => {
@@ -140,10 +149,25 @@ function Header(): JSX.Element {
           name: "Open Fern Studio",
           link: "/work/openfern",
         },
-        // {
-        //   name: "Re-String Box",
-        //   link: "/work/stringBox",
-        // },
+        {
+          name: "Be First",
+          link: "/work/beFirst",
+        },
+      ],
+    },
+    {
+      id: "projects",
+      name: "Projects",
+      icon: <FaCode />,
+      subLinks: [
+        {
+          name: "Japanese Host Family Platform",
+          link: "/work/japaneseHostFamily",
+        },
+        {
+          name: "String Box",
+          link: "/work/stringBox",
+        },
         {
           name: "Celestial Object Tracker",
           link: "/work/celestialObjectTracker",
@@ -151,10 +175,6 @@ function Header(): JSX.Element {
         {
           name: "Meetly",
           link: "/work/meetly",
-        },
-        {
-          name: "Be First",
-          link: "/work/beFirst",
         },
       ],
     },
@@ -196,10 +216,29 @@ function Header(): JSX.Element {
             className="hidden lg:flex items-center"
             aria-label="Main navigation"
           >
-            {sections.map((section) => (
-              <div key={section.id} className="relative group">
-                {section.link ? (
-                  <Link href={section.link} passHref>
+            {sections.map((section) => {
+              const isWorkSection = section.id === "work";
+              const isProjectsSection = section.id === "projects";
+              const isSubmenuExpanded = isWorkSection
+                ? workSublinksVisible
+                : isProjectsSection
+                ? projectsSublinksVisible
+                : false;
+
+              return (
+                <div key={section.id} className="relative group">
+                  {section.link ? (
+                    <Link href={section.link} passHref>
+                      <div
+                        className="inline-block bg-inherit opacity-75 p-1 px-3 no-underline hover:opacity-100 hover:bg-opacity-10 hover:bg-white rounded-md cursor-pointer font-ibmPlexMono"
+                        onClick={(e: React.MouseEvent<HTMLDivElement>) =>
+                          section.action && section.action()
+                        }
+                      >
+                        {section.name}
+                      </div>
+                    </Link>
+                  ) : (
                     <div
                       className="inline-block bg-inherit opacity-75 p-1 px-3 no-underline hover:opacity-100 hover:bg-opacity-10 hover:bg-white rounded-md cursor-pointer font-ibmPlexMono"
                       onClick={(e: React.MouseEvent<HTMLDivElement>) =>
@@ -208,33 +247,24 @@ function Header(): JSX.Element {
                     >
                       {section.name}
                     </div>
-                  </Link>
-                ) : (
-                  <div
-                    className="inline-block bg-inherit opacity-75 p-1 px-3 no-underline hover:opacity-100 hover:bg-opacity-10 hover:bg-white rounded-md cursor-pointer font-ibmPlexMono"
-                    onClick={(e: React.MouseEvent<HTMLDivElement>) =>
-                      section.action && section.action()
-                    }
-                  >
-                    {section.name}
-                  </div>
-                )}
-                {section.subLinks && (
-                  <div
-                    className="absolute px-5 py-4 -left-2 mt-0 w-64 shadow-lg rounded hidden group-hover:flex flex-col transition-opacity border border-gray-800"
-                    style={{ backgroundColor }}
-                  >
-                    {section.subLinks.map((subLink) => (
-                      <Link key={subLink.name} href={subLink.link} passHref>
-                        <div className="inline-block bg-inherit opacity-75 p-1 px-3 no-underline font-ibmPlexMono hover:opacity-100 hover:bg-opacity-10 hover:bg-white rounded-md cursor-pointer w-full">
-                          {subLink.name}
-                        </div>
-                      </Link>
-                    ))}
-                  </div>
-                )}
-              </div>
-            ))}
+                  )}
+                  {section.subLinks && (
+                    <div
+                      className="absolute px-5 py-4 -left-2 mt-0 w-64 shadow-lg rounded hidden group-hover:flex flex-col transition-opacity border border-gray-800"
+                      style={{ backgroundColor }}
+                    >
+                      {section.subLinks.map((subLink) => (
+                        <Link key={subLink.name} href={subLink.link} passHref>
+                          <div className="inline-block bg-inherit opacity-75 p-1 px-3 no-underline font-ibmPlexMono hover:opacity-100 hover:bg-opacity-10 hover:bg-white rounded-md cursor-pointer w-full">
+                            {subLink.name}
+                          </div>
+                        </Link>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              );
+            })}
             <div className="flex items-center">
               <a
                 href="https://github.com/AngusBlomley"
@@ -298,56 +328,78 @@ function Header(): JSX.Element {
               &#x2715;
             </div>
             <ul className="w-full mt-20 text-xl list-none">
-              {sections.map((section) => (
-                <li key={section.id} className="p-4 opacity-75 text-lg">
-                  {section.id !== "work" ? (
-                    <Link href={section.link || ""} passHref>
-                      <div
-                        className="no-underline flex items-center cursor-pointer"
-                        onClick={() => {
-                          toggleMenu();
-                          if (section.action) section.action();
-                        }}
-                      >
-                        {section.icon}
-                        <span className="ml-2">{section.name}</span>
-                      </div>
-                    </Link>
-                  ) : (
-                    <>
-                      <div
-                        className="no-underline flex items-center cursor-pointer"
-                        onClick={() =>
-                          setWorkSublinksVisible(!workSublinksVisible)
-                        }
-                      >
-                        {section.icon}
-                        <span className="ml-2">{section.name}</span>
-                      </div>
-                      <div
-                        className={`overflow-hidden duration-500 ${
-                          workSublinksVisible ? "max-h-screen" : "max-h-0"
-                        }`}
-                      >
-                        <ul>
-                          {section.subLinks?.map((subLink) => (
-                            <li key={subLink.name}>
-                              <Link href={subLink.link} passHref>
-                                <div
-                                  className="p-2 ml-2 text-base cursor-pointer opacity-50 hover:opacity-100"
-                                  onClick={toggleMenu}
-                                >
-                                  {subLink.name}
-                                </div>
-                              </Link>
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                    </>
-                  )}
-                </li>
-              ))}
+              {sections.map((section) => {
+                const isWorkSection = section.id === "work";
+                const isProjectsSection = section.id === "projects";
+                const isSubmenuExpanded = isWorkSection
+                  ? workSublinksVisible
+                  : isProjectsSection
+                  ? projectsSublinksVisible
+                  : false;
+
+                return (
+                  <li key={section.id} className="p-4 opacity-75 text-lg">
+                    {!section.subLinks ? (
+                      <Link href={section.link || ""} passHref>
+                        <div
+                          className="no-underline flex items-center cursor-pointer"
+                          onClick={() => {
+                            toggleMenu();
+                            if (section.action) section.action();
+                          }}
+                        >
+                          {section.icon}
+                          <span className="ml-2">{section.name}</span>
+                        </div>
+                      </Link>
+                    ) : (
+                      <>
+                        <button
+                          type="button"
+                          className="no-underline flex items-center cursor-pointer w-full text-left bg-transparent border-none p-0 m-0 inherit-color"
+                          onClick={() => {
+                            if (isWorkSection) {
+                              setWorkSublinksVisible(!isSubmenuExpanded);
+                              setProjectsSublinksVisible(false);
+                            } else if (isProjectsSection) {
+                              setProjectsSublinksVisible(!isSubmenuExpanded);
+                              setWorkSublinksVisible(false);
+                            }
+                          }}
+                          aria-expanded={isSubmenuExpanded}
+                          aria-controls={`${section.id}-sublinks`}
+                        >
+                          {section.icon}
+                          <span className="ml-2">{section.name}</span>
+                        </button>
+                        <div
+                          id={`${section.id}-sublinks`}
+                          className={`overflow-hidden duration-500 ${
+                            isSubmenuExpanded ? "max-h-screen" : "max-h-0"
+                          }`}
+                          role="region"
+                          aria-hidden={!isSubmenuExpanded}
+                        >
+                          <ul className="list-none pl-6 pt-2">
+                            {section.subLinks?.map((subLink) => (
+                              <li key={subLink.name}>
+                                <Link href={subLink.link} passHref>
+                                  <div
+                                    className="p-2 text-base cursor-pointer opacity-50 hover:opacity-100"
+                                    onClick={toggleMenu}
+                                  >
+                                    {subLink.name}
+                                  </div>
+                                </Link>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      </>
+                    )}
+                  </li>
+                );
+              })}
               <li className="px-4">
                 <button
                   onClick={toggleDarkMode}

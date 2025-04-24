@@ -3,7 +3,7 @@ import HeaderGlobal from "@/components/globals/headerGlobal";
 import Footer from "@/components/globals/footer";
 import Image from "next/image";
 import { useDarkMode } from "@/contexts/darkModeContext";
-import { WorkNavigation } from "@/components/work/WorkNavigation";
+import ProjectNavigation from "@/components/work/ProjectNavigation";
 
 const BeFirst = () => {
   const { isDarkMode } = useDarkMode();
@@ -104,7 +104,9 @@ const BeFirst = () => {
           </div>
           <div className="grid grid-cols-6 grid-rows-2 mt-8 max-lg:grid-cols-1">
             <section className="row-span-full col-span-3 col-start-1 max-lg:row-start-3 max-lg:row-span-1 pt-8 border-r border-gray-100 border-opacity-10 bg-gray-100 bg-opacity-20 max-2xl:col-span-3">
-              <h2 className="text-2xl font-semibold mb-2">Video Releases</h2>
+              <h2 className="text-2xl font-semibold mb-2 ml-4">
+                Video Releases
+              </h2>
               <div className="p-4">
                 <table className="table-auto w-full">
                   <thead>
@@ -334,7 +336,7 @@ const BeFirst = () => {
               </div>
             </div>
           </div>
-          <WorkNavigation currentPath="/work/beFirst" />
+          <ProjectNavigation currentSlug="beFirst" />
         </div>
       </div>
       <Footer />
