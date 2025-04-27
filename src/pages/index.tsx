@@ -8,6 +8,8 @@ import About from "@/components/index/about";
 import Contact from "@/components/index/contact";
 import Footer from "@/components/globals/footer";
 
+// TODO: Consolidate all the landing page components into this file
+
 // Lazy load non-critical components
 const Education = lazy(() => import("@/components/index/education"));
 const WorkExperience = lazy(() => import("@/components/index/workExperience"));
