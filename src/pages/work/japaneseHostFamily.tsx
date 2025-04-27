@@ -126,27 +126,6 @@ const JapaneseHostFamilyPage: React.FC = () => {
                 reset).
               </li>
             </ul>
-
-            {/* Clickable Database Image Trigger */}
-            <div className="mt-6 mb-8 text-center">
-              <h3 className="text-xl font-semibold mb-3">Database Structure</h3>
-              <button
-                onClick={() => setIsModalOpen(true)}
-                className="cursor-pointer border-none bg-transparent p-0 transition-opacity hover:opacity-80 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 rounded-lg"
-                aria-label="Enlarge database structure diagram"
-              >
-                <div className="relative w-full max-w-xl mx-auto">
-                  <Image
-                    src="/images/japanese-host-family/database.png"
-                    alt="Database structure diagram - Click to enlarge"
-                    layout="responsive"
-                    width={1000}
-                    height={563}
-                    className="rounded-lg shadow-lg border border-gray-700"
-                  />
-                </div>
-              </button>
-            </div>
           </section>
 
           <section>
@@ -174,41 +153,6 @@ const JapaneseHostFamilyPage: React.FC = () => {
         <ProjectNavigation currentSlug="japaneseHostFamily" />
       </main>
       <Footer />
-
-      {/* Image Modal */}
-      {isModalOpen && (
-        <div
-          className="fixed inset-0 z-[999] flex items-center justify-center bg-black bg-opacity-75 p-4"
-          onClick={() => setIsModalOpen(false)} // Close on overlay click
-          role="dialog"
-          aria-modal="true"
-          aria-labelledby="modal-title"
-        >
-          <div
-            className="relative max-w-6xl max-h-[98vh] bg-white dark:bg-gray-900 p-[3px] rounded-lg shadow-xl overflow-auto"
-            onClick={(e) => e.stopPropagation()} // Prevent closing when clicking inside modal content
-          >
-            <h2 id="modal-title" className="sr-only">
-              Database Structure Diagram
-            </h2>{" "}
-            {/* Screen reader title */}
-            <button
-              onClick={() => setIsModalOpen(false)}
-              className="absolute top-2 right-2 text-gray-600 dark:text-gray-300 hover:text-black dark:hover:text-white text-2xl leading-none p-1 bg-transparent border-none cursor-pointer focus:outline-none focus:ring-2 focus:ring-gray-500 rounded-full"
-              aria-label="Close modal"
-            >
-              &times;
-            </button>
-            <Image
-              src="/images/japanese-host-family/database.png"
-              alt="Enlarged database structure diagram"
-              width={2400} // Larger width for modal view
-              height={1350} // Corresponding height
-              className="block w-full h-auto"
-            />
-          </div>
-        </div>
-      )}
     </div>
   );
 };
