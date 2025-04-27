@@ -45,7 +45,7 @@ const PWG = () => {
 
         {/* First Video */}
         <div className="mb-8 max-w-4xl mx-auto">
-          <div className="rounded-lg overflow-hidden shadow-lg relative aspect-video">
+          <div className="rounded-lg overflow-hidden shadow-lg relative">
             {isVideo1Loading && (
               <div className="absolute inset-0 flex items-center justify-center bg-gray-200 dark:bg-gray-700">
                 <span className="text-gray-500 dark:text-gray-400">
@@ -85,7 +85,7 @@ const PWG = () => {
 
           {/* Second Video - Moved and Resized */}
           <div className="my-8 max-w-lg mx-auto">
-            <div className="rounded-lg overflow-hidden shadow-lg relative aspect-video">
+            <div className="rounded-lg overflow-hidden shadow-lg relative">
               {isVideo2Loading && (
                 <div className="absolute inset-0 flex items-center justify-center bg-gray-200 dark:bg-gray-700">
                   <span className="text-gray-500 dark:text-gray-400">
