@@ -1,28 +1,13 @@
 import React, { useState, useEffect, JSX } from "react";
 import Link from "next/link";
-import {
-  FaHome,
-  FaInfo,
-  FaGraduationCap,
-  FaBriefcase,
-  FaCode,
-  FaEnvelope,
-  FaFileDownload,
-  FaGithub,
-  FaLinkedin,
-  FaSun,
-  FaMoon,
-} from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaSun, FaMoon } from "react-icons/fa";
 import { useDarkMode } from "@/contexts/darkModeContext";
-
-interface Section {
-  id: string;
-  name: string;
-  icon: React.ReactNode;
-  link?: string;
-  action?: () => void;
-  subLinks?: Array<{ name: string; link: string }>;
-}
+import {
+  sectionsDataConstants,
+  iconMap,
+  handleResumeClick as resumeAction,
+} from "./constants";
+import type { SectionConstant } from "./constants";
 
 function HeaderGlobal(): JSX.Element {
   const { isDarkMode, toggleDarkMode } = useDarkMode();
@@ -31,12 +16,6 @@ function HeaderGlobal(): JSX.Element {
     useState<boolean>(false);
   const [projectsSublinksVisible, setProjectsSublinksVisible] =
     useState<boolean>(false);
-  const backgroundColor = isDarkMode
-    ? "var(--background-color-dark)"
-    : "var(--background-color-light)";
-  const color = isDarkMode
-    ? "var(--foreground-color-dark)"
-    : "var(--foreground-color-light)";
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -77,102 +56,9 @@ function HeaderGlobal(): JSX.Element {
     }
   };
 
-  const handleResumeClick = (): void => {
-    window.open("/pdf/Angus-Blomley.pdf", "_blank");
-  };
-
-  const sections: Section[] = [
-    {
-      id: "home",
-      link: "/",
-      name: "Home",
-      icon: <FaHome />,
-    },
-    {
-      id: "about",
-      link: "/aboutMe",
-      name: "About",
-      icon: <FaInfo />,
-    },
-    {
-      id: "experience",
-      link: "/#experience",
-      name: "Experience",
-      icon: <FaBriefcase />,
-    },
-    {
-      id: "education",
-      link: "/#education",
-      name: "Education",
-      icon: <FaGraduationCap />,
-    },
-    {
-      id: "work",
-      name: "Work",
-      icon: <FaBriefcase />,
-      link: "/#work",
-      subLinks: [
-        {
-          name: "PWG Windows & Doors",
-          link: "/work/pwg",
-        },
-        {
-          name: "Vocabo",
-          link: "/work/vocabo",
-        },
-        {
-          name: "Open Fern Studio",
-          link: "/work/openfern",
-        },
-        {
-          name: "Be First",
-          link: "/work/beFirst",
-        },
-      ],
-    },
-    {
-      id: "projects",
-      name: "Projects",
-      icon: <FaCode />,
-      subLinks: [
-        {
-          name: "Japanese Host Family Platform",
-          link: "/work/japaneseHostFamily",
-        },
-        {
-          name: "String Box",
-          link: "/work/stringBox",
-        },
-        {
-          name: "Celestial Object Tracker",
-          link: "/work/celestialObjectTracker",
-        },
-        {
-          name: "Meetly",
-          link: "/work/meetly",
-        },
-      ],
-    },
-    {
-      id: "contact",
-      link: "/#contact",
-      name: "Contact",
-      icon: <FaEnvelope />,
-    },
-    {
-      id: "resume",
-      name: "Resume",
-      icon: <FaFileDownload />,
-      action: handleResumeClick,
-    },
-  ];
-
   return (
     <>
-      <header
-        className="fixed font-ibmPlexMono italic flex justify-center w-full top-0 z-50 p-4 max-lg:p-4"
-        style={{ backgroundColor, color }}
-      >
+      <header className="fixed font-ibmPlexMono italic flex justify-center w-full top-0 z-50 p-4 max-lg:p-4 bg-theme-bg-light dark:bg-theme-bg-dark text-theme-text-light dark:text-theme-text-dark">
         <div className="flex w-10/12 items-center justify-between max-lg:w-full">
           <Link href="/" passHref>
             <h2
@@ -183,42 +69,37 @@ function HeaderGlobal(): JSX.Element {
             </h2>
           </Link>
           <nav className="hidden lg:flex items-center">
-            {sections.map((section) => {
-              const isWorkSection = section.id === "work";
-              const isProjectsSection = section.id === "projects";
+            {sectionsDataConstants.map((section: SectionConstant) => {
+              const actionToPerform =
+                section.actionIdentifier === "handleResumeClick"
+                  ? resumeAction
+                  : undefined;
 
               return (
                 <div key={section.id} className="relative group">
                   {section.link ? (
                     <Link href={section.link || ""} passHref>
                       <div
-                        className="inline-block bg-inherit opacity-75 p-1 px-3 no-underline hover:opacity-100 hover:bg-opacity-10 hover:bg-white rounded-md cursor-pointer font-ibmPlexMono"
-                        onClick={(e: React.MouseEvent<HTMLDivElement>) =>
-                          section.action && section.action()
-                        }
+                        className="inline-block bg-inherit opacity-75 p-1 px-3 no-underline hover:opacity-100 hover:bg-white/10 dark:hover:bg-white/20 rounded-md cursor-pointer font-ibmPlexMono"
+                        onClick={() => actionToPerform && actionToPerform()}
                       >
                         {section.name}
                       </div>
                     </Link>
                   ) : (
                     <div
-                      className="inline-block bg-inherit opacity-75 p-1 px-3 no-underline hover:opacity-100 hover:bg-opacity-10 hover:bg-white rounded-md cursor-pointer font-ibmPlexMono"
-                      onClick={(e: React.MouseEvent<HTMLDivElement>) =>
-                        section.action && section.action()
-                      }
+                      className="inline-block bg-inherit opacity-75 p-1 px-3 no-underline hover:opacity-100 hover:bg-white/10 dark:hover:bg-white/20 rounded-md cursor-pointer font-ibmPlexMono"
+                      onClick={() => actionToPerform && actionToPerform()}
                     >
                       {section.name}
                     </div>
                   )}
 
                   {section.subLinks && (
-                    <div
-                      className="absolute px-5 py-4 -left-2 mt-0 w-64 shadow-lg rounded hidden group-hover:flex flex-col transition-opacity border border-gray-800"
-                      style={{ backgroundColor }}
-                    >
+                    <div className="absolute px-5 py-4 -left-2 mt-0 w-64 shadow-lg rounded hidden group-hover:flex flex-col transition-opacity border border-gray-800 bg-theme-bg-light dark:bg-theme-bg-dark text-theme-text-light dark:text-theme-text-dark">
                       {section.subLinks.map((subLink) => (
                         <Link key={subLink.name} href={subLink.link} passHref>
-                          <div className="inline-block bg-inherit opacity-75 p-1 px-3 no-underline font-ibmPlexMono hover:opacity-100 hover:bg-opacity-10 hover:bg-white rounded-md cursor-pointer w-full">
+                          <div className="inline-block bg-inherit opacity-75 p-1 px-3 no-underline font-ibmPlexMono hover:opacity-100 hover:bg-white/10 dark:hover:bg-white/20 rounded-md cursor-pointer w-full">
                             {subLink.name}
                           </div>
                         </Link>
@@ -233,7 +114,7 @@ function HeaderGlobal(): JSX.Element {
                 href="https://github.com/AngusBlomley"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-block bg-inherit opacity-75 p-2 px-3 hover:opacity-100 hover:bg-opacity-10 hover:bg-white rounded-md"
+                className="inline-block bg-inherit opacity-75 p-2 px-3 hover:opacity-100 hover:bg-white/10 dark:hover:bg-white/20 rounded-md"
                 aria-label="GitHub profile"
               >
                 <FaGithub aria-hidden="true" />
@@ -243,7 +124,7 @@ function HeaderGlobal(): JSX.Element {
                 href="https://www.linkedin.com/in/angus-blomley-82b45a177/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-block bg-inherit opacity-75 p-2 px-3 hover:opacity-100 hover:bg-opacity-10 hover:bg-white rounded-md"
+                className="inline-block bg-inherit opacity-75 p-2 px-3 hover:opacity-100 hover:bg-white/10 dark:hover:bg-white/20 rounded-md"
                 aria-label="LinkedIn profile"
               >
                 <FaLinkedin aria-hidden="true" />
@@ -251,7 +132,7 @@ function HeaderGlobal(): JSX.Element {
               </a>
               <button
                 onClick={toggleDarkMode}
-                className="inline-block bg-inherit opacity-75 p-2 px-3 hover:opacity-100 hover:bg-opacity-10 hover:bg-white rounded-md"
+                className="inline-block bg-inherit opacity-75 p-2 px-3 hover:opacity-100 hover:bg-white/10 dark:hover:bg-white/20 rounded-md"
                 aria-label={
                   isDarkMode ? "Switch to Light Mode" : "Switch to Dark Mode"
                 }
@@ -274,8 +155,7 @@ function HeaderGlobal(): JSX.Element {
             id="menucontainer"
             className={`fixed top-0 right-0 w-3/4 md:w-2/3 lg:w-1/2 h-screen duration-300 ${
               menuVisible ? "translate-x-0" : "translate-x-full"
-            } flex flex-col items-center shadow-xl z-50 overflow-y-auto`}
-            style={{ backgroundColor }}
+            } flex flex-col items-center shadow-xl z-50 overflow-y-auto bg-theme-bg-light dark:bg-theme-bg-dark text-theme-text-light dark:text-theme-text-dark`}
           >
             <div
               onClick={toggleMenu}
@@ -284,7 +164,13 @@ function HeaderGlobal(): JSX.Element {
               &#x2715;
             </div>
             <ul className="w-full mt-20 text-xl list-none">
-              {sections.map((section) => {
+              {sectionsDataConstants.map((section: SectionConstant) => {
+                const currentIcon = iconMap[section.iconIdentifier];
+                const actionToPerform =
+                  section.actionIdentifier === "handleResumeClick"
+                    ? resumeAction
+                    : undefined;
+
                 const isWorkSection = section.id === "work";
                 const isProjectsSection = section.id === "projects";
                 const isSubmenuExpanded = isWorkSection
@@ -301,10 +187,10 @@ function HeaderGlobal(): JSX.Element {
                           className="no-underline flex items-center cursor-pointer"
                           onClick={() => {
                             toggleMenu();
-                            if (section.action) section.action();
+                            if (actionToPerform) actionToPerform();
                           }}
                         >
-                          {section.icon}
+                          {currentIcon}
                           <span className="ml-2">{section.name}</span>
                         </div>
                       </Link>
@@ -325,7 +211,7 @@ function HeaderGlobal(): JSX.Element {
                           aria-expanded={isSubmenuExpanded}
                           aria-controls={`${section.id}-sublinks`}
                         >
-                          {section.icon}
+                          {currentIcon}
                           <span className="ml-2">{section.name}</span>
                         </button>
                         <div
@@ -359,7 +245,7 @@ function HeaderGlobal(): JSX.Element {
               <li className="px-4">
                 <button
                   onClick={toggleDarkMode}
-                  className="bg-inherit opacity-75 mt-5 no-underline font-ibmPlexMono hover:opacity-100 hover:bg-opacity-10 hover:bg-white rounded-md flex items-center"
+                  className="bg-inherit opacity-75 mt-5 no-underline font-ibmPlexMono hover:opacity-100 hover:bg-white/10 dark:hover:bg-white/20 rounded-md flex items-center"
                 >
                   {isDarkMode ? (
                     <FaSun className="mr-2" />

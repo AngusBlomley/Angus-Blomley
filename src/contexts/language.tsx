@@ -11,7 +11,7 @@ interface LanguageContextType {
   toggleLanguage: () => void;
 }
 
-//TODO: Set language to en for now...
+//TODO: Add Japanese language locale when website is in a good position
 
 export const LanguageContext = createContext<LanguageContextType | undefined>(
   undefined

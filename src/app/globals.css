@@ -9,10 +9,10 @@
     text-wrap: balance;
   }
   .bg-light-menu {
-    background-color: var(--background-color-light);
+    @apply bg-theme-bg-light;
   }
   .dark .bg-dark-menu {
-    background-color: var(--background-color-dark);
+    @apply bg-theme-bg-dark;
   }
 }
 
@@ -25,24 +25,14 @@ body {
   scroll-behavior: smooth;
 }
 
-:root {
-  --background-color-dark: #121212;
-  --background-color-light: #ffffff;
-  --foreground-color-dark: #ffffff;
-  --foreground-color-light: #121212;
-}
+/* CSS variables for theme colors are now managed in tailwind.config.js */
 
 body {
+  @apply bg-theme-bg-light text-theme-text-light;
 }
 
-body.light-mode {
-  background-color: var(--background-color-light);
-  color: var(--foreground-color-light);
-}
-
-body.dark-mode {
-  background-color: var(--background-color-dark);
-  color: var(--foreground-color-dark);
+body.dark {
+  @apply bg-theme-bg-dark text-theme-text-dark;
 }
 
 .rc-anchor-light,

@@ -1,66 +1,19 @@
 import React, { JSX, useEffect, useState } from "react";
 import Link from "next/link";
 import { useDarkMode } from "@/contexts/darkModeContext";
+import { FaGithub, FaLinkedin, FaSun, FaMoon } from "react-icons/fa";
 import {
-  FaHome,
-  FaInfo,
-  FaGraduationCap,
-  FaBriefcase,
-  FaCode,
-  FaEnvelope,
-  FaFileDownload,
-  FaGithub,
-  FaLinkedin,
-  FaSun,
-  FaMoon,
-} from "react-icons/fa";
-
-interface Section {
-  id: string;
-  name: string;
-  icon: React.ReactNode;
-  link?: string;
-  action?: () => void;
-  subLinks?: Array<{ name: string; link: string }>;
-}
+  sectionsDataConstants,
+  iconMap,
+  handleResumeClick as resumeAction,
+} from "./constants";
+import type { SectionConstant } from "./constants";
 
 function Header(): JSX.Element {
   const { isDarkMode, toggleDarkMode } = useDarkMode();
-
   const [menuVisible, setMenuVisible] = useState(false);
   const [workSublinksVisible, setWorkSublinksVisible] = useState(false);
   const [projectsSublinksVisible, setProjectsSublinksVisible] = useState(false);
-
-  useEffect(() => {
-    const headerElement = document.querySelector("header");
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (
-            entry.target.id === "about" &&
-            entry.isIntersecting &&
-            headerElement
-          ) {
-            headerElement.style.backgroundColor = isDarkMode
-              ? "var(--foreground-color-light)"
-              : "var(--foreground-color-dark)";
-          } else if (
-            entry.target.id === "home" &&
-            entry.isIntersecting &&
-            headerElement
-          ) {
-            headerElement.style.backgroundColor = "transparent";
-          }
-        });
-      },
-      { threshold: 0.1 }
-    );
-
-    const sections = document.querySelectorAll("#home, #about");
-    sections.forEach((section) => observer.observe(section));
-
-    return () => observer.disconnect();
-  }, [isDarkMode]);
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -101,113 +54,14 @@ function Header(): JSX.Element {
     }
   };
 
-  const handleResumeClick = () => {
-    // Open resume in a new tab
-    window.open("/pdf/Angus-Blomley.pdf", "_blank");
-  };
-
-  const sections: Section[] = [
-    {
-      id: "home",
-      name: "Home",
-      icon: <FaHome />,
-      link: "/",
-    },
-    {
-      id: "about",
-      name: "About",
-      icon: <FaInfo />,
-      link: "/aboutMe",
-    },
-    {
-      id: "experience",
-      name: "Experience",
-      icon: <FaBriefcase />,
-      link: "/#experience",
-    },
-    {
-      id: "education",
-      name: "Education",
-      icon: <FaGraduationCap />,
-      link: "/#education",
-    },
-    {
-      id: "work",
-      name: "Work",
-      icon: <FaBriefcase />,
-      link: "/#work",
-      subLinks: [
-        {
-          name: "PWG Windows & Doors",
-          link: "/work/pwg",
-        },
-        {
-          name: "Vocabo",
-          link: "/work/vocabo",
-        },
-        {
-          name: "Open Fern Studio",
-          link: "/work/openfern",
-        },
-        {
-          name: "Be First",
-          link: "/work/beFirst",
-        },
-      ],
-    },
-    {
-      id: "projects",
-      name: "Projects",
-      icon: <FaCode />,
-      subLinks: [
-        {
-          name: "Japanese Host Family Platform",
-          link: "/work/japaneseHostFamily",
-        },
-        {
-          name: "String Box",
-          link: "/work/stringBox",
-        },
-        {
-          name: "Celestial Object Tracker",
-          link: "/work/celestialObjectTracker",
-        },
-        {
-          name: "Meetly",
-          link: "/work/meetly",
-        },
-      ],
-    },
-    {
-      id: "contact",
-      name: "Contact",
-      icon: <FaEnvelope />,
-      link: "/#contact",
-    },
-    {
-      id: "resume",
-      name: "Resume",
-      icon: <FaFileDownload />,
-      action: handleResumeClick,
-    },
-  ];
-
-  const backgroundColor = isDarkMode
-    ? "var(--background-color-dark)"
-    : "var(--background-color-light)";
-
   return (
     <>
-      <header
-        className="fixed font-ibmPlexMono italic flex justify-center w-full top-0 z-50 p-4 max-lg:p-4"
-        style={{ backgroundColor }}
-      >
+      <header className="fixed font-ibmPlexMono italic flex justify-center w-full top-0 z-50 p-4 max-lg:p-4 bg-theme-bg-light dark:bg-theme-bg-dark text-theme-text-light dark:text-theme-text-dark">
         <div className="flex w-10/12 items-center justify-between max-lg:w-full">
           <Link href="/" passHref>
             <h2
               id="logo"
-              className="text-3xl font-bold opacity-50 hover:opacity-100 cursor-pointer no-underline font-ibmPlexMono"
-              aria-label="Homepage"
+              className="text-3xl font-rubik font-bold opacity-75 hover:opacity-100 cursor-pointer no-underline"
             >
               AB
             </h2>
@@ -216,23 +70,20 @@ function Header(): JSX.Element {
             className="hidden lg:flex items-center"
             aria-label="Main navigation"
           >
-            {sections.map((section) => {
-              const isWorkSection = section.id === "work";
-              const isProjectsSection = section.id === "projects";
-              const isSubmenuExpanded = isWorkSection
-                ? workSublinksVisible
-                : isProjectsSection
-                ? projectsSublinksVisible
-                : false;
+            {sectionsDataConstants.map((section: SectionConstant) => {
+              const actionToPerform =
+                section.actionIdentifier === "handleResumeClick"
+                  ? resumeAction
+                  : undefined;
 
               return (
                 <div key={section.id} className="relative group">
                   {section.link ? (
                     <Link href={section.link} passHref>
                       <div
-                        className="inline-block bg-inherit opacity-75 p-1 px-3 no-underline hover:opacity-100 hover:bg-opacity-10 hover:bg-white rounded-md cursor-pointer font-ibmPlexMono"
+                        className="inline-block bg-inherit opacity-75 p-1 px-3 no-underline hover:opacity-100 hover:bg-white/10 dark:hover:bg-white/20 rounded-md cursor-pointer font-ibmPlexMono"
                         onClick={(e: React.MouseEvent<HTMLDivElement>) =>
-                          section.action && section.action()
+                          actionToPerform && actionToPerform()
                         }
                       >
                         {section.name}
@@ -240,22 +91,17 @@ function Header(): JSX.Element {
                     </Link>
                   ) : (
                     <div
-                      className="inline-block bg-inherit opacity-75 p-1 px-3 no-underline hover:opacity-100 hover:bg-opacity-10 hover:bg-white rounded-md cursor-pointer font-ibmPlexMono"
-                      onClick={(e: React.MouseEvent<HTMLDivElement>) =>
-                        section.action && section.action()
-                      }
+                      className="inline-block bg-inherit opacity-75 p-1 px-3 no-underline hover:opacity-100 hover:bg-white/10 dark:hover:bg-white/20 rounded-md cursor-pointer font-ibmPlexMono"
+                      onClick={() => actionToPerform && actionToPerform()}
                     >
                       {section.name}
                     </div>
                   )}
                   {section.subLinks && (
-                    <div
-                      className="absolute px-5 py-4 -left-2 mt-0 w-64 shadow-lg rounded hidden group-hover:flex flex-col transition-opacity border border-gray-800"
-                      style={{ backgroundColor }}
-                    >
+                    <div className="absolute px-5 py-4 -left-2 mt-0 w-64 shadow-lg rounded hidden group-hover:flex flex-col transition-opacity border border-gray-800 bg-theme-bg-light dark:bg-theme-bg-dark">
                       {section.subLinks.map((subLink) => (
                         <Link key={subLink.name} href={subLink.link} passHref>
-                          <div className="inline-block bg-inherit opacity-75 p-1 px-3 no-underline font-ibmPlexMono hover:opacity-100 hover:bg-opacity-10 hover:bg-white rounded-md cursor-pointer w-full">
+                          <div className="inline-block bg-inherit opacity-75 p-1 px-3 no-underline font-ibmPlexMono hover:opacity-100 hover:bg-white/10 dark:hover:bg-white/20 rounded-md cursor-pointer w-full">
                             {subLink.name}
                           </div>
                         </Link>
@@ -270,7 +116,7 @@ function Header(): JSX.Element {
                 href="https://github.com/AngusBlomley"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-block bg-inherit opacity-75 p-2 px-3 hover:opacity-100 hover:bg-opacity-10 hover:bg-white rounded-md"
+                className="inline-block bg-inherit opacity-75 p-2 px-3 hover:opacity-100 hover:bg-white/10 dark:hover:bg-white/20 rounded-md"
                 aria-label="GitHub profile"
               >
                 <FaGithub aria-hidden="true" />
@@ -280,7 +126,7 @@ function Header(): JSX.Element {
                 href="https://www.linkedin.com/in/angus-blomley-82b45a177/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-block bg-inherit opacity-75 p-2 px-3 hover:opacity-100 hover:bg-opacity-10 hover:bg-white rounded-md"
+                className="inline-block bg-inherit opacity-75 p-2 px-3 hover:opacity-100 hover:bg-white/10 dark:hover:bg-white/20 rounded-md"
                 aria-label="LinkedIn profile"
               >
                 <FaLinkedin aria-hidden="true" />
@@ -288,7 +134,7 @@ function Header(): JSX.Element {
               </a>
               <button
                 onClick={toggleDarkMode}
-                className="inline-block bg-inherit opacity-75 p-2 px-3 hover:opacity-100 hover:bg-opacity-10 hover:bg-white rounded-md"
+                className="inline-block bg-inherit opacity-75 p-2 px-3 hover:opacity-100 hover:bg-white/10 dark:hover:bg-white/20 rounded-md"
                 aria-label={
                   isDarkMode ? "Switch to Light Mode" : "Switch to Dark Mode"
                 }
@@ -312,8 +158,7 @@ function Header(): JSX.Element {
             id="menucontainer"
             className={`fixed top-0 right-0 w-3/4 md:w-2/3 lg:w-1/2 h-screen duration-300 ${
               menuVisible ? "translate-x-0" : "translate-x-full"
-            } flex flex-col items-center shadow-xl z-50 overflow-y-auto`}
-            style={{ backgroundColor }}
+            } flex flex-col items-center shadow-xl z-50 overflow-y-auto bg-theme-bg-light dark:bg-theme-bg-dark text-theme-text-light dark:text-theme-text-dark`}
           >
             <div
               onClick={toggleMenu}
@@ -330,7 +175,13 @@ function Header(): JSX.Element {
               &#x2715;
             </div>
             <ul className="w-full mt-20 text-xl list-none">
-              {sections.map((section) => {
+              {sectionsDataConstants.map((section: SectionConstant) => {
+                const currentIcon = iconMap[section.iconIdentifier];
+                const actionToPerform =
+                  section.actionIdentifier === "handleResumeClick"
+                    ? resumeAction
+                    : undefined;
+
                 const isWorkSection = section.id === "work";
                 const isProjectsSection = section.id === "projects";
                 const isSubmenuExpanded = isWorkSection
@@ -347,10 +198,10 @@ function Header(): JSX.Element {
                           className="no-underline flex items-center cursor-pointer"
                           onClick={() => {
                             toggleMenu();
-                            if (section.action) section.action();
+                            if (actionToPerform) actionToPerform();
                           }}
                         >
-                          {section.icon}
+                          {currentIcon}
                           <span className="ml-2">{section.name}</span>
                         </div>
                       </Link>
@@ -371,7 +222,7 @@ function Header(): JSX.Element {
                           aria-expanded={isSubmenuExpanded}
                           aria-controls={`${section.id}-sublinks`}
                         >
-                          {section.icon}
+                          {currentIcon}
                           <span className="ml-2">{section.name}</span>
                         </button>
                         <div
@@ -405,7 +256,7 @@ function Header(): JSX.Element {
               <li className="px-4">
                 <button
                   onClick={toggleDarkMode}
-                  className="bg-inherit opacity-75 mt-5 no-underline font-ibmPlexMono hover:opacity-100 hover:bg-opacity-10 hover:bg-white rounded-md flex items-center"
+                  className="bg-inherit opacity-75 mt-5 no-underline font-ibmPlexMono hover:opacity-100 hover:bg-white/10 dark:hover:bg-white/20 rounded-md flex items-center"
                 >
                   {isDarkMode ? (
                     <FaSun className="mr-2" />
