@@ -15,14 +15,24 @@ export function DarkModeProvider({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     if (typeof window !== "undefined") {
       const saved = localStorage.getItem("darkMode");
-      setIsDarkMode(saved !== null ? JSON.parse(saved) : true);
+      const initialIsDark = saved !== null ? JSON.parse(saved) : true;
+      setIsDarkMode(initialIsDark);
+      if (initialIsDark) {
+        document.body.classList.add("dark");
+      } else {
+        document.body.classList.remove("dark");
+      }
     }
   }, []);
 
   useEffect(() => {
     if (typeof window !== "undefined") {
       localStorage.setItem("darkMode", JSON.stringify(isDarkMode));
-      document.body.className = isDarkMode ? "dark-mode" : "light-mode";
+      if (isDarkMode) {
+        document.body.classList.add("dark");
+      } else {
+        document.body.classList.remove("dark");
+      }
     }
   }, [isDarkMode]);
 

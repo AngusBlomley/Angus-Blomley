@@ -1,6 +1,5 @@
 import React from "react";
 import Link from "next/link";
-import { useDarkMode } from "@/contexts/darkModeContext";
 
 interface ButtonProps {
   href?: string;
@@ -25,18 +24,12 @@ const Button: React.FC<ButtonProps> = ({
   disabled = false,
   external = false,
 }) => {
-  const { isDarkMode } = useDarkMode();
-
   const baseClasses = `
     inline-flex items-center justify-center
     px-6 py-2 rounded
     font-ibmPlexMono
     transition-all duration-200
-    ${
-      isDarkMode
-        ? "bg-sky-900 hover:bg-sky-800 text-white"
-        : "bg-sky-50 hover:bg-sky-100 text-sky-800"
-    }
+    bg-[#0065A9] hover:bg-[#00528a] text-white
     mt-4
     ${className}
   `;

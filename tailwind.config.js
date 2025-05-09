@@ -7,6 +7,12 @@ module.exports = {
   ],
   theme: {
     extend: {
+      colors: {
+        'theme-bg-light': '#ffffff',
+        'theme-bg-dark': '#212121',
+        'theme-text-light': '#121212',
+        'theme-text-dark': '#ffffff',
+      },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic": "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
@@ -20,7 +26,6 @@ module.exports = {
         karla: ['Karla', 'sans-serif'],
         rubik: ['Rubik', 'sans-serif'],
         unispace: ['Unispace', 'sans-serif'],
-        hiraKakuPro: ['HiraKakuPro', 'sans-serif'],
         ibmPlexMono: ['IBM Plex Mono', 'monospace']
       },
     },
@@ -34,7 +39,7 @@ module.exports = {
   animation: {
     'zoom-out': 'zoom-out 0.5s ease-out forwards',
   },
-  darkMode: true,
+  darkMode: 'class',
   variants: {
     extend: {},
   },
