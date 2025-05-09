@@ -274,6 +274,7 @@ function Header(): JSX.Element {
                 aria-label="GitHub profile"
               >
                 <FaGithub aria-hidden="true" />
+                <span className="sr-only">GitHub profile</span>
               </a>
               <a
                 href="https://www.linkedin.com/in/angus-blomley-82b45a177/"
@@ -283,6 +284,7 @@ function Header(): JSX.Element {
                 aria-label="LinkedIn profile"
               >
                 <FaLinkedin aria-hidden="true" />
+                <span className="sr-only">LinkedIn profile</span>
               </a>
               <button
                 onClick={toggleDarkMode}
