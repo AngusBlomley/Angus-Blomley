@@ -234,16 +234,20 @@ function HeaderGlobal(): JSX.Element {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-block bg-inherit opacity-75 p-2 px-3 hover:opacity-100 hover:bg-opacity-10 hover:bg-white rounded-md"
+                aria-label="GitHub profile"
               >
-                <FaGithub />
+                <FaGithub aria-hidden="true" />
+                <span className="sr-only">GitHub profile</span>
               </a>
               <a
                 href="https://www.linkedin.com/in/angus-blomley-82b45a177/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-block bg-inherit opacity-75 p-2 px-3 hover:opacity-100 hover:bg-opacity-10 hover:bg-white rounded-md"
+                aria-label="LinkedIn profile"
               >
-                <FaLinkedin />
+                <FaLinkedin aria-hidden="true" />
+                <span className="sr-only">LinkedIn profile</span>
               </a>
               <button
                 onClick={toggleDarkMode}

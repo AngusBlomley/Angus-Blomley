@@ -33,7 +33,7 @@ class MyDocument extends Document {
           {/* Add additional accessibility meta tags */}
           <meta name="theme-color" content="#121212" />
           <meta name="application-name" content="Angus Blomley Portfolio" />
-          <meta name="apple-mobile-web-app-capable" content="yes" />
+          <meta name="mobile-web-app-capable" content="yes" />
           <meta name="apple-mobile-web-app-title" content="Angus Blomley" />
 
           {/* Non-render blocking font loading with nonce */}
@@ -58,15 +58,6 @@ class MyDocument extends Document {
               }
             `,
             }}
-          />
-
-          {/* Preload critical fonts */}
-          <link
-            rel="preload"
-            href="/fonts/IBMPlexMono-Regular.woff2"
-            as="font"
-            type="font/woff2"
-            crossOrigin="anonymous"
           />
         </Head>
         <body>

@@ -155,7 +155,9 @@ $XXXXxxxxxxxxxxxxxxxxx++++xxxx+xxxXXxXXXXXXXXXXXXXXXXXX$$$$$$$X+;+XXXXXXXXXXXXXX
       <main className="max-lg:mt-20 max-lg:w-screen max-sm:w-full max-lg:px-4">
         <article className="grid grid-cols-2 max-md:grid-cols-1">
           <div className="max-md:mx-auto max-md:w-96 max-sm:w-72">
-            <h1 className="font-ibmPlexMono italic mb-2">Angus Blomley</h1>
+            <h1 className="font-ibmPlexMono italic mb-2 text-4xl md:text-5xl">
+              Angus Blomley
+            </h1>
             <h2 className="xl:text-2xl font-karla w-full mb-2 max-lg:text-base">
               <>
                 An engineer with a passion
