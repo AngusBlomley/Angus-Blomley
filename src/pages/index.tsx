@@ -315,7 +315,7 @@ function HomePage() {
 
       <section
         id="about"
-        className="relative z-10 duration-1000 flex items-center h-screen"
+        className="relative z-100 flex items-center h-screen"
         role="region"
         aria-label="About Me"
       >
@@ -363,12 +363,12 @@ function HomePage() {
 
       <section
         id="experience"
-        className="py-20 max-md:py-12 duration-200 overflow-hidden bg-theme-bg-light dark:bg-theme-bg-dark text-theme-text-light dark:text-theme-text-dark"
+        className="py-32 max-md:py-12 overflow-hidden bg-theme-bg-light dark:bg-theme-bg-dark text-theme-text-light dark:text-theme-text-dark"
       >
-        <div className="container mx-auto px-6 max-w-7xl">
-          <div className="space-y-20 max-md:space-y-16">
-            <div className="grid grid-cols-12 gap-6 items-center">
-              <div className="col-span-7 max-md:col-span-12 max-md:order-2 relative flex justify-center items-center">
+        <div className="container mx-auto px-4 sm:px-6 max-w-7xl">
+          <div className="space-y-32 max-md:space-y-16">
+            <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 items-center">
+              <div className="w-full lg:w-7/12">
                 <Link href="/work/vocabo">
                   <div className="w-full rounded-lg relative overflow-hidden shadow-xl">
                     <div className="bg-gray-100 h-5 rounded-t-lg flex items-center px-4">
@@ -387,7 +387,7 @@ function HomePage() {
                         loop
                         width={1280}
                         height={720}
-                        className="h-auto w-full transition-opacity duration-300 opacity-100"
+                        className="h-auto"
                         style={{
                           objectFit: "cover",
                           display: "block",
@@ -403,23 +403,20 @@ function HomePage() {
                   </div>
                 </Link>
               </div>
-
-              <div className="col-span-5 max-md:col-span-12 max-md:order-1 pl-4 max-md:pl-0">
-                <div className="max-w-xl">
-                  <h3 className="text-2xl font-semibold mb-2">
-                    Front End Developer
-                  </h3>
-                  <p className="mb-4 text-base opacity-90">
-                    Vocabo - Language Learning Platform
-                    <br />
-                    11 months (Ongoing)
-                  </p>
-                  <p className="text-base">
-                    Built a feature-rich Chrome extension using React for an
-                    innovative language learning platform, including an
-                    Express.js backend.
-                  </p>
-                </div>
+              <div className="w-full lg:w-5/12 lg:pl-4 max-w-xl mt-8 lg:mt-0">
+                <h3 className="text-2xl font-semibold mb-2">
+                  Front End Developer
+                </h3>
+                <p className="mb-4 text-base opacity-90">
+                  Vocabo - Language Learning Platform
+                  <br />
+                  11 months (Ongoing)
+                </p>
+                <p className="text-base">
+                  Built a feature-rich Chrome extension using React for an
+                  innovative language learning platform, including an Express.js
+                  backend.
+                </p>
                 <div className="flex gap-3 mt-4">
                   <Button
                     href="/work/vocabo"
@@ -431,23 +428,21 @@ function HomePage() {
               </div>
             </div>
 
-            <div className="grid grid-cols-12 gap-6 items-center">
-              <div className="col-span-5 max-md:col-span-12 pr-4 max-md:pr-0">
-                <div className="max-w-xl">
-                  <h3 className="text-2xl font-semibold mb-2">
-                    React / React Native Developer
-                  </h3>
-                  <p className="mb-4 text-base opacity-90">
-                    Compute and Cultivate Ltd (PWG Windows & Doors)
-                    <br />
-                    Contract Position • 1.5 Years
-                  </p>
-                  <p className="text-base">
-                    Developed a key React Native mobile application for field
-                    engineers, significantly improving site visit efficiency and
-                    data management.
-                  </p>
-                </div>
+            <div className="flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-12">
+              <div className="w-full lg:w-5/12 order-2 lg:order-1">
+                <h3 className="text-2xl font-semibold mb-2">
+                  React / React Native Developer
+                </h3>
+                <p className="mb-4 text-base opacity-90">
+                  Compute and Cultivate Ltd (PWG Windows & Doors)
+                  <br />
+                  Contract Position • 1.5 Years
+                </p>
+                <p className="text-base">
+                  Developed a key React Native mobile application for field
+                  engineers, significantly improving site visit efficiency and
+                  data management.
+                </p>
                 <div className="flex gap-3 mt-4">
                   <Button
                     href="/work/pwg"
@@ -457,55 +452,35 @@ function HomePage() {
                   </Button>
                 </div>
               </div>
-
-              <div className="col-span-7 max-md:col-span-12 relative flex justify-center items-center">
-                <Link href="/work/pwg">
-                  <div className="rounded-lg overflow-hidden shadow-xl max-w-[70%] mx-auto relative aspect-[800/1200]">
+              <div className="w-full lg:w-7/12 flex justify-center lg:justify-end order-1 lg:order-2">
+                <Link href="/work/pwg" className="w-full max-w-4xl">
+                  <div className="rounded-lg overflow-hidden shadow-lg relative">
+                    <div className="bg-gray-100 h-5 rounded-t-lg flex items-center px-4">
+                      <div className="flex space-x-2">
+                        <div className="w-2 h-2 rounded-full bg-red-400"></div>
+                        <div className="w-2 h-2 rounded-full bg-yellow-400"></div>
+                        <div className="w-2 h-2 rounded-full bg-green-400"></div>
+                      </div>
+                    </div>
                     <video
                       title="PWG Mobile App Demo"
-                      src="/videos/pwg_tablet.webm"
+                      src="/videos/pwg_web.mp4"
                       autoPlay
                       muted
                       loop
-                      width={800}
-                      height={1200}
-                      className="w-full h-auto transition-opacity duration-300 opacity-100"
-                      preload="auto"
+                      width={1280}
+                      height={720}
+                      className="w-full rounded-b-lg shadow-xl transition-opacity opacity-100"
                       playsInline
+                      preload="auto"
                     />
                   </div>
                 </Link>
               </div>
             </div>
 
-            <div className="grid grid-cols-12 gap-6 items-center">
-              <div className="col-span-5 max-md:col-span-12 pr-4 max-md:pr-0">
-                <div className="max-w-xl">
-                  <h3 className="text-2xl font-semibold mb-2">
-                    Front End Developer
-                  </h3>
-                  <p className="mb-4 text-base opacity-90">
-                    Open Fern Studio
-                    <br />
-                    Contract Position • 2 Months
-                  </p>
-                  <p className="text-base">
-                    Created a responsive and SEO-optimized business website with
-                    modern design and animations for a social media marketing
-                    agency.
-                  </p>
-                </div>
-                <div className="flex gap-3 mt-4">
-                  <Button
-                    href="/work/openfern"
-                    ariaLabel="Learn more about Open Fern Studio project"
-                  >
-                    Learn More
-                  </Button>
-                </div>
-              </div>
-
-              <div className="col-span-7 max-md:col-span-12 relative flex justify-center items-center">
+            <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 items-center">
+              <div className="w-full lg:w-7/12">
                 <Link href="/work/openfern">
                   <div className="w-full rounded-lg overflow-hidden shadow-xl">
                     <div className="bg-gray-100 h-5 rounded-t-lg flex items-center px-4">
@@ -526,6 +501,29 @@ function HomePage() {
                   </div>
                 </Link>
               </div>
+              <div className="w-full lg:w-5/12 lg:pl-4 max-w-xl mt-8 lg:mt-0">
+                <h3 className="text-2xl font-semibold mb-2">
+                  Front End Developer
+                </h3>
+                <p className="mb-4 text-base opacity-90">
+                  Open Fern Studio
+                  <br />
+                  Contract Position • 2 Months
+                </p>
+                <p className="text-base">
+                  Created a responsive and SEO-optimized business website with
+                  modern design and animations for a social media marketing
+                  agency.
+                </p>
+                <div className="flex gap-3 mt-4">
+                  <Button
+                    href="/work/openfern"
+                    ariaLabel="Learn more about Open Fern Studio project"
+                  >
+                    Learn More
+                  </Button>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -533,151 +531,183 @@ function HomePage() {
 
       <section
         id="education"
-        className="py-20 max-md:pt-0 duration-200 overflow-x-hidden bg-neutral-300 text-neutral-800"
+        className="overflow-x-hidden text-neutral-800"
       >
-        <div className=" overflow-x-hidden px-4">
-          <div className="grid grid-cols-2 max-md:grid-cols-1 gap-y-20 gap-x-60 max-xl:gap-x-20 max-md:gap-y-10">
-            <div className="mb-12 max-md:mb-0 rounded-lg duration-300 flex flex-col items-end max-md:items-start">
-              <div>
-                <h3 className="text-2xl font-semibold mb-2">
-                  Ravensbourne University London
-                </h3>
-                <p className="degree mb-4">
-                  BSc (Hons) Broadcast Engineering - 2:1 <br />
-                  September 2021 - April 2024
-                </p>
-                <div className="education-level mt-2">
-                  <h4 className="text-xl mb-2 font-semibold">
-                    Key Courses and Projects
-                  </h4>
-                  <ul className="course-list list-disc pl-5 mb-4">
-                    <li>Software Development & Programming</li>
-                    <li>Python & Data Structures</li>
-                    <li>Low-Level Programming (Arduino)</li>
-                    <li>Computer Architecture & Operating Systems</li>
-                    <li>Algorithms & Computational Theory</li>
-                    <li>Final Major Project</li>
-                  </ul>
-                  <p className="font-semibold mt-2 mb-2">
-                    Total Degree Credits: 360
+        {/* First Container */}
+        <div className="py-32 max-md:py-20 bg-neutral-300">
+          <div className="container mx-auto px-4 sm:px-6 max-w-7xl">
+            <div className="grid grid-cols-2 max-md:grid-cols-1 gap-y-16 gap-x-20 max-xl:gap-x-12 max-md:gap-y-12 items-center">
+              {/* Ravensbourne University */}
+              <div className="mb-12 max-md:mb-0 rounded-lg flex flex-col justify-center min-h-[340px] items-end max-md:items-start">
+                <div className="w-full max-w-xl">
+                  <h3 className="text-2xl font-semibold mb-4">
+                    Ravensbourne University London
+                  </h3>
+                  <p className="degree mb-6">
+                    BSc (Hons) Broadcast Engineering - 2:1 <br />
+                    September 2021 - April 2024
                   </p>
-                  <Image
-                    width={300}
-                    height={150}
-                    id="ravensbourne-light"
-                    src="/images/index/ravensbourne-black.png"
-                    alt="Ravensbourne University (Light Mode Logo)"
-                    className="block"
-                  />
-                  <Image
-                    width={300}
-                    height={150}
-                    id="ravensbourne-dark"
-                    src="/images/index/ravensbourne-white.png"
-                    alt="Ravensbourne University (Dark Mode Logo)"
-                    className="hidden"
-                  />
+                  <div className="education-level mt-4">
+                    <h4 className="text-xl mb-4 font-semibold">
+                      Key Courses and Projects
+                    </h4>
+                    <ul className="course-list list-disc pl-5 mb-6 space-y-2">
+                      <li>Software Development & Programming</li>
+                      <li>Python & Data Structures</li>
+                      <li>Low-Level Programming (Arduino)</li>
+                      <li>Computer Architecture & Operating Systems</li>
+                      <li>Algorithms & Computational Theory</li>
+                      <li>Final Major Project</li>
+                    </ul>
+                    <p className="font-semibold mt-4 mb-6">
+                      Total Degree Credits: 360
+                    </p>
+                    <div className="mt-8">
+                      <Image
+                        width={300}
+                        height={150}
+                        id="ravensbourne-light"
+                        src="/images/index/ravensbourne-black.png"
+                        alt="Ravensbourne University (Light Mode Logo)"
+                        className="block"
+                      />
+                      <Image
+                        width={300}
+                        height={150}
+                        id="ravensbourne-dark"
+                        src="/images/index/ravensbourne-white.png"
+                        alt="Ravensbourne University (Dark Mode Logo)"
+                        className="hidden"
+                      />
+                    </div>
+                  </div>
                 </div>
               </div>
-            </div>
 
-            <div className="relative mb-12 flex">
-              <Image
-                id="graduation"
-                alt="graduation"
-                src="/images/index/graduation.svg"
-                width={500}
-                height={500}
-                className="-ml-20 max-md:ml-0"
-              />
-            </div>
-
-            <div className="relative mb-12 flex justify-end max-md:justify-start max-md:row-start-4">
-              <Image
-                id="computer"
-                alt="Computer"
-                src="/images/index/computer.svg"
-                width={500}
-                height={500}
-                className="-rotate-45 -mr-20 max-xl:-mr-10 max-md:0 max-md:px-4"
-              />
-            </div>
-
-            <div className="mb-12 max-md:mb-0 rounded-lg duration-300 flex flex-col">
-              <h3 className="text-2xl font-semibold mb-2">
-                Belfast Metropolitan
-              </h3>
-              <p className="diploma mb-4">
-                IT Extended Diploma Level 3<br />
-                September 2015 - June 2018
-              </p>
-              <div className="education-level mt-2">
-                <h4 className="text-xl mb-2 font-semibold">Key Courses</h4>
-                <ul className="course-list list-disc pl-5 mb-4">
-                  <li>Communication and Employability Skills</li>
-                  <li>Information Systems</li>
-                  <li>Software Design and Development</li>
-                  <li>Website Production</li>
-                  <li>Computer Systems</li>
-                </ul>
+              {/* Graduation Image */}
+              <div className="relative mb-12 flex items-center justify-center min-h-[340px] max-md:justify-start">
                 <Image
-                  width={150}
-                  height={150}
-                  id="belfastmet"
-                  src="/images/index/belfastmet.png"
-                  alt="Belfast Metropolitan"
+                  id="graduation"
+                  alt="graduation"
+                  src="/images/index/graduation.svg"
+                  width={500}
+                  height={500}
+                  className="max-w-full h-auto"
                 />
               </div>
             </div>
+          </div>
+        </div>
 
-            <div className="mb-12 rounded-lg duration-300 flex flex-col items-end max-md:items-start">
-              <div>
-                <h3 className="text-2xl font-semibold mb-2">Codecademy</h3>
-                <p className="certificate mb-4">
-                  Front-End Development Course
-                  <br />
-                  Completed: May 2024
-                </p>
-                <div className="education-level mt-2">
-                  <h4 className="text-xl mb-2 font-semibold">
-                    Key Skills and Projects
-                  </h4>
-                  <ul className="course-list list-disc pl-5 mb-4">
-                    <li>HTML, CSS, and JavaScript</li>
-                    <li>Responsive Web Design</li>
-                    <li>React and Redux</li>
-                    <li>APIs and Asynchronous Programming</li>
-                    <li>Portfolio Projects</li>
-                    <li>Linear Data Structures</li>
-                    <li>Complex Data Structures</li>
-                    <li>Algorithms</li>
-                  </ul>
-                  <Image
-                    width={220}
-                    height={150}
-                    id="codecademy"
-                    src="/images/index/codecademy.png"
-                    alt="Codecademy"
-                    className="mt-4"
-                  />
-                  <Button
-                    onClick={handleSeeMoreClick}
-                    ariaLabel="View my Full-Stack Developer certificate"
-                  >
-                    See certificate
-                  </Button>
+        {/* Middle Container with neutral-200 background */}
+        <div className="w-full bg-neutral-200 py-32 max-md:py-20">
+          <div className="container mx-auto px-4 sm:px-6 max-w-7xl">
+            <div className="grid grid-cols-2 max-md:grid-cols-1 gap-y-16 gap-x-20 max-xl:gap-x-12 max-md:gap-y-12 items-center">
+              {/* Belfast Metropolitan */}
+              <div className="rounded-lg flex flex-col justify-center min-h-[340px]">
+                <div className="w-full max-w-xl">
+                  <h3 className="text-2xl font-semibold mb-4">
+                    Belfast Metropolitan
+                  </h3>
+                  <p className="diploma mb-6">
+                    IT Extended Diploma Level 3<br />
+                    September 2015 - June 2018
+                  </p>
+                  <div className="education-level mt-4">
+                    <h4 className="text-xl mb-4 font-semibold">Key Courses</h4>
+                    <ul className="course-list list-disc pl-5 mb-6 space-y-2">
+                      <li>Communication and Employability Skills</li>
+                      <li>Information Systems</li>
+                      <li>Software Design and Development</li>
+                      <li>Website Production</li>
+                      <li>Computer Systems</li>
+                    </ul>
+                    <div className="mt-8">
+                      <Image
+                        width={150}
+                        height={150}
+                        id="belfastmet"
+                        src="/images/index/belfastmet.png"
+                        alt="Belfast Metropolitan"
+                      />
+                    </div>
+                  </div>
                 </div>
               </div>
+
+              {/* Computer Image */}
+              <div className="relative flex items-center justify-end min-h-[340px]">
+                <Image
+                  id="computer"
+                  alt="Computer"
+                  src="/images/index/computer.svg"
+                  width={500}
+                  height={500}
+                  className="max-w-full h-auto -rotate-45"
+                />
+              </div>
             </div>
-            <div className="relative mb-12 flex justify-start">
-              <Image
-                id="networking"
-                alt="networking graphic"
-                src="/images/index/networking.svg"
-                width={500}
-                height={500}
-                className="-ml-40 max-xl:-ml-20 max-md:ml-0"
-              />
+          </div>
+        </div>
+
+        {/* Last Container */}
+        <div className="py-32 max-md:py-20 bg-neutral-300">
+          <div className="container mx-auto px-4 sm:px-6 max-w-7xl">
+            <div className="grid grid-cols-2 max-md:grid-cols-1 gap-y-16 gap-x-20 max-xl:gap-x-12 max-md:gap-y-12 items-center">
+              {/* Codecademy */}
+              <div className="mb-12 rounded-lg flex flex-col justify-center min-h-[340px] items-end max-md:items-start">
+                <div className="w-full max-w-xl">
+                  <h3 className="text-2xl font-semibold mb-4">Codecademy</h3>
+                  <p className="certificate mb-6">
+                    Front-End Development Course
+                    <br />
+                    Completed: May 2024
+                  </p>
+                  <div className="education-level mt-4">
+                    <h4 className="text-xl mb-4 font-semibold">
+                      Key Skills and Projects
+                    </h4>
+                    <ul className="course-list list-disc pl-5 mb-6 space-y-2">
+                      <li>HTML, CSS, and JavaScript</li>
+                      <li>Responsive Web Design</li>
+                      <li>React and Redux</li>
+                      <li>APIs and Asynchronous Programming</li>
+                      <li>Portfolio Projects</li>
+                      <li>Linear Data Structures</li>
+                      <li>Complex Data Structures</li>
+                      <li>Algorithms</li>
+                    </ul>
+                    <div className="mt-8">
+                      <Image
+                        width={220}
+                        height={150}
+                        id="codecademy"
+                        src="/images/index/codecademy.png"
+                        alt="Codecademy"
+                      />
+                      <Button
+                        onClick={handleSeeMoreClick}
+                        ariaLabel="View my Full-Stack Developer certificate"
+                        className="mt-6"
+                      >
+                        See certificate
+                      </Button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Networking Image */}
+              <div className="relative mb-12 flex items-center justify-start min-h-[340px] max-md:justify-center">
+                <Image
+                  id="networking"
+                  alt="networking graphic"
+                  src="/images/index/networking.svg"
+                  width={500}
+                  height={500}
+                  className="max-w-full h-auto"
+                />
+              </div>
             </div>
           </div>
         </div>
@@ -747,7 +777,7 @@ function HomePage() {
               <div className="gap-4 items-center">
                 <button
                   type="submit"
-                  className="px-6 py-2 font-ibmPlexMono rounded-lg bg-green-600 text-white w-full hover:bg-green-900 duration-100"
+                  className="px-6 py-2 font-ibmPlexMono rounded-lg bg-green-600 text-white w-full hover:bg-green-900"
                   disabled={isSending}
                 >
                   {buttonText}
@@ -769,7 +799,7 @@ function HomePage() {
 
       <button
         onClick={scrollToTop}
-        className={`fixed bottom-8 right-8 p-3 rounded-full bg-theme-bg-light dark:bg-white/10 text-theme-text-light dark:text-theme-text-dark hover:bg-gray-200 dark:hover:bg-white/20 shadow-lg transition-all duration-300 scale-90 z-50
+        className={`fixed bottom-8 right-8 p-3 rounded-full bg-theme-bg-light dark:bg-white/10 text-theme-text-light dark:text-theme-text-dark hover:bg-gray-200 dark:hover:bg-white/20 shadow-lg transition-all scale-90 z-50
           ${
             showScrollTop
               ? "opacity-70 translate-y-0"

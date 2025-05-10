@@ -1,33 +1,22 @@
 import React from "react";
-import HeaderGlobal from "@/components/globals/headerGlobal";
+import Header from "@/components/globals/header";
 import Footer from "@/components/globals/footer";
+import Image from "next/image";
 import { useDarkMode } from "@/contexts/darkModeContext";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import { faExternalLinkAlt } from "@fortawesome/free-solid-svg-icons";
 import ProjectNavigation from "@/components/work/ProjectNavigation";
-import { useState } from "react";
 
-const StringBoxPage: React.FC = () => {
+const StringBox = () => {
   const { isDarkMode } = useDarkMode();
-  const backgroundColor = isDarkMode
-    ? "var(--background-color-dark)"
-    : "var(--background-color-light)";
-  const color = isDarkMode
-    ? "var(--foreground-color-dark)"
-    : "var(--foreground-color-light)";
-
-  const [isVideoLoading, setIsVideoLoading] = useState(true);
 
   return (
-    <div
-      style={{ backgroundColor, color, minHeight: "100vh" }}
-      className="flex flex-col"
-    >
-      <HeaderGlobal />
+    <div className="flex flex-col min-h-screen bg-theme-bg-light dark:bg-theme-bg-dark text-theme-text-light dark:text-theme-text-dark">
+      <Header />
       <main className="flex-grow container mx-auto px-4 py-0 pt-20 lg:pt-20">
         <h1 className="text-4xl font-bold mb-6 text-center font-ibmPlexMono italic">
-          String Box
+          StringBox - Music App
         </h1>
 
         <div className="flex justify-center gap-4 mb-8">
@@ -55,13 +44,6 @@ const StringBoxPage: React.FC = () => {
 
         {/* Main Video */}
         <div className="mb-8 max-w-4xl mx-auto rounded-lg overflow-hidden shadow-lg relative aspect-video">
-          {isVideoLoading && (
-            <div className="absolute inset-0 flex items-center justify-center bg-gray-200 dark:bg-gray-700">
-              <span className="text-gray-500 dark:text-gray-400">
-                Loading video...
-              </span>
-            </div>
-          )}
           <video
             src="/videos/stringBoxWeb.mp4"
             autoPlay
@@ -69,10 +51,7 @@ const StringBoxPage: React.FC = () => {
             loop
             playsInline
             preload="metadata"
-            className={`w-full h-auto transition-opacity duration-300 ${
-              isVideoLoading ? "opacity-0" : "opacity-100"
-            }`}
-            onLoadedData={() => setIsVideoLoading(false)}
+            className="w-full h-auto transition-opacity duration-300 opacity-100"
           />
         </div>
 
@@ -126,6 +105,50 @@ const StringBoxPage: React.FC = () => {
               <li>Contact form.</li>
             </ul>
           </section>
+          <div className="mt-6">
+            <h3 className="text-xl font-semibold mb-2">Technologies Used</h3>
+            <div className="flex flex-wrap gap-4 items-center mb-6">
+              <Image
+                src="/images/icons/next.webp"
+                alt="Next.js"
+                width={40}
+                height={40}
+                style={{ objectFit: "contain" }}
+              />
+              <Image
+                src="/images/icons/react.webp"
+                alt="React"
+                width={40}
+                height={40}
+                style={{ objectFit: "contain" }}
+              />
+              <Image
+                src="/images/icons/js.webp"
+                alt="JavaScript"
+                width={40}
+                height={40}
+                style={{ objectFit: "contain" }}
+              />
+              <Image
+                src="/images/icons/tailwind.webp"
+                alt="Tailwind CSS"
+                width={40}
+                height={40}
+                style={{ objectFit: "contain" }}
+              />
+              <Image
+                src="/images/icons/github.webp"
+                alt="GitHub"
+                width={40}
+                height={40}
+                className="w-10 h-10 object-contain m-2"
+                style={{
+                  objectFit: "contain",
+                  filter: isDarkMode ? "invert(0)" : "invert(1)",
+                }}
+              />
+            </div>
+          </div>
         </div>
         <ProjectNavigation currentSlug="stringBox" />
       </main>
@@ -134,4 +157,4 @@ const StringBoxPage: React.FC = () => {
   );
 };
 
-export default StringBoxPage;
+export default StringBox;

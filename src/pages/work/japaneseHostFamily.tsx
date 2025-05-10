@@ -1,30 +1,17 @@
-import React, { useState } from "react";
+import React from "react";
 import Image from "next/image";
-import HeaderGlobal from "@/components/globals/headerGlobal";
+import Header from "@/components/globals/header";
 import Footer from "@/components/globals/footer";
-import { useDarkMode } from "@/contexts/darkModeContext";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import { faExternalLinkAlt } from "@fortawesome/free-solid-svg-icons";
 import ProjectNavigation from "@/components/work/ProjectNavigation";
 
 const JapaneseHostFamilyPage: React.FC = () => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const { isDarkMode } = useDarkMode();
-  const backgroundColor = isDarkMode
-    ? "var(--background-color-dark)"
-    : "var(--background-color-light)";
-  const color = isDarkMode
-    ? "var(--foreground-color-dark)"
-    : "var(--foreground-color-light)";
-
   return (
-    <div
-      style={{ backgroundColor, color, minHeight: "100vh" }}
-      className="flex flex-col"
-    >
-      <HeaderGlobal />
-      <main className="flex-grow container mx-auto px-4 py-0 pt-20 lg:pt-20">
+    <div className="flex flex-col min-h-screen bg-theme-bg-light dark:bg-theme-bg-dark text-theme-text-light dark:text-theme-text-dark">
+      <Header />
+      <main className="flex-grow container mx-auto px-4 py-0 pt-20">
         <h1 className="text-4xl font-bold mb-6 text-center font-ibmPlexMono italic">
           Japanese Host Family Platform
         </h1>
@@ -34,7 +21,7 @@ const JapaneseHostFamilyPage: React.FC = () => {
             href="https://japanese-host-family.vercel.app/"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-colors duration-150"
+            className="inline-flex items-center px-4 py-2 text-sm font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-colors duration-150"
             aria-label="Visit live site (opens in a new tab)"
           >
             <FontAwesomeIcon icon={faExternalLinkAlt} className="mr-2" />
@@ -44,7 +31,7 @@ const JapaneseHostFamilyPage: React.FC = () => {
             href="https://github.com/AngusBlomley/japanese-host-family"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center px-4 py-2 border border-gray-300 dark:border-gray-600 text-sm font-medium rounded-md shadow-sm text-gray-700 dark:text-gray-200 bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-colors duration-150"
+            className="inline-flex items-center px-4 py-2 border text-sm font-medium rounded-md shadow-sm text-gray-700 dark:text-gray-200 bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-colors duration-150"
             aria-label="View source code on GitHub (opens in a new tab)"
           >
             <FontAwesomeIcon icon={faGithub} className="mr-2" />
@@ -58,7 +45,7 @@ const JapaneseHostFamilyPage: React.FC = () => {
             alt="Japanese Host Family Platform Screenshot"
             width={1200}
             height={675}
-            className="rounded-lg shadow-lg border border-gray-700"
+            className="rounded-lg shadow-lg border"
             priority // Load image eagerly as it's the main content
           />
         </div>
@@ -149,6 +136,47 @@ const JapaneseHostFamilyPage: React.FC = () => {
               <li>Row-level security in Supabase and secure API endpoints.</li>
             </ul>
           </section>
+
+          <div className="mt-6">
+            <h3 className="text-xl font-semibold mb-2">Technologies Used</h3>
+            <div className="flex flex-wrap gap-4 items-center">
+              <Image
+                src="/images/icons/react.webp"
+                alt="React"
+                width={40}
+                height={40}
+                style={{ objectFit: "contain" }}
+              />
+              <Image
+                src="/images/icons/typescript.png"
+                alt="TypeScript"
+                width={40}
+                height={40}
+                style={{ objectFit: "contain" }}
+              />
+              <Image
+                src="/images/icons/tailwind.webp"
+                alt="Tailwind CSS"
+                width={40}
+                height={40}
+                style={{ objectFit: "contain" }}
+              />
+              <Image
+                src="/images/icons/supabase.jpeg"
+                alt="Supabase"
+                width={40}
+                height={40}
+                style={{ objectFit: "contain", borderRadius: "0.5rem" }}
+              />
+              <Image
+                src="/images/icons/github.webp"
+                alt="GitHub"
+                width={40}
+                height={40}
+                style={{ objectFit: "contain" }}
+              />
+            </div>
+          </div>
         </div>
         <ProjectNavigation currentSlug="japaneseHostFamily" />
       </main>

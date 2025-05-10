@@ -1,27 +1,18 @@
 /* eslint-disable react/no-unescaped-entities */
-import HeaderGlobal from "@/components/globals/headerGlobal";
+import Header from "@/components/globals/header";
 import Footer from "@/components/globals/footer";
 import Image from "next/image";
-import { useDarkMode } from "@/contexts/darkModeContext";
 import ProjectNavigation from "@/components/work/ProjectNavigation";
-import { useState } from "react";
 
 const BeFirst = () => {
-  const { isDarkMode } = useDarkMode();
-  const backgroundColor = isDarkMode
-    ? "var(--background-color-dark)"
-    : "var(--background-color-light)";
-  const color = isDarkMode
-    ? "var(--foreground-color-dark)"
-    : "var(--foreground-color-light)";
-
-  const [isVideoLoading, setIsVideoLoading] = useState(true);
-
   return (
     <>
-      <HeaderGlobal />
-      <div id="BeFirst" style={{ backgroundColor, color }}>
-        <div className="container mx-auto px-4 py-8">
+      <Header />
+      <div
+        id="BeFirst"
+        className="bg-theme-bg-light dark:bg-theme-bg-dark text-theme-text-light dark:text-theme-text-dark"
+      >
+        <div className="container mx-auto px-4 pt-8">
           <h1 className="text-4xl mt-16 font-bold mb-4">
             Advent Delights: Digital Heritage Exhibition
           </h1>
@@ -93,13 +84,6 @@ const BeFirst = () => {
                 rel="noopener noreferrer"
               >
                 <div className="relative aspect-video">
-                  {isVideoLoading && (
-                    <div className="absolute inset-0 flex items-center justify-center bg-gray-200 dark:bg-gray-700">
-                      <span className="text-gray-500 dark:text-gray-400">
-                        Loading video...
-                      </span>
-                    </div>
-                  )}
                   <video
                     title="Advent Delights Project"
                     src="/videos/beFirst.mp4"
@@ -110,10 +94,7 @@ const BeFirst = () => {
                     preload="metadata"
                     width={960}
                     height={480}
-                    className={`w-full transition-opacity duration-300 ${
-                      isVideoLoading ? "opacity-0" : "opacity-100"
-                    }`}
-                    onLoadedData={() => setIsVideoLoading(false)}
+                    className="w-full transition-opacity duration-300 opacity-100"
                   />
                 </div>
               </a>

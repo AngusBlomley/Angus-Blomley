@@ -1,45 +1,34 @@
-import HeaderGlobal from "@/components/globals/headerGlobal";
+/* eslint-disable react/no-unescaped-entities */
+import Header from "@/components/globals/header";
 import Footer from "@/components/globals/footer";
 import Image from "next/image";
-import { useDarkMode } from "@/contexts/darkModeContext";
 import ProjectNavigation from "@/components/work/ProjectNavigation";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChrome } from "@fortawesome/free-brands-svg-icons";
-import { useState } from "react";
 
 const Vocabo = () => {
-  const { isDarkMode } = useDarkMode();
-  const backgroundColor = isDarkMode
-    ? "var(--background-color-dark)"
-    : "var(--background-color-light)";
-  const color = isDarkMode
-    ? "var(--foreground-color-dark)"
-    : "var(--foreground-color-light)";
-
-  const [isVideoLoading, setIsVideoLoading] = useState(true);
-
   return (
     <>
-      <HeaderGlobal />
-      <main className="min-h-screen pt-20" style={{ backgroundColor, color }}>
-        <div className="container mx-auto px-4 pt-9 lg:pt-9">
-          <h1 className="text-4xl font-bold mb-6 text-center font-ibmPlexMono italic">
+      <Header />
+      <main className="min-h-screen pt-20 bg-theme-bg-light dark:bg-theme-bg-dark text-theme-text-light dark:text-theme-text-dark">
+        <div className="container mx-auto px-4 pt-8">
+          <h1 className="text-3xl sm:text-4xl font-bold mb-6 text-center font-ibmPlexMono italic">
             Vocabo - Chrome Extension
           </h1>
 
-          <div className="flex justify-center gap-4 mb-8">
+          <div className="flex flex-col sm:flex-row justify-center gap-4 mb-8 w-full max-w-md mx-auto">
             <a
               href="https://chromewebstore.google.com/detail/vocabo/jkidhonedioaomijgdccandhiffoiheb"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-colors duration-150"
+              className="inline-flex items-center justify-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-colors duration-150 w-full sm:w-auto"
               aria-label="View on Chrome Web Store (opens in a new tab)"
             >
               <FontAwesomeIcon icon={faChrome} className="mr-2" />
               Chrome Store
             </a>
             <button
-              className="inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md shadow-sm text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-colors duration-150"
+              className="inline-flex items-center justify-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md shadow-sm text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-colors duration-150 w-full sm:w-auto"
               aria-label="Repository is private"
               disabled
             >
@@ -47,32 +36,52 @@ const Vocabo = () => {
             </button>
           </div>
 
-          <div className="mb-8 max-w-4xl mx-auto">
-            <div className="rounded-lg shadow-lg border border-gray-700 relative aspect-video">
-              {isVideoLoading && (
-                <div className="absolute inset-0 flex items-center justify-center bg-gray-200 dark:bg-gray-700">
-                  <span className="text-gray-500 dark:text-gray-400">
-                    Loading video...
-                  </span>
-                </div>
-              )}
-              <video
-                src="/videos/vocabo.mp4"
-                controls
-                autoPlay
-                muted
-                loop
-                className={`rounded-lg w-full h-auto transition-opacity duration-300 ${
-                  isVideoLoading ? "opacity-0" : "opacity-100"
-                }`}
-                onLoadedData={() => setIsVideoLoading(false)}
-              />
-            </div>
+          {/* Desktop (lg and up): original styling */}
+          <div
+            className="hidden lg:block mx-auto mb-8 rounded-lg shadow-xl overflow-hidden"
+            style={{ width: 1080, height: 561 }}
+          >
+            <video
+              title="Vocabo Chrome Extension Demo"
+              src="/videos/vocabo.mp4"
+              width={1080}
+              height={561}
+              autoPlay
+              muted
+              loop
+              playsInline
+              style={{
+                position: "relative",
+                top: "-22px",
+                width: 1080,
+                height: 607,
+                objectFit: "cover",
+                display: "block",
+              }}
+            />
           </div>
 
-          <div className="max-w-4xl mx-auto space-y-8 font-karla">
+          {/* Mobile/Tablet (below lg): responsive styling */}
+          <div className="block lg:hidden mx-auto mb-8 rounded-lg shadow-xl overflow-hidden w-full max-w-3xl aspect-video bg-black">
+            <video
+              title="Vocabo Chrome Extension Demo"
+              src="/videos/vocabo.mp4"
+              autoPlay
+              muted
+              loop
+              playsInline
+              className="w-full h-full object-cover"
+              style={{
+                position: "relative",
+                top: 0,
+                display: "block",
+              }}
+            />
+          </div>
+
+          <div className="max-w-4xl mx-auto space-y-8 font-karla px-2 sm:px-4">
             <section>
-              <h2 className="text-2xl font-semibold mb-3 font-ibmPlexMono">
+              <h2 className="text-xl sm:text-2xl font-semibold mb-3 font-ibmPlexMono">
                 Project Overview
               </h2>
               <p>
@@ -85,18 +94,8 @@ const Vocabo = () => {
               </p>
             </section>
 
-            <div className="my-8 max-w-2xl mx-auto">
-              <Image
-                src="/images/index/vocabo.png"
-                alt="Vocabo Extension Interface"
-                width={800}
-                height={600}
-                className="rounded-lg shadow-lg border border-gray-700 w-full h-auto"
-              />
-            </div>
-
             <section>
-              <h2 className="text-2xl font-semibold mb-3 font-ibmPlexMono">
+              <h2 className="text-xl sm:text-2xl font-semibold mb-3 font-ibmPlexMono">
                 Technical Overview
               </h2>
               <p className="mb-4">
@@ -105,7 +104,7 @@ const Vocabo = () => {
                 DOM manipulation (Mutation Observers, Regex), and build tooling
                 integration.
               </p>
-              <h3 className="text-xl font-semibold mb-2">
+              <h3 className="text-lg sm:text-xl font-semibold mb-2">
                 Architecture & Stack
               </h3>
               <ul className="list-disc list-inside space-y-1 mb-4">
@@ -126,7 +125,9 @@ const Vocabo = () => {
                 </li>
               </ul>
 
-              <h3 className="text-xl font-semibold mb-2">Core Functionality</h3>
+              <h3 className="text-lg sm:text-xl font-semibold mb-2">
+                Core Functionality
+              </h3>
               <ul className="list-disc list-inside space-y-1">
                 <li>Real-time text translation on web pages.</li>
                 <li>Vocabulary management system (saving words).</li>
@@ -134,6 +135,46 @@ const Vocabo = () => {
                 <li>Cross-browser synchronization (potential via backend).</li>
                 <li>Offline functionality (using local storage).</li>
               </ul>
+
+              <div className="mt-6">
+                <h3 className="text-lg sm:text-xl font-semibold mb-2">
+                  Technologies Used
+                </h3>
+                <div className="flex flex-wrap gap-2 items-center">
+                  <Image
+                    src="/images/icons/react.webp"
+                    alt="React"
+                    width={40}
+                    height={40}
+                    className="m-2"
+                    style={{ objectFit: "contain" }}
+                  />
+                  <Image
+                    src="/images/icons/js.webp"
+                    alt="JavaScript"
+                    width={40}
+                    height={40}
+                    className="m-2"
+                    style={{ objectFit: "contain" }}
+                  />
+                  <Image
+                    src="/images/icons/tailwind.webp"
+                    alt="Tailwind CSS"
+                    width={40}
+                    height={40}
+                    className="m-2 py-1"
+                    style={{ objectFit: "contain" }}
+                  />
+                  <Image
+                    src="/images/icons/github.webp"
+                    alt="GitHub"
+                    width={40}
+                    height={40}
+                    className="m-2"
+                    style={{ objectFit: "contain" }}
+                  />
+                </div>
+              </div>
             </section>
           </div>
 
