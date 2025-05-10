@@ -1,21 +1,13 @@
 import React, { useState, useEffect } from "react";
-import HeaderGlobal from "@/components/globals/headerGlobal";
+import Header from "@/components/globals/header";
 import Footer from "@/components/globals/footer";
 import Image from "next/image";
-import { useDarkMode } from "@/contexts/darkModeContext";
 import ProjectNavigation from "@/components/work/ProjectNavigation";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import { faFilePdf } from "@fortawesome/free-solid-svg-icons";
 
 const CelestialObjectTracker = () => {
-  const { isDarkMode } = useDarkMode();
-  const backgroundColor = isDarkMode
-    ? "var(--background-color-dark)"
-    : "var(--background-color-light)";
-  const color = isDarkMode
-    ? "var(--foreground-color-dark)"
-    : "var(--foreground-color-light)";
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const images = [
@@ -41,196 +33,183 @@ const CelestialObjectTracker = () => {
 
   return (
     <>
-      <HeaderGlobal />
-      <main
-        className="flex-grow container mx-auto px-4 py-8 pt-24 lg:pt-32"
-        style={{ backgroundColor, color }}
-      >
-        <h1 className="text-4xl font-bold mb-6 text-center font-ibmPlexMono italic">
-          Celestial Object Tracker
-        </h1>
+      <Header />
+      <main className="min-h-screen pt-20 bg-theme-bg-light dark:bg-theme-bg-dark text-theme-text-light dark:text-theme-text-dark">
+        <div className="container mx-auto px-4 pt-8">
+          <h1 className="text-4xl font-bold mb-6 text-center font-ibmPlexMono italic">
+            Celestial Object Tracker - Astronomy App
+          </h1>
 
-        <div className="flex justify-center gap-4 mb-8">
-          <a
-            href="/pdf/Angus_Blomley_Final_Major_Project_Report.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-colors duration-150"
-            aria-label="View Project Report PDF (opens in a new tab)"
-          >
-            <FontAwesomeIcon icon={faFilePdf} className="mr-2" />
-            Project Report
-          </a>
-          <a
-            href="https://github.com/AngusBlomley/Celestial-Object-Tracker"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center px-4 py-2 border border-gray-300 dark:border-gray-600 text-sm font-medium rounded-md shadow-sm text-gray-700 dark:text-gray-200 bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-colors duration-150"
-            aria-label="View source code on GitHub (opens in a new tab)"
-          >
-            <FontAwesomeIcon icon={faGithub} className="mr-2" />
-            GitHub
-          </a>
-        </div>
-
-        <div className="mb-8 max-w-4xl mx-auto rounded-lg overflow-hidden shadow-lg border border-gray-700">
-          <div className="relative w-full aspect-video">
-            <Image
-              alt="Celestial Object Tracker Project Image Carousel"
-              src={images[currentIndex]}
-              layout="fill"
-              objectFit="cover"
-              className="transition-opacity duration-500 ease-in-out"
-              key={currentIndex}
-              priority
-            />
+          <div className="flex justify-center gap-4 mb-8">
+            <a
+              href="/pdf/Angus_Blomley_Final_Major_Project_Report.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-colors duration-150"
+              aria-label="View Project Report PDF (opens in a new tab)"
+            >
+              <FontAwesomeIcon icon={faFilePdf} className="mr-2" />
+              Project Report
+            </a>
+            <a
+              href="https://github.com/AngusBlomley/Celestial-Object-Tracker"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center px-4 py-2 border border-gray-300 dark:border-gray-600 text-sm font-medium rounded-md shadow-sm text-gray-700 dark:text-gray-200 bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-colors duration-150"
+              aria-label="View source code on GitHub (opens in a new tab)"
+            >
+              <FontAwesomeIcon icon={faGithub} className="mr-2" />
+              GitHub
+            </a>
           </div>
-        </div>
 
-        <div className="max-w-4xl mx-auto space-y-8 font-karla">
-          <section>
-            <h2 className="text-2xl font-semibold mb-3 font-ibmPlexMono">
-              Project Overview
-            </h2>
-            <p>
-              My final major university project: an affordable and scalable
-              electronic device designed to track celestial objects in
-              real-time. It combines stepper motors for precise movement, an
-              Arduino for low-level hardware control, a Raspberry Pi for
-              processing and calculations, and a camera for capturing real-time
-              celestial observations.
-            </p>
-          </section>
-
-          <section>
-            <h2 className="text-2xl font-semibold mb-3 font-ibmPlexMono">
-              Technical Overview
-            </h2>
-            <p className="mb-4">
-              This complex project involved integrating hardware (Raspberry Pi,
-              Arduino, sensors, motors) with software (Python) to perform
-              real-time calculations and control physical movements based on
-              astronomical data. It included 3D design and printing for the
-              physical structure.
-            </p>
-
-            <h3 className="text-xl font-semibold mb-2">Architecture & Stack</h3>
-            <ul className="list-disc list-inside space-y-1 mb-4">
-              <li>
-                <strong>Control Processing:</strong> Raspberry Pi
-              </li>
-              <li>
-                <strong>Hardware Control:</strong> Arduino
-              </li>
-              <li>
-                <strong>Software:</strong> Python (with libraries like Skyfield,
-                OpenCV, NumPy, Pillow)
-              </li>
-              <li>
-                <strong>Sensors:</strong> MPU6050 (IMU), GT-U7 (GPS)
-              </li>
-              <li>
-                <strong>Actuators:</strong> Stepper Motors
-              </li>
-              <li>
-                <strong>API Integration:</strong> Skyfield API (for celestial
-                coordinates)
-              </li>
-              <li>
-                <strong>UI:</strong> Tkinter GUI
-              </li>
-              <li>
-                <strong>3D Design:</strong> Autodesk Fusion 360
-              </li>
-            </ul>
-
-            <h3 className="text-xl font-semibold mb-2">Core Functionality</h3>
-            <ul className="list-disc list-inside space-y-1">
-              <li>
-                Accurate celestial object tracking using GPS, IMU, and time
-                data.
-              </li>
-              <li>Real-time coordinate calculation using Skyfield API.</li>
-              <li>
-                Automated, precise control of stepper motors based on calculated
-                coordinates.
-              </li>
-              <li>
-                Interactive Tkinter GUI for selecting targets and monitoring
-                status.
-              </li>
-              <li>Real-time image processing potential with OpenCV.</li>
-            </ul>
-
-            <div className="mt-6">
-              <h3 className="text-xl font-semibold mb-2">Technologies Used</h3>
-              <div className="flex flex-wrap gap-4 items-center">
-                <Image
-                  src="/images/icons/python.webp"
-                  alt="Python"
-                  width={40}
-                  height={40}
-                  style={{ objectFit: "contain" }}
-                />
-                <Image
-                  src="/images/icons/raspberrypi.webp"
-                  alt="Raspberry Pi"
-                  width={40}
-                  height={40}
-                  style={{ objectFit: "contain" }}
-                />
-                <Image
-                  src="/images/icons/arduino.webp"
-                  alt="Arduino"
-                  width={40}
-                  height={40}
-                  style={{ objectFit: "contain" }}
-                />
-                <Image
-                  src="/images/icons/opencv.svg"
-                  alt="OpenCV"
-                  width={35}
-                  height={35}
-                  style={{ objectFit: "contain" }}
-                />
-                <Image
-                  src="/images/icons/numpy.svg"
-                  alt="NumPy"
-                  width={35}
-                  height={35}
-                  style={{ objectFit: "contain" }}
-                />
-                <Image
-                  src="/images/icons/fusion360.png"
-                  alt="Fusion 360"
-                  width={40}
-                  height={40}
-                  style={{ objectFit: "contain" }}
-                />
-                <Image
-                  src="/images/icons/github.webp"
-                  alt="GitHub"
-                  width={40}
-                  height={40}
-                  style={{
-                    objectFit: "contain",
-                    filter: isDarkMode ? "invert(0)" : "invert(1)",
-                  }}
-                />
-              </div>
+          {/* Image Carousel */}
+          <div className="mb-8 max-w-4xl mx-auto rounded-lg overflow-hidden shadow-lg border border-gray-700">
+            <div className="relative w-full aspect-video">
+              <Image
+                alt="Celestial Object Tracker Project Image Carousel"
+                src={images[currentIndex]}
+                fill
+                style={{ objectFit: "cover" }}
+                className="transition-opacity duration-500 ease-in-out"
+                key={currentIndex}
+                priority
+              />
             </div>
-          </section>
+          </div>
 
-          <section>
-            <h2 className="text-2xl font-semibold mb-3 font-ibmPlexMono">
-              Development Insights
-            </h2>
-            <h3 className="text-xl font-semibold mb-2">
-              Software & Libraries Used
-            </h3>
-            <pre className="p-4 mb-4 rounded-md bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-100 text-xs overflow-x-auto">
-              <code>
-                {`# Key Python Dependencies
+          {/* Project Details */}
+          <div className="max-w-4xl mx-auto space-y-8 font-karla">
+            <section>
+              <h2 className="text-2xl font-semibold mb-3 font-ibmPlexMono">
+                Project Overview
+              </h2>
+              <p>
+                My final major university project: an affordable and scalable
+                electronic device designed to track celestial objects in
+                real-time. It combines stepper motors for precise movement, an
+                Arduino for low-level hardware control, a Raspberry Pi for
+                processing and calculations, and a camera for capturing
+                real-time celestial observations.
+              </p>
+            </section>
+
+            <section>
+              <h2 className="text-2xl font-semibold mb-3 font-ibmPlexMono">
+                Technical Overview
+              </h2>
+              <p className="mb-4">
+                This complex project involved integrating hardware (Raspberry
+                Pi, Arduino, sensors, motors) with software (Python) to perform
+                real-time calculations and control physical movements based on
+                astronomical data. It included 3D design and printing for the
+                physical structure.
+              </p>
+
+              <h3 className="text-xl font-semibold mb-2">
+                Architecture & Stack
+              </h3>
+              <ul className="list-disc list-inside space-y-1 mb-4">
+                <li>
+                  <strong>Control Processing:</strong> Raspberry Pi
+                </li>
+                <li>
+                  <strong>Hardware Control:</strong> Arduino
+                </li>
+                <li>
+                  <strong>Software:</strong> Python (with libraries like
+                  Skyfield, OpenCV, NumPy, Pillow)
+                </li>
+                <li>
+                  <strong>Sensors:</strong> MPU6050 (IMU), GT-U7 (GPS)
+                </li>
+                <li>
+                  <strong>Actuators:</strong> Stepper Motors
+                </li>
+                <li>
+                  <strong>API Integration:</strong> Skyfield API (for celestial
+                  coordinates)
+                </li>
+                <li>
+                  <strong>UI:</strong> Tkinter GUI
+                </li>
+                <li>
+                  <strong>3D Design:</strong> Autodesk Fusion 360
+                </li>
+              </ul>
+
+              <h3 className="text-xl font-semibold mb-2">Core Functionality</h3>
+              <ul className="list-disc list-inside space-y-1">
+                <li>
+                  Accurate celestial object tracking using GPS, IMU, and time
+                  data.
+                </li>
+                <li>Real-time coordinate calculation using Skyfield API.</li>
+                <li>
+                  Automated, precise control of stepper motors based on
+                  calculated coordinates.
+                </li>
+                <li>
+                  Interactive Tkinter GUI for selecting targets and monitoring
+                  status.
+                </li>
+                <li>Real-time image processing potential with OpenCV.</li>
+              </ul>
+
+              <div className="mt-6">
+                <h3 className="text-xl font-semibold mb-2">
+                  Technologies Used
+                </h3>
+                <div className="flex flex-wrap gap-4 items-center">
+                  <Image
+                    src="/images/icons/python.webp"
+                    alt="Python"
+                    width={40}
+                    height={40}
+                    style={{ objectFit: "contain" }}
+                  />
+                  <Image
+                    src="/images/icons/raspberrypi.webp"
+                    alt="Raspberry Pi"
+                    width={40}
+                    height={40}
+                    style={{ objectFit: "contain" }}
+                  />
+                  <Image
+                    src="/images/icons/arduino.webp"
+                    alt="Arduino"
+                    width={40}
+                    height={40}
+                    style={{ objectFit: "contain" }}
+                  />
+                  <Image
+                    src="/images/icons/fusion360.png"
+                    alt="Fusion 360"
+                    width={40}
+                    height={40}
+                    style={{ objectFit: "contain" }}
+                  />
+                  <Image
+                    src="/images/icons/github.webp"
+                    alt="GitHub"
+                    width={40}
+                    height={40}
+                    className="object-contain filter invert dark:filter-none"
+                  />
+                </div>
+              </div>
+            </section>
+
+            <section>
+              <h2 className="text-2xl font-semibold mb-3 font-ibmPlexMono">
+                Development Insights
+              </h2>
+              <h3 className="text-xl font-semibold mb-2">
+                Software & Libraries Used
+              </h3>
+              <pre className="p-4 mb-4 rounded-md bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-100 text-xs overflow-x-auto">
+                <code>
+                  {`# Key Python Dependencies
 certifi==2024.2.2
 future==1.0.0
 iso8601==2.1.0
@@ -242,30 +221,33 @@ PyYAML==6.0.1
 serial==0.0.97
 sgp4==2.23
 skyfield==1.48`}
-              </code>
-            </pre>
-            <h3 className="text-xl font-semibold mb-2">
-              Hardware Integration & 3D Design
-            </h3>
-            <p className="mb-4">
-              The project involved significant hardware integration, interfacing
-              sensors (IMU, GPS) and motors with the Arduino and Raspberry Pi. A
-              custom 3D-printed frame, designed iteratively in Fusion 360,
-              provided the necessary stability and mounting for the components.
-            </p>
-            <h3 className="text-xl font-semibold mb-2">
-              Learning & Future Plans
-            </h3>
-            <p>
-              This project was a major learning experience in hardware-software
-              co-design, real-time systems, and applied mathematics/astronomy.
-              Future plans include refactoring the control logic into C++ for
-              improved performance and enhancing the user interface.
-            </p>
-          </section>
-        </div>
+                </code>
+              </pre>
+              <h3 className="text-xl font-semibold mb-2">
+                Hardware Integration & 3D Design
+              </h3>
+              <p className="mb-4">
+                The project involved significant hardware integration,
+                interfacing sensors (IMU, GPS) and motors with the Arduino and
+                Raspberry Pi. A custom 3D-printed frame, designed iteratively in
+                Fusion 360, provided the necessary stability and mounting for
+                the components.
+              </p>
+              <h3 className="text-xl font-semibold mb-2">
+                Learning & Future Plans
+              </h3>
+              <p>
+                This project was a major learning experience in
+                hardware-software co-design, real-time systems, and applied
+                mathematics/astronomy. Future plans include refactoring the
+                control logic into C++ for improved performance and enhancing
+                the user interface.
+              </p>
+            </section>
+          </div>
 
-        <ProjectNavigation currentSlug="celestialObjectTracker" />
+          <ProjectNavigation currentSlug="celestialObjectTracker" />
+        </div>
       </main>
       <Footer />
     </>

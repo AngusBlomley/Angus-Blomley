@@ -11,9 +11,11 @@ import type { SectionConstant } from "./constants";
 
 function Header(): JSX.Element {
   const { isDarkMode, toggleDarkMode } = useDarkMode();
-  const [menuVisible, setMenuVisible] = useState(false);
-  const [workSublinksVisible, setWorkSublinksVisible] = useState(false);
-  const [projectsSublinksVisible, setProjectsSublinksVisible] = useState(false);
+  const [menuVisible, setMenuVisible] = useState<boolean>(false);
+  const [workSublinksVisible, setWorkSublinksVisible] =
+    useState<boolean>(false);
+  const [projectsSublinksVisible, setProjectsSublinksVisible] =
+    useState<boolean>(false);
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -45,7 +47,7 @@ function Header(): JSX.Element {
     }
   }, [menuVisible]);
 
-  const toggleMenu = () => {
+  const toggleMenu = (): void => {
     setMenuVisible(!menuVisible);
     if (!menuVisible) {
       document.body.classList.add("menu-open");
@@ -82,9 +84,7 @@ function Header(): JSX.Element {
                     <Link href={section.link} passHref>
                       <div
                         className="inline-block bg-inherit opacity-75 p-1 px-3 no-underline hover:opacity-100 hover:bg-white/10 dark:hover:bg-white/20 rounded-md cursor-pointer font-ibmPlexMono"
-                        onClick={(e: React.MouseEvent<HTMLDivElement>) =>
-                          actionToPerform && actionToPerform()
-                        }
+                        onClick={() => actionToPerform && actionToPerform()}
                       >
                         {section.name}
                       </div>

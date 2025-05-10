@@ -44,7 +44,7 @@ const ProjectNavigation: React.FC<ProjectNavigationProps> = ({
 
   return (
     <nav
-      className="max-w-4xl mx-auto mt-12 mb-8 p-4 border-t border-gray-300 dark:border-gray-700 flex justify-between items-center font-ibmPlexMono"
+      className="max-w-4xl mx-auto mt-12 p-4 border-t border-gray-300 dark:border-gray-700 flex justify-between items-center font-ibmPlexMono"
       aria-label="Project navigation"
     >
       <div className="flex-1 text-left">
