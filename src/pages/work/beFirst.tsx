@@ -94,7 +94,7 @@ const BeFirst = () => {
                     preload="metadata"
                     width={960}
                     height={480}
-                    className="w-full transition-opacity duration-300 opacity-100"
+                    className="w-full rounded-lg"
                   />
                 </div>
               </a>

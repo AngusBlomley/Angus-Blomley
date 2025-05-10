@@ -22,7 +22,7 @@ const Meetly = () => {
               href="https://meetly-zeta.vercel.app/"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-colors duration-150"
+              className="inline-flex items-center px-4 py-2 text-sm font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-colors"
               aria-label="Visit live site (opens in a new tab)"
             >
               <FontAwesomeIcon icon={faExternalLinkAlt} className="mr-2" />
@@ -32,7 +32,7 @@ const Meetly = () => {
               href="https://github.com/AngusBlomley/Meetly"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center px-4 py-2 border border-gray-300 dark:border-gray-600 text-sm font-medium rounded-md shadow-sm text-gray-700 dark:text-gray-200 bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-colors duration-150"
+              className="inline-flex items-center px-4 py-2 text-sm font-medium rounded-md shadow-sm text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-colors"
               aria-label="View source code on GitHub (opens in a new tab)"
             >
               <FontAwesomeIcon icon={faGithub} className="mr-2" />
@@ -40,7 +40,7 @@ const Meetly = () => {
             </a>
           </div>
 
-          <div className="mb-8 max-w-4xl mx-auto rounded-lg overflow-hidden shadow-lg border border-gray-700 relative aspect-video">
+          <div className="mb-8 max-w-4xl mx-auto rounded-lg overflow-hidden shadow-lg border relative aspect-video">
             <video
               src="/videos/meetly.mp4"
               autoPlay
@@ -48,7 +48,7 @@ const Meetly = () => {
               loop
               playsInline
               preload="metadata"
-              className="w-full h-auto transition-opacity duration-300 opacity-100"
+              className="w-full h-auto transition-opacity opacity-100"
             />
           </div>
 

@@ -6,6 +6,7 @@ import ProjectNavigation from "@/components/work/ProjectNavigation";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import { faFilePdf } from "@fortawesome/free-solid-svg-icons";
+import { motion, AnimatePresence } from "framer-motion";
 
 const CelestialObjectTracker = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -26,7 +27,7 @@ const CelestialObjectTracker = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
-    }, 3000);
+    }, 5000);
 
     return () => clearInterval(interval);
   }, [images.length]);
@@ -45,7 +46,7 @@ const CelestialObjectTracker = () => {
               href="/pdf/Angus_Blomley_Final_Major_Project_Report.pdf"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-colors duration-150"
+              className="inline-flex items-center px-4 py-2 text-sm font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-colors duration-150"
               aria-label="View Project Report PDF (opens in a new tab)"
             >
               <FontAwesomeIcon icon={faFilePdf} className="mr-2" />
@@ -55,7 +56,7 @@ const CelestialObjectTracker = () => {
               href="https://github.com/AngusBlomley/Celestial-Object-Tracker"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center px-4 py-2 border border-gray-300 dark:border-gray-600 text-sm font-medium rounded-md shadow-sm text-gray-700 dark:text-gray-200 bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-colors duration-150"
+              className="inline-flex items-center px-4 py-2 text-sm font-medium rounded-md shadow-sm text-gray-700 dark:text-gray-200 bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-colors duration-150"
               aria-label="View source code on GitHub (opens in a new tab)"
             >
               <FontAwesomeIcon icon={faGithub} className="mr-2" />
@@ -63,18 +64,27 @@ const CelestialObjectTracker = () => {
             </a>
           </div>
 
-          {/* Image Carousel */}
-          <div className="mb-8 max-w-4xl mx-auto rounded-lg overflow-hidden shadow-lg border border-gray-700">
+          <div className="mb-8 max-w-4xl mx-auto rounded-lg">
             <div className="relative w-full aspect-video">
-              <Image
-                alt="Celestial Object Tracker Project Image Carousel"
-                src={images[currentIndex]}
-                fill
-                style={{ objectFit: "cover" }}
-                className="transition-opacity duration-500 ease-in-out"
-                key={currentIndex}
-                priority
-              />
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={currentIndex}
+                  initial={{ opacity: 0, scale: 0.98 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 1.02 }}
+                  transition={{ duration: 0.8, ease: [0.4, 0, 0.2, 1] }}
+                  className="absolute inset-0 w-full h-full"
+                >
+                  <Image
+                    alt="Celestial Object Tracker Project Image Carousel"
+                    src={images[currentIndex]}
+                    fill
+                    style={{ objectFit: "contain" }}
+                    className="transition-opacity duration-500 ease-in-out shadow-lg rounded-lg"
+                    priority
+                  />
+                </motion.div>
+              </AnimatePresence>
             </div>
           </div>
 
