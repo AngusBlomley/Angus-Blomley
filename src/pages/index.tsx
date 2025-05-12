@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import Head from "next/head";
-import { motion, useInView, AnimatePresence } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 import { FaArrowUp } from "react-icons/fa";
 import Header from "@/components/globals/header";
 import Footer from "@/components/globals/footer";
@@ -244,11 +244,9 @@ function HomePage() {
       initial="hidden"
       animate={eduInView ? "show" : "hidden"}
     >
-      {/* First Container */}
       <div className="py-32 max-md:py-20 bg-neutral-300">
         <div className="container mx-auto px-4 sm:px-6 max-w-7xl">
           <div className="grid grid-cols-2 max-md:grid-cols-1 gap-y-16 gap-x-20 max-xl:gap-x-12 max-md:gap-y-12 items-center">
-            {/* Ravensbourne University */}
             <motion.div
               variants={blockVariants}
               className="mb-12 max-md:mb-0 rounded-lg flex flex-col justify-center min-h-[340px] items-end max-md:items-start"
@@ -297,7 +295,6 @@ function HomePage() {
                 </div>
               </div>
             </motion.div>
-            {/* Graduation Image */}
             <motion.div
               variants={blockVariants}
               className="relative mb-12 flex items-center justify-center min-h-[340px] max-md:justify-start"
@@ -314,11 +311,9 @@ function HomePage() {
           </div>
         </div>
       </div>
-      {/* Middle Container with neutral-200 background */}
       <div className="w-full bg-neutral-200 py-32 max-md:py-20">
         <div className="container mx-auto px-4 sm:px-6 max-w-7xl">
           <div className="grid grid-cols-2 max-md:grid-cols-1 gap-y-16 gap-x-20 max-xl:gap-x-12 max-md:gap-y-12 items-center">
-            {/* Belfast Metropolitan */}
             <motion.div
               variants={blockVariants}
               className="rounded-lg flex flex-col justify-center min-h-[340px]"
@@ -418,7 +413,6 @@ function HomePage() {
                 </div>
               </div>
             </motion.div>
-            {/* Networking Image */}
             <motion.div
               variants={blockVariants}
               className="relative mb-12 flex items-center justify-start min-h-[340px] max-md:justify-center"
@@ -437,6 +431,31 @@ function HomePage() {
       </div>
     </motion.section>
   );
+
+  // About section hooks
+  const aboutRef = useRef(null);
+  const aboutInView = useInView(aboutRef, { once: true, margin: "-100px" });
+  // Experience section hooks
+  const expRef = useRef(null);
+  const expInView = useInView(expRef, { once: true, margin: "-100px" });
+
+  // Animation variants for experience section
+  const cardVariantsLeft = {
+    hidden: { opacity: 0, x: -40 },
+    show: {
+      opacity: 1,
+      x: 0,
+      transition: { duration: 0.7, ease: "easeOut" },
+    },
+  };
+  const cardVariantsRight = {
+    hidden: { opacity: 0, x: 40 },
+    show: {
+      opacity: 1,
+      x: 0,
+      transition: { duration: 0.7, ease: "easeOut" },
+    },
+  };
 
   return (
     <>
@@ -552,41 +571,34 @@ function HomePage() {
             quality={75}
           />
         </div>
-        {/* Animated About Content */}
-        {(() => {
-          const aboutRef = useRef(null);
-          const inView = useInView(aboutRef, { once: true, margin: "-100px" });
-          return (
-            <motion.div
-              ref={aboutRef}
-              initial={{ opacity: 0, y: 40 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.8, ease: "easeOut" }}
-              className="max-w-2xl ml-44 my-40 relative z-10 text-gray-100 max-lg:mx-auto max-lg:px-4"
+        <motion.div
+          ref={aboutRef}
+          initial={{ opacity: 0, y: 40 }}
+          animate={aboutInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="max-w-2xl ml-44 my-40 relative z-10 text-gray-100 max-lg:mx-auto max-lg:px-4"
+        >
+          <h2 className="text-4xl mb-8">The Person Behind the Pixels</h2>
+          <p className="text-lg mb-6 leading-relaxed">
+            Hello! I&apos;m Angus Blomley, a React developer dedicated to
+            building high-performance, accessible web applications. I have
+            refined my expertise in HTML, CSS, JavaScript, React, and React
+            Native, leveraging modern web technologies.
+          </p>
+          <p className="text-lg mb-6 leading-relaxed"></p>
+          <p className="text-lg leading-relaxed">
+            <Button
+              href="/aboutMe"
+              ariaLabel="Read more about my personal story and background"
+              className="mr-4"
             >
-              <h2 className="text-4xl mb-8">The Person Behind the Pixels</h2>
-              <p className="text-lg mb-6 leading-relaxed">
-                Hello! I&apos;m Angus Blomley, a React developer dedicated to
-                building high-performance, accessible web applications. I have
-                refined my expertise in HTML, CSS, JavaScript, React, and React
-                Native, leveraging modern web technologies.
-              </p>
-              <p className="text-lg mb-6 leading-relaxed"></p>
-              <p className="text-lg leading-relaxed">
-                <Button
-                  href="/aboutMe"
-                  ariaLabel="Read more about my personal story and background"
-                  className="mr-4"
-                >
-                  Learn More
-                </Button>
-                <Button href="#contact" ariaLabel="Navigate to contact section">
-                  Reach out
-                </Button>
-              </p>
-            </motion.div>
-          );
-        })()}
+              Learn More
+            </Button>
+            <Button href="#contact" ariaLabel="Navigate to contact section">
+              Reach out
+            </Button>
+          </p>
+        </motion.div>
       </section>
 
       <section
@@ -594,252 +606,215 @@ function HomePage() {
         className="py-32 max-md:py-12 overflow-hidden bg-theme-bg-light dark:bg-theme-bg-dark text-theme-text-light dark:text-theme-text-dark"
       >
         <div className="container mx-auto px-4 sm:px-6 max-w-7xl">
-          {(() => {
-            const expRef = useRef(null);
-            const expInView = useInView(expRef, {
-              once: true,
-              margin: "-100px",
-            });
-            const parentVariants = {
-              hidden: {},
-              show: {
-                transition: {
-                  staggerChildren: 0.18,
-                  delayChildren: 0.1,
-                },
-              },
-            };
-            const cardVariantsLeft = {
-              hidden: { opacity: 0, x: -40 },
-              show: {
-                opacity: 1,
-                x: 0,
-                transition: { duration: 0.7, ease: "easeOut" },
-              },
-            };
-            const cardVariantsRight = {
-              hidden: { opacity: 0, x: 40 },
-              show: {
-                opacity: 1,
-                x: 0,
-                transition: { duration: 0.7, ease: "easeOut" },
-              },
-            };
-            return (
-              <motion.div
-                ref={expRef}
-                variants={parentVariants}
-                initial="hidden"
-                animate={expInView ? "show" : "hidden"}
-                className="space-y-32 max-md:space-y-16"
-              >
-                <motion.div
-                  variants={cardVariantsLeft}
-                  className="flex flex-col lg:flex-row gap-8 lg:gap-12 items-center"
-                >
-                  {/* Vocabo Experience Block */}
-                  <div className="w-full lg:w-7/12">
-                    <Link href="/work/vocabo">
-                      <motion.div
-                        className="w-full rounded-lg overflow-hidden shadow-xl"
-                        whileHover={{
-                          y: -6,
-                          filter: "brightness(0.8)",
-                          boxShadow: "0 8px 32px rgba(0,0,0,0.10)",
-                        }}
-                        transition={{
-                          type: "spring",
-                          stiffness: 200,
-                          damping: 18,
-                        }}
-                      >
-                        <div className="bg-gray-100 h-5 rounded-t-lg flex items-center px-4">
-                          <div className="flex space-x-2">
-                            <div className="w-2 h-2 rounded-full bg-red-400"></div>
-                            <div className="w-2 h-2 rounded-full bg-yellow-400"></div>
-                            <div className="w-2 h-2 rounded-full bg-green-400"></div>
-                          </div>
-                        </div>
-                        <div className="relative aspect-video overflow-hidden">
-                          <video
-                            title="Vocabo Chrome Extension Demo"
-                            src="/videos/vocabo.mp4"
-                            autoPlay
-                            muted
-                            loop
-                            width={1280}
-                            height={720}
-                            className="h-auto rounded-b-lg"
-                            style={{
-                              objectFit: "cover",
-                              display: "block",
-                              position: "relative",
-                              top: "-12px",
-                              height: "calc(100% + 29px - 0px)",
-                              width: "100%",
-                            }}
-                            playsInline
-                            preload="auto"
-                          />
-                        </div>
-                      </motion.div>
-                    </Link>
-                  </div>
-                  <div className="w-full lg:w-5/12 lg:pl-4 max-w-xl mt-8 lg:mt-0">
-                    <h3 className="text-2xl font-semibold mb-2">
-                      Front End Developer
-                    </h3>
-                    <p className="mb-4 text-base opacity-90">
-                      Vocabo - Language Learning Platform
-                      <br />
-                      11 months (Ongoing)
-                    </p>
-                    <p className="text-base">
-                      Built a feature-rich Chrome extension using React for an
-                      innovative language learning platform, including an
-                      Express.js backend.
-                    </p>
-                    <div className="flex gap-3 mt-4">
-                      <Button
-                        href="/work/vocabo"
-                        ariaLabel="Learn more about Vocabo project"
-                      >
-                        Learn More
-                      </Button>
+          <motion.div
+            ref={expRef}
+            variants={parentVariants}
+            initial="hidden"
+            animate={expInView ? "show" : "hidden"}
+            className="space-y-32 max-md:space-y-16"
+          >
+            <motion.div
+              variants={cardVariantsLeft}
+              className="flex flex-col lg:flex-row gap-8 lg:gap-12 items-center"
+            >
+              <div className="w-full lg:w-7/12">
+                <Link href="/work/vocabo">
+                  <motion.div
+                    className="w-full rounded-lg overflow-hidden shadow-xl"
+                    whileHover={{
+                      y: -6,
+                      filter: "brightness(0.8)",
+                      boxShadow: "0 8px 32px rgba(0,0,0,0.10)",
+                    }}
+                    transition={{
+                      type: "spring",
+                      stiffness: 200,
+                      damping: 18,
+                    }}
+                  >
+                    <div className="bg-gray-100 h-5 rounded-t-lg flex items-center px-4">
+                      <div className="flex space-x-2">
+                        <div className="w-2 h-2 rounded-full bg-red-400"></div>
+                        <div className="w-2 h-2 rounded-full bg-yellow-400"></div>
+                        <div className="w-2 h-2 rounded-full bg-green-400"></div>
+                      </div>
                     </div>
-                  </div>
-                </motion.div>
-                <motion.div
-                  variants={cardVariantsRight}
-                  className="flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-12"
-                >
-                  {/* PWG Experience Block */}
-                  <div className="w-full lg:w-5/12 order-2 lg:order-1">
-                    <h3 className="text-2xl font-semibold mb-2">
-                      React / React Native Developer
-                    </h3>
-                    <p className="mb-4 text-base opacity-90">
-                      Compute and Cultivate Ltd (PWG Windows & Doors)
-                      <br />
-                      Contract Position • 1.5 Years
-                    </p>
-                    <p className="text-base">
-                      Developed a key React Native mobile application for field
-                      engineers, significantly improving site visit efficiency
-                      and data management.
-                    </p>
-                    <div className="flex gap-3 mt-4">
-                      <Button
-                        href="/work/pwg"
-                        ariaLabel="Learn more about PWG project"
-                      >
-                        Learn More
-                      </Button>
+                    <div className="relative aspect-video overflow-hidden">
+                      <video
+                        title="Vocabo Chrome Extension Demo"
+                        src="/videos/vocabo.mp4"
+                        autoPlay
+                        muted
+                        loop
+                        width={1280}
+                        height={720}
+                        className="h-auto rounded-b-lg"
+                        style={{
+                          objectFit: "cover",
+                          display: "block",
+                          position: "relative",
+                          top: "-12px",
+                          height: "calc(100% + 29px - 0px)",
+                          width: "100%",
+                        }}
+                        playsInline
+                        preload="auto"
+                      />
                     </div>
-                  </div>
-                  <div className="w-full lg:w-7/12 flex justify-center lg:justify-end order-1 lg:order-2">
-                    <Link href="/work/pwg" className="w-full max-w-4xl">
-                      <motion.div
-                        className="rounded-lg overflow-hidden shadow-lg relative"
-                        whileHover={{
-                          y: -6,
-                          filter: "brightness(0.8)",
-                          boxShadow: "0 8px 32px rgba(0,0,0,0.10)",
-                        }}
-                        transition={{
-                          type: "spring",
-                          stiffness: 200,
-                          damping: 18,
-                        }}
-                      >
-                        <div className="bg-gray-100 h-5 rounded-t-lg flex items-center px-4">
-                          <div className="flex space-x-2">
-                            <div className="w-2 h-2 rounded-full bg-red-400"></div>
-                            <div className="w-2 h-2 rounded-full bg-yellow-400"></div>
-                            <div className="w-2 h-2 rounded-full bg-green-400"></div>
-                          </div>
-                        </div>
-                        <video
-                          title="PWG Mobile App Demo"
-                          src="/videos/pwg_web.mp4"
-                          autoPlay
-                          muted
-                          loop
-                          width={1280}
-                          height={720}
-                          className="w-full rounded-b-lg shadow-xl transition-opacity opacity-100"
-                          playsInline
-                          preload="auto"
-                        />
-                      </motion.div>
-                    </Link>
-                  </div>
-                </motion.div>
-                <motion.div
-                  variants={cardVariantsLeft}
-                  className="flex flex-col lg:flex-row gap-8 lg:gap-12 items-center"
-                >
-                  {/* Open Fern Studio Experience Block */}
-                  <div className="w-full lg:w-7/12">
-                    <Link href="/work/openfern">
-                      <motion.div
-                        whileHover={{
-                          y: -6,
-                          filter: "brightness(0.8)",
-                          boxShadow: "0 8px 32px rgba(0,0,0,0.10)",
-                        }}
-                        transition={{
-                          type: "spring",
-                          stiffness: 200,
-                          damping: 18,
-                        }}
-                        className="w-full rounded-lg overflow-hidden shadow-xl"
-                      >
-                        <div className="bg-gray-100 h-5 rounded-t-lg flex items-center px-4">
-                          <div className="flex space-x-2">
-                            <div className="w-2 h-2 rounded-full bg-red-400"></div>
-                            <div className="w-2 h-2 rounded-full bg-yellow-400"></div>
-                            <div className="w-2 h-2 rounded-full bg-green-400"></div>
-                          </div>
-                        </div>
-                        <Image
-                          id="openfern"
-                          alt="Open Fern Studio Website"
-                          src="/images/work/openfern.png"
-                          width={1102}
-                          height={703}
-                          className="w-full h-auto rounded-b-lg"
-                        />
-                      </motion.div>
-                    </Link>
-                  </div>
-                  <div className="w-full lg:w-5/12 lg:pl-4 max-w-xl mt-8 lg:mt-0">
-                    <h3 className="text-2xl font-semibold mb-2">
-                      Front End Developer
-                    </h3>
-                    <p className="mb-4 text-base opacity-90">
-                      Open Fern Studio
-                      <br />
-                      Contract Position • 2 Months
-                    </p>
-                    <p className="text-base">
-                      Created a responsive and SEO-optimized business website
-                      with modern design and animations for a social media
-                      marketing agency.
-                    </p>
-                    <div className="flex gap-3 mt-4">
-                      <Button
-                        href="/work/openfern"
-                        ariaLabel="Learn more about Open Fern Studio project"
-                      >
-                        Learn More
-                      </Button>
+                  </motion.div>
+                </Link>
+              </div>
+              <div className="w-full lg:w-5/12 lg:pl-4 max-w-xl mt-8 lg:mt-0">
+                <h3 className="text-2xl font-semibold mb-2">
+                  Front End Developer
+                </h3>
+                <p className="mb-4 text-base opacity-90">
+                  Vocabo - Language Learning Platform
+                  <br />
+                  11 months (Ongoing)
+                </p>
+                <p className="text-base">
+                  Built a feature-rich Chrome extension using React for an
+                  innovative language learning platform, including an Express.js
+                  backend.
+                </p>
+                <div className="flex gap-3 mt-4">
+                  <Button
+                    href="/work/vocabo"
+                    ariaLabel="Learn more about Vocabo project"
+                  >
+                    Learn More
+                  </Button>
+                </div>
+              </div>
+            </motion.div>
+            <motion.div
+              variants={cardVariantsRight}
+              className="flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-12"
+            >
+              <div className="w-full lg:w-5/12 order-2 lg:order-1">
+                <h3 className="text-2xl font-semibold mb-2">
+                  React / React Native Developer
+                </h3>
+                <p className="mb-4 text-base opacity-90">
+                  Compute and Cultivate Ltd (PWG Windows & Doors)
+                  <br />
+                  Contract Position • 1.5 Years
+                </p>
+                <p className="text-base">
+                  Developed a key React Native mobile application for field
+                  engineers, significantly improving site visit efficiency and
+                  data management.
+                </p>
+                <div className="flex gap-3 mt-4">
+                  <Button
+                    href="/work/pwg"
+                    ariaLabel="Learn more about PWG project"
+                  >
+                    Learn More
+                  </Button>
+                </div>
+              </div>
+              <div className="w-full lg:w-7/12 flex justify-center lg:justify-end order-1 lg:order-2">
+                <Link href="/work/pwg" className="w-full max-w-4xl">
+                  <motion.div
+                    className="rounded-lg overflow-hidden shadow-lg relative"
+                    whileHover={{
+                      y: -6,
+                      filter: "brightness(0.8)",
+                      boxShadow: "0 8px 32px rgba(0,0,0,0.10)",
+                    }}
+                    transition={{
+                      type: "spring",
+                      stiffness: 200,
+                      damping: 18,
+                    }}
+                  >
+                    <div className="bg-gray-100 h-5 rounded-t-lg flex items-center px-4">
+                      <div className="flex space-x-2">
+                        <div className="w-2 h-2 rounded-full bg-red-400"></div>
+                        <div className="w-2 h-2 rounded-full bg-yellow-400"></div>
+                        <div className="w-2 h-2 rounded-full bg-green-400"></div>
+                      </div>
                     </div>
-                  </div>
-                </motion.div>
-              </motion.div>
-            );
-          })()}
+                    <video
+                      title="PWG Mobile App Demo"
+                      src="/videos/pwg_web.mp4"
+                      autoPlay
+                      muted
+                      loop
+                      width={1280}
+                      height={720}
+                      className="w-full rounded-b-lg shadow-xl transition-opacity opacity-100"
+                      playsInline
+                      preload="auto"
+                    />
+                  </motion.div>
+                </Link>
+              </div>
+            </motion.div>
+            <motion.div
+              variants={cardVariantsLeft}
+              className="flex flex-col lg:flex-row gap-8 lg:gap-12 items-center"
+            >
+              <div className="w-full lg:w-7/12">
+                <Link href="/work/openfern">
+                  <motion.div
+                    whileHover={{
+                      y: -6,
+                      filter: "brightness(0.8)",
+                      boxShadow: "0 8px 32px rgba(0,0,0,0.10)",
+                    }}
+                    transition={{
+                      type: "spring",
+                      stiffness: 200,
+                      damping: 18,
+                    }}
+                    className="w-full rounded-lg overflow-hidden shadow-xl"
+                  >
+                    <div className="bg-gray-100 h-5 rounded-t-lg flex items-center px-4">
+                      <div className="flex space-x-2">
+                        <div className="w-2 h-2 rounded-full bg-red-400"></div>
+                        <div className="w-2 h-2 rounded-full bg-yellow-400"></div>
+                        <div className="w-2 h-2 rounded-full bg-green-400"></div>
+                      </div>
+                    </div>
+                    <Image
+                      id="openfern"
+                      alt="Open Fern Studio Website"
+                      src="/images/work/openfern.png"
+                      width={1102}
+                      height={703}
+                      className="w-full h-auto rounded-b-lg"
+                    />
+                  </motion.div>
+                </Link>
+              </div>
+              <div className="w-full lg:w-5/12 lg:pl-4 max-w-xl mt-8 lg:mt-0">
+                <h3 className="text-2xl font-semibold mb-2">
+                  Front End Developer
+                </h3>
+                <p className="mb-4 text-base opacity-90">
+                  Open Fern Studio
+                  <br />
+                  Contract Position • 2 Months
+                </p>
+                <p className="text-base">
+                  Created a responsive and SEO-optimized business website with
+                  modern design and animations for a social media marketing
+                  agency.
+                </p>
+                <div className="flex gap-3 mt-4">
+                  <Button
+                    href="/work/openfern"
+                    ariaLabel="Learn more about Open Fern Studio project"
+                  >
+                    Learn More
+                  </Button>
+                </div>
+              </div>
+            </motion.div>
+          </motion.div>
         </div>
       </section>
 

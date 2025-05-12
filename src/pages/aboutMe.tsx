@@ -2,7 +2,7 @@
 import React from "react";
 import WorldMap from "@/components/WorldMap";
 // import { useDarkMode } from "@/contexts/darkModeContext"; // Removed
-import HeaderGlobal from "@/components/globals/headerGlobal";
+import Header from "@/components/globals/header";
 import { faArrowDown } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Image from "next/image";
@@ -55,7 +55,7 @@ export default function AboutMe() {
 
   return (
     <>
-      <HeaderGlobal />
+      <Header />
       <main
         className="min-h-screen pt-10 px-4 sm:px-6 lg:px-8 pb-20 bg-theme-bg-light dark:bg-theme-bg-dark text-theme-text-light dark:text-theme-text-dark"
         // style={{ backgroundColor, color }} // Removed
