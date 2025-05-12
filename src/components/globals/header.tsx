@@ -6,8 +6,8 @@ import {
   sectionsDataConstants,
   iconMap,
   handleResumeClick as resumeAction,
-} from "./constants";
-import type { SectionConstant } from "./constants";
+} from "../../constants";
+import type { SectionConstant } from "../../constants";
 
 function Header(): JSX.Element {
   const { isDarkMode, toggleDarkMode } = useDarkMode();

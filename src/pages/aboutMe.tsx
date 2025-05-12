@@ -44,14 +44,6 @@ const visitedCountries: VisitedCountry[] = [
 ];
 
 export default function AboutMe() {
-  // const { isDarkMode } = useDarkMode(); // Removed
-
-  // const backgroundColor = isDarkMode // Removed
-  //   ? "var(--background-color-dark)" // Removed
-  //   : "var(--background-color-light)"; // Removed
-  // const color = isDarkMode // Removed
-  //   ? "var(--foreground-color-dark)" // Removed
-  //   : "var(--foreground-color-light)"; // Removed
 
   return (
     <>

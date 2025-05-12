@@ -10,7 +10,7 @@ import {
   workLinksData,
   projectLinksData,
   profileLinksData,
-} from "./constants";
+} from "../constants";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowUpRightFromSquare } from "@fortawesome/free-solid-svg-icons";
 import Button from "@/components/globals/Button";
@@ -130,7 +130,7 @@ function HomePage() {
     }, intervalSpeed);
 
     return () => clearInterval(intervalId);
-  }, [i, ascii]);
+  }, [i]);
 
   useEffect(() => {
     const handleScroll = () => {
