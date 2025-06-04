@@ -1,7 +1,8 @@
 /* eslint-disable react/no-unescaped-entities */
 import Header from "@/components/globals/header";
 import Footer from "@/components/globals/footer";
-import Image from "next/image";
+import ImageWithLoader from "@/components/globals/ImageWithLoader";
+import VideoWithLoader from "@/components/globals/VideoWithLoader";
 import ProjectNavigation from "@/components/work/ProjectNavigation";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChrome } from "@fortawesome/free-brands-svg-icons";
@@ -41,7 +42,7 @@ const Vocabo = () => {
             className="hidden lg:block mx-auto mb-8 rounded-lg shadow-xl overflow-hidden"
             style={{ width: 1080, height: 561 }}
           >
-            <video
+            <VideoWithLoader
               title="Vocabo Chrome Extension Demo"
               src="/videos/vocabo.mp4"
               width={1080}
@@ -63,7 +64,7 @@ const Vocabo = () => {
 
           {/* Mobile/Tablet (below lg): responsive styling */}
           <div className="block lg:hidden mx-auto mb-8 rounded-lg shadow-xl overflow-hidden w-full max-w-3xl aspect-video bg-black">
-            <video
+            <VideoWithLoader
               title="Vocabo Chrome Extension Demo"
               src="/videos/vocabo.mp4"
               autoPlay
@@ -141,7 +142,7 @@ const Vocabo = () => {
                   Technologies Used
                 </h3>
                 <div className="flex flex-wrap gap-2 items-center">
-                  <Image
+                  <ImageWithLoader
                     src="/images/icons/react.webp"
                     alt="React"
                     width={40}
@@ -149,7 +150,7 @@ const Vocabo = () => {
                     className="m-2"
                     style={{ objectFit: "contain" }}
                   />
-                  <Image
+                  <ImageWithLoader
                     src="/images/icons/js.webp"
                     alt="JavaScript"
                     width={40}
@@ -157,7 +158,7 @@ const Vocabo = () => {
                     className="m-2"
                     style={{ objectFit: "contain" }}
                   />
-                  <Image
+                  <ImageWithLoader
                     src="/images/icons/tailwind.webp"
                     alt="Tailwind CSS"
                     width={40}
@@ -165,7 +166,7 @@ const Vocabo = () => {
                     className="m-2 py-1"
                     style={{ objectFit: "contain" }}
                   />
-                  <Image
+                  <ImageWithLoader
                     src="/images/icons/github.webp"
                     alt="GitHub"
                     width={40}

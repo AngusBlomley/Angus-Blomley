@@ -1,7 +1,8 @@
 /* eslint-disable react/no-unescaped-entities */
 import Header from "@/components/globals/header";
 import Footer from "@/components/globals/footer";
-import Image from "next/image";
+import ImageWithLoader from "@/components/globals/ImageWithLoader";
+import VideoWithLoader from "@/components/globals/VideoWithLoader";
 import ProjectNavigation from "@/components/work/ProjectNavigation";
 
 const BeFirst = () => {
@@ -84,7 +85,7 @@ const BeFirst = () => {
                 rel="noopener noreferrer"
               >
                 <div className="relative aspect-video">
-                  <video
+                  <VideoWithLoader
                     title="Advent Delights Project"
                     src="/videos/beFirst.mp4"
                     autoPlay
@@ -317,14 +318,14 @@ const BeFirst = () => {
                 </div>
               </div>
               <div className="flex row h-16 flex-wrap">
-                <Image
+                <ImageWithLoader
                   src="/images/icons/premiere-pro.webp"
                   alt="Adobe Premiere Pro"
                   width={50}
                   height={50}
                   className="my-2 py-2"
                 />
-                <Image
+                <ImageWithLoader
                   src="/images/icons/photoshop.webp"
                   alt="Adobe Photoshop"
                   width={50}

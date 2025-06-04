@@ -1,7 +1,7 @@
 /* eslint-disable react/no-unescaped-entities */
 import Header from "@/components/globals/header";
 import Footer from "@/components/globals/footer";
-import Image from "next/image";
+import ImageWithLoader from "@/components/globals/ImageWithLoader";
 import ProjectNavigation from "@/components/work/ProjectNavigation";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faExternalLinkAlt } from "@fortawesome/free-solid-svg-icons";
@@ -41,7 +41,7 @@ const OpenFern = () => {
           </div>
 
           <div className="mb-8 max-w-4xl mx-auto">
-            <Image
+            <ImageWithLoader
               src="/images/work/openfern.png"
               alt="Open Fern Studio Website Screenshot"
               width={1200} // Adjusted for consistency
@@ -108,28 +108,28 @@ const OpenFern = () => {
                   Technologies Used
                 </h3>
                 <div className="flex flex-wrap gap-4 items-center">
-                  <Image
+                  <ImageWithLoader
                     src="/images/icons/next.webp"
                     alt="Next.js"
                     width={40}
                     height={40}
                     style={{ objectFit: "contain" }}
                   />
-                  <Image
+                  <ImageWithLoader
                     src="/images/icons/react.webp"
                     alt="TypeScript"
                     width={35}
                     height={35}
                     style={{ objectFit: "contain" }}
                   />
-                  <Image
+                  <ImageWithLoader
                     src="/images/icons/tailwind.webp"
                     alt="Tailwind CSS"
                     width={40}
                     height={40}
                     style={{ objectFit: "contain" }}
                   />
-                  <Image
+                  <ImageWithLoader
                     src="/images/icons/github.webp"
                     alt="GitHub"
                     width={40}

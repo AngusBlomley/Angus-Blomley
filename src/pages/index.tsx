@@ -14,7 +14,8 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowUpRightFromSquare } from "@fortawesome/free-solid-svg-icons";
 import Button from "@/components/globals/Button";
-import Image from "next/image";
+import ImageWithLoader from "@/components/globals/ImageWithLoader";
+import VideoWithLoader from "@/components/globals/VideoWithLoader";
 
 interface DisplayLinkItemProps {
   href?: string;
@@ -275,7 +276,7 @@ function HomePage() {
                     Total Degree Credits: 360
                   </p>
                   <div className="mt-8">
-                    <Image
+                    <ImageWithLoader
                       width={300}
                       height={150}
                       id="ravensbourne-light"
@@ -283,7 +284,7 @@ function HomePage() {
                       alt="Ravensbourne University (Light Mode Logo)"
                       className="block"
                     />
-                    <Image
+                    <ImageWithLoader
                       width={300}
                       height={150}
                       id="ravensbourne-dark"
@@ -299,7 +300,7 @@ function HomePage() {
               variants={blockVariants}
               className="relative mb-12 flex items-center justify-center min-h-[340px] max-md:justify-start"
             >
-              <Image
+              <ImageWithLoader
                 id="graduation"
                 alt="graduation"
                 src="/images/index/graduation.svg"
@@ -336,7 +337,7 @@ function HomePage() {
                     <li>Computer Systems</li>
                   </ul>
                   <div className="mt-8">
-                    <Image
+                    <ImageWithLoader
                       width={150}
                       height={150}
                       id="belfastmet"
@@ -352,7 +353,7 @@ function HomePage() {
               variants={blockVariants}
               className="relative flex items-center justify-end min-h-[340px]"
             >
-              <Image
+              <ImageWithLoader
                 id="computer"
                 alt="Computer"
                 src="/images/index/computer.svg"
@@ -395,7 +396,7 @@ function HomePage() {
                     <li>Algorithms</li>
                   </ul>
                   <div className="mt-8">
-                    <Image
+                    <ImageWithLoader
                       width={220}
                       height={150}
                       id="codecademy"
@@ -417,7 +418,7 @@ function HomePage() {
               variants={blockVariants}
               className="relative mb-12 flex items-center justify-start min-h-[340px] max-md:justify-center"
             >
-              <Image
+              <ImageWithLoader
                 id="networking"
                 alt="networking graphic"
                 src="/images/index/networking.svg"
@@ -561,7 +562,7 @@ function HomePage() {
           <div className="absolute inset-0 bg-gradient-to-r from-theme-bg-dark to-transparent z-10 via-30% via-theme-bg-dark/0 opacity-0 max-md:via-theme-bg-dark/60"></div>
           <div className="absolute inset-0 bg-gradient-to-t from-theme-bg-dark to-transparent z-10 via-30% via-theme-bg-dark/50 opacity-100 max-md:via-theme-bg-dark/30"></div>
 
-          <Image
+          <ImageWithLoader
             alt="About background image"
             src="/images/index/back.jpg"
             layout="fill"
@@ -640,7 +641,7 @@ function HomePage() {
                       </div>
                     </div>
                     <div className="relative aspect-video overflow-hidden">
-                      <video
+                      <VideoWithLoader
                         title="Vocabo Chrome Extension Demo"
                         src="/videos/vocabo.mp4"
                         autoPlay
@@ -737,7 +738,7 @@ function HomePage() {
                         <div className="w-2 h-2 rounded-full bg-green-400"></div>
                       </div>
                     </div>
-                    <video
+                    <VideoWithLoader
                       title="PWG Mobile App Demo"
                       src="/videos/pwg_web.mp4"
                       autoPlay
@@ -779,7 +780,7 @@ function HomePage() {
                         <div className="w-2 h-2 rounded-full bg-green-400"></div>
                       </div>
                     </div>
-                    <Image
+                    <ImageWithLoader
                       id="openfern"
                       alt="Open Fern Studio Website"
                       src="/images/work/openfern.png"
@@ -892,7 +893,7 @@ function HomePage() {
               </div>
             </form>
           )}
-          <Image
+          <ImageWithLoader
             alt="contact"
             src="/images/index/contact.svg"
             width={550}

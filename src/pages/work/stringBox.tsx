@@ -1,7 +1,8 @@
 import React from "react";
 import Header from "@/components/globals/header";
 import Footer from "@/components/globals/footer";
-import Image from "next/image";
+import ImageWithLoader from "@/components/globals/ImageWithLoader";
+import VideoWithLoader from "@/components/globals/VideoWithLoader";
 import { useDarkMode } from "@/contexts/darkModeContext";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
@@ -44,7 +45,7 @@ const StringBox = () => {
 
         {/* Main Video */}
         <div className="mb-8 max-w-4xl mx-auto rounded-lg overflow-hidden shadow-lg relative aspect-video">
-          <video
+          <VideoWithLoader
             src="/videos/stringBoxWeb.mp4"
             autoPlay
             muted
@@ -108,35 +109,35 @@ const StringBox = () => {
           <div className="mt-6">
             <h3 className="text-xl font-semibold mb-2">Technologies Used</h3>
             <div className="flex flex-wrap gap-4 items-center mb-6">
-              <Image
+              <ImageWithLoader
                 src="/images/icons/next.webp"
                 alt="Next.js"
                 width={40}
                 height={40}
                 style={{ objectFit: "contain" }}
               />
-              <Image
+              <ImageWithLoader
                 src="/images/icons/react.webp"
                 alt="React"
                 width={40}
                 height={40}
                 style={{ objectFit: "contain" }}
               />
-              <Image
+              <ImageWithLoader
                 src="/images/icons/js.webp"
                 alt="JavaScript"
                 width={40}
                 height={40}
                 style={{ objectFit: "contain" }}
               />
-              <Image
+              <ImageWithLoader
                 src="/images/icons/tailwind.webp"
                 alt="Tailwind CSS"
                 width={40}
                 height={40}
                 style={{ objectFit: "contain" }}
               />
-              <Image
+              <ImageWithLoader
                 src="/images/icons/github.webp"
                 alt="GitHub"
                 width={40}

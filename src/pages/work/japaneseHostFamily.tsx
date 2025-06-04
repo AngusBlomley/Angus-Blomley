@@ -1,5 +1,5 @@
 import React from "react";
-import Image from "next/image";
+import ImageWithLoader from "@/components/globals/ImageWithLoader";
 import Header from "@/components/globals/header";
 import Footer from "@/components/globals/footer";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -40,7 +40,7 @@ const JapaneseHostFamilyPage: React.FC = () => {
         </div>
 
         <div className="mb-8 max-w-4xl mx-auto">
-          <Image
+          <ImageWithLoader
             src="/images/japanese-host-family/japanese-host-family.png"
             alt="Japanese Host Family Platform Screenshot"
             width={1200}
@@ -140,35 +140,35 @@ const JapaneseHostFamilyPage: React.FC = () => {
           <div className="mt-6">
             <h3 className="text-xl font-semibold mb-2">Technologies Used</h3>
             <div className="flex flex-wrap gap-4 items-center">
-              <Image
+              <ImageWithLoader
                 src="/images/icons/react.webp"
                 alt="React"
                 width={40}
                 height={40}
                 style={{ objectFit: "contain" }}
               />
-              <Image
+              <ImageWithLoader
                 src="/images/icons/typescript.png"
                 alt="TypeScript"
                 width={40}
                 height={40}
                 style={{ objectFit: "contain" }}
               />
-              <Image
+              <ImageWithLoader
                 src="/images/icons/tailwind.webp"
                 alt="Tailwind CSS"
                 width={40}
                 height={40}
                 style={{ objectFit: "contain" }}
               />
-              <Image
+              <ImageWithLoader
                 src="/images/icons/supabase.jpeg"
                 alt="Supabase"
                 width={40}
                 height={40}
                 style={{ objectFit: "contain", borderRadius: "0.5rem" }}
               />
-              <Image
+              <ImageWithLoader
                 src="/images/icons/github.webp"
                 alt="GitHub"
                 width={40}

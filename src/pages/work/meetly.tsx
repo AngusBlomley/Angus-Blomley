@@ -1,7 +1,8 @@
 /* eslint-disable react/no-unescaped-entities */
 import Header from "@/components/globals/header";
 import Footer from "@/components/globals/footer";
-import Image from "next/image";
+import ImageWithLoader from "@/components/globals/ImageWithLoader";
+import VideoWithLoader from "@/components/globals/VideoWithLoader";
 import ProjectNavigation from "@/components/work/ProjectNavigation";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
@@ -41,7 +42,7 @@ const Meetly = () => {
           </div>
 
           <div className="mb-8 max-w-4xl mx-auto rounded-lg overflow-hidden shadow-lg border relative aspect-video">
-            <video
+            <VideoWithLoader
               src="/videos/meetly.mp4"
               autoPlay
               muted
@@ -127,42 +128,42 @@ const Meetly = () => {
                   Technologies Used
                 </h3>
                 <div className="flex flex-wrap gap-4 items-center">
-                  <Image
+                  <ImageWithLoader
                     src="/images/icons/next.webp"
                     alt="Next.js"
                     width={40}
                     height={40}
                     style={{ objectFit: "contain" }}
                   />
-                  <Image
+                  <ImageWithLoader
                     src="/images/icons/react.webp"
                     alt="React"
                     width={40}
                     height={40}
                     style={{ objectFit: "contain" }}
                   />
-                  <Image
+                  <ImageWithLoader
                     src="/images/icons/tailwind.webp"
                     alt="Tailwind CSS"
                     width={40}
                     height={40}
                     style={{ objectFit: "contain" }}
                   />
-                  <Image
+                  <ImageWithLoader
                     src="/images/icons/maps2.png"
                     alt="Google Maps API"
                     width={40}
                     height={40}
                     style={{ objectFit: "contain" }}
                   />
-                  <Image
+                  <ImageWithLoader
                     src="/images/icons/axios.webp"
                     alt="Axios"
                     width={40}
                     height={40}
                     style={{ objectFit: "contain" }}
                   />
-                  <Image
+                  <ImageWithLoader
                     src="/images/icons/github.webp"
                     alt="GitHub"
                     width={40}

@@ -1,7 +1,8 @@
 /* eslint-disable react/no-unescaped-entities */
 import Header from "@/components/globals/header";
 import Footer from "@/components/globals/footer";
-import Image from "next/image";
+import ImageWithLoader from "@/components/globals/ImageWithLoader";
+import VideoWithLoader from "@/components/globals/VideoWithLoader";
 import ProjectNavigation from "@/components/work/ProjectNavigation";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
@@ -31,7 +32,7 @@ const PWG = () => {
           {/* First Video */}
           <div className="mb-8 max-w-4xl mx-auto">
             <div className="rounded-lg overflow-hidden shadow-lg relative">
-              <video
+              <VideoWithLoader
                 src="/videos/pwg_web.mp4"
                 autoPlay
                 muted
@@ -61,7 +62,7 @@ const PWG = () => {
             {/* Second Video - Moved and Resized */}
             <div className="my-8 max-w-lg mx-auto">
               <div className="rounded-lg overflow-hidden shadow-lg relative">
-                <video
+                <VideoWithLoader
                   src="/videos/pwg_tablet.webm"
                   autoPlay
                   muted
@@ -142,7 +143,7 @@ const PWG = () => {
                   Technologies Used
                 </h3>
                 <div className="flex justify-start items-center flex-wrap">
-                  <Image
+                  <ImageWithLoader
                     src="/images/icons/react.webp"
                     alt="React Native"
                     width={50}
@@ -150,7 +151,7 @@ const PWG = () => {
                     className="m-2"
                     style={{ objectFit: "contain" }}
                   />
-                  <Image
+                  <ImageWithLoader
                     src="/images/icons/js.webp"
                     alt="JavaScript"
                     width={50}
@@ -158,7 +159,7 @@ const PWG = () => {
                     className="m-2"
                     style={{ objectFit: "contain" }}
                   />
-                  <Image
+                  <ImageWithLoader
                     src="/images/icons/tailwind.webp"
                     alt="Tailwind CSS / NativeWind"
                     width={50}
@@ -166,7 +167,7 @@ const PWG = () => {
                     className="m-2 py-1"
                     style={{ objectFit: "contain" }}
                   />
-                  <Image
+                  <ImageWithLoader
                     src="/images/icons/expoGo.svg"
                     alt="Expo"
                     width={50}
@@ -174,7 +175,7 @@ const PWG = () => {
                     className="m-2"
                     style={{ objectFit: "contain" }}
                   />
-                  <Image
+                  <ImageWithLoader
                     src="/images/icons/github.webp"
                     alt="GitHub"
                     width={50}

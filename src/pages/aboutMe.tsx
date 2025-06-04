@@ -5,7 +5,7 @@ import WorldMap from "@/components/WorldMap";
 import Header from "@/components/globals/header";
 import { faArrowDown } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import Image from "next/image";
+import ImageWithLoader from "@/components/globals/ImageWithLoader";
 import Link from "next/link";
 import { FaMailBulk } from "react-icons/fa";
 
@@ -96,7 +96,7 @@ export default function AboutMe() {
                   drive innovation, and build impactful solutions that deliver
                   exceptional user experiences.
                 </p>
-                <Image
+                <ImageWithLoader
                   src="/images/about/portrait.jpeg"
                   alt="Angus Blomley"
                   width={200}

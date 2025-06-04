@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Header from "@/components/globals/header";
 import Footer from "@/components/globals/footer";
-import Image from "next/image";
+import ImageWithLoader from "@/components/globals/ImageWithLoader";
 import ProjectNavigation from "@/components/work/ProjectNavigation";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
@@ -75,7 +75,7 @@ const CelestialObjectTracker = () => {
                   transition={{ duration: 0.8, ease: [0.4, 0, 0.2, 1] }}
                   className="absolute inset-0 w-full h-full"
                 >
-                  <Image
+                  <ImageWithLoader
                     alt="Celestial Object Tracker Project Image Carousel"
                     src={images[currentIndex]}
                     fill
@@ -171,35 +171,35 @@ const CelestialObjectTracker = () => {
                   Technologies Used
                 </h3>
                 <div className="flex flex-wrap gap-4 items-center">
-                  <Image
+                  <ImageWithLoader
                     src="/images/icons/python.webp"
                     alt="Python"
                     width={40}
                     height={40}
                     style={{ objectFit: "contain" }}
                   />
-                  <Image
+                  <ImageWithLoader
                     src="/images/icons/raspberrypi.webp"
                     alt="Raspberry Pi"
                     width={40}
                     height={40}
                     style={{ objectFit: "contain" }}
                   />
-                  <Image
+                  <ImageWithLoader
                     src="/images/icons/arduino.webp"
                     alt="Arduino"
                     width={40}
                     height={40}
                     style={{ objectFit: "contain" }}
                   />
-                  <Image
+                  <ImageWithLoader
                     src="/images/icons/fusion360.png"
                     alt="Fusion 360"
                     width={40}
                     height={40}
                     style={{ objectFit: "contain" }}
                   />
-                  <Image
+                  <ImageWithLoader
                     src="/images/icons/github.webp"
                     alt="GitHub"
                     width={40}
