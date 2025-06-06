@@ -1,4 +1,5 @@
 /* eslint-disable react/no-unescaped-entities */
+import React, { useState } from "react";
 import Header from "@/components/globals/header";
 import Footer from "@/components/globals/footer";
 import Image from "next/image";
@@ -7,6 +8,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChrome } from "@fortawesome/free-brands-svg-icons";
 
 const Vocabo = () => {
+  const [desktopVideoLoading, setDesktopVideoLoading] = useState(true);
+  const [mobileVideoLoading, setMobileVideoLoading] = useState(true);
+
   return (
     <>
       <Header />
@@ -38,9 +42,14 @@ const Vocabo = () => {
 
           {/* Desktop (lg and up): original styling */}
           <div
-            className="hidden lg:block mx-auto mb-8 rounded-lg shadow-xl overflow-hidden"
+            className="hidden lg:block mx-auto mb-8 rounded-lg shadow-xl overflow-hidden relative"
             style={{ width: 1080, height: 561 }}
           >
+            {desktopVideoLoading && (
+              <div className="absolute inset-0 bg-gray-200 dark:bg-gray-800 animate-pulse flex items-center justify-center">
+                <div className="text-gray-500 dark:text-gray-400">Loading video...</div>
+              </div>
+            )}
             <video
               title="Vocabo Chrome Extension Demo"
               src="/videos/vocabo.mp4"
@@ -50,6 +59,8 @@ const Vocabo = () => {
               muted
               loop
               playsInline
+              onLoadedData={() => setDesktopVideoLoading(false)}
+              onError={() => setDesktopVideoLoading(false)}
               style={{
                 position: "relative",
                 top: "-22px",
@@ -57,12 +68,19 @@ const Vocabo = () => {
                 height: 607,
                 objectFit: "cover",
                 display: "block",
+                opacity: desktopVideoLoading ? 0 : 1,
+                transition: "opacity 0.3s ease-in-out",
               }}
             />
           </div>
 
           {/* Mobile/Tablet (below lg): responsive styling */}
-          <div className="block lg:hidden mx-auto mb-8 rounded-lg shadow-xl overflow-hidden w-full max-w-3xl aspect-video bg-black">
+          <div className="block lg:hidden mx-auto mb-8 rounded-lg shadow-xl overflow-hidden w-full max-w-3xl aspect-video bg-black relative">
+            {mobileVideoLoading && (
+              <div className="absolute inset-0 bg-gray-200 dark:bg-gray-800 animate-pulse flex items-center justify-center">
+                <div className="text-gray-500 dark:text-gray-400">Loading video...</div>
+              </div>
+            )}
             <video
               title="Vocabo Chrome Extension Demo"
               src="/videos/vocabo.mp4"
@@ -70,11 +88,15 @@ const Vocabo = () => {
               muted
               loop
               playsInline
+              onLoadedData={() => setMobileVideoLoading(false)}
+              onError={() => setMobileVideoLoading(false)}
               className="w-full h-full object-cover"
               style={{
                 position: "relative",
                 top: 0,
                 display: "block",
+                opacity: mobileVideoLoading ? 0 : 1,
+                transition: "opacity 0.3s ease-in-out",
               }}
             />
           </div>
