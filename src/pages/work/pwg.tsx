@@ -7,10 +7,25 @@ import ProjectNavigation from "@/components/work/ProjectNavigation";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import { faLock } from "@fortawesome/free-solid-svg-icons";
+import { PulseLoader } from "react-spinners";
 
 const PWG = () => {
   const [firstVideoLoading, setFirstVideoLoading] = useState(true);
   const [secondVideoLoading, setSecondVideoLoading] = useState(true);
+
+  // Fallback timers to hide loading states after 5 seconds
+  React.useEffect(() => {
+    const timer1 = setTimeout(() => {
+      setFirstVideoLoading(false);
+    }, 5000);
+    const timer2 = setTimeout(() => {
+      setSecondVideoLoading(false);
+    }, 5000);
+    return () => {
+      clearTimeout(timer1);
+      clearTimeout(timer2);
+    };
+  }, []);
 
   return (
     <>
@@ -37,7 +52,7 @@ const PWG = () => {
             <div className="rounded-lg overflow-hidden shadow-lg relative">
               {firstVideoLoading && (
                 <div className="absolute inset-0 bg-gray-200 dark:bg-gray-800 animate-pulse flex items-center justify-center">
-                  <div className="text-gray-500 dark:text-gray-400">Loading video...</div>
+                  <PulseLoader color="#6B7280" size={8} />
                 </div>
               )}
               <video
@@ -48,6 +63,7 @@ const PWG = () => {
                 playsInline
                 preload="auto"
                 onLoadedData={() => setFirstVideoLoading(false)}
+                onCanPlay={() => setFirstVideoLoading(false)}
                 onError={() => setFirstVideoLoading(false)}
                 className="w-full rounded-lg shadow-xl transition-opacity duration-300"
                 style={{
@@ -78,7 +94,7 @@ const PWG = () => {
               <div className="rounded-lg overflow-hidden shadow-lg relative">
                 {secondVideoLoading && (
                   <div className="absolute inset-0 bg-gray-200 dark:bg-gray-800 animate-pulse flex items-center justify-center">
-                    <div className="text-gray-500 dark:text-gray-400">Loading video...</div>
+                    <PulseLoader color="#6B7280" size={8} />
                   </div>
                 )}
                 <video
@@ -89,6 +105,7 @@ const PWG = () => {
                   playsInline
                   preload="auto"
                   onLoadedData={() => setSecondVideoLoading(false)}
+                  onCanPlay={() => setSecondVideoLoading(false)}
                   onError={() => setSecondVideoLoading(false)}
                   className="w-full rounded-lg shadow-xl transition-opacity duration-300"
                   style={{

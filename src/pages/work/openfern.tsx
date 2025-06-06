@@ -1,13 +1,37 @@
 /* eslint-disable react/no-unescaped-entities */
+import React, { useState } from "react";
 import Header from "@/components/globals/header";
 import Footer from "@/components/globals/footer";
 import Image from "next/image";
 import ProjectNavigation from "@/components/work/ProjectNavigation";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faExternalLinkAlt } from "@fortawesome/free-solid-svg-icons";
+import { PulseLoader } from "react-spinners";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 
 const OpenFern = () => {
+  const [mainImageLoading, setMainImageLoading] = useState(true);
+  const [iconsLoading, setIconsLoading] = useState({
+    next: true,
+    react: true,
+    tailwind: true,
+    github: true,
+  });
+
+  // Fallback timer to hide loading states after 3 seconds
+  React.useEffect(() => {
+    const timer = setTimeout(() => {
+      setMainImageLoading(false);
+      setIconsLoading({
+        next: false,
+        react: false,
+        tailwind: false,
+        github: false,
+      });
+    }, 3000);
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <>
       <Header />
@@ -40,14 +64,26 @@ const OpenFern = () => {
             </a>
           </div>
 
-          <div className="mb-8 max-w-4xl mx-auto">
+          <div className="mb-8 max-w-4xl mx-auto relative">
+            {mainImageLoading && (
+              <div className="absolute inset-0 bg-gray-200 dark:bg-gray-800 animate-pulse rounded-lg flex items-center justify-center">
+                <PulseLoader color="#6B7280" size={8} />
+              </div>
+            )}
             <Image
               src="/images/work/openfern.png"
               alt="Open Fern Studio Website Screenshot"
-              width={1200} // Adjusted for consistency
-              height={675} // Adjusted for consistency
-              className="rounded-lg shadow-lg border w-full h-auto"
+              width={1200}
+              height={675}
+              className="rounded-lg shadow-lg w-full h-auto"
               priority
+              onLoad={() => setMainImageLoading(false)}
+              onLoadingComplete={() => setMainImageLoading(false)}
+              onError={() => setMainImageLoading(false)}
+              style={{
+                opacity: mainImageLoading ? 0 : 1,
+                transition: "opacity 0.3s ease-in-out",
+              }}
             />
           </div>
 

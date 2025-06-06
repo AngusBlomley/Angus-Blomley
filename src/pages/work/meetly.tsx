@@ -1,4 +1,5 @@
 /* eslint-disable react/no-unescaped-entities */
+import React, { useState } from "react";
 import Header from "@/components/globals/header";
 import Footer from "@/components/globals/footer";
 import Image from "next/image";
@@ -6,8 +7,40 @@ import ProjectNavigation from "@/components/work/ProjectNavigation";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import { faExternalLinkAlt } from "@fortawesome/free-solid-svg-icons";
+import { PulseLoader } from "react-spinners";
 
 const Meetly = () => {
+  const [videoLoading, setVideoLoading] = useState(true);
+  const [iconsLoading, setIconsLoading] = useState({
+    next: true,
+    react: true,
+    tailwind: true,
+    maps: true,
+    axios: true,
+    github: true,
+  });
+
+  // Fallback timers to hide loading states after 5 seconds for video and 3 seconds for icons
+  React.useEffect(() => {
+    const videoTimer = setTimeout(() => {
+      setVideoLoading(false);
+    }, 5000);
+    const iconsTimer = setTimeout(() => {
+      setIconsLoading({
+        next: false,
+        react: false,
+        tailwind: false,
+        maps: false,
+        axios: false,
+        github: false,
+      });
+    }, 3000);
+    return () => {
+      clearTimeout(videoTimer);
+      clearTimeout(iconsTimer);
+    };
+  }, []);
+
   return (
     <>
       <Header />
@@ -41,6 +74,11 @@ const Meetly = () => {
           </div>
 
           <div className="mb-8 max-w-4xl mx-auto rounded-lg overflow-hidden shadow-lg border relative aspect-video">
+            {videoLoading && (
+              <div className="absolute inset-0 bg-gray-200 dark:bg-gray-800 animate-pulse flex items-center justify-center">
+                <PulseLoader color="#6B7280" size={8} />
+              </div>
+            )}
             <video
               src="/videos/meetly.mp4"
               autoPlay
@@ -48,7 +86,14 @@ const Meetly = () => {
               loop
               playsInline
               preload="metadata"
-              className="w-full h-auto transition-opacity opacity-100"
+              onLoadedData={() => setVideoLoading(false)}
+              onCanPlay={() => setVideoLoading(false)}
+              onError={() => setVideoLoading(false)}
+              className="w-full h-auto transition-opacity"
+              style={{
+                opacity: videoLoading ? 0 : 1,
+                transition: "opacity 0.3s ease-in-out",
+              }}
             />
           </div>
 

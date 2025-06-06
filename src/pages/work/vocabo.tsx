@@ -6,10 +6,30 @@ import Image from "next/image";
 import ProjectNavigation from "@/components/work/ProjectNavigation";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChrome } from "@fortawesome/free-brands-svg-icons";
+import { PulseLoader } from "react-spinners";
 
 const Vocabo = () => {
   const [desktopVideoLoading, setDesktopVideoLoading] = useState(true);
   const [mobileVideoLoading, setMobileVideoLoading] = useState(true);
+  const [iconsLoading, setIconsLoading] = useState({
+    react: true,
+    js: true,
+    tailwind: true,
+    github: true,
+  });
+
+  // Fallback timer to hide loading states after 3 seconds for icons
+  React.useEffect(() => {
+    const iconsTimer = setTimeout(() => {
+      setIconsLoading({
+        react: false,
+        js: false,
+        tailwind: false,
+        github: false,
+      });
+    }, 3000);
+    return () => clearTimeout(iconsTimer);
+  }, []);
 
   return (
     <>
@@ -47,7 +67,7 @@ const Vocabo = () => {
           >
             {desktopVideoLoading && (
               <div className="absolute inset-0 bg-gray-200 dark:bg-gray-800 animate-pulse flex items-center justify-center">
-                <div className="text-gray-500 dark:text-gray-400">Loading video...</div>
+                <PulseLoader color="#6B7280" size={8} />
               </div>
             )}
             <video
@@ -60,7 +80,9 @@ const Vocabo = () => {
               loop
               playsInline
               onLoadedData={() => setDesktopVideoLoading(false)}
+              onCanPlay={() => setDesktopVideoLoading(false)}
               onError={() => setDesktopVideoLoading(false)}
+              onLoadStart={() => setDesktopVideoLoading(true)}
               style={{
                 position: "relative",
                 top: "-22px",
@@ -78,7 +100,7 @@ const Vocabo = () => {
           <div className="block lg:hidden mx-auto mb-8 rounded-lg shadow-xl overflow-hidden w-full max-w-3xl aspect-video bg-black relative">
             {mobileVideoLoading && (
               <div className="absolute inset-0 bg-gray-200 dark:bg-gray-800 animate-pulse flex items-center justify-center">
-                <div className="text-gray-500 dark:text-gray-400">Loading video...</div>
+                <PulseLoader color="#6B7280" size={8} />
               </div>
             )}
             <video
@@ -89,7 +111,9 @@ const Vocabo = () => {
               loop
               playsInline
               onLoadedData={() => setMobileVideoLoading(false)}
+              onCanPlay={() => setMobileVideoLoading(false)}
               onError={() => setMobileVideoLoading(false)}
+              onLoadStart={() => setMobileVideoLoading(true)}
               className="w-full h-full object-cover"
               style={{
                 position: "relative",
