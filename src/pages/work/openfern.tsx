@@ -11,23 +11,11 @@ import { faGithub } from "@fortawesome/free-brands-svg-icons";
 
 const OpenFern = () => {
   const [mainImageLoading, setMainImageLoading] = useState(true);
-  const [iconsLoading, setIconsLoading] = useState({
-    next: true,
-    react: true,
-    tailwind: true,
-    github: true,
-  });
 
   // Fallback timer to hide loading states after 3 seconds
   React.useEffect(() => {
     const timer = setTimeout(() => {
       setMainImageLoading(false);
-      setIconsLoading({
-        next: false,
-        react: false,
-        tailwind: false,
-        github: false,
-      });
     }, 3000);
     return () => clearTimeout(timer);
   }, []);

@@ -10,25 +10,6 @@ import { PulseLoader } from "react-spinners";
 
 const Vocabo = () => {
   const [desktopVideoLoading, setDesktopVideoLoading] = useState(true);
-  const [iconsLoading, setIconsLoading] = useState({
-    react: true,
-    js: true,
-    tailwind: true,
-    github: true,
-  });
-
-  // Fallback timer to hide loading states after 3 seconds for icons
-  React.useEffect(() => {
-    const iconsTimer = setTimeout(() => {
-      setIconsLoading({
-        react: false,
-        js: false,
-        tailwind: false,
-        github: false,
-      });
-    }, 3000);
-    return () => clearTimeout(iconsTimer);
-  }, []);
 
   return (
     <>
