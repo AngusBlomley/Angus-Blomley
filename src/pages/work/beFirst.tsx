@@ -1,10 +1,13 @@
 /* eslint-disable react/no-unescaped-entities */
+import React, { useState } from "react";
 import Header from "@/components/globals/header";
 import Footer from "@/components/globals/footer";
 import Image from "next/image";
 import ProjectNavigation from "@/components/work/ProjectNavigation";
 
 const BeFirst = () => {
+  const [videoLoading, setVideoLoading] = useState(true);
+
   return (
     <>
       <Header />
@@ -84,6 +87,11 @@ const BeFirst = () => {
                 rel="noopener noreferrer"
               >
                 <div className="relative aspect-video">
+                  {videoLoading && (
+                    <div className="absolute inset-0 bg-gray-200 dark:bg-gray-800 animate-pulse flex items-center justify-center">
+                      <div className="text-gray-500 dark:text-gray-400">Loading video...</div>
+                    </div>
+                  )}
                   <video
                     title="Advent Delights Project"
                     src="/videos/beFirst.mp4"
@@ -94,7 +102,13 @@ const BeFirst = () => {
                     preload="metadata"
                     width={960}
                     height={480}
+                    onLoadedData={() => setVideoLoading(false)}
+                    onError={() => setVideoLoading(false)}
                     className="w-full rounded-lg"
+                    style={{
+                      opacity: videoLoading ? 0 : 1,
+                      transition: "opacity 0.3s ease-in-out",
+                    }}
                   />
                 </div>
               </a>

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Header from "@/components/globals/header";
 import Footer from "@/components/globals/footer";
 import Image from "next/image";
@@ -10,6 +10,7 @@ import ProjectNavigation from "@/components/work/ProjectNavigation";
 
 const StringBox = () => {
   const { isDarkMode } = useDarkMode();
+  const [videoLoading, setVideoLoading] = useState(true);
 
   return (
     <div className="flex flex-col min-h-screen bg-theme-bg-light dark:bg-theme-bg-dark text-theme-text-light dark:text-theme-text-dark">
@@ -44,6 +45,11 @@ const StringBox = () => {
 
         {/* Main Video */}
         <div className="mb-8 max-w-4xl mx-auto rounded-lg overflow-hidden shadow-lg relative aspect-video">
+          {videoLoading && (
+            <div className="absolute inset-0 bg-gray-200 dark:bg-gray-800 animate-pulse flex items-center justify-center">
+              <div className="text-gray-500 dark:text-gray-400">Loading video...</div>
+            </div>
+          )}
           <video
             src="/videos/stringBoxWeb.mp4"
             autoPlay
@@ -51,7 +57,13 @@ const StringBox = () => {
             loop
             playsInline
             preload="metadata"
-            className="w-full h-auto transition-opacity duration-300 opacity-100"
+            onLoadedData={() => setVideoLoading(false)}
+            onError={() => setVideoLoading(false)}
+            className="w-full h-auto transition-opacity duration-300"
+            style={{
+              opacity: videoLoading ? 0 : 1,
+              transition: "opacity 0.3s ease-in-out",
+            }}
           />
         </div>
 

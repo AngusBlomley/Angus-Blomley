@@ -10,6 +10,7 @@ import { motion, AnimatePresence } from "framer-motion";
 
 const CelestialObjectTracker = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [imageLoading, setImageLoading] = useState(true);
 
   const images = [
     "/images/celestialobjecttracker/img1.jpg",
@@ -27,6 +28,7 @@ const CelestialObjectTracker = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+      setImageLoading(true); // Reset loading state when image changes
     }, 5000);
 
     return () => clearInterval(interval);
@@ -66,6 +68,11 @@ const CelestialObjectTracker = () => {
 
           <div className="mb-8 max-w-4xl mx-auto rounded-lg">
             <div className="relative w-full aspect-video">
+              {imageLoading && (
+                <div className="absolute inset-0 bg-gray-200 dark:bg-gray-800 animate-pulse flex items-center justify-center rounded-lg">
+                  <div className="text-gray-500 dark:text-gray-400">Loading image...</div>
+                </div>
+              )}
               <AnimatePresence mode="wait">
                 <motion.div
                   key={currentIndex}
@@ -82,6 +89,8 @@ const CelestialObjectTracker = () => {
                     style={{ objectFit: "contain" }}
                     className="transition-opacity duration-500 ease-in-out shadow-lg rounded-lg"
                     priority
+                    onLoad={() => setImageLoading(false)}
+                    onError={() => setImageLoading(false)}
                   />
                 </motion.div>
               </AnimatePresence>
