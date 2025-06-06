@@ -839,9 +839,11 @@ function HomePage() {
                   11 months (Ongoing)
                 </p>
                 <p className="text-base">
-                  Built a feature-rich Chrome extension using React for an
-                  innovative language learning platform, including an Express.js
-                  backend.
+                  Built a chromium browser extension for passive vocabulary
+                  learning. Uses a monorepo turbo build configuration with vite. Handles
+                  browser specific enviroments including content scripts,
+                  background scripts (service workers), a google engine/express backend
+                  for api endpoints.
                 </p>
                 <div className="flex gap-3 mt-4">
                   <Button

@@ -10,7 +10,6 @@ import { PulseLoader } from "react-spinners";
 
 const Vocabo = () => {
   const [desktopVideoLoading, setDesktopVideoLoading] = useState(true);
-  const [mobileVideoLoading, setMobileVideoLoading] = useState(true);
   const [iconsLoading, setIconsLoading] = useState({
     react: true,
     js: true,
@@ -60,69 +59,31 @@ const Vocabo = () => {
             </button>
           </div>
 
-          {/* Desktop (lg and up): original styling */}
-          <div
-            className="hidden lg:block mx-auto mb-8 rounded-lg shadow-xl overflow-hidden relative"
-            style={{ width: 1080, height: 561 }}
-          >
-            {desktopVideoLoading && (
-              <div className="absolute inset-0 bg-gray-200 dark:bg-gray-800 animate-pulse flex items-center justify-center">
-                <PulseLoader color="#6B7280" size={8} />
-              </div>
-            )}
-            <video
-              title="Vocabo Chrome Extension Demo"
-              src="/videos/vocabo.mp4"
-              width={1080}
-              height={561}
-              autoPlay
-              muted
-              loop
-              playsInline
-              onLoadedData={() => setDesktopVideoLoading(false)}
-              onCanPlay={() => setDesktopVideoLoading(false)}
-              onError={() => setDesktopVideoLoading(false)}
-              onLoadStart={() => setDesktopVideoLoading(true)}
-              style={{
-                position: "relative",
-                top: "-22px",
-                width: 1080,
-                height: 607,
-                objectFit: "cover",
-                display: "block",
-                opacity: desktopVideoLoading ? 0 : 1,
-                transition: "opacity 0.3s ease-in-out",
-              }}
-            />
-          </div>
-
-          {/* Mobile/Tablet (below lg): responsive styling */}
-          <div className="block lg:hidden mx-auto mb-8 rounded-lg shadow-xl overflow-hidden w-full max-w-3xl aspect-video bg-black relative">
-            {mobileVideoLoading && (
-              <div className="absolute inset-0 bg-gray-200 dark:bg-gray-800 animate-pulse flex items-center justify-center">
-                <PulseLoader color="#6B7280" size={8} />
-              </div>
-            )}
-            <video
-              title="Vocabo Chrome Extension Demo"
-              src="/videos/vocabo.mp4"
-              autoPlay
-              muted
-              loop
-              playsInline
-              onLoadedData={() => setMobileVideoLoading(false)}
-              onCanPlay={() => setMobileVideoLoading(false)}
-              onError={() => setMobileVideoLoading(false)}
-              onLoadStart={() => setMobileVideoLoading(true)}
-              className="w-full h-full object-cover"
-              style={{
-                position: "relative",
-                top: 0,
-                display: "block",
-                opacity: mobileVideoLoading ? 0 : 1,
-                transition: "opacity 0.3s ease-in-out",
-              }}
-            />
+          <div className="mb-8 max-w-4xl mx-auto">
+            <div className="rounded-lg overflow-hidden shadow-lg relative">
+              {desktopVideoLoading && (
+                <div className="absolute inset-0 bg-gray-200 dark:bg-gray-800 animate-pulse flex items-center justify-center">
+                  <PulseLoader color="#6B7280" size={8} />
+                </div>
+              )}
+              <video
+                title="Vocabo Chrome Extension Demo"
+                src="/videos/vocabo.mp4"
+                autoPlay
+                muted
+                loop
+                playsInline
+                preload="auto"
+                onLoadedData={() => setDesktopVideoLoading(false)}
+                onCanPlay={() => setDesktopVideoLoading(false)}
+                onError={() => setDesktopVideoLoading(false)}
+                className="w-full rounded-lg shadow-xl transition-opacity duration-300"
+                style={{
+                  opacity: desktopVideoLoading ? 0 : 1,
+                  transition: "opacity 0.3s ease-in-out",
+                }}
+              />
+            </div>
           </div>
 
           <div className="max-w-4xl mx-auto space-y-8 font-karla px-2 sm:px-4">
@@ -151,6 +112,30 @@ const Vocabo = () => {
                 integration.
               </p>
               <h3 className="text-lg sm:text-xl font-semibold mb-2">
+                Chrome Extension Environments
+              </h3>
+              <ul className="list-disc ml-5 space-y-1 mb-4">
+                <li>
+                  <strong>Content script:</strong> Directly interacts with the
+                  DOM (uses JavaScript) of the current webpage by injecting a
+                  shadow DOM, allowing it to read and edit elements from the
+                  page.
+                </li>
+                <li>
+                  <strong>Content UI script:</strong> Indirectly interacts with
+                  the DOM (uses React). We create a shadow DOM or React portal,
+                  and render content in the <code>document.body</code> without
+                  the native code colliding with the injected content script.
+                </li>
+                <li>
+                  <strong>Popup:</strong> The main user interface (built with
+                  React) that appears when clicking the extension icon. Provides
+                  vocabulary management, learning statistics, settings
+                  configuration, and serves as the central hub for all extension
+                  features in an isolated environment.
+                </li>
+              </ul>
+              <h3 className="text-lg sm:text-xl font-semibold mb-2">
                 Architecture & Stack
               </h3>
               <ul className="list-disc list-inside space-y-1 mb-4">
@@ -166,8 +151,7 @@ const Vocabo = () => {
                   Local Storage
                 </li>
                 <li>
-                  <strong>Backend (Potential):</strong> Node.js/Express (for
-                  API, if applicable beyond local storage)
+                  <strong>Backend:</strong> Node.js/Express, Google App Engine
                 </li>
               </ul>
 
