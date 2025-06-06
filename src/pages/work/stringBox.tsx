@@ -7,10 +7,19 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import { faExternalLinkAlt } from "@fortawesome/free-solid-svg-icons";
 import ProjectNavigation from "@/components/work/ProjectNavigation";
+import { PulseLoader } from "react-spinners";
 
 const StringBox = () => {
   const { isDarkMode } = useDarkMode();
   const [videoLoading, setVideoLoading] = useState(true);
+
+  // Fallback timer to hide loading state after 5 seconds
+  React.useEffect(() => {
+    const timer = setTimeout(() => {
+      setVideoLoading(false);
+    }, 5000);
+    return () => clearTimeout(timer);
+  }, []);
 
   return (
     <div className="flex flex-col min-h-screen bg-theme-bg-light dark:bg-theme-bg-dark text-theme-text-light dark:text-theme-text-dark">
@@ -47,7 +56,7 @@ const StringBox = () => {
         <div className="mb-8 max-w-4xl mx-auto rounded-lg overflow-hidden shadow-lg relative aspect-video">
           {videoLoading && (
             <div className="absolute inset-0 bg-gray-200 dark:bg-gray-800 animate-pulse flex items-center justify-center">
-              <div className="text-gray-500 dark:text-gray-400">Loading video...</div>
+              <PulseLoader color="#6B7280" size={8} />
             </div>
           )}
           <video
@@ -58,6 +67,7 @@ const StringBox = () => {
             playsInline
             preload="metadata"
             onLoadedData={() => setVideoLoading(false)}
+            onCanPlay={() => setVideoLoading(false)}
             onError={() => setVideoLoading(false)}
             className="w-full h-auto transition-opacity duration-300"
             style={{

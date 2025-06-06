@@ -8,6 +8,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Image from "next/image";
 import Link from "next/link";
 import { FaMailBulk } from "react-icons/fa";
+import { PulseLoader } from "react-spinners";
 
 interface VisitedCountry {
   country: string;
@@ -100,7 +101,7 @@ export default function AboutMe() {
                 <div className="relative">
                   {profileImageLoading && (
                     <div className="absolute inset-0 bg-gray-200 dark:bg-gray-800 animate-pulse rounded-full w-48 h-48 sm:w-[200px] sm:h-[200px] sm:mx-20 flex items-center justify-center">
-                      <div className="text-gray-500 dark:text-gray-400 text-sm">Loading...</div>
+                      <PulseLoader color="#6B7280" size={8} />
                     </div>
                   )}
                   <Image
@@ -110,6 +111,7 @@ export default function AboutMe() {
                     height={200}
                     className="rounded-full shadow-xl w-48 h-48 sm:w-[200px] sm:h-[200px] sm:mx-20"
                     onLoad={() => setProfileImageLoading(false)}
+                    onLoadingComplete={() => setProfileImageLoading(false)}
                     onError={() => setProfileImageLoading(false)}
                     style={{
                       opacity: profileImageLoading ? 0 : 1,
