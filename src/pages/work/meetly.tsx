@@ -11,33 +11,14 @@ import { PulseLoader } from "react-spinners";
 
 const Meetly = () => {
   const [videoLoading, setVideoLoading] = useState(true);
-  const [iconsLoading, setIconsLoading] = useState({
-    next: true,
-    react: true,
-    tailwind: true,
-    maps: true,
-    axios: true,
-    github: true,
-  });
 
-  // Fallback timers to hide loading states after 5 seconds for video and 3 seconds for icons
+  // Fallback timer to hide loading state after 5 seconds for video
   React.useEffect(() => {
     const videoTimer = setTimeout(() => {
       setVideoLoading(false);
     }, 5000);
-    const iconsTimer = setTimeout(() => {
-      setIconsLoading({
-        next: false,
-        react: false,
-        tailwind: false,
-        maps: false,
-        axios: false,
-        github: false,
-      });
-    }, 3000);
     return () => {
       clearTimeout(videoTimer);
-      clearTimeout(iconsTimer);
     };
   }, []);
 
