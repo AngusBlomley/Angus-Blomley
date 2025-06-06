@@ -15,6 +15,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowUpRightFromSquare } from "@fortawesome/free-solid-svg-icons";
 import Button from "@/components/globals/Button";
 import Image from "next/image";
+import { PulseLoader } from "react-spinners";
 
 interface DisplayLinkItemProps {
   href?: string;
@@ -29,6 +30,49 @@ function HomePage() {
   const [lastScrollY, setLastScrollY] = useState(0);
   const [displayedText, setDisplayedText] = useState("");
   const [i, setI] = useState(0);
+
+  // Loading states for media
+  const [mediaLoading, setMediaLoading] = useState({
+    backgroundImage: true,
+    vocaboVideo: true,
+    pwgVideo: true,
+    openfernImage: true,
+    graduationSvg: true,
+    computerSvg: true,
+    networkingSvg: true,
+  });
+
+  // Fallback timers for media loading
+  React.useEffect(() => {
+    const timers = {
+      backgroundTimer: setTimeout(() => {
+        setMediaLoading((prev) => ({ ...prev, backgroundImage: false }));
+      }, 3000),
+      videoTimer: setTimeout(() => {
+        setMediaLoading((prev) => ({
+          ...prev,
+          vocaboVideo: false,
+          pwgVideo: false,
+        }));
+      }, 5000),
+      imageTimer: setTimeout(() => {
+        setMediaLoading((prev) => ({ ...prev, openfernImage: false }));
+      }, 3000),
+      svgTimer: setTimeout(() => {
+        setMediaLoading((prev) => ({
+          ...prev,
+          graduationSvg: false,
+          computerSvg: false,
+          networkingSvg: false,
+        }));
+      }, 2000),
+    };
+
+    return () => {
+      Object.values(timers).forEach((timer) => clearTimeout(timer));
+    };
+  }, []);
+
   const handleSeeMoreClick = () => {
     window.open("/pdf/certificate.pdf", "_blank");
   };
@@ -299,14 +343,43 @@ function HomePage() {
               variants={blockVariants}
               className="relative mb-12 flex items-center justify-center min-h-[340px] max-md:justify-start"
             >
-              <Image
-                id="graduation"
-                alt="graduation"
-                src="/images/index/graduation.svg"
-                width={500}
-                height={500}
-                className="max-w-full h-auto"
-              />
+              <div className="relative">
+                {mediaLoading.graduationSvg && (
+                  <div className="absolute inset-0 bg-gray-200 dark:bg-gray-800 animate-pulse rounded flex items-center justify-center w-[500px] h-[500px]">
+                    <PulseLoader color="#6B7280" size={8} />
+                  </div>
+                )}
+                <Image
+                  id="graduation"
+                  alt="graduation"
+                  src="/images/index/graduation.svg"
+                  width={500}
+                  height={500}
+                  className="max-w-full h-auto"
+                  onLoad={() =>
+                    setMediaLoading((prev) => ({
+                      ...prev,
+                      graduationSvg: false,
+                    }))
+                  }
+                  onLoadingComplete={() =>
+                    setMediaLoading((prev) => ({
+                      ...prev,
+                      graduationSvg: false,
+                    }))
+                  }
+                  onError={() =>
+                    setMediaLoading((prev) => ({
+                      ...prev,
+                      graduationSvg: false,
+                    }))
+                  }
+                  style={{
+                    opacity: mediaLoading.graduationSvg ? 0 : 1,
+                    transition: "opacity 0.3s ease-in-out",
+                  }}
+                />
+              </div>
             </motion.div>
           </div>
         </div>
@@ -352,14 +425,36 @@ function HomePage() {
               variants={blockVariants}
               className="relative flex items-center justify-end min-h-[340px]"
             >
-              <Image
-                id="computer"
-                alt="Computer"
-                src="/images/index/computer.svg"
-                width={500}
-                height={500}
-                className="max-w-full h-auto -rotate-45"
-              />
+              <div className="relative">
+                {mediaLoading.computerSvg && (
+                  <div className="absolute inset-0 bg-gray-200 dark:bg-gray-800 animate-pulse rounded flex items-center justify-center w-[500px] h-[500px] -rotate-45">
+                    <div className="rotate-45">
+                      <PulseLoader color="#6B7280" size={8} />
+                    </div>
+                  </div>
+                )}
+                <Image
+                  id="computer"
+                  alt="Computer"
+                  src="/images/index/computer.svg"
+                  width={500}
+                  height={500}
+                  className="max-w-full h-auto -rotate-45"
+                  onLoad={() =>
+                    setMediaLoading((prev) => ({ ...prev, computerSvg: false }))
+                  }
+                  onLoadingComplete={() =>
+                    setMediaLoading((prev) => ({ ...prev, computerSvg: false }))
+                  }
+                  onError={() =>
+                    setMediaLoading((prev) => ({ ...prev, computerSvg: false }))
+                  }
+                  style={{
+                    opacity: mediaLoading.computerSvg ? 0 : 1,
+                    transition: "opacity 0.3s ease-in-out",
+                  }}
+                />
+              </div>
             </motion.div>
           </div>
         </div>
@@ -417,14 +512,43 @@ function HomePage() {
               variants={blockVariants}
               className="relative mb-12 flex items-center justify-start min-h-[340px] max-md:justify-center"
             >
-              <Image
-                id="networking"
-                alt="networking graphic"
-                src="/images/index/networking.svg"
-                width={500}
-                height={500}
-                className="max-w-full h-auto"
-              />
+              <div className="relative">
+                {mediaLoading.networkingSvg && (
+                  <div className="absolute inset-0 bg-gray-200 dark:bg-gray-800 animate-pulse rounded flex items-center justify-center w-[500px] h-[500px]">
+                    <PulseLoader color="#6B7280" size={8} />
+                  </div>
+                )}
+                <Image
+                  id="networking"
+                  alt="networking graphic"
+                  src="/images/index/networking.svg"
+                  width={500}
+                  height={500}
+                  className="max-w-full h-auto"
+                  onLoad={() =>
+                    setMediaLoading((prev) => ({
+                      ...prev,
+                      networkingSvg: false,
+                    }))
+                  }
+                  onLoadingComplete={() =>
+                    setMediaLoading((prev) => ({
+                      ...prev,
+                      networkingSvg: false,
+                    }))
+                  }
+                  onError={() =>
+                    setMediaLoading((prev) => ({
+                      ...prev,
+                      networkingSvg: false,
+                    }))
+                  }
+                  style={{
+                    opacity: mediaLoading.networkingSvg ? 0 : 1,
+                    transition: "opacity 0.3s ease-in-out",
+                  }}
+                />
+              </div>
             </motion.div>
           </div>
         </div>
@@ -561,6 +685,9 @@ function HomePage() {
           <div className="absolute inset-0 bg-gradient-to-r from-theme-bg-dark to-transparent z-10 via-30% via-theme-bg-dark/0 opacity-0 max-md:via-theme-bg-dark/60"></div>
           <div className="absolute inset-0 bg-gradient-to-t from-theme-bg-dark to-transparent z-10 via-30% via-theme-bg-dark/50 opacity-100 max-md:via-theme-bg-dark/30"></div>
 
+          {mediaLoading.backgroundImage && (
+            <div className="absolute inset-0 bg-gray-200 dark:bg-gray-800 animate-pulse z-5"></div>
+          )}
           <Image
             alt="About background image"
             src="/images/index/back.jpg"
@@ -569,6 +696,19 @@ function HomePage() {
             className="z-0"
             priority
             quality={75}
+            onLoad={() =>
+              setMediaLoading((prev) => ({ ...prev, backgroundImage: false }))
+            }
+            onLoadingComplete={() =>
+              setMediaLoading((prev) => ({ ...prev, backgroundImage: false }))
+            }
+            onError={() =>
+              setMediaLoading((prev) => ({ ...prev, backgroundImage: false }))
+            }
+            style={{
+              opacity: mediaLoading.backgroundImage ? 0 : 1,
+              transition: "opacity 0.5s ease-in-out",
+            }}
           />
         </div>
         <motion.div
@@ -640,6 +780,11 @@ function HomePage() {
                       </div>
                     </div>
                     <div className="relative aspect-video overflow-hidden">
+                      {mediaLoading.vocaboVideo && (
+                        <div className="absolute inset-0 bg-gray-200 dark:bg-gray-800 animate-pulse flex items-center justify-center">
+                          <PulseLoader color="#6B7280" size={8} />
+                        </div>
+                      )}
                       <video
                         title="Vocabo Chrome Extension Demo"
                         src="/videos/vocabo.mp4"
@@ -656,9 +801,29 @@ function HomePage() {
                           top: "-12px",
                           height: "calc(100% + 29px - 0px)",
                           width: "100%",
+                          opacity: mediaLoading.vocaboVideo ? 0 : 1,
+                          transition: "opacity 0.3s ease-in-out",
                         }}
                         playsInline
                         preload="auto"
+                        onLoadedData={() =>
+                          setMediaLoading((prev) => ({
+                            ...prev,
+                            vocaboVideo: false,
+                          }))
+                        }
+                        onCanPlay={() =>
+                          setMediaLoading((prev) => ({
+                            ...prev,
+                            vocaboVideo: false,
+                          }))
+                        }
+                        onError={() =>
+                          setMediaLoading((prev) => ({
+                            ...prev,
+                            vocaboVideo: false,
+                          }))
+                        }
                       />
                     </div>
                   </motion.div>
@@ -674,9 +839,11 @@ function HomePage() {
                   11 months (Ongoing)
                 </p>
                 <p className="text-base">
-                  Built a feature-rich Chrome extension using React for an
-                  innovative language learning platform, including an Express.js
-                  backend.
+                  Built a chromium browser extension for passive vocabulary
+                  learning. Uses a monorepo turbo build configuration with vite. Handles
+                  browser specific enviroments including content scripts,
+                  background scripts (service workers), a google engine/express backend
+                  for api endpoints.
                 </p>
                 <div className="flex gap-3 mt-4">
                   <Button
@@ -737,6 +904,11 @@ function HomePage() {
                         <div className="w-2 h-2 rounded-full bg-green-400"></div>
                       </div>
                     </div>
+                    {mediaLoading.pwgVideo && (
+                      <div className="absolute inset-0 bg-gray-200 dark:bg-gray-800 animate-pulse flex items-center justify-center rounded-b-lg">
+                        <PulseLoader color="#6B7280" size={8} />
+                      </div>
+                    )}
                     <video
                       title="PWG Mobile App Demo"
                       src="/videos/pwg_web.mp4"
@@ -745,9 +917,31 @@ function HomePage() {
                       loop
                       width={1280}
                       height={720}
-                      className="w-full rounded-b-lg shadow-xl transition-opacity opacity-100"
+                      className="w-full rounded-b-lg shadow-xl transition-opacity"
+                      style={{
+                        opacity: mediaLoading.pwgVideo ? 0 : 1,
+                        transition: "opacity 0.3s ease-in-out",
+                      }}
                       playsInline
                       preload="auto"
+                      onLoadedData={() =>
+                        setMediaLoading((prev) => ({
+                          ...prev,
+                          pwgVideo: false,
+                        }))
+                      }
+                      onCanPlay={() =>
+                        setMediaLoading((prev) => ({
+                          ...prev,
+                          pwgVideo: false,
+                        }))
+                      }
+                      onError={() =>
+                        setMediaLoading((prev) => ({
+                          ...prev,
+                          pwgVideo: false,
+                        }))
+                      }
                     />
                   </motion.div>
                 </Link>
@@ -779,14 +973,43 @@ function HomePage() {
                         <div className="w-2 h-2 rounded-full bg-green-400"></div>
                       </div>
                     </div>
-                    <Image
-                      id="openfern"
-                      alt="Open Fern Studio Website"
-                      src="/images/work/openfern.png"
-                      width={1102}
-                      height={703}
-                      className="w-full h-auto rounded-b-lg"
-                    />
+                    <div className="relative">
+                      {mediaLoading.openfernImage && (
+                        <div className="absolute inset-0 bg-gray-200 dark:bg-gray-800 animate-pulse rounded-b-lg flex items-center justify-center">
+                          <PulseLoader color="#6B7280" size={8} />
+                        </div>
+                      )}
+                      <Image
+                        id="openfern"
+                        alt="Open Fern Studio Website"
+                        src="/images/work/openfern.png"
+                        width={1102}
+                        height={703}
+                        className="w-full h-auto rounded-b-lg"
+                        onLoad={() =>
+                          setMediaLoading((prev) => ({
+                            ...prev,
+                            openfernImage: false,
+                          }))
+                        }
+                        onLoadingComplete={() =>
+                          setMediaLoading((prev) => ({
+                            ...prev,
+                            openfernImage: false,
+                          }))
+                        }
+                        onError={() =>
+                          setMediaLoading((prev) => ({
+                            ...prev,
+                            openfernImage: false,
+                          }))
+                        }
+                        style={{
+                          opacity: mediaLoading.openfernImage ? 0 : 1,
+                          transition: "opacity 0.3s ease-in-out",
+                        }}
+                      />
+                    </div>
                   </motion.div>
                 </Link>
               </div>

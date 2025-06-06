@@ -1,4 +1,5 @@
 /* eslint-disable react/no-unescaped-entities */
+import React, { useState } from "react";
 import Header from "@/components/globals/header";
 import Footer from "@/components/globals/footer";
 import Image from "next/image";
@@ -6,8 +7,26 @@ import ProjectNavigation from "@/components/work/ProjectNavigation";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import { faLock } from "@fortawesome/free-solid-svg-icons";
+import { PulseLoader } from "react-spinners";
 
 const PWG = () => {
+  const [firstVideoLoading, setFirstVideoLoading] = useState(true);
+  const [secondVideoLoading, setSecondVideoLoading] = useState(true);
+
+  // Fallback timers to hide loading states after 5 seconds
+  React.useEffect(() => {
+    const timer1 = setTimeout(() => {
+      setFirstVideoLoading(false);
+    }, 5000);
+    const timer2 = setTimeout(() => {
+      setSecondVideoLoading(false);
+    }, 5000);
+    return () => {
+      clearTimeout(timer1);
+      clearTimeout(timer2);
+    };
+  }, []);
+
   return (
     <>
       <Header />
@@ -31,6 +50,11 @@ const PWG = () => {
           {/* First Video */}
           <div className="mb-8 max-w-4xl mx-auto">
             <div className="rounded-lg overflow-hidden shadow-lg relative">
+              {firstVideoLoading && (
+                <div className="absolute inset-0 bg-gray-200 dark:bg-gray-800 animate-pulse flex items-center justify-center">
+                  <PulseLoader color="#6B7280" size={8} />
+                </div>
+              )}
               <video
                 src="/videos/pwg_web.mp4"
                 autoPlay
@@ -38,7 +62,14 @@ const PWG = () => {
                 loop
                 playsInline
                 preload="auto"
-                className="w-full rounded-lg shadow-xl transition-opacity duration-300 opacity-100"
+                onLoadedData={() => setFirstVideoLoading(false)}
+                onCanPlay={() => setFirstVideoLoading(false)}
+                onError={() => setFirstVideoLoading(false)}
+                className="w-full rounded-lg shadow-xl transition-opacity duration-300"
+                style={{
+                  opacity: firstVideoLoading ? 0 : 1,
+                  transition: "opacity 0.3s ease-in-out",
+                }}
               />
             </div>
           </div>
@@ -61,6 +92,11 @@ const PWG = () => {
             {/* Second Video - Moved and Resized */}
             <div className="my-8 max-w-lg mx-auto">
               <div className="rounded-lg overflow-hidden shadow-lg relative">
+                {secondVideoLoading && (
+                  <div className="absolute inset-0 bg-gray-200 dark:bg-gray-800 animate-pulse flex items-center justify-center">
+                    <PulseLoader color="#6B7280" size={8} />
+                  </div>
+                )}
                 <video
                   src="/videos/pwg_tablet.webm"
                   autoPlay
@@ -68,7 +104,14 @@ const PWG = () => {
                   loop
                   playsInline
                   preload="auto"
-                  className="w-full rounded-lg shadow-xl transition-opacity duration-300 opacity-100"
+                  onLoadedData={() => setSecondVideoLoading(false)}
+                  onCanPlay={() => setSecondVideoLoading(false)}
+                  onError={() => setSecondVideoLoading(false)}
+                  className="w-full rounded-lg shadow-xl transition-opacity duration-300"
+                  style={{
+                    opacity: secondVideoLoading ? 0 : 1,
+                    transition: "opacity 0.3s ease-in-out",
+                  }}
                 />
               </div>
             </div>

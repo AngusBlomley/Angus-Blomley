@@ -1,5 +1,5 @@
 /* eslint-disable react/no-unescaped-entities */
-import React from "react";
+import React, { useState } from "react";
 import WorldMap from "@/components/WorldMap";
 // import { useDarkMode } from "@/contexts/darkModeContext"; // Removed
 import Header from "@/components/globals/header";
@@ -8,6 +8,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Image from "next/image";
 import Link from "next/link";
 import { FaMailBulk } from "react-icons/fa";
+import { PulseLoader } from "react-spinners";
 
 interface VisitedCountry {
   country: string;
@@ -44,6 +45,7 @@ const visitedCountries: VisitedCountry[] = [
 ];
 
 export default function AboutMe() {
+  const [profileImageLoading, setProfileImageLoading] = useState(true);
 
   return (
     <>
@@ -96,13 +98,27 @@ export default function AboutMe() {
                   drive innovation, and build impactful solutions that deliver
                   exceptional user experiences.
                 </p>
-                <Image
-                  src="/images/about/portrait.jpeg"
-                  alt="Angus Blomley"
-                  width={200}
-                  height={200}
-                  className="rounded-full shadow-xl w-48 h-48 sm:w-[200px] sm:h-[200px] sm:mx-20"
-                />
+                <div className="relative">
+                  {profileImageLoading && (
+                    <div className="absolute inset-0 bg-gray-200 dark:bg-gray-800 animate-pulse rounded-full w-48 h-48 sm:w-[200px] sm:h-[200px] sm:mx-20 flex items-center justify-center">
+                      <PulseLoader color="#6B7280" size={8} />
+                    </div>
+                  )}
+                  <Image
+                    src="/images/about/portrait.jpeg"
+                    alt="Angus Blomley"
+                    width={200}
+                    height={200}
+                    className="rounded-full shadow-xl w-48 h-48 sm:w-[200px] sm:h-[200px] sm:mx-20"
+                    onLoad={() => setProfileImageLoading(false)}
+                    onLoadingComplete={() => setProfileImageLoading(false)}
+                    onError={() => setProfileImageLoading(false)}
+                    style={{
+                      opacity: profileImageLoading ? 0 : 1,
+                      transition: "opacity 0.3s ease-in-out",
+                    }}
+                  />
+                </div>
               </div>
             </section>
             <section className="mb-16">

@@ -1,10 +1,22 @@
 /* eslint-disable react/no-unescaped-entities */
+import React, { useState } from "react";
 import Header from "@/components/globals/header";
 import Footer from "@/components/globals/footer";
 import Image from "next/image";
 import ProjectNavigation from "@/components/work/ProjectNavigation";
+import { PulseLoader } from "react-spinners";
 
 const BeFirst = () => {
+  const [videoLoading, setVideoLoading] = useState(true);
+
+  // Fallback timer to hide loading state after 5 seconds
+  React.useEffect(() => {
+    const timer = setTimeout(() => {
+      setVideoLoading(false);
+    }, 5000);
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <>
       <Header />
@@ -84,6 +96,11 @@ const BeFirst = () => {
                 rel="noopener noreferrer"
               >
                 <div className="relative aspect-video">
+                  {videoLoading && (
+                    <div className="absolute inset-0 bg-gray-200 dark:bg-gray-800 animate-pulse flex items-center justify-center">
+                      <PulseLoader color="#6B7280" size={8} />
+                    </div>
+                  )}
                   <video
                     title="Advent Delights Project"
                     src="/videos/beFirst.mp4"
@@ -94,7 +111,14 @@ const BeFirst = () => {
                     preload="metadata"
                     width={960}
                     height={480}
+                    onLoadedData={() => setVideoLoading(false)}
+                    onCanPlay={() => setVideoLoading(false)}
+                    onError={() => setVideoLoading(false)}
                     className="w-full rounded-lg"
+                    style={{
+                      opacity: videoLoading ? 0 : 1,
+                      transition: "opacity 0.3s ease-in-out",
+                    }}
                   />
                 </div>
               </a>
