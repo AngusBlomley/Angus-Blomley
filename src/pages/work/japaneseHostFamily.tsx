@@ -1,13 +1,24 @@
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import Header from "@/components/globals/header";
 import Footer from "@/components/globals/footer";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import { faExternalLinkAlt } from "@fortawesome/free-solid-svg-icons";
+import { PulseLoader } from "react-spinners";
 import ProjectNavigation from "@/components/work/ProjectNavigation";
 
 const JapaneseHostFamilyPage: React.FC = () => {
+  const [mainImageLoading, setMainImageLoading] = useState(true);
+
+  // Fallback timer to hide loading state after 3 seconds
+  React.useEffect(() => {
+    const timer = setTimeout(() => {
+      setMainImageLoading(false);
+    }, 3000);
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <div className="flex flex-col min-h-screen bg-theme-bg-light dark:bg-theme-bg-dark text-theme-text-light dark:text-theme-text-dark">
       <Header />
@@ -39,14 +50,26 @@ const JapaneseHostFamilyPage: React.FC = () => {
           </a>
         </div>
 
-        <div className="mb-8 max-w-4xl mx-auto">
+        <div className="mb-8 max-w-4xl mx-auto relative">
+          {mainImageLoading && (
+            <div className="absolute inset-0 bg-gray-200 dark:bg-gray-800 animate-pulse rounded-lg flex items-center justify-center">
+              <PulseLoader color="#6B7280" size={8} />
+            </div>
+          )}
           <Image
             src="/images/japanese-host-family/japanese-host-family.png"
             alt="Japanese Host Family Platform Screenshot"
             width={1200}
             height={675}
             className="rounded-lg shadow-lg border"
-            priority // Load image eagerly as it's the main content
+            priority
+            onLoad={() => setMainImageLoading(false)}
+            onLoadingComplete={() => setMainImageLoading(false)}
+            onError={() => setMainImageLoading(false)}
+            style={{
+              opacity: mainImageLoading ? 0 : 1,
+              transition: "opacity 0.3s ease-in-out",
+            }}
           />
         </div>
 

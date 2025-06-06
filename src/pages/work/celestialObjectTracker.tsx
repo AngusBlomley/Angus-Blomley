@@ -6,10 +6,12 @@ import ProjectNavigation from "@/components/work/ProjectNavigation";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import { faFilePdf } from "@fortawesome/free-solid-svg-icons";
+import { PulseLoader } from "react-spinners";
 import { motion, AnimatePresence } from "framer-motion";
 
 const CelestialObjectTracker = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [imageLoading, setImageLoading] = useState(true);
 
   const images = [
     "/images/celestialobjecttracker/img1.jpg",
@@ -27,6 +29,14 @@ const CelestialObjectTracker = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+      setImageLoading(true); // Reset loading state when image changes
+
+      // Fallback: if image doesn't load within 3 seconds, hide loading state
+      const fallbackTimer = setTimeout(() => {
+        setImageLoading(false);
+      }, 3000);
+
+      return () => clearTimeout(fallbackTimer);
     }, 5000);
 
     return () => clearInterval(interval);
@@ -66,6 +76,11 @@ const CelestialObjectTracker = () => {
 
           <div className="mb-8 max-w-4xl mx-auto rounded-lg">
             <div className="relative w-full aspect-video">
+              {imageLoading && (
+                <div className="absolute inset-0 bg-gray-200 dark:bg-gray-800 animate-pulse flex items-center justify-center rounded-lg">
+                  <PulseLoader color="#6B7280" size={8} />
+                </div>
+              )}
               <AnimatePresence mode="wait">
                 <motion.div
                   key={currentIndex}
@@ -82,6 +97,9 @@ const CelestialObjectTracker = () => {
                     style={{ objectFit: "contain" }}
                     className="transition-opacity duration-500 ease-in-out shadow-lg rounded-lg"
                     priority
+                    onLoad={() => setImageLoading(false)}
+                    onLoadingComplete={() => setImageLoading(false)}
+                    onError={() => setImageLoading(false)}
                   />
                 </motion.div>
               </AnimatePresence>
