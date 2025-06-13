@@ -26,7 +26,7 @@ const StringBox = () => {
       <Header />
       <main className="flex-grow container mx-auto px-4 py-0 pt-20 lg:pt-20">
         <h1 className="text-4xl font-bold mb-6 text-center font-ibmPlexMono italic">
-          StringBox - Music App
+          StringBox - Tennis Stringing Website
         </h1>
 
         <div className="flex justify-center gap-4 mb-8">
