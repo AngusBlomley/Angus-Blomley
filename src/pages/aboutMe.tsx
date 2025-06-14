@@ -104,20 +104,22 @@ export default function AboutMe() {
                       <PulseLoader color="#6B7280" size={8} />
                     </div>
                   )}
-                  <Image
-                    src="/images/about/portrait.jpeg"
-                    alt="Angus Blomley"
-                    width={200}
-                    height={200}
-                    className="rounded-full shadow-xl w-48 h-48 sm:w-[200px] sm:h-[200px] sm:mx-20"
-                    onLoad={() => setProfileImageLoading(false)}
-                    onLoadingComplete={() => setProfileImageLoading(false)}
-                    onError={() => setProfileImageLoading(false)}
-                    style={{
-                      opacity: profileImageLoading ? 0 : 1,
-                      transition: "opacity 0.3s ease-in-out",
-                    }}
-                  />
+                  <div className="rounded-full overflow-hidden shadow-xl w-48 h-48 sm:w-[200px] sm:h-[200px] sm:mx-20">
+                    <Image
+                      src="/images/about/portrait.jpeg"
+                      alt="Angus Blomley"
+                      width={200}
+                      height={200}
+                      className="w-full h-full object-cover object-center"
+                      onLoad={() => setProfileImageLoading(false)}
+                      onLoadingComplete={() => setProfileImageLoading(false)}
+                      onError={() => setProfileImageLoading(false)}
+                      style={{
+                        opacity: profileImageLoading ? 0 : 1,
+                        transition: "opacity 0.3s ease-in-out",
+                      }}
+                    />
+                  </div>
                 </div>
               </div>
             </section>
