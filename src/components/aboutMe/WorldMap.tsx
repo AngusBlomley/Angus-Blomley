@@ -1,6 +1,6 @@
 import React from "react";
 import { WorldMap as World } from "react-svg-worldmap";
-import { useDarkMode } from "@/contexts/darkModeContext";
+import { useDarkMode } from "@/contexts/theme";
 
 interface VisitedCountry {
   country: string;

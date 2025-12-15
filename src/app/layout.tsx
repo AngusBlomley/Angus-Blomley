@@ -1,4 +1,4 @@
-import { DarkModeProvider } from "@/contexts/darkModeContext";
+import { ThemeProvider } from "@/contexts/theme";
 import { LanguageProvider } from "@/contexts/language";
 import type { Metadata } from "next";
 import { IBM_Plex_Mono } from "next/font/google";
@@ -94,13 +94,13 @@ export default function RootLayout({
         <meta charSet="utf-8" />
       </head>
       <body className={ibmPlexMono.className}>
-        <DarkModeProvider>
+        <ThemeProvider>
           <LanguageProvider>
             <Header />
             {children}
             <Footer />
           </LanguageProvider>
-        </DarkModeProvider>
+        </ThemeProvider>
       </body>
     </html>
   );

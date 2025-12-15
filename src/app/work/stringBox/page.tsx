@@ -1,7 +1,7 @@
-'use client';
+"use client";
 
 import Image from "next/image";
-import { useDarkMode } from "@/contexts/darkModeContext";
+import { useDarkMode } from "@/contexts/theme";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import { faExternalLinkAlt } from "@fortawesome/free-solid-svg-icons";

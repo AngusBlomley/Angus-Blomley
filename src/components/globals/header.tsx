@@ -1,8 +1,8 @@
-'use client';
+"use client";
 
 import React, { JSX, useEffect, useState } from "react";
 import Link from "next/link";
-import { useDarkMode } from "@/contexts/darkModeContext";
+import { useTheme } from "@/contexts/theme";
 import { FaGithub, FaLinkedin, FaSun, FaMoon } from "react-icons/fa";
 import {
   sectionsDataConstants,
@@ -12,7 +12,7 @@ import {
 import type { SectionConstant } from "../../constants";
 
 function Header(): JSX.Element {
-  const { isDarkMode, toggleDarkMode } = useDarkMode();
+  const { isDarkMode, toggleTheme } = useTheme();
   const [menuVisible, setMenuVisible] = useState<boolean>(false);
   const [workSublinksVisible, setWorkSublinksVisible] =
     useState<boolean>(false);
@@ -135,7 +135,7 @@ function Header(): JSX.Element {
                 <span className="sr-only">LinkedIn profile</span>
               </a>
               <button
-                onClick={toggleDarkMode}
+                onClick={toggleTheme}
                 className="inline-block bg-inherit opacity-75 p-2 px-3 hover:opacity-100 hover:bg-white/10 dark:hover:bg-white/20 rounded-md"
                 aria-label={
                   isDarkMode ? "Switch to Light Mode" : "Switch to Dark Mode"
@@ -257,7 +257,7 @@ function Header(): JSX.Element {
               })}
               <li className="px-4">
                 <button
-                  onClick={toggleDarkMode}
+                  onClick={toggleTheme}
                   className="bg-inherit opacity-75 mt-5 no-underline font-ibmPlexMono hover:opacity-100 hover:bg-white/10 dark:hover:bg-white/20 rounded-md flex items-center"
                 >
                   {isDarkMode ? (
