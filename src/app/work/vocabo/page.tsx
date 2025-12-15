@@ -4,6 +4,7 @@
 import Image from "next/image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChrome } from "@fortawesome/free-brands-svg-icons";
+import { faLock } from "@fortawesome/free-solid-svg-icons";
 
 const Vocabo = () => {
 
@@ -26,10 +27,11 @@ const Vocabo = () => {
               Chrome Store
             </a>
             <button
-              className="inline-flex items-center justify-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md shadow-sm text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-colors duration-150 w-full sm:w-auto"
-              aria-label="Repository is private"
+              className="inline-flex items-center justify-center px-4 py-2 border border-gray-300 dark:border-gray-600 text-sm font-medium rounded-md shadow-sm text-gray-400 dark:text-gray-500 bg-gray-100 dark:bg-gray-800 cursor-not-allowed w-full sm:w-auto"
+              aria-label="GitHub Repository is private"
               disabled
             >
+              <FontAwesomeIcon icon={faLock} className="mr-2" />
               Repo is Private
             </button>
           </div>
