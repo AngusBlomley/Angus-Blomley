@@ -1,3 +1,5 @@
+'use client';
+
 import React, { JSX } from "react";
 
 function Footer(): JSX.Element {

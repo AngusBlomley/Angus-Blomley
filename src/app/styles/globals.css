@@ -1,0 +1,70 @@
+@import url("./fonts.css");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  .bg-light-menu {
+    @apply bg-theme-bg-light;
+  }
+  .dark .bg-dark-menu {
+    @apply bg-theme-bg-dark;
+  }
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* CSS variables for theme colors are now managed in tailwind.config.js */
+
+body {
+  @apply bg-theme-bg-light text-theme-text-light;
+}
+
+.dark body {
+  @apply bg-theme-bg-dark text-theme-text-dark;
+}
+
+.rc-anchor-light,
+.rc-anchor-invisible,
+.rc-anchor-normal-footer,
+.rc-anchor-invisible-text,
+.rc-anchor-pt,
+.rc-anchor-aria-status,
+.rc-anchor-error-msg-container,
+.rc-anchor-invisible-nohover,
+.grecaptcha-badge {
+  display: none !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+  width: 0 !important;
+  height: 0 !important;
+  position: fixed !important;
+  z-index: -1 !important;
+}
+
+@keyframes dropPin {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -200%);
+  }
+  60% {
+    transform: translate(-50%, -30%);
+  }
+  80% {
+    transform: translate(-50%, -60%);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+}

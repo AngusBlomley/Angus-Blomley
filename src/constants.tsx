@@ -56,7 +56,7 @@ export const sectionsDataConstants: SectionConstant[] = [
     id: "work",
     name: "Work",
     iconIdentifier: "FaBriefcase",
-    link: "/#work",
+    link: "/work/pwg",
     subLinks: [
       { name: "PWG Windows & Doors", link: "/work/pwg" },
       { name: "Vocabo", link: "/work/vocabo" },
@@ -68,11 +68,8 @@ export const sectionsDataConstants: SectionConstant[] = [
     id: "projects",
     name: "Projects",
     iconIdentifier: "FaCode",
+    link: "/work/stringBox",
     subLinks: [
-      {
-        name: "Japanese Host Family Platform",
-        link: "/work/japaneseHostFamily",
-      },
       { name: "String Box", link: "/work/stringBox" },
       {
         name: "Celestial Object Tracker",
@@ -106,51 +103,25 @@ export const iconMap: { [key: string]: React.ReactNode } = {
   FaFileDownload: <FaFileDownload />,
 };
 
-export const workLinksData = [
-  {
-    href: "/work/pwg",
-    text: "PWG Windows & Doors",
-    ariaLabel: "View project details about PWG Windows & Doors",
-  },
-  {
-    href: "/work/vocabo",
-    text: "Vocabo",
-    ariaLabel: "View details about the Vocabo language learning project",
-  },
-  {
-    href: "/work/openfern",
-    text: "Open Fern Studio",
-    ariaLabel: "View project details about Open Fern Studio",
-  },
-  {
-    href: "/work/beFirst",
-    text: "Be First",
-    ariaLabel: "View project details about Be First",
-  },
-];
+// Derive workLinksData from sectionsDataConstants to maintain single source of truth
+export const workLinksData =
+  sectionsDataConstants
+    .find((s) => s.id === "work")
+    ?.subLinks?.map((link) => ({
+      href: link.link,
+      text: link.name,
+      ariaLabel: `View project details about ${link.name}`,
+    })) || [];
 
-export const projectLinksData = [
-  {
-    href: "/work/japaneseHostFamily",
-    text: "Japanese Host Family",
-    ariaLabel: "View project details about Japanese Host Family",
-  },
-  {
-    href: "/work/stringBox",
-    text: "String Box",
-    ariaLabel: "View project details about String Box",
-  },
-  {
-    href: "/work/celestialObjectTracker",
-    text: "Celestial Object Tracker",
-    ariaLabel: "View project details about Celestial Object Tracker",
-  },
-  {
-    href: "/work/meetly",
-    text: "Meetly",
-    ariaLabel: "View project details about Meetly",
-  },
-];
+// Derive projectLinksData from sectionsDataConstants to maintain single source of truth
+export const projectLinksData =
+  sectionsDataConstants
+    .find((s) => s.id === "projects")
+    ?.subLinks?.map((link) => ({
+      href: link.link,
+      text: link.name,
+      ariaLabel: `View project details about ${link.name}`,
+    })) || [];
 
 export const profileLinksData = [
   {
