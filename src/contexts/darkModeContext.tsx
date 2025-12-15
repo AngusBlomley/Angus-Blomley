@@ -1,3 +1,5 @@
+'use client';
+
 import React, { createContext, useContext, useState, useEffect } from "react";
 
 interface DarkModeContextType {
@@ -18,9 +20,9 @@ export function DarkModeProvider({ children }: { children: React.ReactNode }) {
       const initialIsDark = saved !== null ? JSON.parse(saved) : true;
       setIsDarkMode(initialIsDark);
       if (initialIsDark) {
-        document.body.classList.add("dark");
+        document.documentElement.classList.add("dark");
       } else {
-        document.body.classList.remove("dark");
+        document.documentElement.classList.remove("dark");
       }
     }
   }, []);
@@ -29,9 +31,9 @@ export function DarkModeProvider({ children }: { children: React.ReactNode }) {
     if (typeof window !== "undefined") {
       localStorage.setItem("darkMode", JSON.stringify(isDarkMode));
       if (isDarkMode) {
-        document.body.classList.add("dark");
+        document.documentElement.classList.add("dark");
       } else {
-        document.body.classList.remove("dark");
+        document.documentElement.classList.remove("dark");
       }
     }
   }, [isDarkMode]);
