@@ -82,7 +82,7 @@ export function ContactSection() {
         <div className="col-start-1 max-lg:w-full">
           {submitted ? (
             <div className="min-h-[650px] flex items-start justify-start pt-20 max-lg:pt-20">
-              <div className="text-2xl font-ibmPlexMono text-green-500">
+              <div className="text-2xl text-green-500">
                 Thank you for your message!
               </div>
             </div>
@@ -98,7 +98,7 @@ export function ContactSection() {
                   value={formData.name}
                   onChange={handleChange}
                   placeholder="Name"
-                  className="w-full px-4 py-2 font-ibmPlexMono rounded-lg bg-white text-gray-900 border-b-2 border-gray-400 focus:outline-none focus:border-blue-500 dark:border-gray-600 placeholder-gray-500"
+                  className="w-full px-4 py-2 rounded-lg bg-white text-gray-900 border-b-2 border-gray-400 focus:outline-none focus:border-blue-500 dark:border-gray-600 placeholder-gray-500"
                   required
                 />
               </div>
@@ -109,7 +109,7 @@ export function ContactSection() {
                   value={formData.email}
                   onChange={handleChange}
                   placeholder="Email"
-                  className="w-full px-4 py-2 font-ibmPlexMono rounded-lg bg-white text-gray-900 border-b-2 border-gray-400 focus:outline-none focus:border-blue-500 dark:border-gray-600 placeholder-gray-500"
+                  className="w-full px-4 py-2 rounded-lg bg-white text-gray-900 border-b-2 border-gray-400 focus:outline-none focus:border-blue-500 dark:border-gray-600 placeholder-gray-500"
                   required
                 />
               </div>
@@ -120,7 +120,7 @@ export function ContactSection() {
                   value={formData.subject}
                   onChange={handleChange}
                   placeholder="Subject"
-                  className="w-full px-4 py-2 font-ibmPlexMono rounded-lg bg-white text-gray-900 border-b-2 border-gray-400 focus:outline-none focus:border-blue-500 dark:border-gray-600 placeholder-gray-500"
+                  className="w-full px-4 py-2 rounded-lg bg-white text-gray-900 border-b-2 border-gray-400 focus:outline-none focus:border-blue-500 dark:border-gray-600 placeholder-gray-500"
                 />
               </div>
               <div className="gap-4 items-center">
@@ -129,7 +129,7 @@ export function ContactSection() {
                   value={formData.message}
                   onChange={handleChange}
                   placeholder="Message"
-                  className="w-full px-4 py-2 font-ibmPlexMono rounded-lg bg-white text-gray-900 border-b-2 border-gray-400 focus:outline-none focus:border-blue-500 dark:border-gray-600 placeholder-gray-500"
+                  className="w-full px-4 py-2 rounded-lg bg-white text-gray-900 border-b-2 border-gray-400 focus:outline-none focus:border-blue-500 dark:border-gray-600 placeholder-gray-500"
                   rows={6}
                   required
                 />
@@ -138,7 +138,7 @@ export function ContactSection() {
               <div className="gap-4 items-center">
                 <button
                   type="submit"
-                  className="px-6 py-2 font-ibmPlexMono rounded-lg bg-green-600 text-white w-full hover:bg-green-900"
+                  className="px-6 py-2 rounded-lg bg-green-600 text-white w-full hover:bg-green-900"
                   disabled={isSending}
                 >
                   {isSending ? "Sending..." : "Send"}

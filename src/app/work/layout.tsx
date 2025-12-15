@@ -14,7 +14,7 @@ const projects: Project[] = [
   { slug: "vocabo", title: "Vocabo" },
   { slug: "stringBox", title: "String Box" },
   { slug: "openfern", title: "Open Fern Studio" },
-  { slug: "celestialObjectTracker", title: "Celestial Object Tracker" },
+  { slug: "fmp", title: "Final Major Project" },
   { slug: "meetly", title: "Meetly" },
   { slug: "beFirst", title: "Be First" },
 ];

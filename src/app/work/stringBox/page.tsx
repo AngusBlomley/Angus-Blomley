@@ -1,13 +1,13 @@
 "use client";
 
 import Image from "next/image";
-import { useDarkMode } from "@/contexts/theme";
+import { useTheme } from "@/contexts/theme";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import { faExternalLinkAlt } from "@fortawesome/free-solid-svg-icons";
 
 const StringBox = () => {
-  const { isDarkMode } = useDarkMode();
+  const { isDarkMode } = useTheme();
 
   return (
     <div className="flex flex-col min-h-screen bg-theme-bg-light dark:bg-theme-bg-dark text-theme-text-light dark:text-theme-text-dark">

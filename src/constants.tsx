@@ -72,8 +72,8 @@ export const sectionsDataConstants: SectionConstant[] = [
     subLinks: [
       { name: "String Box", link: "/work/stringBox" },
       {
-        name: "Celestial Object Tracker",
-        link: "/work/celestialObjectTracker",
+        name: "Final Major Project",
+        link: "/work/fmp",
       },
       { name: "Meetly", link: "/work/meetly" },
     ],

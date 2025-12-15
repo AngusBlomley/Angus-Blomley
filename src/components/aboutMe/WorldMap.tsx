@@ -1,6 +1,6 @@
 import React from "react";
 import { WorldMap as World } from "react-svg-worldmap";
-import { useDarkMode } from "@/contexts/theme";
+import { useTheme } from "@/contexts/theme";
 
 interface VisitedCountry {
   country: string;
@@ -13,7 +13,7 @@ interface WorldMapProps {
 }
 
 const WorldMap: React.FC<WorldMapProps> = ({ visitedCountries }) => {
-  const { isDarkMode } = useDarkMode();
+  const { isDarkMode } = useTheme();
 
   const backgroundColor = isDarkMode
     ? "var(--background-color-dark)"

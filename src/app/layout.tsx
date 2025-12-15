@@ -1,7 +1,7 @@
 import { ThemeProvider } from "@/contexts/theme";
 import { LanguageProvider } from "@/contexts/language";
 import type { Metadata } from "next";
-import { IBM_Plex_Mono } from "next/font/google";
+import { IBM_Plex_Mono, Inter } from "next/font/google";
 import Header from "@/components/globals/header";
 import Footer from "@/components/globals/footer";
 import "./styles/globals.css";
@@ -12,6 +12,14 @@ const ibmPlexMono = IBM_Plex_Mono({
   subsets: ["latin"],
   display: "swap",
   variable: "--font-ibm-plex-mono",
+});
+
+const inter = Inter({
+  weight: ["400", "500", "600", "700"],
+  style: ["normal"],
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-inter",
 });
 
 export const metadata: Metadata = {
@@ -58,7 +66,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={ibmPlexMono.variable} suppressHydrationWarning>
+    <html lang="en" className={`${ibmPlexMono.variable} ${inter.variable}`} suppressHydrationWarning>
       <head>
         {/* Prevent dark mode flash on page load */}
         <script
@@ -93,7 +101,7 @@ export default function RootLayout({
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta charSet="utf-8" />
       </head>
-      <body className={ibmPlexMono.className}>
+      <body className={inter.className}>
         <ThemeProvider>
           <LanguageProvider>
             <Header />

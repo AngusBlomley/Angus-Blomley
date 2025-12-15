@@ -74,7 +74,7 @@ function HomePage() {
               <h1 className="font-ibmPlexMono italic mb-2 text-xl md:text-2xl">
                 Angus Blomley
               </h1>
-              <h2 className="font-karla w-full mb-2 text-lg md:text-lg opacity-80">
+              <h2 className="w-full mb-2 text-lg md:text-lg opacity-80">
                 React / Native Front End Developer
               </h2>
 
@@ -84,7 +84,7 @@ function HomePage() {
                   <Link
                     key={link.text}
                     href={link.href}
-                    className="text-[0.9em] p-1 px-2 font-ibmPlexMono rounded-md -ml-2 w-fit hover:bg-white/10 dark:hover:bg-white/20"
+                    className="text-[0.9em] p-1 px-2 rounded-md -ml-2 w-fit hover:bg-white/10 dark:hover:bg-white/20"
                     aria-label={link.ariaLabel}
                   >
                     - {link.text}
@@ -96,7 +96,7 @@ function HomePage() {
                   <Link
                     key={link.text}
                     href={link.href}
-                    className="text-[0.9em] p-1 px-2 font-ibmPlexMono rounded-md -ml-2 w-fit hover:bg-white/10 dark:hover:bg-white/20"
+                    className="text-[0.9em] p-1 px-2 rounded-md -ml-2 w-fit hover:bg-white/10 dark:hover:bg-white/20"
                     aria-label={link.ariaLabel}
                   >
                     - {link.text}
@@ -111,7 +111,7 @@ function HomePage() {
                       onClick={() =>
                         window.open("/pdf/Angus-Blomley.pdf", "_blank")
                       }
-                      className="text-[0.9em] p-1 px-2 font-ibmPlexMono rounded-md -ml-2 w-fit hover:bg-white/10 dark:hover:bg-white/20 text-left"
+                      className="text-[0.9em] p-1 px-2 rounded-md -ml-2 w-fit hover:bg-white/10 dark:hover:bg-white/20 text-left"
                       aria-label={link.ariaLabel}
                     >
                       - {link.text}
@@ -122,7 +122,7 @@ function HomePage() {
                       href={link.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-[0.9em] p-1 px-2 font-ibmPlexMono rounded-md -ml-2 w-fit hover:bg-white/10 dark:hover:bg-white/20"
+                      className="text-[0.9em] p-1 px-2 rounded-md -ml-2 w-fit hover:bg-white/10 dark:hover:bg-white/20"
                       aria-label={link.ariaLabel}
                     >
                       - {link.text}
@@ -171,7 +171,7 @@ function HomePage() {
           initial={{ opacity: 0, y: 40 }}
           animate={aboutInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
-          className="max-w-2xl ml-44 my-40 relative z-10 text-gray-100 max-lg:mx-auto max-lg:px-4 font-sans bg-black/30 backdrop-blur-sm p-8 rounded-lg"
+          className="max-w-2xl ml-44 my-40 relative z-10 text-gray-100 max-lg:mx-auto max-lg:px-4 bg-black/30 backdrop-blur-sm p-8 rounded-lg"
         >
           <div className="mb-6">
             <span className="text-sm uppercase tracking-wider text-gray-300 font-normal under">
