@@ -88,7 +88,7 @@ export default function AboutMe() {
                   </div>
                   <div className="relative flex-shrink-0 sm:mx-8">
                     {profileImageLoading && (
-                      <div className="absolute inset-0 bg-gray-200 dark:bg-gray-800 animate-pulse rounded-md w-44 h-44 sm:w-[200px] sm:h-[200px] flex items-center justify-center">
+                      <div className="absolute inset-0 bg-gray-200 dark:bg-gray-800 animate-pulse rounded-full w-40 h-40 sm:w-[160px] sm:h-[160px] flex items-center justify-center">
                         <PulseLoader color="#6B7280" size={8} />
                       </div>
                     )}
