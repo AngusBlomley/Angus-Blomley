@@ -56,7 +56,7 @@ export default function AboutMe() {
   const [profileImageLoading, setProfileImageLoading] = useState(true);
 
   return (
-    <main className="min-h-screen pt-10 px-4 sm:px-6 lg:px-8 pb-20 text-theme-text-light dark:text-theme-text-dark relative">
+    <main className="min-h-screen pt-10 text-theme-text-light dark:text-theme-text-dark relative">
         <div className="fixed inset-0 z-0">
           <Image
             alt="Background"
@@ -71,15 +71,15 @@ export default function AboutMe() {
         <div className="relative z-10">
           <div className="z-50 mt-10 sm:mt-20 absolute left-0 right-0 flex justify-center"></div>
 
-          <div className="max-w-6xl mx-auto mt-20 px-4 sm:px-6 lg:px-8">
-            <section className="mb-16">
-              <div className="bg-theme-bg-light/80 dark:bg-theme-bg-dark/80 backdrop-blur-md p-8 rounded-lg shadow-sm">
-                <div id="gbr" className="flex flex-col-reverse sm:flex-row justify-center items-center gap-8 mb-8 scroll-mt-24">
+          <div className="max-w-6xl mx-auto mt-12 sm:mt-20 px-2 sm:px-6 lg:px-8">
+            <section className="mb-8 sm:mb-16">
+              <div className="bg-theme-bg-light/80 dark:bg-theme-bg-dark/80 backdrop-blur-md p-4 sm:p-8 rounded-lg shadow-sm">
+                <div id="gbr" className="flex flex-col-reverse sm:flex-row justify-center items-center gap-4 sm:gap-8 mb-6 sm:mb-8 scroll-mt-24">
                   <div className="flex-1">
-                    <h2 className="text-3xl font-semibold mb-2 text-center sm:text-left">
+                    <h2 className="text-2xl sm:text-3xl font-semibold mb-2 text-center sm:text-left">
                       Hi, I'm Angus Blomley
                     </h2>
-                    <p className="text-lg text-center sm:text-left font-rubik leading-relaxed tracking-normal">
+                    <p className="text-base sm:text-lg text-center sm:text-left font-rubik leading-relaxed tracking-normal">
                       I'm a React / React Native developer specializing in
                       high-performance web and mobile applications. My experience
                       includes developing Chrome extensions and cross-platform apps.
@@ -111,28 +111,28 @@ export default function AboutMe() {
                   </div>
                 </div>
                 {skillCategories.map((category, categoryIndex) => (
-                  <div key={category.title} className={categoryIndex > 0 ? "mt-8" : "mt-8"}>
-                    <h3 className="text-2xl font-semibold mb-4 text-theme-text-light dark:text-theme-text-dark">
+                  <div key={category.title} className={categoryIndex > 0 ? "mt-6 sm:mt-8" : "mt-6 sm:mt-8"}>
+                    <h3 className="text-xl sm:text-2xl font-semibold mb-3 sm:mb-4 text-theme-text-light dark:text-theme-text-dark">
                       {category.title}
                     </h3>
-                    <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
                       {category.skills.map((skill) => (
-                        <div key={skill.name} className="bg-gray-100 dark:bg-white/10 p-4 rounded-md">
-                          <div className="flex items-start gap-3">
+                        <div key={skill.name} className="bg-gray-100 dark:bg-white/10 p-3 sm:p-4 rounded-md">
+                          <div className="flex items-start gap-2 sm:gap-3">
                             {skill.icon === "github" ? (
-                              <FaGithub className="flex-shrink-0 self-stretch w-12 h-12 rounded-sm" />
+                              <FaGithub className="flex-shrink-0 w-8 h-8 sm:w-12 sm:h-12 rounded-sm" />
                             ) : (
                               <Image
                                 src={skill.icon}
                                 alt={skill.name}
                                 width={48}
                                 height={48}
-                                className="flex-shrink-0 self-stretch object-contain rounded-sm"
+                                className="flex-shrink-0 w-8 h-8 sm:w-12 sm:h-12 object-contain rounded-sm"
                               />
                             )}
-                            <div>
-                              <h4 className="font-semibold">{skill.name}</h4>
-                              <p className="text-sm opacity-80">{skill.description}</p>
+                            <div className="min-w-0">
+                              <h4 className="font-semibold text-sm sm:text-base">{skill.name}</h4>
+                              <p className="text-xs sm:text-sm opacity-80 line-clamp-2">{skill.description}</p>
                             </div>
                           </div>
                         </div>
