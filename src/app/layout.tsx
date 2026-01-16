@@ -2,8 +2,8 @@ import { ThemeProvider } from "@/contexts/theme";
 import { LanguageProvider } from "@/contexts/language";
 import type { Metadata } from "next";
 import { IBM_Plex_Mono, Inter } from "next/font/google";
-import Header from "@/components/globals/header";
-import Footer from "@/components/globals/footer";
+import Header from "@/components/common/header";
+import Footer from "@/components/common/footer";
 import "./styles/globals.css";
 
 const ibmPlexMono = IBM_Plex_Mono({

@@ -10,11 +10,10 @@ import {
   projectLinksData,
   profileLinksData,
 } from "../constants";
-import Button from "@/components/globals/Button";
-import Image from "next/image";
+import Button from "@/components/common/Button";
 import { EducationSection } from "@/components/home/EducationSection";
 import { ContactSection } from "@/components/home/ContactSection";
-import { BrowserWindowHeader } from "@/components/globals/BrowserWindowHeader";
+import { BrowserWindowHeader } from "@/components/common/BrowserWindowHeader";
 import { useScrollToTop } from "@/hooks/useScrollToTop";
 import { useAsciiAnimation } from "@/hooks/useAsciiAnimation";
 import { calculateDuration } from "@/utils/dateUtils";
@@ -28,8 +27,6 @@ function HomePage() {
   const pwgDuration = calculateDuration(new Date(2025, 0, 1)); // June 2025
 
   // Animation refs and variants
-  const aboutRef = useRef(null);
-  const aboutInView = useInView(aboutRef, { once: true, margin: "-100px" });
   const expRef = useRef(null);
   const expInView = useInView(expRef, { once: true, margin: "-100px" });
 
@@ -74,8 +71,8 @@ function HomePage() {
               <h1 className="font-ibmPlexMono italic mb-2 text-xl md:text-2xl">
                 Angus Blomley
               </h1>
-              <h2 className="w-full mb-2 text-lg md:text-lg opacity-80">
-                React / Native Front End Developer
+              <h2 className="w-full mb-4 text-lg md:text-lg opacity-80">
+                React / React Native Developer
               </h2>
 
               <div id="links" className="grid grid-cols-1 mb-20">
@@ -144,64 +141,6 @@ function HomePage() {
             </div>
           </article>
         </main>
-      </section>
-
-      <section
-        id="about"
-        className="relative z-100 flex items-center h-screen"
-        role="region"
-        aria-label="About Me"
-      >
-        <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-gradient-to-b from-theme-bg-dark to-transparent z-10 via-30% via-theme-bg-dark/50 opacity-100 max-md:via-theme-bg-dark/30"></div>
-          <div className="absolute inset-0 bg-gradient-to-r from-theme-bg-dark to-transparent z-10 via-30% via-theme-bg-dark/0 opacity-0 max-md:via-theme-bg-dark/60"></div>
-          <div className="absolute inset-0 bg-gradient-to-t from-theme-bg-dark to-transparent z-10 via-30% via-theme-bg-dark/50 opacity-100 max-md:via-theme-bg-dark/30"></div>
-
-          <Image
-            alt="About background image"
-            src="/images/index/back.jpg"
-            fill
-            className="z-0 object-cover"
-            priority
-            quality={75}
-          />
-        </div>
-        <motion.div
-          ref={aboutRef}
-          initial={{ opacity: 0, y: 40 }}
-          animate={aboutInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8 }}
-          className="max-w-2xl ml-44 my-40 relative z-10 text-gray-100 max-lg:mx-auto max-lg:px-4 bg-black/30 backdrop-blur-sm p-8 rounded-lg"
-        >
-          <div className="mb-6">
-            <span className="text-sm uppercase tracking-wider text-gray-300 font-normal under">
-              About
-            </span>
-            <div className="w-12 h-px bg-gray-300"></div>
-          </div>
-          <p className="text-2xl mb-6 leading-relaxed font-normal">
-            A Developer building fast, well-crafted web applications with a
-            focus on modern standards. Specializing in React, React Native,
-            Expo, JS, HTML & CSS.
-          </p>
-          <p className="text-lg mb-6 leading-relaxed"></p>
-          <p className="text-lg leading-relaxed">
-            <Button
-              href="/aboutMe"
-              ariaLabel="Read more about my personal story and background"
-              className="mr-4 !border-gray-300 !text-white hover:!bg-white/10"
-            >
-              See More
-            </Button>
-            <Button
-              href="#contact"
-              ariaLabel="Navigate to contact section"
-              className="!border-gray-300 !text-white hover:!bg-white/10"
-            >
-              Reach out
-            </Button>
-          </p>
-        </motion.div>
       </section>
 
       <section
@@ -320,51 +259,6 @@ function HomePage() {
                     </div>
                   </div>
                 </Link>
-              </div>
-            </motion.div>
-            <motion.div
-              variants={cardVariantsLeft}
-              className="flex flex-col lg:flex-row gap-8 lg:gap-12 items-center"
-            >
-              <div className="w-full lg:w-7/12">
-                <Link href="/work/openfern">
-                  <div className="w-full rounded-lg overflow-hidden shadow-xl hover:brightness-[0.8] transition">
-                    <BrowserWindowHeader />
-                    <div className="relative">
-                      <Image
-                        id="openfern"
-                        alt="Open Fern Studio Website"
-                        src="/images/work/openfern.png"
-                        width={1102}
-                        height={703}
-                        className="w-full h-auto rounded-b-lg"
-                      />
-                    </div>
-                  </div>
-                </Link>
-              </div>
-              <div className="w-full lg:w-5/12 lg:pl-4 max-w-xl mt-8 lg:mt-0">
-                <h3 className="text-2xl font-semibold mb-2">
-                  Front End Developer
-                </h3>
-                <p className="mb-4 text-base opacity-90">
-                  Open Fern Studio
-                  <br />
-                  Contract Position • 2 Months (Maintained Occasionally)
-                </p>
-                <p className="text-base">
-                  Created a responsive and SEO-optimized business website with
-                  modern design and animations for a social media marketing
-                  agency.
-                </p>
-                <div className="flex gap-3 mt-4">
-                  <Button
-                    href="/work/openfern"
-                    ariaLabel="See more about Open Fern Studio project"
-                  >
-                    See More
-                  </Button>
-                </div>
               </div>
             </motion.div>
           </motion.div>
