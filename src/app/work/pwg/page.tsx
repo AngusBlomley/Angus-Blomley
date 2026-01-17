@@ -281,15 +281,7 @@ const PWG = () => {
                     className="m-2"
                     style={{ objectFit: "contain" }}
                   />
-                  <Image
-                    src="/images/icons/github.webp"
-                    alt="GitHub"
-                    width={50}
-                    height={50}
-                    className="m-2"
-                    style={{ objectFit: "contain" }}
-                  />
-                </div>
+                                  </div>
               </div>
             </section>
           </div>

@@ -127,14 +127,7 @@ const OpenFern = () => {
                     height={40}
                     style={{ objectFit: "contain" }}
                   />
-                  <Image
-                    src="/images/icons/github.webp"
-                    alt="GitHub"
-                    width={40}
-                    height={40}
-                    style={{ objectFit: "contain" }}
-                  />
-                </div>
+                                  </div>
               </div>
             </section>
           </div>

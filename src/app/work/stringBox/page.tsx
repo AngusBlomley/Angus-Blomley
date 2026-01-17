@@ -133,18 +133,7 @@ const StringBox = () => {
                 height={40}
                 style={{ objectFit: "contain" }}
               />
-              <Image
-                src="/images/icons/github.webp"
-                alt="GitHub"
-                width={40}
-                height={40}
-                className="w-10 h-10 object-contain m-2"
-                style={{
-                  objectFit: "contain",
-                  filter: isDarkMode ? "invert(0)" : "invert(1)",
-                }}
-              />
-            </div>
+                          </div>
           </div>
         </div>
       </main>

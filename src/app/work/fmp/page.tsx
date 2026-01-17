@@ -192,14 +192,7 @@ const FMP = () => {
                   height={40}
                   style={{ objectFit: "contain" }}
                 />
-                <Image
-                  src="/images/icons/github.webp"
-                  alt="GitHub"
-                  width={40}
-                  height={40}
-                  className="object-contain filter invert dark:filter-none"
-                />
-              </div>
+                              </div>
             </div>
           </section>
 

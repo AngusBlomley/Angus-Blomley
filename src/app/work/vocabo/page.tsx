@@ -160,15 +160,7 @@ const Vocabo = () => {
                     className="m-2 py-1"
                     style={{ objectFit: "contain" }}
                   />
-                  <Image
-                    src="/images/icons/github.webp"
-                    alt="GitHub"
-                    width={40}
-                    height={40}
-                    className="m-2"
-                    style={{ objectFit: "contain" }}
-                  />
-                </div>
+                                  </div>
               </div>
             </section>
           </div>
