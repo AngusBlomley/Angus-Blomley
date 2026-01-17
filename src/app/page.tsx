@@ -4,6 +4,7 @@ import { useRef } from "react";
 import { motion, useInView, Variants } from "framer-motion";
 import { FaArrowUp } from "react-icons/fa";
 import Link from "next/link";
+import Image from "next/image";
 import {
   ascii,
   workLinksData,
@@ -259,6 +260,51 @@ function HomePage() {
                     </div>
                   </div>
                 </Link>
+              </div>
+            </motion.div>
+             <motion.div
+              variants={cardVariantsLeft}
+              className="flex flex-col lg:flex-row gap-8 lg:gap-12 items-center"
+            >
+              <div className="w-full lg:w-7/12">
+                <Link href="/work/openfern">
+                  <div className="w-full rounded-lg overflow-hidden shadow-xl hover:brightness-[0.8] transition">
+                    <BrowserWindowHeader />
+                    <div className="relative">
+                      <Image
+                        id="openfern"
+                        alt="Open Fern Studio Website"
+                        src="/images/work/openfern.png"
+                        width={1102}
+                        height={703}
+                        className="w-full h-auto rounded-b-lg"
+                      />
+                    </div>
+                  </div>
+                </Link>
+              </div>
+              <div className="w-full lg:w-5/12 lg:pl-4 max-w-xl mt-8 lg:mt-0">
+                <h3 className="text-2xl font-semibold mb-2">
+                  Front End Developer
+                </h3>
+                <p className="mb-4 text-base opacity-90">
+                  Open Fern Studio
+                  <br />
+                  Contract Position • 2 Months (Maintained Occasionally)
+                </p>
+                <p className="text-base">
+                  Created a responsive and SEO-optimized business website with
+                  modern design and animations for a social media marketing
+                  agency.
+                </p>
+                <div className="flex gap-3 mt-4">
+                  <Button
+                    href="/work/openfern"
+                    ariaLabel="See more about Open Fern Studio project"
+                  >
+                    See More
+                  </Button>
+                </div>
               </div>
             </motion.div>
           </motion.div>
