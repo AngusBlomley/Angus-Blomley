@@ -16,7 +16,7 @@ const PWG = () => {
               className="inline-flex items-center px-4 py-2 border border-gray-300 dark:border-gray-600 text-sm font-medium rounded-md shadow-sm text-gray-400 dark:text-gray-500 bg-gray-100 dark:bg-gray-800 cursor-default"
               title="Repository is private due to client confidentiality"
             >
-              <FontAwesomeIcon icon={faLock} className="mr-2" />
+              <FontAwesomeIcon icon={faLock} className="mr-2 w-4 h-4" />
               Private (Client Work)
             </span>
           </div>
@@ -179,7 +179,7 @@ const PWG = () => {
                     alt="Expo"
                     width={40}
                     height={40}
-                    className="rounded-lg"
+                    className="rounded-lg w-10 h-10"
                     style={{ objectFit: "contain" }}
                   />
                 </div>

@@ -29,33 +29,33 @@ function HomePage() {
 
   // Animation refs and variants
   const expRef = useRef(null);
-  const expInView = useInView(expRef, { once: true, margin: "-100px" });
+  const expInView = useInView(expRef, { once: true, amount: 0.2 });
 
   const parentVariants: Variants = {
     hidden: {},
     show: {
       transition: {
-        staggerChildren: 0.18,
-        delayChildren: 0.1,
+        staggerChildren: 0.3,
+        delayChildren: 0.2,
       },
     },
   };
 
   const cardVariantsLeft: Variants = {
-    hidden: { opacity: 0, x: -40 },
+    hidden: { opacity: 0, x: -60 },
     show: {
       opacity: 1,
       x: 0,
-      transition: { duration: 0.7 },
+      transition: { duration: 0.8, ease: "easeOut" },
     },
   };
 
   const cardVariantsRight: Variants = {
-    hidden: { opacity: 0, x: 40 },
+    hidden: { opacity: 0, x: 60 },
     show: {
       opacity: 1,
       x: 0,
-      transition: { duration: 0.7 },
+      transition: { duration: 0.8, ease: "easeOut" },
     },
   };
 

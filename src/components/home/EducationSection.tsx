@@ -6,21 +6,21 @@ import Image from "next/image";
 
 export function EducationSection() {
   const eduRef = useRef(null);
-  const eduInView = useInView(eduRef, { once: true, margin: "100px" });
+  const eduInView = useInView(eduRef, { once: true, amount: 0.2 });
 
   const parentVariants: Variants = {
     hidden: {},
     show: {
       transition: {
-        staggerChildren: 0.18,
-        delayChildren: 0.1,
+        staggerChildren: 0.25,
+        delayChildren: 0.2,
       },
     },
   };
 
   const blockVariants: Variants = {
-    hidden: { opacity: 0, y: 40 },
-    show: { opacity: 1, y: 0, transition: { duration: 0.7 } },
+    hidden: { opacity: 0, y: 60 },
+    show: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } },
   };
 
   return (

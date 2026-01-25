@@ -23,14 +23,14 @@ const Vocabo = () => {
               className="inline-flex items-center justify-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-colors duration-150 w-full sm:w-auto"
               aria-label="View on Chrome Web Store (opens in a new tab)"
             >
-              <FontAwesomeIcon icon={faChrome} className="mr-2" />
+              <FontAwesomeIcon icon={faChrome} className="mr-2 w-4 h-4" />
               Chrome Store
             </a>
             <span
               className="inline-flex items-center justify-center px-4 py-2 border border-gray-300 dark:border-gray-600 text-sm font-medium rounded-md shadow-sm text-gray-400 dark:text-gray-500 bg-gray-100 dark:bg-gray-800 cursor-default w-full sm:w-auto"
               title="Repository is private - active product in development"
             >
-              <FontAwesomeIcon icon={faLock} className="mr-2" />
+              <FontAwesomeIcon icon={faLock} className="mr-2 w-4 h-4" />
               Private (Active Product)
             </span>
           </div>
