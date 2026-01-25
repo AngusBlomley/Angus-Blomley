@@ -12,7 +12,7 @@ const OpenFern = () => {
     <main className="min-h-screen pt-20 bg-theme-bg-light dark:bg-theme-bg-dark text-theme-text-light dark:text-theme-text-dark">
         <div className="container mx-auto px-4 pt-8">
           <h1 className="text-4xl font-bold mb-6 text-center font-ibmPlexMono italic">
-            OpenFern - Social Media Video Productions
+            Open Fern Studio - Marketing Agency Website
           </h1>
 
           <div className="flex justify-center gap-4 mb-8">
@@ -55,13 +55,23 @@ const OpenFern = () => {
                 Project Overview
               </h2>
               <p>
-                Open Fern Studio represents a sophisticated web development
-                agency platform showcasing expertise in modern web technologies
-                and design principles. Built with Next.js, it features a
-                responsive design, smooth animations via Framer Motion, and
-                optimized performance, demonstrating a perfect blend of
-                aesthetic appeal and technical excellence.
+                Built a professional website for Open Fern Studio, a social media
+                marketing agency specializing in video content creation. The site
+                serves as their primary client-facing platform, showcasing their
+                portfolio and services with modern design and smooth animations.
               </p>
+            </section>
+
+            <section>
+              <h2 className="text-2xl font-semibold mb-3 font-ibmPlexMono">
+                Challenges & Solutions
+              </h2>
+              <ul className="list-disc list-inside space-y-1">
+                <li>Optimized video and image loading for fast initial page render</li>
+                <li>Implemented smooth scroll-based animations without impacting performance</li>
+                <li>Built a responsive layout that adapts from mobile to desktop seamlessly</li>
+                <li>Set up SEO best practices to improve organic search visibility</li>
+              </ul>
             </section>
 
             <section>
@@ -87,18 +97,13 @@ const OpenFern = () => {
                 </li>
               </ul>
 
-              <h3 className="text-xl font-semibold mb-2">Core Functionality</h3>
+              <h3 className="text-xl font-semibold mb-2">Key Features</h3>
               <ul className="list-disc list-inside space-y-1">
-                <li>Modern and responsive design adapting to all devices.</li>
-                <li>Dynamic content management for easy updates.</li>
-                <li>
-                  Portfolio showcase with potential filtering capabilities.
-                </li>
-                <li>
-                  Display of team member profiles and service descriptions.
-                </li>
-                <li>Performance optimization techniques implemented.</li>
-                <li>Contact form with validation.</li>
+                <li>Responsive design adapting to all devices</li>
+                <li>Portfolio showcase with video previews</li>
+                <li>Team member profiles and service descriptions</li>
+                <li>Contact form with validation</li>
+                <li>Deployed on Vercel with automatic CI/CD</li>
               </ul>
 
               <div className="mt-6">
@@ -111,13 +116,15 @@ const OpenFern = () => {
                     alt="Next.js"
                     width={40}
                     height={40}
+                    className="rounded-lg"
                     style={{ objectFit: "contain" }}
                   />
                   <Image
                     src="/images/icons/react.webp"
-                    alt="TypeScript"
+                    alt="React"
                     width={35}
                     height={35}
+                    className="rounded-lg"
                     style={{ objectFit: "contain" }}
                   />
                   <Image
@@ -125,9 +132,10 @@ const OpenFern = () => {
                     alt="Tailwind CSS"
                     width={40}
                     height={40}
+                    className="rounded-lg"
                     style={{ objectFit: "contain" }}
                   />
-                                  </div>
+                </div>
               </div>
             </section>
           </div>

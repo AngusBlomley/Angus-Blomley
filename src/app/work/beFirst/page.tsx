@@ -13,13 +13,18 @@ const BeFirst = () => {
           <h1 className="text-4xl mt-16 font-bold mb-4">
             Advent Delights: Digital Heritage Exhibition
           </h1>
+          <div className="mb-4 px-4 py-2 bg-amber-100 dark:bg-amber-900/30 border border-amber-300 dark:border-amber-700 rounded-md">
+            <p className="text-sm text-amber-800 dark:text-amber-200">
+              <strong>Note:</strong> This is a video production project showcasing multimedia skills
+              rather than software development. Included here as it demonstrates project management,
+              client collaboration, and technical production workflows.
+            </p>
+          </div>
           <p className="text-lg">
-            Welcome to 'Advent Delights', a digital heritage exhibition project
-            celebrating Barking's rich history. This project, funded by The
-            National Lottery Heritage Fund and managed by Be First, aims to
-            create a digital version of our physical heritage exhibition. This
-            page demonstrates the work I've done on this project, including the
-            technology stack used and key features implemented.
+            'Advent Delights' is a digital heritage exhibition project celebrating
+            Barking's history. Funded by The National Lottery Heritage Fund and
+            managed by Be First, the project involved producing 24 short-form videos
+            released daily throughout December.
             <a
               href="https://yourcall.befirst.london/our-barking-digital-heritage-exhibition"
               target="_blank"

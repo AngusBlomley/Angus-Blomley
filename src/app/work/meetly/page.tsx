@@ -131,6 +131,7 @@ const Meetly = () => {
                     alt="Next.js"
                     width={40}
                     height={40}
+                    className="rounded-lg"
                     style={{ objectFit: "contain" }}
                   />
                   <Image
@@ -138,6 +139,7 @@ const Meetly = () => {
                     alt="React"
                     width={40}
                     height={40}
+                    className="rounded-lg"
                     style={{ objectFit: "contain" }}
                   />
                   <Image
@@ -145,6 +147,7 @@ const Meetly = () => {
                     alt="Tailwind CSS"
                     width={40}
                     height={40}
+                    className="rounded-lg"
                     style={{ objectFit: "contain" }}
                   />
                   <Image
@@ -152,6 +155,7 @@ const Meetly = () => {
                     alt="Google Maps API"
                     width={40}
                     height={40}
+                    className="rounded-lg"
                     style={{ objectFit: "contain" }}
                   />
                   <Image
@@ -159,9 +163,10 @@ const Meetly = () => {
                     alt="Axios"
                     width={40}
                     height={40}
+                    className="rounded-lg"
                     style={{ objectFit: "contain" }}
                   />
-                                  </div>
+                </div>
               </div>
             </section>
           </div>
