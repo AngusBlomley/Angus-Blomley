@@ -3,7 +3,7 @@
 import React, { JSX, useEffect, useState } from "react";
 import Link from "next/link";
 import { useTheme } from "@/contexts/theme";
-import { FaGithub, FaLinkedin, FaSun, FaMoon } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaSun, FaMoon, FaExternalLinkAlt } from "react-icons/fa";
 import {
   sectionsDataConstants,
   iconMap,
@@ -85,18 +85,24 @@ function Header(): JSX.Element {
                   {section.link ? (
                     <Link href={section.link} passHref>
                       <div
-                        className="inline-block bg-inherit opacity-75 p-1 px-3 no-underline hover:opacity-100 hover:bg-white/10 dark:hover:bg-white/20 rounded-md cursor-pointer font-ibmPlexMono"
+                        className="inline-flex items-center gap-1.5 bg-inherit opacity-75 p-1 px-3 no-underline hover:opacity-100 hover:bg-white/10 dark:hover:bg-white/20 rounded-md cursor-pointer font-ibmPlexMono"
                         onClick={() => actionToPerform && actionToPerform()}
                       >
                         {section.name}
+                        {section.actionIdentifier === "handleResumeClick" && (
+                          <FaExternalLinkAlt className="text-[0.7em] opacity-60" aria-hidden="true" />
+                        )}
                       </div>
                     </Link>
                   ) : (
                     <div
-                      className="inline-block bg-inherit opacity-75 p-1 px-3 no-underline hover:opacity-100 hover:bg-white/10 dark:hover:bg-white/20 rounded-md cursor-pointer font-ibmPlexMono"
+                      className="inline-flex items-center gap-1.5 bg-inherit opacity-75 p-1 px-3 no-underline hover:opacity-100 hover:bg-white/10 dark:hover:bg-white/20 rounded-md cursor-pointer font-ibmPlexMono"
                       onClick={() => actionToPerform && actionToPerform()}
                     >
                       {section.name}
+                      {section.actionIdentifier === "handleResumeClick" && (
+                        <FaExternalLinkAlt className="text-[0.7em] opacity-60" aria-hidden="true" />
+                      )}
                     </div>
                   )}
                   {section.subLinks && (
@@ -162,11 +168,9 @@ function Header(): JSX.Element {
               menuVisible ? "translate-x-0" : "translate-x-full"
             } flex flex-col items-center shadow-xl z-50 overflow-y-auto bg-theme-bg-light dark:bg-theme-bg-dark text-theme-text-light dark:text-theme-text-dark`}
           >
-            <div
+            <button
               onClick={toggleMenu}
-              className="cursor-pointer text-3xl fixed right-4 top-4 z-20"
-              role="button"
-              tabIndex={0}
+              className="cursor-pointer text-2xl fixed right-4 top-4 z-20 p-2 rounded-full bg-gray-200 dark:bg-white/20 hover:bg-gray-300 dark:hover:bg-white/30 transition-colors"
               aria-label="Close navigation menu"
               onKeyDown={(e) => {
                 if (e.key === "Enter" || e.key === " ") {
@@ -175,7 +179,7 @@ function Header(): JSX.Element {
               }}
             >
               &#x2715;
-            </div>
+            </button>
             <ul className="w-full mt-20 text-xl list-none">
               {sectionsDataConstants.map((section: SectionConstant) => {
                 const currentIcon = iconMap[section.iconIdentifier];
@@ -205,6 +209,9 @@ function Header(): JSX.Element {
                         >
                           {currentIcon}
                           <span className="ml-2">{section.name}</span>
+                          {section.actionIdentifier === "handleResumeClick" && (
+                            <FaExternalLinkAlt className="ml-1.5 text-[0.7em] opacity-60" aria-hidden="true" />
+                          )}
                         </div>
                       </Link>
                     ) : (

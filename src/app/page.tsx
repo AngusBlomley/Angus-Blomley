@@ -2,7 +2,7 @@
 
 import { useRef } from "react";
 import { motion, useInView, Variants } from "framer-motion";
-import { FaArrowUp } from "react-icons/fa";
+import { FaArrowUp, FaExternalLinkAlt } from "react-icons/fa";
 import Link from "next/link";
 import Image from "next/image";
 import {
@@ -77,7 +77,7 @@ function HomePage() {
               </h2>
 
               <div id="links" className="grid grid-cols-1 mb-20">
-                <h3 className="font-ibmPlexMono mb-2">Work:</h3>
+                <h3 className="font-ibmPlexMono mb-2">Client Work:</h3>
                 {workLinksData.map((link) => (
                   <Link
                     key={link.text}
@@ -89,7 +89,7 @@ function HomePage() {
                   </Link>
                 ))}
 
-                <h3 className="font-ibmPlexMono mt-3 mb-1">Projects:</h3>
+                <h3 className="font-ibmPlexMono mt-3 mb-1">Personal Projects:</h3>
                 {projectLinksData.map((link) => (
                   <Link
                     key={link.text}
@@ -109,10 +109,11 @@ function HomePage() {
                       onClick={() =>
                         window.open("/pdf/Angus-Blomley.pdf", "_blank")
                       }
-                      className="text-[0.9em] p-1 px-2 rounded-md -ml-2 w-fit hover:bg-white/10 dark:hover:bg-white/20 text-left"
+                      className="text-[0.9em] p-1 px-2 rounded-md -ml-2 w-fit hover:bg-white/10 dark:hover:bg-white/20 text-left flex items-center gap-1.5"
                       aria-label={link.ariaLabel}
                     >
-                      - {link.text}
+                      <FaExternalLinkAlt className="text-[0.7em] opacity-60" aria-hidden="true" />
+                      {link.text}
                     </button>
                   ) : (
                     <a
@@ -120,10 +121,11 @@ function HomePage() {
                       href={link.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-[0.9em] p-1 px-2 rounded-md -ml-2 w-fit hover:bg-white/10 dark:hover:bg-white/20"
+                      className="text-[0.9em] p-1 px-2 rounded-md -ml-2 w-fit hover:bg-white/10 dark:hover:bg-white/20 flex items-center gap-1.5"
                       aria-label={link.ariaLabel}
                     >
-                      - {link.text}
+                      <FaExternalLinkAlt className="text-[0.7em] opacity-60" aria-hidden="true" />
+                      {link.text}
                     </a>
                   )
                 )}

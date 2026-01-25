@@ -47,7 +47,11 @@ const skillCategories: SkillCategory[] = [
     skills: [
       { name: "Git & GitHub", description: "Version control and collaboration", icon: "github" },
       { name: "VS Code", description: "Customized editor for efficient development", icon: "/images/icons/vscode.webp" },
-      { name: "CI/CD Pipelines", description: "Automated testing and deployment", icon: "github" },
+      { name: "Vercel", description: "Deployment and hosting platform", icon: "/images/icons/vercel.png" },
+      { name: "Google App Engine", description: "Scalable cloud application hosting", icon: "/images/icons/appEngine.webp" },
+      { name: "Claude Code", description: "AI-assisted development and code generation", icon: "/images/icons/claude.png" },
+      { name: "CodeRabbit", description: "AI-powered code review automation", icon: "/images/icons/codeRabbit.svg" },
+      { name: "PostHog", description: "Product analytics and feature flags", icon: "/images/icons/posthog.jpeg" },
     ],
   },
 ];
@@ -80,10 +84,12 @@ export default function AboutMe() {
                       Hi, I'm Angus Blomley
                     </h2>
                     <p className="text-base sm:text-lg text-center sm:text-left font-rubik leading-relaxed tracking-normal">
-                      I'm a React / React Native developer specializing in
-                      high-performance web and mobile applications. My experience
-                      includes developing Chrome extensions and cross-platform apps.
-                      I focus on building solutions that deliver great user experiences.
+                      I'm driven by the challenge of turning complex problems into
+                      elegant, intuitive interfaces. As a React / React Native developer,
+                      I specialize in building high-performance web and mobile applications,
+                      from Chrome extensions to cross-platform apps. I care deeply about
+                      input latency, responsive interfaces, and the details that make
+                      software feel polished and enjoyable to use.
                     </p>
                   </div>
                   <div className="relative flex-shrink-0 sm:mx-8">
@@ -142,13 +148,13 @@ export default function AboutMe() {
                 ))}
               </div>
             </section>
-            <section className="flex justify-center scroll-mt-24" id="contact">
+            <section className="flex justify-center scroll-mt-24 pb-8" id="contact">
               <Link
-                href="mailto:ablomley01@gmail.com"
-                className="flex items-center gap-3 opacity-75 hover:opacity-100 transition-opacity p-4 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700"
+                href="/#contact"
+                className="flex items-center gap-3 bg-theme-text-light dark:bg-theme-text-dark text-theme-bg-light dark:text-theme-bg-dark px-6 py-3 rounded-lg hover:opacity-90 transition-opacity font-medium"
               >
-                <FaMailBulk className="text-2xl" />
-                <span>Email</span>
+                <FaMailBulk className="text-xl" />
+                <span>Get In Touch</span>
               </Link>
             </section>
           </div>
