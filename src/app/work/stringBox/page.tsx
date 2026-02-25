@@ -74,19 +74,16 @@ const StringBox = () => {
             <p className="mb-4">
               Built with Next.js and JavaScript, this project features a
               responsive frontend styled with Tailwind CSS. It includes user
-              authentication, an ordering system (likely involving a backend
-              service not detailed in the repo, possibly via Vercel Serverless
-              Functions or a separate API), and content management for service
-              details and string types.
+              authentication, an ordering system with Vercel Serverless Functions,
+              and content management for service details and string types.
             </p>
 
-            <h3 className="text-xl font-semibold mb-2">Technologies Used</h3>
+            <h3 className="text-xl font-semibold mb-2">Architecture</h3>
             <ul className="list-disc list-inside space-y-1 mb-4">
               <li>Next.js (React Framework)</li>
               <li>JavaScript</li>
               <li>Tailwind CSS</li>
-              <li>Vercel (Deployment)</li>
-              {/* Add backend/DB specifics if known */}
+              <li>Vercel (Deployment & Serverless Functions)</li>
             </ul>
 
             <h3 className="text-xl font-semibold mb-2">Key Features</h3>
@@ -103,13 +100,14 @@ const StringBox = () => {
             </ul>
           </section>
           <div className="mt-6">
-            <h3 className="text-xl font-semibold mb-2">Technologies Used</h3>
+            <h3 className="text-xl font-semibold mb-2">Tech Stack</h3>
             <div className="flex flex-wrap gap-4 items-center mb-6">
               <Image
                 src="/images/icons/next.webp"
                 alt="Next.js"
                 width={40}
                 height={40}
+                className="rounded-lg"
                 style={{ objectFit: "contain" }}
               />
               <Image
@@ -117,6 +115,7 @@ const StringBox = () => {
                 alt="React"
                 width={40}
                 height={40}
+                className="rounded-lg"
                 style={{ objectFit: "contain" }}
               />
               <Image
@@ -124,6 +123,7 @@ const StringBox = () => {
                 alt="JavaScript"
                 width={40}
                 height={40}
+                className="rounded-lg"
                 style={{ objectFit: "contain" }}
               />
               <Image
@@ -131,9 +131,10 @@ const StringBox = () => {
                 alt="Tailwind CSS"
                 width={40}
                 height={40}
+                className="rounded-lg"
                 style={{ objectFit: "contain" }}
               />
-                          </div>
+            </div>
           </div>
         </div>
       </main>

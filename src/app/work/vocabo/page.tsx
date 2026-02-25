@@ -23,17 +23,16 @@ const Vocabo = () => {
               className="inline-flex items-center justify-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-colors duration-150 w-full sm:w-auto"
               aria-label="View on Chrome Web Store (opens in a new tab)"
             >
-              <FontAwesomeIcon icon={faChrome} className="mr-2" />
+              <FontAwesomeIcon icon={faChrome} className="mr-2 w-4 h-4" />
               Chrome Store
             </a>
-            <button
-              className="inline-flex items-center justify-center px-4 py-2 border border-gray-300 dark:border-gray-600 text-sm font-medium rounded-md shadow-sm text-gray-400 dark:text-gray-500 bg-gray-100 dark:bg-gray-800 cursor-not-allowed w-full sm:w-auto"
-              aria-label="GitHub Repository is private"
-              disabled
+            <span
+              className="inline-flex items-center justify-center px-4 py-2 border border-gray-300 dark:border-gray-600 text-sm font-medium rounded-md shadow-sm text-gray-400 dark:text-gray-500 bg-gray-100 dark:bg-gray-800 cursor-default w-full sm:w-auto"
+              title="Repository is private - active product in development"
             >
-              <FontAwesomeIcon icon={faLock} className="mr-2" />
-              Repo is Private
-            </button>
+              <FontAwesomeIcon icon={faLock} className="mr-2 w-4 h-4" />
+              Private (Active Product)
+            </span>
           </div>
 
           <div className="mb-8 max-w-4xl mx-auto">
@@ -57,12 +56,11 @@ const Vocabo = () => {
                 Project Overview
               </h2>
               <p>
-                Vocabo is a sophisticated Chrome extension designed for language
-                learners, enabling real-time translation, vocabulary management,
-                and spaced repetition learning directly within the browser. It
-                leverages advanced JavaScript for DOM manipulation, dynamically
-                identifying and translating words based on the user&apos;s
-                custom word bank.
+                Vocabo is a Chrome extension for language learners, enabling
+                real-time translation, vocabulary management, and spaced repetition
+                learning directly within the browser. It uses JavaScript for DOM
+                manipulation, dynamically identifying and translating words based
+                on the user&apos;s custom word bank.
               </p>
             </section>
 
@@ -127,7 +125,7 @@ const Vocabo = () => {
                 <li>Real-time text translation on web pages.</li>
                 <li>Vocabulary management system (saving words).</li>
                 <li>Spaced repetition learning integration.</li>
-                <li>Cross-browser synchronization (potential via backend).</li>
+                <li>Cross-browser synchronization via Express backend.</li>
                 <li>Offline functionality (using local storage).</li>
               </ul>
 
@@ -135,13 +133,13 @@ const Vocabo = () => {
                 <h3 className="text-lg sm:text-xl font-semibold mb-2">
                   Technologies Used
                 </h3>
-                <div className="flex flex-wrap gap-2 items-center">
+                <div className="flex flex-wrap gap-4 items-center">
                   <Image
                     src="/images/icons/react.webp"
                     alt="React"
                     width={40}
                     height={40}
-                    className="m-2"
+                    className="rounded-lg"
                     style={{ objectFit: "contain" }}
                   />
                   <Image
@@ -149,7 +147,7 @@ const Vocabo = () => {
                     alt="JavaScript"
                     width={40}
                     height={40}
-                    className="m-2"
+                    className="rounded-lg"
                     style={{ objectFit: "contain" }}
                   />
                   <Image
@@ -157,10 +155,26 @@ const Vocabo = () => {
                     alt="Tailwind CSS"
                     width={40}
                     height={40}
-                    className="m-2 py-1"
+                    className="rounded-lg"
                     style={{ objectFit: "contain" }}
                   />
-                                  </div>
+                  <Image
+                    src="/images/icons/posthog.jpeg"
+                    alt="PostHog"
+                    width={40}
+                    height={40}
+                    className="rounded-lg"
+                    style={{ objectFit: "contain" }}
+                  />
+                  <Image
+                    src="/images/icons/appEngine.webp"
+                    alt="Google App Engine"
+                    width={40}
+                    height={40}
+                    className="rounded-lg"
+                    style={{ objectFit: "contain" }}
+                  />
+                </div>
               </div>
             </section>
           </div>

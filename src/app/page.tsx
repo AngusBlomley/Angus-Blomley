@@ -2,7 +2,7 @@
 
 import { useRef } from "react";
 import { motion, useInView, Variants } from "framer-motion";
-import { FaArrowUp } from "react-icons/fa";
+import { FaArrowUp, FaExternalLinkAlt } from "react-icons/fa";
 import Link from "next/link";
 import Image from "next/image";
 import {
@@ -17,45 +17,44 @@ import { ContactSection } from "@/components/home/ContactSection";
 import { BrowserWindowHeader } from "@/components/common/BrowserWindowHeader";
 import { useScrollToTop } from "@/hooks/useScrollToTop";
 import { useAsciiAnimation } from "@/hooks/useAsciiAnimation";
-import { calculateDuration } from "@/utils/dateUtils";
+import { VocaboMiniWebsite } from "@/components/work/VocaboMiniWebsite";
 
 function HomePage() {
   // Custom hooks
   const { showScrollTop, scrollToTop } = useScrollToTop();
   const displayedText = useAsciiAnimation(ascii);
-
-  // Calculate experience durations
-  const pwgDuration = calculateDuration(new Date(2025, 0, 1)); // June 2025
+  
+  const pwgDates = "Jan 2025 - Jan 2026";
 
   // Animation refs and variants
   const expRef = useRef(null);
-  const expInView = useInView(expRef, { once: true, margin: "-100px" });
+  const expInView = useInView(expRef, { once: true, amount: 0.2 });
 
   const parentVariants: Variants = {
     hidden: {},
     show: {
       transition: {
-        staggerChildren: 0.18,
-        delayChildren: 0.1,
+        staggerChildren: 0.3,
+        delayChildren: 0.2,
       },
     },
   };
 
   const cardVariantsLeft: Variants = {
-    hidden: { opacity: 0, x: -40 },
+    hidden: { opacity: 0, x: -60 },
     show: {
       opacity: 1,
       x: 0,
-      transition: { duration: 0.7 },
+      transition: { duration: 0.8, ease: "easeOut" },
     },
   };
 
   const cardVariantsRight: Variants = {
-    hidden: { opacity: 0, x: 40 },
+    hidden: { opacity: 0, x: 60 },
     show: {
       opacity: 1,
       x: 0,
-      transition: { duration: 0.7 },
+      transition: { duration: 0.8, ease: "easeOut" },
     },
   };
 
@@ -77,7 +76,7 @@ function HomePage() {
               </h2>
 
               <div id="links" className="grid grid-cols-1 mb-20">
-                <h3 className="font-ibmPlexMono mb-2">Work:</h3>
+                <h3 className="font-ibmPlexMono mb-2">Client Work:</h3>
                 {workLinksData.map((link) => (
                   <Link
                     key={link.text}
@@ -89,7 +88,7 @@ function HomePage() {
                   </Link>
                 ))}
 
-                <h3 className="font-ibmPlexMono mt-3 mb-1">Projects:</h3>
+                <h3 className="font-ibmPlexMono mt-3 mb-1">Personal Projects:</h3>
                 {projectLinksData.map((link) => (
                   <Link
                     key={link.text}
@@ -109,10 +108,11 @@ function HomePage() {
                       onClick={() =>
                         window.open("/pdf/Angus-Blomley.pdf", "_blank")
                       }
-                      className="text-[0.9em] p-1 px-2 rounded-md -ml-2 w-fit hover:bg-white/10 dark:hover:bg-white/20 text-left"
+                      className="text-[0.9em] p-1 px-2 rounded-md -ml-2 w-fit hover:bg-white/10 dark:hover:bg-white/20 text-left flex items-center gap-1.5"
                       aria-label={link.ariaLabel}
                     >
-                      - {link.text}
+                      <FaExternalLinkAlt className="text-[0.7em] opacity-60" aria-hidden="true" />
+                      {link.text}
                     </button>
                   ) : (
                     <a
@@ -120,10 +120,11 @@ function HomePage() {
                       href={link.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-[0.9em] p-1 px-2 rounded-md -ml-2 w-fit hover:bg-white/10 dark:hover:bg-white/20"
+                      className="text-[0.9em] p-1 px-2 rounded-md -ml-2 w-fit hover:bg-white/10 dark:hover:bg-white/20 flex items-center gap-1.5"
                       aria-label={link.ariaLabel}
                     >
-                      - {link.text}
+                      <FaExternalLinkAlt className="text-[0.7em] opacity-60" aria-hidden="true" />
+                      {link.text}
                     </a>
                   )
                 )}
@@ -156,11 +157,75 @@ function HomePage() {
             animate={expInView ? "show" : "hidden"}
             className="space-y-32 max-md:space-y-16"
           >
+            {/* 1. Vocabo Marketing Website (Jan 2026 - Present) - CURRENT */}
             <motion.div
               variants={cardVariantsLeft}
               className="flex flex-col lg:flex-row gap-8 lg:gap-12 items-center"
             >
               <div className="w-full lg:w-7/12">
+                <Link href="/work/vocabo">
+                  <div className="w-full rounded-lg overflow-hidden shadow-xl hover:brightness-[0.8] transition">
+                    <BrowserWindowHeader />
+                    <div className="relative aspect-video overflow-hidden">
+                      <VocaboMiniWebsite />
+                    </div>
+                  </div>
+                </Link>
+              </div>
+              <div className="w-full lg:w-5/12 lg:pl-4 max-w-xl mt-8 lg:mt-0">
+                <h3 className="text-2xl font-semibold mb-2">
+                  Full Stack Developer
+                </h3>
+                <p className="mb-4 text-base opacity-90">
+                  Vocabo Vocabulary Builder
+                  <br />
+                  Jan 2026 - Present
+                </p>
+                <p className="text-base">
+                  Maintaining and updating Next.js marketing website with 200+ indexed pages for targeted SEO.
+                  Implemented PostHog analytics to track user interactions and generate insights for product decisions.
+                  Ongoing maintenance and bug fixes for Chrome extension.
+                </p>
+                <div className="flex gap-3 mt-4">
+                  <Button
+                    href="/work/vocabo"
+                    ariaLabel="See more about Vocabo project"
+                  >
+                    See More
+                  </Button>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* 2. PWG (Jan 2025 - Jan 2026) */}
+            <motion.div
+              variants={cardVariantsRight}
+              className="flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-12"
+            >
+              <div className="w-full lg:w-5/12 order-2 lg:order-1">
+                <h3 className="text-2xl font-semibold mb-2">
+                  React / React Native Developer
+                </h3>
+                <p className="mb-4 text-base opacity-90">
+                  Compute and Cultivate Ltd (PWG Windows & Doors)
+                  <br />
+                  Contract Position • {pwgDates}
+                </p>
+                <p className="text-base">
+                  Developed a key React Native mobile application for field
+                  engineers, significantly improving site visit efficiency and
+                  data management.
+                </p>
+                <div className="flex gap-3 mt-4">
+                  <Button
+                    href="/work/pwg"
+                    ariaLabel="See more about PWG project"
+                  >
+                    See More
+                  </Button>
+                </div>
+              </div>
+              <div className="w-full lg:w-7/12 flex justify-center lg:justify-end order-1 lg:order-2">
                 <Link href="/work/pwg">
                   <div className="w-full rounded-lg overflow-hidden shadow-xl hover:brightness-[0.8] transition">
                     <BrowserWindowHeader />
@@ -179,60 +244,14 @@ function HomePage() {
                   </div>
                 </Link>
               </div>
-              <div className="w-full lg:w-5/12 lg:pl-4 max-w-xl mt-8 lg:mt-0">
-                <h3 className="text-2xl font-semibold mb-2">
-                  React / React Native Developer
-                </h3>
-                <p className="mb-4 text-base opacity-90">
-                  Compute and Cultivate Ltd (PWG Windows & Doors)
-                  <br />
-                  Contract Position • {pwgDuration}
-                </p>
-                <p className="text-base">
-                  Developed a key React Native mobile application for field
-                  engineers, significantly improving site visit efficiency and
-                  data management.
-                </p>
-                <div className="flex gap-3 mt-4">
-                  <Button
-                    href="/work/pwg"
-                    ariaLabel="See more about PWG project"
-                  >
-                    See More
-                  </Button>
-                </div>
-              </div>
             </motion.div>
+
+            {/* 3. Vocabo Chrome Extension (Apr 2024 - Jan 2025) */}
             <motion.div
-              variants={cardVariantsRight}
-              className="flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-12"
+              variants={cardVariantsLeft}
+              className="flex flex-col lg:flex-row gap-8 lg:gap-12 items-center"
             >
-              <div className="w-full lg:w-5/12 order-2 lg:order-1">
-                <h3 className="text-2xl font-semibold mb-2">
-                  Front End Developer
-                </h3>
-                <p className="mb-4 text-base opacity-90">
-                  Vocabo - Language Learning Platform
-                  <br />
-                  1.5 years active development • Maintained as needed
-                </p>
-                <p className="text-base">
-                  Built a chromium browser extension for passive vocabulary
-                  learning. Uses a monorepo turbo build configuration with vite.
-                  Handles browser specific enviroments including content
-                  scripts, background scripts (service workers), a google
-                  engine/express backend for api endpoints.
-                </p>
-                <div className="flex gap-3 mt-4">
-                  <Button
-                    href="/work/vocabo"
-                    ariaLabel="See more about Vocabo project"
-                  >
-                    See More
-                  </Button>
-                </div>
-              </div>
-              <div className="w-full lg:w-7/12 flex justify-center lg:justify-end order-1 lg:order-2">
+              <div className="w-full lg:w-7/12">
                 <Link href="/work/vocabo" className="w-full max-w-4xl">
                   <div className="rounded-lg overflow-hidden shadow-lg relative hover:brightness-[0.8] transition">
                     <BrowserWindowHeader />
@@ -261,12 +280,60 @@ function HomePage() {
                   </div>
                 </Link>
               </div>
+              <div className="w-full lg:w-5/12 lg:pl-4 max-w-xl mt-8 lg:mt-0">
+                <h3 className="text-2xl font-semibold mb-2">
+                  Full Stack Developer
+                </h3>
+                <p className="mb-4 text-base opacity-90">
+                  Vocabo - Language Learning Platform
+                  <br />
+                  Apr 2024 - Jan 2025 • Chrome Extension (100+ users, 4.9★)
+                </p>
+                <p className="text-base">
+                  Developed and deployed a Chromium browser extension using React, TypeScript, and Vite.
+                  Architected monorepo using pnpm Workspaces and Turborepo, managing content scripts, background
+                  workers, and API integrations. Built Express.js backend on Google App Engine handling 10,000+ monthly requests.
+                </p>
+                <div className="flex gap-3 mt-4">
+                  <Button
+                    href="/work/vocabo"
+                    ariaLabel="See more about Vocabo project"
+                  >
+                    See More
+                  </Button>
+                </div>
+              </div>
             </motion.div>
-             <motion.div
-              variants={cardVariantsLeft}
+
+            {/* 4. Open Fern (Feb 2024 - Apr 2024) */}
+            <motion.div
+              variants={cardVariantsRight}
               className="flex flex-col lg:flex-row gap-8 lg:gap-12 items-center"
             >
-              <div className="w-full lg:w-7/12">
+              <div className="w-full lg:w-5/12 order-2 lg:order-1">
+                <h3 className="text-2xl font-semibold mb-2">
+                  Front End Developer
+                </h3>
+                <p className="mb-4 text-base opacity-90">
+                  Open Fern Studio
+                  <br />
+                  Contract Position • Feb 2024 - Apr 2024
+                </p>
+                <p className="text-base">
+                  Created a responsive and SEO-optimized business website with
+                  modern design and animations for a social media marketing
+                  agency.
+                </p>
+                <div className="flex gap-3 mt-4">
+                  <Button
+                    href="/work/openfern"
+                    ariaLabel="See more about Open Fern Studio project"
+                  >
+                    See More
+                  </Button>
+                </div>
+              </div>
+              <div className="w-full lg:w-7/12 order-1 lg:order-2">
                 <Link href="/work/openfern">
                   <div className="w-full rounded-lg overflow-hidden shadow-xl hover:brightness-[0.8] transition">
                     <BrowserWindowHeader />
@@ -282,29 +349,6 @@ function HomePage() {
                     </div>
                   </div>
                 </Link>
-              </div>
-              <div className="w-full lg:w-5/12 lg:pl-4 max-w-xl mt-8 lg:mt-0">
-                <h3 className="text-2xl font-semibold mb-2">
-                  Front End Developer
-                </h3>
-                <p className="mb-4 text-base opacity-90">
-                  Open Fern Studio
-                  <br />
-                  Contract Position • 2 Months (Maintained Occasionally)
-                </p>
-                <p className="text-base">
-                  Created a responsive and SEO-optimized business website with
-                  modern design and animations for a social media marketing
-                  agency.
-                </p>
-                <div className="flex gap-3 mt-4">
-                  <Button
-                    href="/work/openfern"
-                    ariaLabel="See more about Open Fern Studio project"
-                  >
-                    See More
-                  </Button>
-                </div>
               </div>
             </motion.div>
           </motion.div>

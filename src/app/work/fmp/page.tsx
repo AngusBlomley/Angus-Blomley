@@ -35,8 +35,11 @@ const FMP = () => {
     <main className="min-h-screen pt-20 bg-theme-bg-light dark:bg-theme-bg-dark text-theme-text-light dark:text-theme-text-dark">
       <div className="container mx-auto px-4 pt-8">
         <h1 className="text-4xl font-bold mb-6 text-center font-ibmPlexMono italic">
-          Final Major Project - (Electronics project)
+          Celestial Object Tracker
         </h1>
+        <p className="text-center text-gray-500 dark:text-gray-400 mb-6 -mt-4">
+          University Final Major Project
+        </p>
 
         <div className="flex justify-center gap-4 mb-8">
           <a
@@ -169,6 +172,7 @@ const FMP = () => {
                   alt="Python"
                   width={40}
                   height={40}
+                  className="rounded-lg"
                   style={{ objectFit: "contain" }}
                 />
                 <Image
@@ -176,6 +180,7 @@ const FMP = () => {
                   alt="Raspberry Pi"
                   width={40}
                   height={40}
+                  className="rounded-lg"
                   style={{ objectFit: "contain" }}
                 />
                 <Image
@@ -183,6 +188,7 @@ const FMP = () => {
                   alt="Arduino"
                   width={40}
                   height={40}
+                  className="rounded-lg"
                   style={{ objectFit: "contain" }}
                 />
                 <Image
@@ -190,9 +196,10 @@ const FMP = () => {
                   alt="Fusion 360"
                   width={40}
                   height={40}
+                  className="rounded-lg"
                   style={{ objectFit: "contain" }}
                 />
-                              </div>
+              </div>
             </div>
           </section>
 
