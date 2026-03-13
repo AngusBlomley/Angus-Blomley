@@ -199,7 +199,20 @@ function Header(): JSX.Element {
                 return (
                   <li key={section.id} className="p-4 opacity-75 text-lg">
                     {!section.subLinks ? (
-                      <Link href={section.link || ""} passHref>
+                      section.link ? (
+                        <Link href={section.link} passHref>
+                          <div
+                            className="no-underline flex items-center cursor-pointer"
+                            onClick={() => {
+                              toggleMenu();
+                              if (actionToPerform) actionToPerform();
+                            }}
+                          >
+                            {currentIcon}
+                            <span className="ml-2">{section.name}</span>
+                          </div>
+                        </Link>
+                      ) : (
                         <div
                           className="no-underline flex items-center cursor-pointer"
                           onClick={() => {
@@ -213,7 +226,7 @@ function Header(): JSX.Element {
                             <FaExternalLinkAlt className="ml-1.5 text-[0.7em] opacity-60" aria-hidden="true" />
                           )}
                         </div>
-                      </Link>
+                      )
                     ) : (
                       <>
                         <button
