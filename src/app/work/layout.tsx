@@ -12,8 +12,8 @@ interface Project {
 const projects: Project[] = [
   { slug: "pwg", title: "PWG Windows & Doors" },
   { slug: "vocabo", title: "Vocabo" },
-  { slug: "stringBox", title: "String Box" },
   { slug: "openfern", title: "Open Fern Studio" },
+  { slug: "stringBox", title: "String Box" },
   { slug: "fmp", title: "Final Major Project" },
   { slug: "meetly", title: "Meetly" },
   { slug: "beFirst", title: "Be First" },

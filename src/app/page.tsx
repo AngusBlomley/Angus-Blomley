@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, useEffect, useState } from "react";
 import { motion, useInView, Variants } from "framer-motion";
 import { FaArrowUp, FaExternalLinkAlt } from "react-icons/fa";
 import Link from "next/link";
@@ -23,7 +23,16 @@ function HomePage() {
   // Custom hooks
   const { showScrollTop, scrollToTop } = useScrollToTop();
   const displayedText = useAsciiAnimation(ascii);
-  
+
+  const [chromeUsers, setChromeUsers] = useState<number | null>(null);
+
+  useEffect(() => {
+    fetch("/api/chrome-stats")
+      .then((res) => res.json())
+      .then((data) => setChromeUsers(data.users))
+      .catch(() => {});
+  }, []);
+
   const pwgDates = "Jan 2025 - Jan 2026";
 
   // Animation refs and variants
@@ -174,7 +183,7 @@ function HomePage() {
               </div>
               <div className="w-full lg:w-5/12 lg:pl-4 max-w-xl mt-8 lg:mt-0">
                 <h3 className="text-2xl font-semibold mb-2">
-                  Full Stack Developer
+                  Full Stack Developer & Data Analyst
                 </h3>
                 <p className="mb-4 text-base opacity-90">
                   Vocabo Vocabulary Builder
@@ -182,9 +191,9 @@ function HomePage() {
                   Jan 2026 - Present
                 </p>
                 <p className="text-base">
-                  Maintaining and updating Next.js marketing website with 200+ indexed pages for targeted SEO.
-                  Implemented PostHog analytics to track user interactions and generate insights for product decisions.
-                  Ongoing maintenance and bug fixes for Chrome extension.
+                  Connected PostHog and Google Search Console MCP servers directly to the codebase, enabling AI-assisted
+                  analysis of user behaviour and search performance to drive product decisions. Maintaining Next.js
+                  marketing website with targeted SEO optimisation and ongoing Chrome extension development.
                 </p>
                 <div className="flex gap-3 mt-4">
                   <Button
@@ -282,17 +291,17 @@ function HomePage() {
               </div>
               <div className="w-full lg:w-5/12 lg:pl-4 max-w-xl mt-8 lg:mt-0">
                 <h3 className="text-2xl font-semibold mb-2">
-                  Full Stack Developer
+                  Junior Full Stack Developer
                 </h3>
                 <p className="mb-4 text-base opacity-90">
                   Vocabo - Language Learning Platform
                   <br />
-                  Apr 2024 - Jan 2025 • Chrome Extension (100+ users, 4.9★)
+                  Apr 2024 - Jan 2025
                 </p>
                 <p className="text-base">
-                  Developed and deployed a Chromium browser extension using React, TypeScript, and Vite.
-                  Architected monorepo using pnpm Workspaces and Turborepo, managing content scripts, background
-                  workers, and API integrations. Built Express.js backend on Google App Engine handling 10,000+ monthly requests.
+                  Built and shipped a Chromium browser extension from scratch, growing it to {chromeUsers ?? "135+"}
+                  {" "}weekly active users with a 4.9★ rating. Architected a pnpm/Turborepo monorepo and built an
+                  Express.js backend on Google App Engine handling 10,000+ monthly requests.
                 </p>
                 <div className="flex gap-3 mt-4">
                   <Button
