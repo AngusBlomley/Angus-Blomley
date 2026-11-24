@@ -56,9 +56,8 @@ export const sectionsDataConstants: SectionConstant[] = [
     id: "work",
     name: "Work",
     iconIdentifier: "FaBriefcase",
-    link: "/work/pwg",
+    link: "/work/vocabo",
     subLinks: [
-      { name: "PWG Windows & Doors", link: "/work/pwg" },
       { name: "Vocabo", link: "/work/vocabo" },
       { name: "Open Fern Studio", link: "/work/openfern" },
       { name: "Be First", link: "/work/beFirst" },

@@ -10,7 +10,6 @@ This portfolio features my professional experience, projects, and technical skil
 
 ## Featured Projects
 
-- **PWG Windows & Doors** - React Native mobile app built with Expo SDK 54
 - **Vocabo** - Chrome extension for language learning
 - **String Box** - E-commerce platform for racket stringing services
 - **Open Fern Studio** - Business website for a social media marketing agency

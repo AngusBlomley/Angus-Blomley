@@ -33,7 +33,7 @@ function HomePage() {
       .catch(() => {});
   }, []);
 
-  const pwgDates = "Jan 2025 - Jan 2026";
+  const contractDates = "Jan 2025 - Jan 2026";
 
   // Animation refs and variants
   const expRef = useRef(null);
@@ -206,52 +206,25 @@ function HomePage() {
               </div>
             </motion.div>
 
-            {/* 2. PWG (Jan 2025 - Jan 2026) */}
+            {/* 2. Compute and Cultivate (Jan 2025 - Jan 2026) */}
             <motion.div
               variants={cardVariantsRight}
               className="flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-12"
             >
-              <div className="w-full lg:w-5/12 order-2 lg:order-1">
+              <div className="w-full max-w-3xl mx-auto">
                 <h3 className="text-2xl font-semibold mb-2">
-                  React / React Native Developer
+                  React Native Developer
                 </h3>
                 <p className="mb-4 text-base opacity-90">
-                  Compute and Cultivate Ltd (PWG Windows & Doors)
+                  Compute and Cultivate Ltd
                   <br />
-                  Contract Position • {pwgDates}
+                  Contract Position • {contractDates}
                 </p>
                 <p className="text-base">
-                  Developed a key React Native mobile application for field
+                  Developed a React Native mobile application for field
                   engineers, significantly improving site visit efficiency and
                   data management.
                 </p>
-                <div className="flex gap-3 mt-4">
-                  <Button
-                    href="/work/pwg"
-                    ariaLabel="See more about PWG project"
-                  >
-                    See More
-                  </Button>
-                </div>
-              </div>
-              <div className="w-full lg:w-7/12 flex justify-center lg:justify-end order-1 lg:order-2">
-                <Link href="/work/pwg">
-                  <div className="w-full rounded-lg overflow-hidden shadow-xl hover:brightness-[0.8] transition">
-                    <BrowserWindowHeader />
-                    <video
-                      title="PWG Mobile App Demo"
-                      src="/videos/pwg_web.mp4"
-                      autoPlay
-                      muted
-                      loop
-                      width={1280}
-                      height={720}
-                      className="w-full rounded-b-lg shadow-xl"
-                      playsInline
-                      preload="metadata"
-                    />
-                  </div>
-                </Link>
               </div>
             </motion.div>
 
