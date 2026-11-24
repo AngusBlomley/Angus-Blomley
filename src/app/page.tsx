@@ -110,20 +110,7 @@ function HomePage() {
                 ))}
 
                 <h3 className="font-ibmPlexMono mt-3 mb-1">Profiles:</h3>
-                {profileLinksData.map((link) =>
-                  link.actionId === "resume" ? (
-                    <button
-                      key={link.text}
-                      onClick={() =>
-                        window.open("/pdf/Angus-Blomley.pdf", "_blank")
-                      }
-                      className="text-[0.9em] p-1 px-2 rounded-md -ml-2 w-fit hover:bg-white/10 dark:hover:bg-white/20 text-left flex items-center gap-1.5"
-                      aria-label={link.ariaLabel}
-                    >
-                      <FaExternalLinkAlt className="text-[0.7em] opacity-60" aria-hidden="true" />
-                      {link.text}
-                    </button>
-                  ) : (
+                {profileLinksData.map((link) => (
                     <a
                       key={link.text}
                       href={link.href}
@@ -135,8 +122,7 @@ function HomePage() {
                       <FaExternalLinkAlt className="text-[0.7em] opacity-60" aria-hidden="true" />
                       {link.text}
                     </a>
-                  )
-                )}
+                ))}
               </div>
             </div>
             <div className="mx-auto max-lg:mt-5 max-lg:mb-5 max-md:row-start-2 overflow-hidden">

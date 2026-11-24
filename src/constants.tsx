@@ -83,12 +83,6 @@ export const sectionsDataConstants: SectionConstant[] = [
     iconIdentifier: "FaEnvelope",
     link: "/#contact",
   },
-  {
-    id: "resume",
-    name: "Resume",
-    iconIdentifier: "FaFileDownload",
-    actionIdentifier: "handleResumeClick",
-  },
 ];
 
 // Mapping from icon identifiers to actual icon components
@@ -140,12 +134,6 @@ export const profileLinksData = [
     text: "LinkedIn",
     ariaLabel: "Visit my LinkedIn profile (opens in a new tab)",
     type: "external",
-  },
-  {
-    text: "Resume",
-    ariaLabel: "View my resume (opens in a new tab)",
-    type: "button",
-    actionId: "resume",
   },
 ];
 
